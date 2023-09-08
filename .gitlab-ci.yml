@@ -1,0 +1,126 @@
+variables:
+  GIT_STRATEGY:       none
+  COMPOSER:           "/usr/local/bin/composer install -n --no-progress"
+  ARTISAN_MIGRATE:    "artisan migrate"
+  PHP:                "php8.2"
+  ENV_NAME:           "dev"
+  PROJECT_URL:        "https://domotel.kelnik.ru/"
+#Master
+  DEPLOY_PATH_MASTER: ""
+  SSH_HOST_MASTER:    ""
+  BECOME_USER_MASTER: ""
+#Dev
+  DEPLOY_PATH_DEV:    "~/www/domotel.kelnik.ru"
+  SSH_HOST_DEV:       "domotel@isp.kelnik.pro"
+  BECOME_USER_DEV:    ""
+#Test
+  DEPLOY_PATH_TEST:   ""
+  SSH_HOST_TEST:      ""
+  BECOME_USER_TEST:   ""
+
+stages:
+  - test
+  - git
+  - deploy
+  - migration
+  - cache
+  - queue
+
+.set_variables:
+  before_script: &set_vars
+  - case $CI_COMMIT_BRANCH in
+      master ) export DEPLOY_PATH=$DEPLOY_PATH_MASTER &&
+               export COMPOSER=$COMPOSER" --no-dev" &&
+               export ARTISAN_MIGRATE=$ARTISAN_MIGRATE" --force" &&
+               export SSH_HOST=$SSH_HOST_MASTER &&
+               export BECOME_USER=$BECOME_USER_MASTER &&
+               export ENV_NAME="production" ;;
+      dev    ) export DEPLOY_PATH=$DEPLOY_PATH_DEV &&
+               export SSH_HOST=$SSH_HOST_DEV &&
+               export BECOME_USER=$BECOME_USER_DEV ;;
+      test   ) export DEPLOY_PATH=$DEPLOY_PATH_TEST &&
+               export SSH_HOST=$SSH_HOST_TEST &&
+               export BECOME_USER=$BECOME_USER_TEST ;;
+    esac
+
+git:pull:
+  stage: git
+  before_script: *set_vars
+  environment:
+    name: $ENV_NAME
+    url: $PROJECT_URL
+  script:
+    - echo $SSH_HOST
+    - echo $DEPLOY_PATH
+    - ssh -T $SSH_HOST "cd $DEPLOY_PATH && $BECOME_USER git pull -p"
+  only:
+    - master
+    - dev
+    - test
+
+deploy:composer install:
+  stage: deploy
+  before_script: *set_vars
+  script:
+    - echo $SSH_HOST
+    - echo $DEPLOY_PATH
+    - echo $PHP $COMPOSER
+    - ssh -T $SSH_HOST "cd $DEPLOY_PATH && $BECOME_USER $PHP $COMPOSER"
+  only:
+    refs:
+      - master
+      - dev
+      - test
+    changes:
+      - composer.*
+
+migration:migrate:
+  stage: migration
+  before_script: *set_vars
+  script:
+    - echo $SSH_HOST
+    - echo $DEPLOY_PATH
+    - echo $PHP
+    - ssh -T $SSH_HOST "cd $DEPLOY_PATH && $BECOME_USER $PHP $ARTISAN_MIGRATE"
+  only:
+    refs:
+      - master
+      - dev
+      - test
+    changes:
+      - composer.*
+      - database/migrations/*.php
+      - packages/**/database/migrations/*.php
+
+cache:clear:
+  stage: cache
+  before_script: *set_vars
+  script:
+    - echo $SSH_HOST
+    - echo $DEPLOY_PATH
+    - echo $PHP
+    - ssh -T $SSH_HOST "cd $DEPLOY_PATH &&
+      $BECOME_USER $PHP artisan optimize:clear &&
+      $BECOME_USER $PHP artisan optimize &&
+      $BECOME_USER $PHP artisan view:cache"
+  only:
+    refs:
+      - master
+      - dev
+      - test
+
+queue:restart:
+  stage: queue
+  before_script: *set_vars
+  script:
+    - echo $SSH_HOST
+    - echo $DEPLOY_PATH
+    - echo $PHP
+    - ssh -T $SSH_HOST "cd $DEPLOY_PATH && $BECOME_USER $PHP artisan queue:restart"
+  only:
+    refs:
+      - master
+      - dev
+      - test
+  when: on_success
+
