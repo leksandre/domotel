@@ -1,0 +1,12 @@
+<ul class="social{% if isAnimations %} j-animation__item{% endif %}">
+    {% for social in socials %}
+        <li class="social__list">
+            <a class="social__link"
+               href="{{ social.href }}" title="{{ social.title }}" target="_blank">
+                <span class="social__icon">
+                    {% include "./media/" ~ social.icon %}
+                </span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

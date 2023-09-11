@@ -1,0 +1,12 @@
+<ul class="location-adv{% if locationAdvModify%} {{ locationAdvModify }}{% endif %}{% if isAnimation %} j-animation__row{% endif %}">
+    {% for item in items %}
+        <li class="location-adv__item{% if isAnimation %} j-animation__row-item{% endif %}">
+            <div class="location-adv__icon">
+                <img alt="" src="{{ item.icon }}"/>
+            </div>
+            <div class="location-adv__info">
+                <p>{{ item.text }}</p>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

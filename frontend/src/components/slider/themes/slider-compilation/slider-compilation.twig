@@ -1,0 +1,21 @@
+{% for slide in slides %}
+    <a class="flats-compilation" href="#">
+        <div class="flats-compilation__heading">
+            {{ slide.name }}
+        </div>
+        <ul class="flats-compilation__list">
+            <li class="flats-compilation__list-item">
+                от {{ slide.price }} млн ₽
+            </li>
+            <li class="flats-compilation__list-item">
+                от {{ slide.area }} м²
+            </li>
+        </ul>
+
+        {% if plus %}
+            <div class="flats-compilation__list-plus">
+                {% include "../../media/plus.svg" %}
+            </div>
+        {% endif %}
+    </a>
+{% endfor %}

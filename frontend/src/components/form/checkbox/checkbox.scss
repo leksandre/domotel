@@ -1,0 +1,102 @@
+// DEPENDENCIES
+@import "../../../common/styles/colors";
+@import "../../../common/styles/font-sizes";
+@import "../../../common/styles/mixins";
+
+// SETTINGS
+$bg-color: $brand-gray;
+$bg-checked-color: $brand-base;
+$checkbox-color: $brand-text;
+$checkbox-icon-fill: $white;
+$error-color: $error;
+
+
+// BLOCK
+.checkbox {
+    display: block;
+    position: relative;
+}
+
+// ELEMENTS
+.checkbox__input {
+    @include visually-hidden();
+
+    &:checked {
+        ~ .checkbox__label {
+            .checkbox__icon {
+                background-color: $bg-checked-color;
+
+                svg {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.validate-input-error {
+        & ~ .checkbox__error {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+.checkbox__label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    > * {
+        pointer-events: none;
+    }
+
+    a {
+        pointer-events: auto;
+    }
+}
+
+.checkbox__icon {
+    @include transition(background-color);
+    @include scale(width, 24, 24, 24);
+    @include scale(height, 24, 24, 24);
+    @include scale(margin-right, 8, 8, 8);
+    display: flex;
+    flex-shrink: 0;
+    align-self: flex-start;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-color;
+
+    svg {
+        @include transition(opacity);
+        opacity: 0;
+    }
+}
+
+.checkbox__text {
+    color: $checkbox-color;
+    user-select: none;
+}
+
+.checkbox__error {
+    @include transition(opacity);
+    @include font-size(label);
+    position: absolute;
+    opacity: 0;
+}
+
+.checkbox__error-text {
+    color: $error-color;
+}
+
+// MODS
+
+// checkbox
+.checkbox__icon_type_checkbox {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+}
+
+// radiobutton
+.checkbox__icon_type_radio {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 36, func "calc(var(--is-br) * $)" 36, func "calc(var(--is-br) * $)" 36);
+}

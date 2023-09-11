@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="theme-color" content="#b98f4f">
+
+    <link rel="stylesheet" href="/css/pdf/pdf.css">
+
+    <style type="text/css" media="print">
+        @page {
+            size: a4;
+            margin: 0;
+        }
+
+        .main {
+            padding-top: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+    <title>PDF. Карточка квартиры RBI2020</title>
+</head>
+
+<body>
+    <main class="main">
+
+        <div class="pdf">
+            <div class="pdf__container">
+                <header class="pdf-header">
+                    <div class="pdf-header__logo">
+                        <img src="/webicons/header/logo_dark.svg" alt="Логотип ЖК">
+                    </div>
+
+                    <div class="pdf-header__contacts">
+                        <div class="pdf-header__contacts-item">
+                            <div class="pdf-header__contacts-type">Телефон</div>
+                            <span>8 (800) 250 24 35</span>
+                            <span>8 (495) 456 34 23</span>
+                        </div>
+                        <div class="pdf-header__contacts-item">
+                            <div class="pdf-header__contacts-type">Время работы</div>
+                            <span>По будням с 10:00 до 18:00</span>
+                            <span>В выходные с 10:00 до 16:00</span>
+                        </div>
+                        <div class="pdf-header__contacts-item">
+                            <div class="pdf-header__contacts-type">Сайт</div>
+                            <span>berezka.ru</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Блок с информацией о квартире -->
+                <div class="pdf-section pdf-main">
+                    <div class="pdf-section__left">
+                        <div class="pdf-main__plan">
+                            <img src="/images/pdf/flat-2d-plan.jpg" alt="Планировка квартиры">
+                        </div>
+                    </div>
+                    <div class="pdf-section__right">
+                        <h2 class="pdf-main__heading">3-комнатная № 104</h2>
+
+                        <div class="pdf-main__prices">
+                            <div class="pdf-main__price pdf-main__price_action_price">
+                                6 630 500 ₽
+                            </div>
+
+                            <div class="pdf-main__action-wrapper">
+                                <div class="pdf-main__action">
+                                    <span class="pdf-main__action-value">
+                                        -300 000 ₽
+                                    </span>
+                                </div>
+                                <div class="pdf-main__basic-price">
+                                    6 630 500 ₽
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <ul class="pdf-main__list pdf-main__list_theme_dashed">
+                            <li class="pdf-main__list-item">
+                                <div class="pdf-main__list-type">Общая площадь</div>
+                                <div class="pdf-main__list-value">67,75 м²</div>
+                            </li>
+                            <li class="pdf-main__list-item">
+                                <div class="pdf-main__list-type">Жилая</div>
+                                <div class="pdf-main__list-value">38,25 м²</div>
+                            </li>
+                            <li class="pdf-main__list-item">
+                                <div class="pdf-main__list-type">Кухня</div>
+                                <div class="pdf-main__list-value">13,00 м²</div>
+                            </li>
+                            <li class="pdf-main__list-item">
+                                <div class="pdf-main__list-type">Корпус</div>
+                                <div class="pdf-main__list-value">1</div>
+                            </li>
+                            <li class="pdf-main__list-item">
+                                <div class="pdf-main__list-type">Секция</div>
+                                <div class="pdf-main__list-value">2</div>
+                            </li>
+                            <li class="pdf-main__list-item">
+                                <div class="pdf-main__list-type">Этаж</div>
+                                <div class="pdf-main__list-value">12 из 17</div>
+                            </li>
+                            <li class="pdf-main__list-item">
+                                <div class="pdf-main__list-type">Срок сдачи</div>
+                                <div class="pdf-main__list-value">IV кв. 2024</div>
+                            </li>
+                        </ul>
+
+                        <div class="pdf-main__specials">
+                            <ul class="pdf-main__list pdf-main__list_theme_dotted">
+                                <li class="pdf-main__list-item pdf-main__list-type">Особенности</li>
+                                <li class="pdf-main__list-item">Вид на парк</li>
+                                <li class="pdf-main__list-item">Гардеробная</li>
+                                <li class="pdf-main__list-item">Большая кухня</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /Блок с информацией о квартире -->
+
+                <!-- Блок про планоплан, не выводить если нет планоплана -->
+                <section class="pdf-section pdf-planoplan">
+                    <div class="pdf-section__left">
+                        <div class="pdf-planoplan__plan">
+                            <img src="/images/pdf/flat-3d-plan.jpg" alt="Планировка квартиры">
+                        </div>
+                    </div>
+                    <div class="pdf-section__right">
+                        <h3>Установите Planoplan <br>Real Estate!</h3>
+                        <p class="pdf__text pdf-planoplan__text">
+                            Сканируйте в приложении. Смотрите планировку в виртуальной реальности
+                        </p>
+
+                        <div class="pdf-planoplan__app">
+                            <div class="pdf-planoplan__qr">
+                                <img src="/images/pdf/tour-qr.jpg" alt="QR код">
+                            </div>
+                            <ul class="pdf-planoplan__list">
+                                <li>
+                                    <img src="/webicons/pdf/store-apple.svg" alt="Google Play">
+                                </li>
+                                <li>
+                                    <img src="/webicons/pdf/store-google.svg" alt="Appstore">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <!-- /Блок про планоплан -->
+
+                <!-- Блок с планами: поэтажный и жк-->
+                <section class="pdf-section">
+                    <div class="pdf-section__left">
+                        <div class="pdf-plan">
+                            <img src="http://sample-dev.multi.ksdev.ru/storage/3946/4480/394612783e48a2f3b5a5914bcd57744e21134c82.jpg" alt="На плане этажа">
+                            <div class="pdf-plan__text">На плане этажа</div>
+                        </div>
+                    </div>
+                    <div class="pdf-section__right">
+                        <div class="pdf-plan">
+                            <img src="/images/pdf/complex-plan.jpg" alt="На генплане">
+                            <div class="pdf-plan__text">На генплане</div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /Блок с планами: поэтажный и жк-->
+
+                <footer class="pdf-footer">
+                    <div class="pdf-footer__items">
+                        <div class="pdf-footer__item">
+                            <span>berezka.ru/kavartiry/flats/2341</span>
+                        </div>
+                        <div class="pdf-footer__item">
+                            <span>Сгенерировано 13.09.2022, 15:23</span>
+                        </div>
+                        <div class="pdf-footer__item">
+                            <span>Не является офертой</span>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+
+            <div class="pdf__container">
+                <header class="pdf-header">
+                    <div class="pdf-header__logo">
+                        <img src="/webicons/header/logo_dark.svg" alt="Логотип ЖК">
+                    </div>
+
+                    <div class="pdf-header__contacts">
+                        <div class="pdf-header__contacts-item">
+                            <div class="pdf-header__contacts-type">Телефон</div>
+                            <span>8 (800) 250 24 35</span>
+                            <span>8 (495) 456 34 23</span>
+                        </div>
+                        <div class="pdf-header__contacts-item">
+                            <div class="pdf-header__contacts-type">Время работы</div>
+                            <span>По будням с 10:00 до 18:00</span>
+                            <span>В выходные с 10:00 до 16:00</span>
+                        </div>
+                        <div class="pdf-header__contacts-item">
+                            <div class="pdf-header__contacts-type">Сайт</div>
+                            <span>berezka.ru</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Блок о комплексе -->
+                <section class="pdf-about">
+                    <h2>О жилом комплексе «Берёзка»</h2>
+                    <div class="pdf-about__address">
+                        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.63755C0 2.97186 3.13386 0 7 0C10.8661 0 14 2.9716 14 6.63729C14 10.303 7 18 7 18C7 18 0 10.3032 0 6.63755ZM4.375 6.54546C4.375 7.90112 5.55019 9 7 9C8.45021 9 9.625 7.90112 9.625 6.54546C9.625 5.18979 8.45021 4.09091 7 4.09091C5.55019 4.09091 4.375 5.18979 4.375 6.54546Z" />
+                        </svg>
+                        <span>Москва, Тёплый Стан, ул. Академика Виноградова, 5</span>
+                    </div>
+                    <div class="pdf-about__images">
+                        <img class="pdf-about__images-item" src="/images/pdf/pdf-about.jpg" alt="Вид ЖК">
+                        <img class="pdf-about__images-item" src="/images/pdf/pdf-map.jpg" alt="ЖК на карте">
+                    </div>
+                    <p class="pdf__text">
+                        Жилой комплекс «Берёзка» в Тёплом Стане. Экологически чистый район. Вокруг ландшафтный заказник «Теплый Стан», природный парк «Битцевский лес» и «Теплостанский пруд». Широкий ассортимент квартир и богатая инфраструктура. Защишенный двор, паркинг, магазины и кафе, и собственные сады и школы.
+                    </p>
+
+                    <div class="pdf-details">
+                        <ul class="pdf-details__list">
+                            <li>
+                                <div class="pdf-details__heading">Срок сдачи 1й очереди:</div>
+                                <b>3 квартал 2022</b>
+                            </li>
+                            <li>
+                                <div class="pdf-details__heading">Срок сдачи 2й очереди:</div>
+                                <b>1 квартал 2023</b>
+                            </li>
+                            <li>
+                                <div class="pdf-details__heading">Срок сдачи 3й очереди:</div>
+                                <b>3 квартал 2023</b>
+                            </li>
+                        </ul>
+
+                        <ul class="pdf-details__list">
+                            <li>
+                                <div class="pdf-details__heading">Стоимость квартир</div>
+                                <b>от 2,5 млн. до 15,7 млн. ₽</b>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- /Блок о комплексе -->
+                <!-- Блок c контактами -->
+                <section class="pdf-contacts">
+                    <ul class="pdf-contacts__list">
+                        <li>
+                            <h4>Главный офис продаж</h4>
+                        </li>
+                        <li>
+                            <b>8 (800) 250 24 35</b>
+                        </li>
+                        <li>
+                            <span>
+                                Москва, улица Кржижановского, 6к1
+                            </span>
+                        </li>
+                        <li>
+                            <span>По будням с 10:00 до 18:00</span>
+                            <span>В выходные с 10:00 до 16:00</span>
+                        </li>
+                    </ul>
+                    <ul class="pdf-contacts__list">
+                        <li>
+                            <h4>Отдел продаж на объекте</h4>
+                        </li>
+                        <li>
+                            <b>8 (495) 456 34 23</b>
+                        </li>
+                        <li>Москва, Тёплый Стан ул. Академика Виноградова, 5</li>
+                        <li>
+                            <span>По будням с 10:00 до 21:00</span>
+                            <span>В выходные с 10:00 до 18:00</span>
+                        </li>
+                    </ul>
+                </section>
+                <!-- /Блок c контактами -->
+
+                <footer class="pdf-footer">
+                    <div class="pdf-footer__items">
+                        <div class="pdf-footer__item">
+                            <span>berezka.ru/kavartiry/flats/2341</span>
+                        </div>
+                        <div class="pdf-footer__item">
+                            <span>Сгенерировано 13.09.2022, 15:23</span>
+                        </div>
+                        <div class="pdf-footer__item">
+                            <span>Не является офертой</span>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

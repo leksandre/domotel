@@ -1,0 +1,48 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$button-icon: $brand-text;
+$button-bg-dark: $brand-dark;
+$button-text: $white;
+
+// BLOCK
+.visual-button {
+    @include reset-button();
+    @include row();
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+// ELEMENTS
+.visual-button__text {
+    text-transform: lowercase;
+
+    &:first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.visual-button__button {
+    @include font-size(p2-bold);
+    @include scale(padding, 8 24, 8 24, 8 24);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+    background-color: $button-bg-dark;
+    color: $button-text;
+}
+
+.visual-button__close {
+    margin-left: auto;
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+.visual-button__close-icon {
+    fill: $button-icon;
+}
+
+// MODS
+.visual-button_width_block {
+    width: 100%;
+}

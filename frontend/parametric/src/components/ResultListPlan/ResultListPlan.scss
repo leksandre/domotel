@@ -1,0 +1,91 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$plan-big-bg: $white;
+$plan-line-bg: transparent;
+$plan-line-border: $brand-base;
+
+.result-list__plan {
+    position: relative;
+
+    &:hover {
+        @media #{$laptop} {
+            .result-list__plan-big {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .result-list__plan-lines {
+                opacity: 1;
+                visibility: visible;
+                z-index: z(default);
+            }
+        }
+    }
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-height: 100%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.result-list__plan-big {
+    @include transition(opacity);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+    @include scale(box-shadow, 0 10 60, 0 10 60, 0 10 60, $shadow-color);
+    @include scale(width, 320, 320, 320);
+    @include scale(height, 320, 320, 320);
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    z-index: z(popup);
+    opacity: 0;
+    visibility: hidden;
+    background-color: $plan-big-bg;
+    text-align: center;
+
+    img {
+        @include scale(padding, 25, 25, 25);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: auto;
+        max-height: 100%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.result-list__plan-lines {
+    @include transition(opacity);
+    @include scale(column-gap, 4, 4, 4);
+    position: absolute;
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: z(hide);
+}
+
+.result-list__plan-line {
+    @include transition(opacity);
+    height: 100%;
+    background-color: $plan-line-bg;
+    border-bottom: 2px solid $plan-line-border;
+    opacity: 0.25;
+
+    &:hover {
+        // MEDIA
+        @media #{$laptop} {
+            opacity: 1;
+        }
+    }
+}

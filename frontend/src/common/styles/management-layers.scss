@@ -1,0 +1,24 @@
+// Z-INDEX MANAGEMENT
+$z-layers: (
+    "hide": -1,
+    "zero": 0,
+    "default": 1,
+    "nav": 2,
+    "ymballoon": 2,
+    "visualoverlay": 4,
+    "visualpreloader": 5,
+    "tooltip": 5,
+    "header": 6,
+    "cookies": 6,
+    "visualtooltip": 6,
+    "popup": 7
+);
+
+// management z-index
+@function z($layer) {
+    @if not map-has-key($z-layers, $layer) {
+        @warn "Такого слоя не существует, попробуйте проверить $z-layers в файле management-layers.scss";
+    } @else {
+        @return map-get($z-layers, $layer);
+    }
+}

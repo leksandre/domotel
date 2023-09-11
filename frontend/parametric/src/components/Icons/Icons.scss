@@ -1,0 +1,69 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$icon-dark: $brand-text;
+$icon-white: $white;
+$icon-price-action: $additional-1;
+
+// MODS
+.icon_fill_color {
+    &.icon_color_dark {
+        path,
+        circle {
+            fill: $icon-dark;
+        }
+    }
+
+    &.icon_color_white {
+        path,
+        circle {
+            fill: $icon-white;
+        }
+    }
+}
+
+.icon_stroke_color {
+    &.icon_color_dark {
+        path {
+            stroke: $icon-dark;
+        }
+
+        circle {
+            fill: $icon-dark;
+        }
+    }
+
+    &.icon_color_white {
+        path {
+            stroke: $icon-white;
+        }
+
+        circle {
+            fill: $icon-white;
+            stroke: $icon-white;
+        }
+    }
+}
+
+.icon_custom_color {
+    &.icon_reserved_dark {
+        circle {
+            stroke: $icon-dark;
+        }
+
+        rect {
+            fill: $icon-dark;
+        }
+    }
+
+    &.icon_action_white {
+        circle {
+            fill: $icon-white;
+        }
+
+        path {
+            stroke: $icon-price-action;
+        }
+    }
+}

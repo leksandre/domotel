@@ -1,0 +1,181 @@
+// SETTINGS
+$error-color: #f06e51;
+$button-hover-color: #ffffff;
+$button-hover-bg-color: #0075FF;
+$node-height: 140px;
+$node-width: 180px;
+
+@mixin mixin-url {
+    color: #717272;
+    opacity: 0.8;
+    font-size: 0.8em;
+    margin-top: 0.4em;
+}
+
+@mixin mixin-icon {
+    margin-right: 0.4em;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.tree__error {
+    color: $error-color;
+}
+
+.tree__row {
+    .tree__row__title {
+        margin-bottom: 0.5em;
+
+        span.text {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        span.icon {
+            margin-left: 1em;
+            vertical-align: text-bottom;
+        }
+    }
+
+    .tree__row__nodes {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0 0 2em;
+        gap: 0.6em;
+
+        .tree__row__node {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.8em;
+            overflow: auto;
+            width: $node-width;
+            height: $node-height;
+            background: #F2F3F5;
+            border-radius: 6px;
+
+            &:hover {
+                .tree__row__node__controls {
+                    div:last-child {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        .tree__row__node__controls {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                padding: 0 0.4em;
+                display: flex;
+                flex-direction: row;
+                height: 2em;
+
+                &:last-child {
+                    display: none;
+
+                    span.icon {
+                        @include mixin-icon();
+                    }
+                }
+            }
+        }
+
+        .tree__row__node__text {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            font-size: 0.95em;
+
+            span {
+                @include mixin-url();
+            }
+        }
+
+        .tree__row__node__add-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2em 2em 1em;
+            width: 110px;
+            height: $node-height;
+            border: 1px solid #E1E4E8;
+            border-radius: 6px;
+
+            span {
+                line-height: 130%;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                font-size: 0.95em;
+            }
+
+            &:hover {
+                background: $button-hover-bg-color;
+
+                svg {
+                    fill: $button-hover-color;
+                }
+
+                span {
+                    color: $button-hover-color;
+                }
+            }
+        }
+    }
+}
+
+.tree__blocks__title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+.tree__blocks {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    .tree__block {
+        .tree__block__main, .tree__block__node {
+            padding: 0.5em 0 0.5em 1em;
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+
+            .tree__block__title {
+                span.url {
+                    @include mixin-url();
+                }
+            }
+
+            .tree__block__controls {
+                display: none;
+
+                .icon {
+                    @include mixin-icon();
+                }
+            }
+
+            &:hover {
+                background: #f0f0f0;
+
+                .tree__block__controls {
+                    display: block;
+                }
+            }
+        }
+
+        .tree__block__node {
+            margin-left: 2em;
+        }
+    }
+}

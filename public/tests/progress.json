@@ -1,0 +1,90 @@
+{
+    "success": true,
+    "data": {
+        "albums": [
+            {
+                "id": 3,
+                "title": "Июль",
+                "comment": "Подвал",
+                "description": "<p>Некий текст</p>",
+                "videos": [
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/zdAOEi2eOJI\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=zdAOEi2eOJI"
+                    },
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/yTPs9DRkRGs\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=yTPs9DRkRGs"
+                    },
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/vYGBGyarAHA\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=vYGBGyarAHA"
+                    }
+                ],
+                "images": [
+                    "\/storage\/62ec\/7851\/62ecf99e4d05ca7c36820ad68bbe08d53a8a242b.jpg",
+                    "\/storage\/6325\/7853\/6325b1a6855bb5c97e137183656ddd1c3d127520.jpg",
+                    "\/storage\/3c99\/7851\/3c99edee4ca06e6a5afa91a120c4a5c66f827c90.jpg",
+                    "\/storage\/f149\/7851\/f1497ab181029870711c943bf22df310bca2fc29.jpg",
+                    "\/storage\/3c93\/7853\/3c9339ae50f0e76c1af3e2fd378e6d9501cadd23.jpg",
+                    "\/storage\/95bf\/7851\/95bfed956af57be09055c7e286970c1d8034b09e.jpg"
+                ]
+            },{
+                "id": 2,
+                "title": "Август",
+                "comment": "Подвал",
+                "description": "<p>Некий текст</p>",
+                "videos": [
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/zdAOEi2eOJI\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=zdAOEi2eOJI"
+                    },
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/yTPs9DRkRGs\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=yTPs9DRkRGs"
+                    },
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/vYGBGyarAHA\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=vYGBGyarAHA"
+                    }
+                ],
+                "images": [
+                    "\/storage\/62ec\/7851\/62ecf99e4d05ca7c36820ad68bbe08d53a8a242b.jpg",
+                    "\/storage\/6325\/7853\/6325b1a6855bb5c97e137183656ddd1c3d127520.jpg",
+                    "\/storage\/3c99\/7851\/3c99edee4ca06e6a5afa91a120c4a5c66f827c90.jpg",
+                    "\/storage\/f149\/7851\/f1497ab181029870711c943bf22df310bca2fc29.jpg",
+                    "\/storage\/3c93\/7853\/3c9339ae50f0e76c1af3e2fd378e6d9501cadd23.jpg",
+                    "\/storage\/95bf\/7851\/95bfed956af57be09055c7e286970c1d8034b09e.jpg"
+                ]
+            },{
+                "id": 1,
+                "title": "Сентябрь",
+                "comment": "Подвал",
+                "description": "<p>Некий текст</p>",
+                "videos": [
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/zdAOEi2eOJI\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=zdAOEi2eOJI"
+                    },
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/yTPs9DRkRGs\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=yTPs9DRkRGs"
+                    },
+                    {
+                        "thumb": "https:\/\/img.youtube.com\/vi\/vYGBGyarAHA\/maxresdefault.jpg",
+                        "url": "https:\/\/www.youtube.com\/watch?v=vYGBGyarAHA"
+                    }
+                ],
+                "images": [
+                    "\/storage\/62ec\/7851\/62ecf99e4d05ca7c36820ad68bbe08d53a8a242b.jpg",
+                    "\/storage\/6325\/7853\/6325b1a6855bb5c97e137183656ddd1c3d127520.jpg",
+                    "\/storage\/3c99\/7851\/3c99edee4ca06e6a5afa91a120c4a5c66f827c90.jpg",
+                    "\/storage\/f149\/7851\/f1497ab181029870711c943bf22df310bca2fc29.jpg",
+                    "\/storage\/3c93\/7853\/3c9339ae50f0e76c1af3e2fd378e6d9501cadd23.jpg",
+                    "\/storage\/95bf\/7851\/95bfed956af57be09055c7e286970c1d8034b09e.jpg"
+                ]
+            }
+        ]
+    },
+    "messages": []
+}

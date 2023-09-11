@@ -1,0 +1,67 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$contacts-text: $brand-text;
+$contacts-icon-fill: $brand-dark;
+
+// BLOCK
+.contacts {
+    width: 100%;
+
+    @media #{$tablet-portrait} {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: column(2, 30);
+    }
+
+    @media #{$laptop} {
+        grid-column-gap: column(2, 28);
+    }
+}
+
+// ELEMENTS
+.contacts__item {
+    @include margin-level(bottom, cyan);
+    display: flex;
+}
+
+.contacts__icon {
+    @include post(1.5, 30);
+
+    svg {
+        @include margin-level(top, rose);
+
+        path {
+            fill: $contacts-icon-fill;
+        }
+    }
+}
+
+.contacts__title {
+    @include margin-level(bottom, orange);
+    @include font-size(p1-bold);
+}
+
+.contacts__info {
+    @include font-size(p2-regular);
+    display: block;
+
+    &:not(:last-child) {
+        @include margin-level(bottom, tomato);
+    }
+
+    &:not(.not-wrap) > span {
+        display: block;
+    }
+}
+
+// MODS
+.contacts__info_phone_contact {
+    @media #{$laptop} {
+        pointer-events: none;
+    }
+}

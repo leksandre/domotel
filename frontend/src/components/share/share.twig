@@ -1,0 +1,79 @@
+<div class="{% if modify %}{{ modify }}{% endif %} share j-share">
+    <div class="share__icon-container j-share__button">
+        <span class="share__icon share__icon_icon_open">
+            {% include './media/share.svg' %}
+        </span>
+        <span class="share__icon share__icon_icon_close">
+            {% include './media/close.svg' %}
+        </span>
+    </div>
+
+    <div class="share__container j-share__container">
+
+        <div class="share__content j-share__content">
+            <a class="share__option-icon" href="#" target="_blank">
+                {% include './media/print.svg' %}
+                <span class="share__option-heading">Сохранить в PDF</span>
+            </a>
+            <div class="share__option-icon j-share__email">
+                {% include './media/email.svg' %}
+                <span class="share__option-heading">Отправить по эл. почте</span>
+            </div>
+            <div class="share__social">
+                <div class="share__social-heading">Поделиться</div>
+                <div class="share__social-list">
+                    {% include '../social-list/social-list.twig' with {
+                        socials: [
+                            {
+                                href: '#',
+                                title: 'vk',
+                                icon: 'vk.svg'
+                            }, {
+                                href: '#',
+                                title: 'facebook',
+                                icon: 'facebook.svg'
+                            }, {
+                                href: '#',
+                                title: 'ok',
+                                icon: 'ok.svg'
+                            }, {
+                                href: '#',
+                                title: 'instagram',
+                                icon: 'instagram.svg'
+                            }, {
+                                href: '#',
+                                title: 'telegram',
+                                icon: 'telegram.svg'
+                            }, {
+                                href: '#',
+                                title: 'skype',
+                                icon: 'skype.svg'
+                            }, {
+                                href: '#',
+                                title: 'viber',
+                                icon: 'viber.svg'
+                            }, {
+                                href: '#',
+                                title: 'whatsapp',
+                                icon: 'whatsapp.svg'
+                            }
+                        ]
+                    } %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="share__form j-share__form">
+            <div class="share__option-icon j-share__form-back">
+                {% include './media/back-arrow.svg' %}
+                <span class="share__option-heading">Отправить по эл. почте</span>
+            </div>
+
+            {% include '../form/form-share.twig' with {
+                formModify: 'form_share_form',
+                modify: false
+            } %}
+        </div>
+    </div>
+</div>

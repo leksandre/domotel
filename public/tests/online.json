@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "data": {
+        "cameras": [
+            {
+                "id": 1,
+                "title": "Камера 1",
+                "description": "<p>Описание камеры</p>",
+                "video": {
+                    "thumb": "\/storage\/47e8\/9093\/47e8b57baaed402c6a8701474e566dffe1e0addb.jpg",
+                    "url": "https:\/\/camera.profintel.ru:8605\/public\/e85240ee9297428a971afdd121ac622d"
+                }
+            },
+            {
+                "id": 2,
+                "title": "Камера 2",
+                "description": null,
+                "video": {
+                    "thumb": null,
+                    "url": "https:\/\/www.youtube.com\/embed\/Qpm9FI1uUDQ"
+                }
+            }
+        ]
+    },
+    "messages": []
+}

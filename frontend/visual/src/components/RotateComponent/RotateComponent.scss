@@ -1,0 +1,147 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$rotate-button-bg: $white;
+$rotate-button-color: $brand-text;
+$rotate-button-color-hover: $brand-base;
+$rotate-gradient: $brand-base;
+$rotate-active-bg: rgba($white-rgb, 0.4);
+
+// BLOCK
+.visual-rotate {
+    @include margin-level(bottom, green);
+    @include scale(width, null, null, 180);
+    position: absolute;
+    bottom: 0;
+    right: column(2);
+
+    // Media
+    @media #{$tablet-portrait} {
+        right: column(1);
+    }
+}
+
+.visual-rotate__wrapper {
+    @include scale(width, null, null, 180);
+    @include scale(height, null, null, 180);
+    position: relative;
+}
+
+.visual-rotate__plan {
+    @include scale(max-width, null, null, 150);
+    @include scale(max-height, null, null, 150);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.visual-rotate__point {
+    @include transition(opacity);
+    @include reset-button();
+    position: absolute;
+
+    &:before {
+        @include pseudo();
+        @include scale(width, null, null, 40);
+        @include scale(height, null, null, 40);
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+        @media #{$laptop} {
+            opacity: 0.6;
+        }
+    }
+
+    &.is-active {
+        pointer-events: none;
+        cursor: default;
+
+        .visual-rotate__svg-gradient {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .visual-rotate__circle:before {
+            transform: scale(1) translate(-50%, -50%);
+        }
+    }
+}
+
+.visual-rotate__svg-gradient {
+    @include transition(opacity);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    visibility: hidden;
+
+    stop {
+        stop-color: $brand-base;
+    }
+}
+
+.visual-rotate__circle {
+    @include scale(width, null, null, 12);
+    @include scale(height, null, null, 12);
+    background-color: $white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+
+    &:before {
+        @include pseudo();
+        @include transition(transform);
+        background-color: $rotate-active-bg;
+        width: 200%;
+        height: 200%;
+        top: 50%;
+        left: 50%;
+        transform: scale(0) translate(-50%, -50%);
+        transform-origin: 0 0;
+        border-radius: 50%;
+    }
+}
+
+.visual-rotate__change-button {
+    @include transition(color);
+    @include reset-button();
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20);
+    @include scale(height, 40, 40, 40);
+    @include scale(padding, 0 16, 0 16, 0 16);
+    @include font-size(p2-bold);
+    background-color: $rotate-button-bg;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            color: $rotate-button-color-hover;
+        }
+
+        .visual-rotate__svg-rotate {
+            // Media
+            @media #{$laptop} {
+                fill: $rotate-button-color-hover;
+            }
+        }
+    }
+}
+
+.visual-rotate__svg-rotate {
+    @include transition(fill);
+    @include scale(width, 12, 12, 12);
+    @include scale(height, 12, 12, 12);
+    @include scale(margin-left, 8, 8, 8);
+    fill: $rotate-button-color;
+}

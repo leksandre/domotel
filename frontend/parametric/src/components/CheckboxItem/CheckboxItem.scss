@@ -1,0 +1,208 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$checkbox-bg: $white;
+$checkbox-toggle-bg: $brand-text;
+$checkbox-text: $brand-text;
+$checked-bg: $brand-dark;
+$checked-text: $white;
+$disabled-text: rgba($brand-text-rgb, 0.3);
+
+// BLOCK
+.checkbox {
+    @include margin-level(bottom, tomato);
+    background-color: $checkbox-bg;
+}
+
+// ELEMENTS
+.checkbox__label {
+    @include transition(color, background-color, opacity);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: $checkbox-bg;
+    cursor: pointer;
+
+    &:before {
+        @include transition(all);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: z(default);
+        background: $checked-bg;
+        opacity: 0;
+        content: "";
+    }
+}
+
+.checkbox__text {
+    @include transition(color, opacity);
+    position: relative;
+    z-index: z(default);
+}
+
+// MODS
+.checkbox_theme_block {
+    &.checkbox {
+        flex: 1 1 auto;
+        margin-right: 1px; // static
+
+        &:first-child {
+            @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+            @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+
+            .checkbox__label {
+                @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+                @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+
+                &:before {
+                    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+                    @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+                }
+            }
+        }
+
+        &:last-child {
+            @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+            @include scale(border-bottom-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+            margin-right: 0;
+
+            .checkbox__label {
+                @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+                @include scale(border-bottom-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+
+                &:before {
+                    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+                    @include scale(border-bottom-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+                }
+            }
+        }
+    }
+
+    .checkbox__label {
+        @include scale(padding, 16 0, 16 0, 16 0);
+    }
+
+    .checkbox__text {
+        @include font-size(p2-bold);
+        width: inherit;
+        text-align: center;
+    }
+}
+
+.checkbox_theme_button {
+    &.checkbox {
+        @include margin-level(right, tomato);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 25, func "calc(var(--is-br) * $)" 25, func "calc(var(--is-br) * $)" 25);
+    }
+
+    .checkbox__label {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 25, func "calc(var(--is-br) * $)" 25, func "calc(var(--is-br) * $)" 25);
+        @include scale(padding, 7 16, 4 16, 4 16);
+
+        &:before {
+            @include scale(border-radius, func "calc(var(--is-br) * $)" 25, func "calc(var(--is-br) * $)" 25, func "calc(var(--is-br) * $)" 25);
+        }
+    }
+
+    .checkbox__text {
+        @include font-size(p3-regular);
+    }
+}
+
+.checkbox_theme_toggle {
+    &.checkbox {
+        width: 100%;
+        margin-bottom: 0;
+        background: none;
+    }
+
+    .checkbox__label {
+        justify-content: space-between;
+        background: none;
+    }
+
+    .checkbox__text {
+        @include font-size(p3-bold);
+    }
+
+    .checkbox__toggle {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 200, func "calc(var(--is-br) * $)" 200, func "calc(var(--is-br) * $)" 150);
+        @include scale(width, 36, 36, 36);
+        @include scale(height, 20, 20, 20);
+        position: relative;
+        display: block;
+        background: $checkbox-toggle-bg;
+        cursor: pointer;
+
+        &:before {
+            @include transition(all);
+            @include scale(width, 16, 16, 16);
+            @include scale(height, 16, 16, 16);
+            @include scale(left, 3, 3, 3);
+            @include pseudo();
+            top: 2px;
+            border-radius: calc(var(--is-br) * 50%);
+            background: $checkbox-bg;
+            opacity: 1;
+            z-index: z(default);
+        }
+    }
+
+    .checkbox__input {
+        &:checked {
+            ~ .checkbox__label {
+                background: none;
+
+                &:before {
+                    opacity: 0;
+                }
+
+                .checkbox__text {
+                    color: $checkbox-text;
+                }
+
+                .checkbox__toggle {
+                    background-color: $checked-bg;
+
+                    &:before {
+                        left: calc(100% - 2px);
+                        transform: translateX(-100%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// STATES
+.checkbox__input {
+    &:checked {
+        ~ .checkbox__label {
+            &:before {
+                opacity: 1;
+            }
+
+            .checkbox__text {
+                color: $checked-text;
+            }
+        }
+    }
+
+    &:disabled {
+        ~ .checkbox__label {
+            pointer-events: none;
+
+            @media #{$laptop} {
+                cursor: default;
+            }
+
+            .checkbox__text {
+                color: $disabled-text;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+export type {IPopup, IPopupIframeData, IPopupFacade, IPopupFacadeOptions} from '@/components/popup/types';
+export type {IButtonTrigger} from '@/components/button-trigger/types';
+export type {ICookiesNotice} from '@/components/cookies-notice/types';
+export type {IDetailsAccordion} from '@/components/details/types';
+export type {IFirstScreenScroll} from '@/components/first-screen-scroll/types';
+export type {IForm} from '@/components/form/types';
+export type {IHeader} from '@/components/header/types';
+export type {IMortgageCalculator} from '@/components/mortgage-calculator/types';
+export type {INavigation} from '@/components/navigation/types';
+export type {INavigationGroups} from '@/components/navigation-group/types';
+export type {IPrice} from '@/components/price/types';
+export type {IScrollBy} from '@/components/scrollBy/types';
+export type {ISlider} from '@/components/slider/types';

@@ -1,0 +1,30 @@
+{
+    "name": "kelnik/laravel-module-pdf",
+    "description": "Laravel module PDF",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kelnik Studios",
+            "email": "developer@kelnik.ru"
+        }
+    ],
+    "version": "1.8.5",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0",
+        "jakubkulhan/chrome-devtools-protocol": "*",
+        "kelnik/laravel-module-core": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kelnik\\Pdf\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kelnik\\Pdf\\Providers\\PdfServiceProvider"
+            ]
+        }
+    }
+}

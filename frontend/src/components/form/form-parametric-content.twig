@@ -1,0 +1,67 @@
+{# БОЕВОЙ ШАБЛОН #}
+
+<div class="form__parametric-content">
+    <div class="form__parametric-content-heading">
+        <ul class="list list_theme_accent list_theme_dot">
+            {# Заголовок помещения #}
+            {% if title %}
+                <li class="list__item">
+                    {{ title }}
+                </li>
+            {% endif %}
+
+            {# Площадь #}
+            {% if area %}
+                <li class="list__item">
+                    {{ area }}
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="form__parametric-content-params">
+        <ul class="list list_theme_dot">
+            {# Блок #}
+            {% if block %}
+                <li class="list__item">
+                    {{ block }}
+                </li>
+            {% endif %}
+
+            {# Секция #}
+            {% if section %}
+                <li class="list__item">
+                    {{ section }}
+                </li>
+            {% endif %}
+
+            {# Этаж #}
+            {% if floor %}
+                <li class="list__item">
+                    {{ floor }}
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="form__parametric-content-prices">
+        {# Скрытая цена #}
+        {% if hidePrice %}
+            {{ hidePrice }}
+        {% elseif price %}
+            <div class="premises-prices">
+                <div class="premises-prices__price {% if actionPrice %}action-price{% endif %}">
+                    {{ price }}
+                </div>
+                {% if actionPrice %}
+                    {% include '../action-price/action-price.twig' with {
+                        actionValue: actionPrice.value,
+                        basicPrice: actionPrice.base
+                    } %}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+</div>
+

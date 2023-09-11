@@ -1,0 +1,83 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$range-active-bg: $brand-dark;
+$range-bg: rgba($brand-dark-rgb, 0.5);
+$range-value: rgba($brand-text-rgb, 0.5);
+$range-active-value: $brand-text;
+$range-text: rgba($brand-text-rgb, 0.7);
+
+// BLOCK
+.range-slider {
+    width: 100%;
+    @include margin-level(top, rose);
+
+    &.is-active {
+        .range-slider__value {
+            color: $range-active-value;
+        }
+    }
+}
+
+// ELEMENTS
+.range-slider__container {
+    @include row();
+    @include margin-level(bottom, rose);
+    justify-content: space-between;
+}
+
+.range-slider__desc {
+    @include margin-level(right, tomato);
+    @include font-size(p2-regular);
+    color: $range-text;
+}
+
+.range-slider__value {
+    @include transition(color);
+    @include font-size(p2-bold);
+    color: $range-value;
+}
+
+// vue slider component
+/* stylelint-disable declaration-no-important */
+.vue-slider {
+    height: 2px !important;
+}
+
+.vue-slider-rail {
+    background-color: $range-bg;
+}
+
+.vue-slider-process {
+    background-color: $range-active-bg;
+}
+
+.vue-slider-dot-tooltip {
+    visibility: visible !important;
+}
+
+.vue-slider-dot-tooltip-inner {
+    @include visually-hidden();
+}
+
+.vue-slider-dot {
+    @include scale(width, 16, 16, 16, !important);
+    @include scale(height, 16, 16, 16, !important);
+    z-index: z(default);
+}
+
+.vue-slider-dot-handle {
+    @include transition(transform);
+    background-color: $range-active-bg;
+    box-shadow: none;
+
+    @media #{$laptop} {
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+/* stylelint-enable declaration-no-important */
+
+// MODS

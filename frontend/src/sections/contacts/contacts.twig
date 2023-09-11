@@ -1,0 +1,108 @@
+<section id="contacts"
+         class="section section_theme_contacts j-anchor-section{% if animationClass %} {{ animationClass }}{% endif %}
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <div class="grid__wrapper grid__wrapper_theme_contacts">
+                    <h2 class="j-animation__header">Контакты</h2>
+                    {% include '../../components/social-list/social-list.twig' with {
+                        isAnimations: animationClass ? true : false,
+                        socials: [
+                            {
+                                href: '#',
+                                title: 'vk',
+                                icon: 'vk.svg'
+                            }, {
+                                href: '#',
+                                title: 'facebook',
+                                icon: 'facebook.svg'
+                            }, {
+                                href: '#',
+                                title: 'ok',
+                                icon: 'ok.svg'
+                            }, {
+                                href: '#',
+                                title: 'instagram',
+                                icon: 'instagram.svg'
+                            }, {
+                                href: '#',
+                                title: 'telegram',
+                                icon: 'telegram.svg'
+                            }, {
+                                href: '#',
+                                title: 'skype',
+                                icon: 'skype.svg'
+                            }, {
+                                href: '#',
+                                title: 'viber',
+                                icon: 'viber.svg'
+                            }, {
+                                href: '#',
+                                title: 'whatsapp',
+                                icon: 'whatsapp.svg'
+                            }, {
+                                href: '#',
+                                title: 'youtube',
+                                icon: 'youtube.svg'
+                            }
+                        ]
+                    }%}
+                </div>
+                <div class="grid__wrapper">
+                    <div class="grid__row">
+                        {% include '../../components/contacts/contacts.twig' with {
+                            isAnimations: animationClass ? true : false,
+                            items: [
+                                {
+                                    title: 'Главный офис продаж',
+                                    address: 'Москва, улица Кржижановского, 6к1',
+                                    phone: '8 800 250 24 35',
+                                    time: ['По будням 9:00...18:30', 'Сб-Вс 10:30...17:00'],
+                                    email: 'office@berezki.ru',
+                                    route: true
+                                }, {
+                                    title: 'Офис продаж на объекте',
+                                    address: 'Москва, Тёплый Стан, улица Академика Виноградова, 5',
+                                    phone: '8 800 250 24 35',
+                                    time: ['По будням 9:00...18:30', 'Сб-Вс 10:30...17:00'],
+                                    email: 'sales@berezki.ru',
+                                    route: true
+                                }, {
+                                    title: 'Управляющая компания «Добрый День»',
+                                    address: 'Москва, Южное ш. 7А',
+                                    phone: '8 (846) 211-07-05',
+                                    route: true
+                                }, {
+                                    title: 'Пресс-служба',
+                                    email: 'ryzhevamv@globalvsn.com'
+                                }
+                            ]
+                        }%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid__row">
+            <div class="grid__map{% if animationClass %} j-animation__item{% endif %}">
+                <!-- Может работать как и по json - Base64, так и по ajax. Приоритет отдан json -->
+                {% include "../../components/yandex-map/yandex-map.twig" with {
+                    id: "contactsMap",
+                    json: "ewogICJkYXRhIjogewogICAgInpvb20iOiAxMCwKICAgICJ6b29tTWFyZ2luIjogMjAsCiAgICAiY2VudGVyIjogWwogICAgICA1OS45Mzk1NTAsCiAgICAgIDMwLjQyMjA1OAogICAgXSwKICAgICJtYXJrZXJzIjogWwogICAgICB7CiAgICAgICAgImlkIjogNTIsCiAgICAgICAgImNvb3JkcyI6IFsKICAgICAgICAgIDU5LjkzOTU1MCwKICAgICAgICAgIDMwLjQyMjA1OAogICAgICAgIF0sCiAgICAgICAgImljb24iOiB7CiAgICAgICAgICAidHlwZSI6ICJhbGwiLAogICAgICAgICAgInNyYyI6ICJodHRwczpcL1wvc2FtcGxlLWRldi5tdWx0aS5rc2Rldi5ydVwvd2ViaWNvbnNcL3lhbmRleC1tYXBcL3Bpbi5zdmciLAogICAgICAgICAgInNpemUiOiB7CiAgICAgICAgICAgICJ3aWR0aCI6IDQ4LAogICAgICAgICAgICAiaGVpZ2h0IjogNDgKICAgICAgICAgIH0KICAgICAgICB9LAogICAgICAgICJ0eXBlIjogImFsbCIsCiAgICAgICAgInBvc2l0aW9uIjogInRvcCIsCiAgICAgICAgImJhbGxvb24iOiB7CiAgICAgICAgICAidGl0bGUiOiAiXHUwNDEzXHUwNDNiXHUwNDMwXHUwNDMyXHUwNDNkXHUwNDRiXHUwNDM5IFx1MDQzZVx1MDQ0NFx1MDQzOFx1MDQ0MSBcdTA0M2ZcdTA0NDBcdTA0M2VcdTA0MzRcdTA0MzBcdTA0MzYiLAogICAgICAgICAgImltYWdlIjogbnVsbCwKICAgICAgICAgICJ0ZXh0IjogIiIKICAgICAgICB9LAogICAgICAgICJtb2RpZnlDbGFzcyI6ICJvYmplY3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiA1NCwKICAgICAgICAiY29vcmRzIjogWwogICAgICAgICAgNTkuOTM5MTk0LAogICAgICAgICAgMzAuNDE1MzIxCiAgICAgICAgXSwKICAgICAgICAiaWNvbiI6IHsKICAgICAgICAgICJ0eXBlIjogImFsbCIsCiAgICAgICAgICAic3JjIjogImh0dHBzOlwvXC9zYW1wbGUtZGV2Lm11bHRpLmtzZGV2LnJ1XC93ZWJpY29uc1wveWFuZGV4LW1hcFwvcGluLnN2ZyIsCiAgICAgICAgICAic2l6ZSI6IHsKICAgICAgICAgICAgIndpZHRoIjogNDgsCiAgICAgICAgICAgICJoZWlnaHQiOiA0OAogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgInR5cGUiOiAiYWxsIiwKICAgICAgICAicG9zaXRpb24iOiAidG9wIiwKICAgICAgICAiYmFsbG9vbiI6IHsKICAgICAgICAgICJ0aXRsZSI6ICJcdTA0MThcdTA0M2ZcdTA0M2VcdTA0NDJcdTA0MzVcdTA0NDdcdTA0M2RcdTA0NGJcdTA0MzkgXHUwNDQ2XHUwNDM1XHUwNDNkXHUwNDQyXHUwNDQwIFx1MDBhYlx1MDQxMlx1MDQxNFx1MDQxYVx1MDBiYiIsCiAgICAgICAgICAiaW1hZ2UiOiBudWxsLAogICAgICAgICAgInRleHQiOiAiIgogICAgICAgIH0sCiAgICAgICAgIm1vZGlmeUNsYXNzIjogIm9iamVjdCIKICAgICAgfQogICAgXSwKICAgICJwb2x5Z29ucyI6IFsKICAgICAgICB7CiAgICAgICAgICAgICJpZCI6IDEsCiAgICAgICAgICAgICJjb29yZHMiOiBbCiAgICAgICAgICAgICAgICBbNTkuOTM3Njg1LCAzMC40MDgyMTddLAogICAgICAgICAgICAgICAgWzU5Ljk0MTkxOCwgMzAuNDI5ODQxMl0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgImltYWdlIjogIi9pbWFnZXMveWFuZGV4LW1hcC9iZy5wbmciCiAgICAgICAgfQogICAgXQogIH0KfQo=",
+                    class: "j-contacts-map"
+                } %}
+                <div class="grid__map-route">
+                    <a href="/" target="_blank" class="yandex-map__route">
+                        Построить маршрут
+
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 7.2V10.8C10 11.4624 9.4624 12 8.8 12H2.2C1.5376 12 1 11.4624 1 10.8V4.2C1 3.5376 1.5376 3 2.2 3H5.8" stroke="#0B1739" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 1H12V5" stroke="#0B1739" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 8L12 1" stroke="#0B1739" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,106 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$card-bg: $white;
+$card-link-hover: $brand-dark;
+$card-shadow: $shadow-color;
+
+// BLOCK
+.bank-card {
+    @include padding-level(both, yellow);
+    @include vertical-paddings(2, 30);
+    @include scale(border, 1, 1, 1, solid $card-shadow);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(box-shadow, 0 6 18, 0 6 18, 0 6 18, $card-shadow);
+    display: flex;
+    flex-direction: column;
+    background-color: $card-bg;
+    height: 100%;
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-paddings(1, 14.5);
+    }
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 9);
+    }
+}
+
+// ELEMENTS
+.bank-card__bank {
+    display: flex;
+    align-items: center;
+
+    @at-root a#{&} {
+        &:hover {
+            // Media
+            @media #{$laptop} {
+                .bank-card__title {
+                    color: $card-link-hover;
+                }
+            }
+        }
+    }
+}
+
+.bank-card__logo {
+    @include object-fit(contain);
+    @include scale(margin-right, 20, 20, 20);
+    @include scale(width, 48, 48, 48);
+    @include scale(height, 48, 48, 48);
+    flex-shrink: 0;
+}
+
+.bank-card__title {
+    @include transition(color);
+    @include font-size(p1-bold);
+}
+
+.bank-card__conditions {
+    &:not(:first-child) {
+        @include margin-level(top, orange);
+    }
+}
+
+.bank-card__condition {
+    @include row();
+    align-items: center;
+
+    &:not(:first-child) {
+        @include margin-level(top, rose);
+    }
+
+    span {
+        width: 50%;
+    }
+}
+
+.bank-card__key {
+    @include font-size(p3-regular);
+}
+
+.bank-card__value {
+    @include font-size(p2-bold);
+}
+
+.bank-card__footer {
+    @include font-size(p3-regular);
+    margin-top: auto;
+    opacity: 0.5;
+
+    &:not(:first-child) {
+        @include padding-level(top, orange);
+    }
+
+    p {
+        @include font-size(p3-regular);
+    }
+}
+
+// MODS

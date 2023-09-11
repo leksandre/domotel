@@ -1,0 +1,66 @@
+{% set documents = [
+    {
+        title: "Проектная декларация №91-000236 от 24.06.2019 (1 этап)",
+        href: "#",
+        info: {
+        type: "pdf",
+        size: "133 кб",
+        date: "30.07.2019",
+        author: "Федоров А. Д."
+    }
+    },
+    {
+        title: "Проектная декларация №91-000237 от 24.06.2019 (2 этап)",
+        href: "#",
+        info: {
+        type: "pdf",
+        size: "133 кб",
+        date: "26.06.2019",
+        author: "Федоров А. Д."
+    }
+    },
+    {
+        title: "Проектная декларация №91-000236 от 24.06.2019 (4 этап)",
+        href: "#",
+        info: {
+        type: "pdf",
+        size: "133 кб",
+        date: "20.06.2019",
+        author: "Федоров А. Д."
+    }
+    },
+    {
+        title: "Проектная декларация №91-000236 от 24.06.2019 (5 этап)",
+        href: "#",
+        info: {
+        type: "pdf",
+        size: "133 кб",
+        date: "28.05.2019",
+        author: "Федоров А. Д."
+    }
+    }
+] %}
+
+<ul class="documents__list">
+    {% for document in documents %}
+        <li class="document">
+            <div class="document__icon">
+                {% include  './media/document-icon.svg' %}
+            </div>
+            <div class="document__description">
+                <a class="document__title" href="{{ document.href }}" target="_blank">
+                    <span>
+                        {{ document.title }}
+                    </span>
+                </a>
+                <div class="document__info">
+                    <span class="document__size">
+                        {{ document.info.type }},&nbsp;<span>{{ document.info.size }}</span>
+                    </span>
+                    <span class="document__author">{{ document.info.author }}</span>
+                    <span class="document__date">{{ document.info.date }}</span>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

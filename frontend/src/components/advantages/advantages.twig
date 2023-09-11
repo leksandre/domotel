@@ -1,0 +1,64 @@
+{% set items = [{
+    icon: 'pin',
+    title: 'Удобно',
+    text: 'Широкий спектр услуг и комплексных решений'
+},{
+    icon: 'bus',
+    title: 'Стабильно',
+    text: 'Огромный опыт работы с 2007 года'
+},{
+    icon: 'car',
+    title: 'Безопасно',
+    text: 'Соответствие ГОСТам'
+},{
+    icon: 'pin',
+    title: 'Надёжно',
+    text: 'Материальная и юридическая ответственность'
+},{
+    icon: 'bus',
+    title: 'Выгодно',
+    text: 'Гибкая ценовая политика, факторинг и постоплата'
+},{
+    icon: 'car',
+    title: 'Качественно',
+    text: 'Гарантия качественного результата'
+},{
+    icon: 'pin',
+    title: 'Экологично',
+    text: 'Специальная техника и экохимия'
+},{
+    icon: 'car',
+    title: 'Круглосуточно',
+    text: 'Работа без выходных'
+},{
+    icon: 'bus',
+    title: 'Волшебно',
+    text: 'Качественное сопровождение'
+},{
+    icon: 'pin',
+    title: 'Шикарно',
+    text: 'Ещё один пункт'
+},{
+    icon: 'pin',
+    title: 'Удобно',
+    text: 'Широкий спектр услуг и комплексных решений'
+},{
+    icon: 'bus',
+    title: 'Стабильно',
+    text: 'Огромный опыт работы с 2007 года'
+}] %}
+{% if not limit %}
+    {% set limit = count|default(2) * 2 - 1 %}
+{% endif %}
+
+<div class="advantages{% if not wrap|default(true) %} advantages_theme_nowrap{% elseif count > 2 %} advantages_wrap_{{ count }}{% endif %}{% if isAnimation %} j-animation__row" data-items="320:2,1280:{{ not wrap|default(true) ? limit + 1 : count|default(2) }}"{% else %}"{% endif %}>
+    {% for index in 0..limit %}
+        <div class="advantage{% if isAnimation %} j-animation__row-item{% endif %}">
+            <div class="advantage__icon">
+                <img src="/webicons/location-adv/icon-{{ items[index].icon }}.svg" alt="Изображение {{ items[index].title }}">
+            </div>
+            <p class="advantage__title"><b>{{ items[index].title }}</b></p>
+            <p class="advantage__text">{{ items[index].text }}</p>
+        </div>
+    {% endfor %}
+</div>

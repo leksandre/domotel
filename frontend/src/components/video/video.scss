@@ -1,0 +1,25 @@
+// DEPENDENCIES
+
+// SETTINGS
+
+// BLOCK
+.video {
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    position: relative;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+// ELEMENTS
+
+// MODS
+.video_size_4x3 {
+    padding-bottom: 75%;
+}

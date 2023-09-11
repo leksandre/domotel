@@ -1,0 +1,17 @@
+<section id="{{ id|default('advantages') }}"
+         class="section j-anchor-section{% if animationClass %} {{ animationClass }}{% endif %}{% if reveal %} page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__common">
+            <h2 class="j-animation__header">{{ title|default('Преимущества') }}</h2>
+            <div class="grid__wrapper">
+                {% include '../../components/advantages/advantages.twig' with {
+                    isAnimation: animationClass ? true : false,
+                    id,
+                    title,
+                    count,
+                    wrap
+                } %}
+            </div>
+        </div>
+    </div>
+</section>

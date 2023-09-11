@@ -1,0 +1,171 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$floor-switcher-icon-bg: $black;
+$floor-switcher-button-bg: $white;
+$floor-switcher-button-bg-mobile: rgba(0, 0, 0, 0);
+$floor-switcher-button-active-bg: $brand-dark;
+$floor-switcher-button-hover-bg: $brand-base;
+$floor-switcher-button-active-text: $white;
+$floor-switcher-button-disabled-text: rgba($brand-text-rgb, 0.3);
+$floor-switcher-button-disabled-active-text: rgba($white-rgb, 0.3);
+
+// BLOCK
+.visual-floors-switcher {
+    @media #{$laptop} {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: column(1);
+        transform: translateY(-50%);
+        width: auto;
+    }
+}
+
+// ELEMENTS
+.visual-floors-switcher__panel {
+    @include row();
+    @include vertical-paddings(2, 36);
+    @include padding-level(both, tomato);
+    justify-content: space-between;
+    background-color: $floor-switcher-button-bg;
+}
+
+.visual-floors-switcher__panel-title {
+    @include font-size(p2-bold);
+}
+
+.visual-floors-switcher__panel-amount {
+    @include font-size(p3-regular);
+
+    &:first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.visual-floors-switcher__container {
+    @include scale(height, null, null, 440);
+    @include scale(max-height, null, null, 440);
+
+    @media #{$laptop} {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &.is-short {
+        // Media
+        @media #{$laptop} {
+            justify-content: center;
+        }
+    }
+}
+
+.visual-floors-switcher__wrap {
+    @include scale(height, null, null, 336);
+    overflow: hidden;
+}
+
+.visual-floors-switcher__item {
+    @include transition(background-color, opacity);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    @media #{$laptop} {
+        width: unset;
+    }
+
+    &:hover {
+        .visual-floors-switcher__button {
+            @media #{$laptop} {
+                background-color: $floor-switcher-button-hover-bg;
+                color: $floor-switcher-button-active-text;
+            }
+        }
+    }
+
+    &.is-active {
+        .visual-floors-switcher__button {
+            background-color: $floor-switcher-button-active-bg;
+            color: $floor-switcher-button-active-text;
+        }
+    }
+
+    &.is-disabled {
+        pointer-events: none;
+        cursor: default;
+
+        .visual-floors-switcher__button {
+            color: $floor-switcher-button-disabled-text;
+        }
+
+        &.is-active {
+            .visual-floors-switcher__button {
+                color: $floor-switcher-button-disabled-active-text;
+            }
+        }
+    }
+}
+
+.visual-floors-switcher__button {
+    @include scale(height, 48, 48, 48);
+    @include scale(width, 100%, 100%, 48);
+    @include reset-button();
+    @include row();
+    @include vertical-paddings(2, 36);
+    @include font-size(p2-bold);
+    @include transition(background-color, color);
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: $floor-switcher-button-bg-mobile;
+    text-align: left;
+
+    @media #{$laptop} {
+        background-color: $floor-switcher-button-bg;
+        justify-content: center;
+        padding: unset;
+        text-align: center;
+    }
+}
+
+.visual-floors-switcher__button-amount {
+    @include font-size(p3-regular);
+}
+
+.visual-floors-switcher__prev,
+.visual-floors-switcher__next {
+    @include transition(background-color);
+    @include reset-button();
+    @include scale(width, 48, 48, 48);
+    @include scale(height, 48, 48, 48);
+    background-color: $floor-switcher-button-bg;
+    text-align: center;
+
+    &.is-disabled {
+        pointer-events: none;
+
+        .visual-floors-switcher__svg {
+            opacity: 0.5;
+        }
+    }
+}
+
+.visual-floors-switcher__prev {
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+}
+
+.visual-floors-switcher__next {
+    @include scale(border-bottom-right-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+    @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+}
+
+.visual-floors-switcher__svg {
+    @include transition(opacity);
+    stroke: $floor-switcher-icon-bg;
+}
+
+// MODS

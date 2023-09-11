@@ -1,0 +1,46 @@
+<div class="section section_theme_media{% if animationClass %} {{ animationClass }}{% endif %}
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__media{% if animationClass %} j-animation__item{% endif %}">
+            {% embed '../../components/slider/slider.twig' with {
+                    id: 'j-slider',
+                    caption: true
+                }%}
+                    {% block slides %}
+                        {% include '../../components/slider/themes/slider-big/slider-big.twig' with {
+                            lazy: true,
+                            sliderId: sliderId|default('0'),
+                            slides: [
+                                {
+                                    src: '/images/slider/slide-1.jpg',
+                                    srcBig: '//images.asos-media.com/groups/komplekt-s-raznotsvetnym-printom-taj-daj-crooked-tongues/51977-group-1?$n_960w$&wid=952&fit=constrain',
+                                    alt: 'Изображение ЖК',
+                                    caption: 'Описание к фотографии'
+                                },{
+                                    src: '/images/slider/slide-2.jpg',
+                                    srcBig: '//images.asos-media.com/products/chernyj-blestyaschij-pidzhak-smoking-oblegayuschego-kroya-s-podplechnikami-asos-design/22195877-1-black?$n_960w$&wid=952&fit=constrain',
+                                    alt: 'Изображение ЖК',
+                                    caption: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis!'
+                                },{
+                                    src: '/images/slider/slide-3.jpg',
+                                    srcBig: '/images/slider/slide-3.jpg',
+                                    alt: 'Изображение ЖК',
+                                    caption: 'Жилой комплекс расположен на берегу «Теплостанского пруда» и окружен заказником «Тёплый стан»'
+                                },{
+                                    src: '/images/slider/slide-1.jpg',
+                                    srcBig: '/images/slider/slide-1.jpg',
+                                    alt: 'Изображение ЖК',
+                                    caption: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, veritatis!'
+                                },{
+                                    src: '/images/slider/slide-2.jpg',
+                                    srcBig: '/images/slider/slide-2.jpg',
+                                    alt: 'Изображение ЖК',
+                                    caption: 'Жилой комплекс расположен на берегу «Теплостанского пруда» и окружен заказником «Тёплый стан»'
+                                }
+                            ]
+                        }%}
+                    {% endblock %}
+                {% endembed %}
+        </div>
+    </div>
+</div>

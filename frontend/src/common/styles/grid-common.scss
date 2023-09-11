@@ -1,0 +1,595 @@
+// DEPENDENCIES
+@import "./colors";
+@import "./font-sizes";
+@import "./grid-mixins";
+@import "./management-layers";
+@import "./mixins";
+@import "./scale";
+@import "./vertical-indent";
+
+// SETTINGS
+$content-link-color: $brand-dark;
+$form-page-border-color: $brand-gray;
+
+// BLOCK
+.grid {
+    @include container();
+}
+
+// ELEMENTS
+.grid__common {
+    @include vertical-margins(3, 36);
+    width: column(30, 36);
+
+    // Media
+    @media #{$laptop} {
+        @include vertical-margins(4, 36);
+        width: column(28, 36);
+    }
+}
+
+.grid__wrapper {
+    &:not(:first-child) {
+        @include margin-level(top, green);
+    }
+}
+
+.grid__button-wrapper {
+    @include margin-level(top, yellow);
+}
+
+.grid__row {
+    @include row();
+}
+
+.grid__content {
+    width: 100%;
+
+    // Media
+    @media #{$tablet-landscape} {
+        width: column(20, 30);
+    }
+
+    @media #{$laptop} {
+        width: column(18, 28);
+    }
+
+    &:not(:first-child) {
+        @include margin-level(top, green);
+    }
+
+    > p {
+        &:not(:first-child) {
+            @include margin-level(top, yellow);
+        }
+
+        a {
+            &:hover {
+                // Media
+                @media #{$laptop} {
+                    color: $content-link-color;
+                }
+            }
+        }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5 {
+        &:first-child {
+            + p {
+                @include margin-level(top, cyan);
+            }
+        }
+
+        &:not(:first-child) {
+            @include margin-level(top, cyan);
+        }
+    }
+
+    small {
+        @include font-size(p3-regular);
+        display: block;
+
+        &:not(:first-child) {
+            @include margin-level(top, yellow);
+        }
+    }
+
+    p:not(:first-child) {
+        @include margin-level(top, yellow);
+    }
+}
+
+.grid__content-section {
+    width: 100%;
+
+    &:not(:first-child) {
+        @include margin-level(top, cyan);
+    }
+
+    .gallery-mini {
+        @include vertical-margins(-2, 30);
+        width: column(34, 30);
+
+        // Media
+        @media #{$tablet-portrait} {
+            @include vertical-margins(0);
+            width: 100%;
+        }
+    }
+}
+
+.grid__factoid {
+    @include scale(margin-top, 20, 0, 0);
+    width: 100%;
+
+    // Media
+    @media #{$tablet-landscape} {
+        @include push(2, 30);
+        width: column(8, 30);
+    }
+
+    @media #{$laptop} {
+        @include push(2, 28);
+        width: column(8, 28);
+    }
+}
+
+.grid__media {
+    @include vertical-margins(1, 36);
+    width: column(34, 36);
+    position: relative;
+
+    // Media
+    @media #{$laptop} {
+        @include vertical-margins(2, 36);
+        width: column(32, 36);
+    }
+
+    .visual-inner {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    }
+}
+
+// Сетка для карточки квартиры
+.grid__flat {
+    @include vertical-margins(2, 36);
+    width: column(32, 36);
+}
+
+// Сетка для текста и картинки (мини-галереи)
+.grid__text {
+    @include vertical-margins(3, 36);
+    flex-direction: column;
+    width: column(30, 36);
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-margins(3, 36);
+        width: column(30, 36);
+    }
+
+    @media #{$laptop} {
+        @include push(0, 36);
+        @include post(4, 36);
+        display: flex;
+        align-items: flex-start;
+        order: 2;
+        width: column(8, 36);
+    }
+}
+
+.grid__visual {
+    @include vertical-margins(1, 36);
+    width: column(34, 36);
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-margins(3, 36);
+        width: column(30, 36);
+    }
+
+    @media #{$laptop} {
+        @include push(4, 36);
+        @include post(2, 36);
+        order: 1;
+        width: column(18, 36);
+    }
+}
+
+.grid__caption {
+    width: 100%;
+
+    // Media
+    @media #{$laptop} {
+        width: column(8, 30);
+    }
+
+    h2,
+    h3,
+    h4 {
+        @include font-size(h5);
+    }
+
+    > p {
+        @include font-size(p2-regular);
+
+        &:not(:first-child) {
+            @include margin-level(top, orange);
+        }
+    }
+}
+
+.grid__figure {
+    @include scale(margin-top, 24, 40, 0);
+    width: 100%;
+
+    // Media
+    @media #{$laptop} {
+        @include push(2, 30);
+        width: column(20, 30);
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
+// Сетка для карты
+.grid__map {
+    @include vertical-margins(3, 36);
+    width: column(30, 36);
+    position: relative;
+    overflow: hidden;
+
+    @media #{$laptop} {
+        @include vertical-margins(2, 36);
+        width: column(32, 36);
+    }
+}
+
+.grid__map-route {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    margin-right: 56px;
+
+    @media #{$tablet-portrait} {
+        margin-right: 64px;
+        top: 16px;
+    }
+
+    @media #{$laptop} {
+        margin-right: vw-desk(64);
+        top: vw-desk(16);
+    }
+
+    @media #{$laptop-extra-wide} {
+        margin-right: 64px;
+        top: 16px;
+    }
+}
+
+.grid__map-location {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: z(nav);
+    pointer-events: none;
+    overflow: hidden;
+
+    @media #{$tablet-landscape} {
+        position: static;
+        width: column(13.5, 30);
+        height: auto;
+    }
+
+    @media #{$laptop} {
+        width: column(10, 30);
+    }
+
+    @media #{$laptop-wide} {
+        width: column(9, 32);
+    }
+
+    &.is-open {
+        pointer-events: all;
+    }
+}
+
+.grid__map-filter-btn {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+
+    @media #{$tablet-portrait} {
+        left: 16px;
+        bottom: 16px;
+    }
+
+    @media #{$laptop} {
+        left: vw-desk(16);
+        bottom: vw-desk(16);
+    }
+
+    @media #{$laptop-extra-wide} {
+        left: 16px;
+        bottom: 16px;
+    }
+}
+
+.grid__news {
+    @include vertical-margins(0);
+    width: 100%;
+
+    &:not(:first-child) {
+        @include margin-level(top, blue);
+    }
+}
+
+.grid__features {
+    @include margin-level(bottom, white, orange);
+    @include row();
+    width: 100%;
+}
+
+.grid__feature {
+    @include margin-level(bottom, orange);
+    @include scale(padding-right, 8, 16, 16);
+    width: 50%;
+
+    // Media
+    @media #{$tablet-portrait} {
+        width: column(1, 3);
+    }
+
+    @media #{$laptop-wide} {
+        width: column(1, 4);
+    }
+}
+
+.grid__feature-title {
+    @include font-size(p3-regular);
+    opacity: 0.5;
+}
+
+.grid__feature-text {
+    @at-root p#{&} {
+        @include font-size(p2-bold);
+
+        &:not(:first-child) {
+            @include margin-level(top, rose);
+        }
+    }
+}
+
+// Сетка для блока с формой
+.grid__form {
+    @include vertical-margins(-2, 30);
+    @include vertical-paddings(3, 30);
+    @include padding-level(top, blue);
+    @include padding-level(bottom, violet);
+    @include scale(border, 1, 1, 1, solid $form-page-border-color);
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, 0, null);
+    @include scale(border-bottom-right-radius, func "calc(var(--is-br) * $)" 8, 0, null);
+    width: column(34, 30);
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-margins(0);
+        width: 100%;
+    }
+
+    // Media
+    @media #{$tablet-landscape} {
+        @include vertical-paddings(2, 28);
+        border-right: none;
+        width: 50%;
+    }
+}
+
+.grid__poster {
+    display: none;
+
+    // Media
+    @media #{$tablet-landscape} {
+        display: block;
+        width: 50%;
+    }
+
+    picture {
+        display: inline;
+    }
+
+    img {
+        @include object-fit(cover);
+        @include scale(border-top-right-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        @include scale(border-bottom-right-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+// Сетка для параметрического
+.grid__parametric {
+    @include vertical-margins(2, 36);
+    width: column(32, 36);
+
+    // Media
+    @media #{$laptop} {
+        @include push(2, 36);
+        @include post(1, 36);
+        width: column(33, 36);
+    }
+}
+
+.grid__flat-plan {
+    position: absolute;
+    top: -80px;
+    right: column(1, 36);
+    width: column(13.5, 36);
+    z-index: z(default);
+
+    @media #{$tablet-portrait} {
+        top: 0;
+        right: column(0.5, 36);
+    }
+
+    @media #{$tablet-landscape} {
+        top: -40px;
+    }
+
+    @media #{$laptop} {
+        top: vw-desk(-180);
+        right: column(2, 36);
+        width: column(13, 36);
+    }
+
+    @media #{$laptop-wide} {
+        top: vw-desk(-200);
+    }
+
+    @media #{$laptop-extra-wide} {
+        top: -200px;
+    }
+}
+
+.grid__gallery {
+    @include margin-level(top, pink);
+}
+
+// MODS
+.grid__common_size_wide {
+    // Media
+    @media #{$laptop} {
+        @include push(4, 36);
+        @include post(2, 36);
+        width: column(30, 36);
+    }
+}
+
+.grid_theme_relative {
+    position: relative;
+}
+
+.grid_theme_reverse {
+    .grid__content {
+        // Media
+        @media #{$tablet-landscape} {
+            order: 1;
+        }
+    }
+
+    .grid__factoid {
+        // Media
+        @media #{$tablet-landscape} {
+            @include push(0);
+            @include post(2, 30);
+            order: 0;
+        }
+
+        @media #{$laptop} {
+            @include post(2, 28);
+        }
+    }
+
+    .grid__visual {
+        // Media
+        @media #{$laptop} {
+            @include push(1, 36);
+            @include post(4, 36);
+            order: 2;
+        }
+    }
+
+    .grid__text {
+        // Media
+        @media #{$laptop} {
+            @include push(4, 36);
+            @include post(1, 36);
+            order: 1;
+        }
+    }
+
+    .grid__caption {
+        // Media
+        @media #{$laptop} {
+            order: 1;
+        }
+    }
+
+    .grid__figure {
+        // Media
+        @media #{$laptop} {
+            @include push(0);
+            @include post(2, 30);
+            order: 0;
+        }
+    }
+
+    .grid__common_size_wide {
+        @include push(2, 36);
+        @include post(4, 36);
+    }
+}
+
+.grid_side_laptop {
+    .grid__content {
+        @media #{$tablet-landscape-only} {
+            width: 100%;
+        }
+    }
+
+    .grid__factoid {
+        // Media
+        @media #{$tablet-landscape-only} {
+            margin-top: 40px; // cyan
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+}
+
+.grid__wrapper_size_blue {
+    &:not(:first-child) {
+        @include margin-level(top, blue);
+    }
+}
+
+.grid__content_size_medium {
+    // Media
+    @media #{$tablet-portrait} {
+        width: column(17, 30);
+    }
+
+    @media #{$laptop} {
+        width: column(15, 28);
+    }
+}
+
+.grid__content_size_full {
+    // Media
+    @media #{$tablet-landscape} {
+        width: 100%;
+    }
+
+    @media #{$laptop} {
+        width: 100%;
+    }
+}

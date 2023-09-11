@@ -1,0 +1,173 @@
+// Версия - 3.7
+// Документация - https://kelnik.gitbooks.io/kelnik-documentation/content/front-end/grid.html
+// ЗАВИСИМОСТИ
+@use "sass:math";
+@import "./breakpoints";
+
+// ОСНОВНЫЕ НАСТРОЙКИ
+
+// значения max-width
+// max-width - 1600 || 100% || auto
+// 160 - max-width = 1600px, равно переданному числу
+// auto - max width = columns * columns width
+// 100% - max width: 100%, равно переданным процентам
+$grid-tablet-portrait-width: 424;
+$grid-tablet-landscape-width: 960;
+$grid-max-width: 1600;
+
+// число колонок
+$grid-columns: 36;
+
+// ширина колонки
+$grid-columns-width: 38;
+
+// ФУНКЦИИ
+
+// переводит число в пиксели
+// $number - {Number} - число - 100
+// @return - {String} - возвращает число в пикселях - 100px
+@function numberToPx($number) {
+    @return $number * 1px;
+}
+
+// переводит количество колонок в проценты
+// @return - {Number} - возвращает ширину колонки в процентах
+@function column($number:1, $of: $grid-columns) {
+    @return percentage(math.div($number, $of));
+}
+
+// МИКСИНЫ
+
+// контейнер - указываем максимальную ширину и центрирует контент
+@mixin container($width: $grid-max-width) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @if $width == auto {
+        max-width: numberToPx($grid-columns * $grid-columns-width);
+    } @else if unit($width) == "%" {
+        max-width: $width;
+    } @else if type-of($width) == "number" {
+        max-width: numberToPx($width);
+    }
+}
+
+// создает ряд. flexbox
+@mixin row() {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// создает колонку
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin column($number: 1, $of: $grid-columns) {
+    flex-basis: column($number, $of);
+    max-width: column($number, $of);
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+// margin left
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin push($number, $of: $grid-columns) {
+    margin-left: column($number, $of);
+}
+
+// margin right
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin post($number, $of: $grid-columns) {
+    margin-right: column($number, $of);
+}
+
+// margin left and right
+// Объединяет push и post. Удобно когда они используются с одинаковыми значениями
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin vertical-margins($number, $of: $grid-columns) {
+    @include push($number, $of);
+    @include post($number, $of);
+}
+
+// padding left
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin prefix($number, $of: $grid-columns) {
+    padding-left: column($number, $of);
+}
+
+// padding right
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin suffix($number, $of: $grid-columns) {
+    padding-right: column($number, $of);
+}
+
+// padding left and right
+// Объединяет prefix и suffix. Удобно когда они используются с одинаковыми значениями
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+
+@mixin vertical-paddings($number, $of: $grid-columns) {
+    @include prefix($number, $of);
+    @include suffix($number, $of);
+}
+
+// толкает по горизонтали колонку и весь последующий контент в конец
+@mixin shift() {
+    margin-left: auto;
+}
+
+// делает колонку первой
+@mixin start() {
+    order: -9999;
+}
+
+// центрирует колонку по горизонтали
+@mixin center() {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Создаёт квадратные отступы для элемента
+// $direction-list - {String} - список направлений, пример 'top' или 'bottom left'
+// $value - {Number} - значение отступа
+// $indent - {String} - тип отступа, либо margin, либо padding
+@mixin square-indent($direction-list, $value, $indent) {
+    @each $direction in $direction-list {
+        #{$indent}-#{$direction}: $value;
+    }
+}
+
+// Создаёт квадратные отступы для элемента через padding
+// $direction-list - {String} - список направлений
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin square-padding($direction-list, $number: 1, $of: $grid-columns) {
+    @if $direction-list == "both" {
+        $direction-list: top bottom;
+    }
+    $value: column($number, $of);
+    @include square-indent($direction-list, $value, padding);
+}
+
+// Создаёт квадратные отступы для элемента через margin
+// $direction-list - {String} - список направлений
+// $number - {Number} - количество колонок
+// $of - {Number} - из какого количества колонок;  по умолчанию из $grid-columns = 36
+@mixin square-margin($direction-list, $number: 1, $of: $grid-columns) {
+    @if $direction-list == "both" {
+        $direction-list: top bottom;
+    }
+
+    $value: column($number, $of);
+    @include square-indent($direction-list, $value, margin);
+}
+
+// Задает ширину контейнеру контента на разных разрешениях
+@mixin grid-container() {
+    @include container($grid-max-width);
+}

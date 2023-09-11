@@ -1,0 +1,110 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$tooltip-bg: $white;
+$tooltip-shadow: $shadow-color;
+
+// BLOCK
+.tooltip {
+    @include transition(opacity);
+    @include scale(box-shadow, 0 10 60, 0 10 60, $tooltip-shadow);
+    position: absolute;
+    z-index: z(default);
+
+    @media #{$tablet-portrait} {
+        min-width: 280px;
+    }
+
+    @media #{$laptop} {
+        min-width: vw-desk(280);
+    }
+
+    @media #{$laptop-extra-wide} {
+        min-width: 280px;
+    }
+
+    &:before {
+        @include scale(border, 10, 10, 10, solid transparent);
+        @include scale(border-top, 10, 10, 10, solid $white);
+        @include pseudo();
+        left: 50%;
+        transform: translate(-50%, 100%);
+    }
+
+    &.is-single {
+        width: auto;
+    }
+
+    .list {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .list__item {
+        &:only-child {
+            margin-right: 0;
+        }
+    }
+}
+
+// ELEMENTS
+.tooltip__wrapper {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 6, func "calc(var(--is-br) * $)" 6, func "calc(var(--is-br) * $)" 6);
+    @include scale(padding, 12 20, 12 20, 16 24);
+    display: flex;
+    background-color: $tooltip-bg;
+}
+
+// MODS
+.tooltip_theme_top {
+    bottom: 40px;
+    left: 0;
+    right: 0;
+
+    @media #{$tablet-portrait} {
+        bottom: 55px;
+        left: unset;
+        right: unset;
+    }
+
+    &:before {
+        display: none;
+
+        @media #{$tablet-portrait} {
+            display: block;
+            top: auto;
+            bottom: 0;
+        }
+    }
+}
+
+.tooltip_theme_bottom {
+    top: 55px;
+    left: 0;
+    right: 0;
+
+    @media #{$tablet-portrait} {
+        top: 40px;
+        left: unset;
+        right: unset;
+    }
+
+    &:before {
+        @include scale(top, -20, -20, -20);
+        bottom: auto;
+        transform: rotate(180deg);
+    }
+}
+
+.tooltip_action_hover {
+    opacity: 0;
+
+    &.is-active {
+        opacity: 1;
+    }
+
+    &:not(.is-active) {
+        @include visually-hidden();
+    }
+}

@@ -1,0 +1,6 @@
+<div class="yandex-map__about-marker {% if modifyClass %}yandex-map__about-marker_{{ modifyClass }}_marker{% endif %} j-yandex-map-marker"
+     style="width:{{icon.size.width}}px; height:{{icon.size.height}}px">
+    {% if icon.src %}
+        <img src="{{ icon.src }}" alt="icon">
+    {% endif %}
+</div>

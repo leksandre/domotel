@@ -1,0 +1,44 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+
+// BLOCK
+.visual-filter {
+    @include margin-level(bottom, green);
+    @include row();
+    position: relative;
+    bottom: 0;
+    width: 100%;
+
+    @media #{$tablet-landscape} {
+        justify-content: center;
+    }
+}
+
+// ELEMENTS
+.visual-filter__button {
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: white;
+    pointer-events: auto;
+}
+
+.visual-filters__form {
+    pointer-events: auto;
+}
+
+.visual-filters__list {
+    @include row();
+    flex-direction: column;
+
+    @media #{$tablet-landscape} {
+        flex-direction: row;
+    }
+}
+
+// MODS

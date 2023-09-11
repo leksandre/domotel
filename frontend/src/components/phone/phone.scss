@@ -1,0 +1,28 @@
+// Версия - 1.0
+// Документация - https:// kelnik.gitbooks.io/kelnik-documentation/content/front-end/components/phone.html
+
+// DEPENDENCIES
+@import "../../common/styles/breakpoints";
+@import "../../common/styles/colors";
+@import "../../common/styles/mixins";
+
+// SETTINGS
+$phone-hover: $brand-base;
+
+// BLOCK
+.phone {
+    @include transition(color);
+    white-space: nowrap;
+    background: none;
+
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            color: $phone-hover;
+        }
+    }
+}
+
+// ELEMENTS
+
+// MODS

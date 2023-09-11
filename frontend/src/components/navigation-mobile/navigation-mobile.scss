@@ -1,0 +1,113 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$nm-link-active: $brand-dark;
+$nm-search-link-bg-color: rgba($brand-base-rgb, 0.2);
+$nm-search-svg-fill: $brand-base;
+$nm-search-arrow-fill: $brand-text;
+
+// BLOCK
+.navigation-mobile {
+    @include vertical-paddings(3, 36);
+    @include padding-level(top, yellow);
+    @include padding-level(bottom, cyan);
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+// ELEMENTS
+.navigation-mobile__button {
+    @include reset-button();
+    width: 100%;
+}
+
+.navigation-mobile__link,
+.navigation-mobile__button {
+    @include scale(padding, 12 16, null, null);
+    @include transition(color);
+    @include font-size(p2-bold);
+    @include row();
+    align-items: center;
+    width: 100%;
+
+    &.is-active {
+        color: $nm-link-active;
+    }
+
+    svg {
+        @include scale(margin-right, 16, null, null);
+        fill: $nm-search-svg-fill;
+    }
+
+    img {
+        @include scale(margin-right, 16, null, null);
+    }
+}
+
+.navigation-mobile__button-back {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, null, null);
+    @include scale(margin-top, 16, null, null);
+    background-color: rgba($brand-gray-rgb, 0.2);
+
+    svg {
+        fill: $nm-search-arrow-fill;
+    }
+}
+
+.navigation-mobile__phone {
+    &:not(:first-child) {
+        @include margin-level(top, yellow);
+    }
+
+    .phone {
+        @include font-size(p2-bold);
+    }
+}
+
+// MODS
+.navigation-mobile__list-item_theme_search {
+    @include margin-level(bottom, rose);
+
+    .navigation-mobile__link {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        @include font-size(p2-bold);
+        background-color: $nm-search-link-bg-color;
+    }
+}
+
+.navigation-mobile__list_theme_nested {
+    position: relative;
+
+    .navigation-mobile__list-item {
+        align-items: center;
+    }
+
+    .navigation-mobile__list-arrow {
+        margin-left: auto;
+        margin-right: 0;
+        fill: $nm-search-arrow-fill;
+    }
+
+    .navigation-mobile__list-nested {
+        @include scale(padding-top, 56, null, null);
+        @include transition(transform);
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: $white;
+        transform: translateX(100%);
+        z-index: z(default);
+
+        &.is-active {
+            transform: translateX(0);
+        }
+    }
+}

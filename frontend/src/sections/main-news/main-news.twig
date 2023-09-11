@@ -1,0 +1,54 @@
+<section id="news" class="section j-anchor-section{% if animationClass %} {{ animationClass }}{% endif %}{% if reveal %} page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <h2 class="j-animation__header">Новости</h2>
+            </div>
+            <div class="grid__news">
+                <div class="main-news">
+                    {% embed '../../components/slider/slider.twig' with {
+                        id: 'slider_theme_news j-slider-news j-animation__slider',
+                        caption: true
+                    }%}
+                        {% block slides %}
+                            {% include '../../components/slider/themes/slider-news/slider-news.twig' with {
+                                lazy: true,
+                                slides: [
+                                    {
+                                        modify: animationClass ? 'j-animation__row-item' : '',
+                                        src: '/images/picture/first-screen-bg.jpg',
+                                        srcBig: '/images/picture/first-screen-bg.jpg',
+                                        alt: 'Изображение ЖК',
+                                        title: 'Текст новости в несколько строк',
+                                        date: '22 мая 2021'
+                                    },{
+                                        modify: animationClass ? 'j-animation__row-item' : '',
+                                        src: '/images/picture/first-screen-bg.jpg',
+                                        srcBig: '/images/picture/first-screen-bg.jpg',
+                                        alt: 'Изображение ЖК',
+                                        title: 'Текст новости в несколько строк и ещё чуть-чуть и ещё чуть-чуть ',
+                                        date: '22 мая 2021'
+                                    },{
+                                        modify: animationClass ? 'j-animation__row-item' : '',
+                                        src: '/images/picture/first-screen-bg.jpg',
+                                        srcBig: '/images/picture/first-screen-bg.jpg',
+                                        alt: 'Изображение ЖК',
+                                        title: 'Текст новости в несколько строк и ещё чуть-чуть',
+                                        date: '22 мая 2021'
+                                    },{
+                                        modify: animationClass ? 'j-animation__row-item' : '',
+                                        src: '/images/picture/first-screen-bg.jpg',
+                                        srcBig: '/images/picture/first-screen-bg.jpg',
+                                        alt: 'Изображение ЖК',
+                                        title: 'Текст новости в несколько строк и ещё чуть-чуть',
+                                        date: '22 мая 2021'
+                                    }
+                                ]
+                            }%}
+                        {% endblock %}
+                    {% endembed %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

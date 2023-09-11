@@ -1,0 +1,10 @@
+<a
+    href="{{ href }}"
+    class="link{% if modify %} {{modify}}{% endif %}">
+
+    <span class="link__text">{{ text }}</span>
+
+    {% if icon %}
+        {% include "./media/" ~ icon %}
+    {% endif %}
+</a>

@@ -1,0 +1,50 @@
+<div class="contacts{% if isAnimations %} j-animation__row" data-items="320:1,670:2{% endif %}">
+    {% for item in items %}
+        <div class="contacts__item{% if isAnimations %} j-animation__row-item{% endif %}">
+            <div class="contacts__icon">
+                {% include './media/contacts-pin.svg' %}
+            </div>
+
+            <div class="contacts__content">
+                <div class="contacts__title">
+                    {{ item.title }}
+                </div>
+
+                {% if item.address %}
+                    <div class="contacts__info not-wrap">
+                        {{ item.address }}
+                    </div>
+                {% endif %}
+
+                {% if item.phone %}
+                    <a href="tel:{{ item.phone }}" class="contacts__info contacts__info_phone_contact">{{ item.phone }}</a>
+                {% endif %}
+
+                {% if item.time %}
+                    <div class="contacts__info">
+                        {% for time in item.time %}
+                            <span>{{ time }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if item.email %}
+                    <a href="mailto:{{ item.email }}" class="contacts__info">{{ item.email }}</a>
+                {% endif %}
+
+                {% if item.route %}
+                    <div class="contacts__info">
+                        {% include '../link/link.twig' with {
+                            icon: 'external-link.svg',
+                            text: 'Проложить маршрут',
+                            modify: 'link_theme_external'
+                        } %}
+                    </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
+

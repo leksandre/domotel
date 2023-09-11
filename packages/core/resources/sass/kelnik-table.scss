@@ -1,0 +1,16 @@
+table.kelnik-table {
+    tr:hover {
+        background-color: $gray;
+        background-color: rgba($gray, 0.05);
+    }
+
+    tr.kelnik-page_is-dynamic {
+        background-color: $cyan;
+        background-color: rgba($cyan, 0.07);
+    }
+
+    tr.kelnik-page_is-dynamic:hover {
+        background-color: $cyan;
+        background-color: rgba($cyan, 0.1);
+    }
+}

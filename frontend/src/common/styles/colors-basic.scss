@@ -1,0 +1,77 @@
+// Version - 2.0
+// Documentation -
+// https://sass-lang.com/documentation/breaking-changes/css-vars
+// https://medium.com/techhive-io/how-to-use-css-variables-with-sass-mixins-671e1f6067b3
+// https://codeburst.io/magic-of-css-sass-variables-b07ae8c1b775
+// https://stackoverflow.com/questions/40010597/how-do-i-apply-opacity-to-a-css-color-variable
+
+@function hextorgb($hex) {
+    @return red($hex), green($hex), blue($hex);
+}
+
+// Default Colors
+$basic-violet: #9400d3;
+$basic-indigo: #4b0082;
+$basic-blue: #0000ff;
+$basic-green: #00ff00;
+$basic-yellow: #ffff00;
+$basic-orange: #ff7f00;
+$basic-red: #f76060;
+$basic-error: #ff001f;
+$basic-black: #000000;
+$basic-white: #ffffff;
+$basic-gray: #cccccc;
+$basic-dark: #1b1b1b;
+
+// Brand colors
+$basic-brand-text: #0b1739;
+$basic-brand-headers: #0b1739;
+$basic-brand-gray: #e2e2e2;
+$basic-brand-gray-light: #f2f2f2;
+$basic-brand-base: #95d0a1;
+$basic-brand-dark: #3eb57c;
+$basic-brand-light: #6cd3a2;
+
+$basic-additional-1: #a47feb;
+$basic-additional-2: #f66897;
+$basic-additional-3: #f2d74c;
+$basic-additional-4: #6de3fd;
+$basic-additional-5: #95d0a1;
+
+$colors: (
+    // Default colors
+    "violet": $basic-violet,
+    "indigo": $basic-indigo,
+    "blue": $basic-blue,
+    "green": $basic-green,
+    "yellow": $basic-yellow,
+    "orange": $basic-orange,
+    "red": $basic-red,
+    "error-red": $basic-error,
+    "black": $basic-black,
+    "white": $basic-white,
+    "gray": $basic-gray,
+    "dark": $basic-dark,
+    // Brand colors
+    "brand-text": $basic-brand-text,
+    "brand-headers": $basic-brand-headers,
+    "brand-gray": $basic-brand-gray,
+    "brand-gray-light": $basic-brand-gray-light,
+    "brand-base": $basic-brand-base,
+    "brand-dark": $basic-brand-dark,
+    "brand-light": $basic-brand-light,
+    "additional-1": $basic-additional-1,
+    "additional-2": $basic-additional-2,
+    "additional-3": $basic-additional-3,
+    "additional-4": $basic-additional-4,
+    "additional-5": $basic-additional-5,
+    // Color page error (404, 410....)
+    "page-error-text": $basic-brand-text
+);
+
+:root {
+    @each $name, $color in $colors {
+        --color-#{$name}: #{$color};
+        --color-#{$name}-rgb: #{hextorgb($color)};
+    }
+}

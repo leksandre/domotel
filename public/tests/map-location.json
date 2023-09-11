@@ -1,0 +1,1027 @@
+{
+    "data": {
+        "zoom": 16,
+        "zoomMargin": 10,
+        "center": [
+            51.702115,
+            39.193415
+        ],
+        "markers": [
+            {
+                "id": 69,
+                "coords": [
+                    51.702631,
+                    39.193129
+                ],
+                "icon": {
+                    "type": "all",
+                    "src": "/webicons/yandex-map/pin.svg",
+                    "size": {
+                        "width": 58,
+                        "height": 59
+                    }
+                },
+                "type": "all",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0416\u0438\u043b\u043e\u0439 \u0434\u043e\u043c \u00ab\u041a\u0430\u043c\u0435\u0440\u0442\u043e\u043d\u00bb",
+                    "image": null,
+                    "text": ""
+                },
+                "not_cluster": true,
+                "zIndex": 2,
+                "modifyClass": "object"
+            },
+            {
+                "id": 38,
+                "coords": [
+                    51.705922,
+                    39.183156
+                ],
+                "icon": {
+                    "type": "parks",
+                    "src": "/webicons/legend/park.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "parks",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0411\u0430\u0441\u0441\u0435\u0439\u043d \u0412\u0413\u0423",
+                    "image": "\/storage\/6e45\/2952\/6e45327a67ec2a5170d12518c2b2937a8071dbd3.svg",
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 88\/1, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 51,
+                "coords": [
+                    51.705922,
+                    39.183156
+                ],
+                "icon": {
+                    "type": "parks",
+                    "src": "/webicons/legend/park.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "parks",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0414\u0435\u043b\u044c\u0444\u0438\u043d",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 88\/1, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 55,
+                "coords": [
+                    51.705917,
+                    39.183086
+                ],
+                "icon": {
+                    "type": "parks",
+                    "src": "/webicons/legend/park.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "parks",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0428\u043a\u043e\u043b\u0430 \u041f\u043b\u0430\u0432\u0430\u043d\u0438\u044f \u0412\u0413\u0423",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 88\/1, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 94,
+                "coords": [
+                    51.705922,
+                    39.183147
+                ],
+                "icon": {
+                    "type": "parks",
+                    "src": "/webicons/legend/park.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "parks",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0410\u043a\u0432\u0430\u043b\u0430\u0441\u0442\u0438\u043a\u0430",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 88\/1, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 41,
+                "coords": [
+                    51.704527,
+                    39.190999
+                ],
+                "icon": {
+                    "type": "parks",
+                    "src": "/webicons/legend/park.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "parks",
+                "position": "top",
+                "balloon": {
+                    "title": "Kinder gard",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 38, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 13,
+                "coords": [
+                    51.705733,
+                    39.183183
+                ],
+                "icon": {
+                    "type": "parks",
+                    "src": "/webicons/legend/park.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "parks",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0426\u0435\u043d\u0442\u0440 \u0441\u043f\u043e\u0440\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u043f\u043b\u0430\u0432\u0430\u043d\u0438\u044f",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 88\/1, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 11,
+                "coords": [
+                    51.705922,
+                    39.183156
+                ],
+                "icon": {
+                    "type": "parks",
+                    "src": "/webicons/legend/park.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "parks",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0421\u0442\u0438\u0445\u0438\u044f",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 88\/1, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 57,
+                "coords": [
+                    51.701302,
+                    39.182377
+                ],
+                "icon": {
+                    "type": "metro",
+                    "src": "/webicons/legend/metro.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "metro",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041f\u0430\u043c\u044f\u0442\u043d\u0438\u043a \u0421\u043b\u0430\u0432\u044b",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 82\u0413, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 28,
+                "coords": [
+                    51.703134,
+                    39.189476
+                ],
+                "icon": {
+                    "type": "metro",
+                    "src": "/webicons/legend/metro.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "metro",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0422\u0440\u043e\u043b\u043b\u0435\u0439\u0431\u0443\u0441\u043d\u043e\u0435 \u0434\u0435\u043f\u043e \u2116 2",
+                    "image": null,
+                    "text": "\u0420\u043e\u0441\u0441\u0438\u044f, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0443\u043b\u0438\u0446\u0430 \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430"
+                }
+            },
+            {
+                "id": 88,
+                "coords": [
+                    51.705017,
+                    39.181795
+                ],
+                "icon": {
+                    "type": "metro",
+                    "src": "/webicons/legend/metro.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "metro",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041f\u0430\u043c\u044f\u0442\u043d\u0438\u043a \u0421\u043b\u0430\u0432\u044b",
+                    "image": null,
+                    "text": "\u0420\u043e\u0441\u0441\u0438\u044f, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f\u0435\u043a\u0442"
+                }
+            },
+            {
+                "id": 51,
+                "coords": [
+                    51.694182,
+                    39.204136
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0414\u043e\u0440\u043e\u0436\u043d\u0430\u044f \u043a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430",
+                    "image": null,
+                    "text": "\u043f\u0435\u0440. \u0417\u0434\u043e\u0440\u043e\u0432\u044c\u044f, 2, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 70,
+                "coords": [
+                    51.696785,
+                    39.203988
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0422\u0440\u0430\u0432\u043c\u0430\u0442\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0443\u043d\u043a\u0442",
+                    "image": null,
+                    "text": "\u0443\u043b. 45-\u0439 \u0421\u0442\u0440\u0435\u043b\u043a\u043e\u0432\u043e\u0439 \u0414\u0438\u0432\u0438\u0437\u0438\u0438, 64, \u043a\u043e\u0440\u043f. 2, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 19,
+                "coords": [
+                    51.696535,
+                    39.203193
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041e\u0434\u043a\u0431 \u2116 2, \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043a\u043e\u0440\u043f\u0443\u0441",
+                    "image": null,
+                    "text": "\u0443\u043b. 45-\u0439 \u0421\u0442\u0440\u0435\u043b\u043a\u043e\u0432\u043e\u0439 \u0414\u0438\u0432\u0438\u0437\u0438\u0438, 64, \u043a\u043e\u0440\u043f. 2, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 67,
+                "coords": [
+                    51.697359,
+                    39.206054
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0412\u043e\u0440\u043e\u043d\u0435\u0436\u0441\u043a\u0430\u044f \u0434\u0435\u0442\u0441\u043a\u0430\u044f \u043a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430, \u042d\u043d\u0434\u043e\u043a\u0440\u0438\u043d\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0435",
+                    "image": null,
+                    "text": "\u043f\u0435\u0440. \u0417\u0434\u043e\u0440\u043e\u0432\u044c\u044f, 16, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 62,
+                "coords": [
+                    51.696247,
+                    39.198746
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041e\u0431\u043b\u0430\u0441\u0442\u043d\u0430\u044f \u0434\u0435\u0442\u0441\u043a\u0430\u044f \u043a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430 \u2116 2",
+                    "image": null,
+                    "text": "\u0443\u043b. 45-\u0439 \u0421\u0442\u0440\u0435\u043b\u043a\u043e\u0432\u043e\u0439 \u0414\u0438\u0432\u0438\u0437\u0438\u0438, 64, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 51,
+                "coords": [
+                    51.713165,
+                    39.189424
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041f\u0435\u0440\u0435\u0441\u0432\u0435\u0442",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0428\u0438\u0448\u043a\u043e\u0432\u0430, 107\u0411, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 23,
+                "coords": [
+                    51.697322,
+                    39.205597
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0412\u0413\u041c\u0423 \u0438\u043c. \u041d. \u041d. \u0411\u0443\u0440\u0434\u0435\u043d\u043a\u043e \u0412\u043e\u0440\u043e\u043d\u0435\u0436\u0441\u043a\u0430\u044f \u0434\u0435\u0442\u0441\u043a\u0430\u044f \u043a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430",
+                    "image": null,
+                    "text": "\u043f\u0435\u0440. \u0417\u0434\u043e\u0440\u043e\u0432\u044c\u044f, 16, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 81,
+                "coords": [
+                    51.696868,
+                    39.199658
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041e\u0431\u043b\u0430\u0441\u0442\u043d\u0430\u044f \u0434\u0435\u0442\u0441\u043a\u0430\u044f \u043a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430 \u2116 2, \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0435 \u043f\u0430\u043b\u043b\u0438\u0430\u0442\u0438\u0432\u043d\u043e\u0439 \u043f\u043e\u043c\u043e\u0449\u0438",
+                    "image": null,
+                    "text": "\u0443\u043b. 45-\u0439 \u0421\u0442\u0440\u0435\u043b\u043a\u043e\u0432\u043e\u0439 \u0414\u0438\u0432\u0438\u0437\u0438\u0438, 64, \u043a\u043e\u0440\u043f. 3, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 56,
+                "coords": [
+                    51.696758,
+                    39.199613
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041a\u043e\u0440\u043f\u0443\u0441 3",
+                    "image": null,
+                    "text": "\u0443\u043b. 45-\u0439 \u0421\u0442\u0440\u0435\u043b\u043a\u043e\u0432\u043e\u0439 \u0414\u0438\u0432\u0438\u0437\u0438\u0438, 64, \u043a\u043e\u0440\u043f. 3, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 64,
+                "coords": [
+                    51.694244,
+                    39.204258
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430 \u0420\u0416\u0414-\u041c\u0435\u0434\u0438\u0446\u0438\u043d\u0430 \u0433. \u0412\u043e\u0440\u043e\u043d\u0435\u0436",
+                    "image": null,
+                    "text": "\u043f\u0435\u0440. \u0417\u0434\u043e\u0440\u043e\u0432\u044c\u044f, 2, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 58,
+                "coords": [
+                    51.703839,
+                    39.189294
+                ],
+                "icon": {
+                    "type": "kindergarden",
+                    "src": "/webicons/legend/kindergarden.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "kindergarden",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041c\u0411\u0414\u041e\u0423 \u0434\u0435\u0442\u0441\u043a\u0438\u0439 \u0441\u0430\u0434 \u043e\u0431\u0449\u0435\u0440\u0430\u0437\u0432\u0438\u0432\u0430\u044e\u0449\u0435\u0433\u043e \u0432\u0438\u0434\u0430 \u2116 157",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 38\u0410, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 21,
+                "coords": [
+                    51.701841,
+                    39.188633
+                ],
+                "icon": {
+                    "type": "kindergarden",
+                    "src": "/webicons/legend/kindergarden.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "kindergarden",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041c\u0411\u0414\u041e\u0423 \u0434\u0435\u0442\u0441\u043a\u0438\u0439 \u0441\u0430\u0434 \u2116 105",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 27, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 72,
+                "coords": [
+                    51.69988,
+                    39.18778
+                ],
+                "icon": {
+                    "type": "kindergarden",
+                    "src": "/webicons/legend/kindergarden.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "kindergarden",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041c\u0411\u0414\u041e\u0423 \u0434\u0435\u0442\u0441\u043a\u0438\u0439 \u0441\u0430\u0434 \u043e\u0431\u0449\u0435\u0440\u0430\u0437\u0432\u0438\u0432\u0430\u044e\u0449\u0435\u0433\u043e \u0432\u0438\u0434\u0430 \u2116 102",
+                    "image": null,
+                    "text": "\u0411\u0435\u0433\u043e\u0432\u0430\u044f \u0443\u043b., 2\u0410, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 45,
+                "coords": [
+                    51.700226,
+                    39.193543
+                ],
+                "icon": {
+                    "type": "kindergarden",
+                    "src": "/webicons/legend/kindergarden.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "kindergarden",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041c\u0411\u0414\u041e\u0423 \u0434\u0435\u0442\u0441\u043a\u0438\u0439 \u0441\u0430\u0434 \u043e\u0431\u0449\u0435\u0440\u0430\u0437\u0432\u0438\u0432\u0430\u044e\u0449\u0435\u0433\u043e \u0432\u0438\u0434\u0430 \u2116 141",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0428\u0438\u0448\u043a\u043e\u0432\u0430, 59, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 98,
+                "coords": [
+                    51.702849,
+                    39.188251
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0410\u043f\u0442\u0435\u043a\u0430 \u0412\u0418\u0422\u0410 \u042d\u043a\u0441\u043f\u0440\u0435\u0441\u0441",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 15, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 96,
+                "coords": [
+                    51.703289,
+                    39.187376
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041e\u0441\u0442\u0440\u043e\u0432 \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 38\/9, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 64,
+                "coords": [
+                    51.702737,
+                    39.184938
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0410\u043b\u043e\u044d",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 35, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 41,
+                "coords": [
+                    51.7028,
+                    39.1893
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0410\u043f\u0440\u0435\u043b\u044c",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 15, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 44,
+                "coords": [
+                    51.702803,
+                    39.186087
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u042d\u043a\u043e\u043d\u0430",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 33, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 58,
+                "coords": [
+                    51.702941,
+                    39.190806
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0412\u0435\u0441\u043d\u0430",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 13, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 57,
+                "coords": [
+                    51.702683,
+                    39.183677
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0417\u0434\u043e\u0440\u043e\u0432\u044b\u0439 \u0413\u043e\u0440\u043e\u0434",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 35, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 48,
+                "coords": [
+                    51.70154,
+                    39.182774
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0410\u043f\u0442\u0435\u043a\u0430 36 \u043f\u043b\u044e\u0441",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 82, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 64,
+                "coords": [
+                    51.707194,
+                    39.186868
+                ],
+                "icon": {
+                    "type": "pharmacy",
+                    "src": "/webicons/legend/pharmacy.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "pharmacy",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0424\u0430\u0440\u043c-\u0413\u0430\u0440\u0430\u043d\u0442",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 92\u0410, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 74,
+                "coords": [
+                    51.705944,
+                    39.187836
+                ],
+                "icon": {
+                    "type": "school",
+                    "src": "/webicons/legend/school.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "school",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0428\u043a\u043e\u043b\u0430 \u044e\u043d\u043e\u0433\u043e \u0436\u0443\u0440\u043d\u0430\u043b\u0438\u0441\u0442\u0430",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 40\u0410\/2, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 50,
+                "coords": [
+                    51.70461,
+                    39.187378
+                ],
+                "icon": {
+                    "type": "school",
+                    "src": "/webicons/legend/school.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "school",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0421\u043e\u0432\u0435\u0440\u0448\u0435\u043d\u0441\u0442\u0432\u043e",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 40, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 66,
+                "coords": [
+                    51.699269,
+                    39.192138
+                ],
+                "icon": {
+                    "type": "school",
+                    "src": "/webicons/legend/school.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "school",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041c\u0411\u041e\u0423 \u0421\u0440\u0435\u0434\u043d\u044f\u044f \u043e\u0431\u0449\u0435\u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0448\u043a\u043e\u043b\u0430 \u2116 47",
+                    "image": null,
+                    "text": "\u0411\u0435\u0433\u043e\u0432\u0430\u044f \u0443\u043b., 2, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 53,
+                "coords": [
+                    51.702745,
+                    39.186134
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0426\u0435\u043d\u0442\u0440\u0442\u043e\u0440\u0433 \u2116 46",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 33, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 75,
+                "coords": [
+                    51.702897,
+                    39.189151
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u044b \u0415\u0440\u043c\u043e\u043b\u0438\u043d\u043e",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 15, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 7,
+                "coords": [
+                    51.70332,
+                    39.18925
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041f\u044f\u0442\u0451\u0440\u043e\u0447\u043a\u0430",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 38\/11, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 59,
+                "coords": [
+                    51.702699,
+                    39.187696
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041c\u0430\u0433\u043d\u0438\u0442",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 25\/1, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 36,
+                "coords": [
+                    51.702601,
+                    39.184414
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0412\u043a\u0443\u0441\u0412\u0438\u043b\u043b",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 35, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 91,
+                "coords": [
+                    51.703211,
+                    39.183523
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041f\u044f\u0442\u0451\u0440\u043e\u0447\u043a\u0430",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0425\u043e\u043b\u044c\u0437\u0443\u043d\u043e\u0432\u0430, 48\u0410, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 61,
+                "coords": [
+                    51.702312,
+                    39.180424
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u0421\u0438\u0442\u0438\u043b\u0438\u043d\u043a",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 85, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 21,
+                "coords": [
+                    51.70706,
+                    39.188902
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041e\u043a\u0442\u044f\u0431\u0440\u044c\u0441\u043a\u0438\u0439",
+                    "image": null,
+                    "text": "\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f., 92, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            },
+            {
+                "id": 34,
+                "coords": [
+                    51.700658,
+                    39.191556
+                ],
+                "icon": {
+                    "type": "shop",
+                    "src": "/webicons/legend/shop.svg",
+                    "size": {
+                        "width": 28,
+                        "height": 29
+                    }
+                },
+                "type": "shop",
+                "position": "top",
+                "balloon": {
+                    "title": "\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u044b",
+                    "image": null,
+                    "text": "\u0443\u043b. \u0428\u0438\u0448\u043a\u043e\u0432\u0430, 61\u0410, \u0412\u043e\u0440\u043e\u043d\u0435\u0436, \u0420\u043e\u0441\u0441\u0438\u044f"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,78 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/management-layers";
+
+$pin-bg: $brand-base;
+$pin-bg-hover: $brand-dark;
+$tooltip-color: $white;
+
+// BLOCK
+.info-pin {
+    @include transition(background-color);
+    @include scale(width, 14, 14, 14);
+    @include scale(height, 14, 14, 14);
+    @include scale(margin-left, 6, 6, 6);
+    @include font-size(label);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: $pin-bg;
+    color: black;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $pin-bg-hover;
+
+        .info-pin__tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+// ELEMENTS
+.info-pin__tooltip {
+    @include scale(padding, 10 13, 10 13, 10 13);
+    @include scale(top, -10, -10, 50%);
+    @include scale(right, 50%, 50%, -10);
+    @include scale(width, 230, 230, 230);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 6, func "calc(var(--is-br) * $)" 6, func "calc(var(--is-br) * $)" 6);
+    @include scale(box-shadow, 0 20 60, 0 20 60, 0 20 60, rgba(black, 0.1));
+    @include transition(opacity);
+    @include font-size(label);
+    position: absolute;
+    transform: translate(50%, -100%);
+    background-color: white;
+    text-align: center;
+    z-index: z(default);
+    opacity: 0;
+    visibility: hidden;
+    white-space: normal;
+
+    @media #{$laptop} {
+        transform: translate(100%, -50%);
+    }
+
+    &:before {
+        @include scale(top, null, null, 50%);
+        @include scale(left, 50%, 50%, 0);
+        @include scale(bottom, -10, -10, auto);
+        @include scale(border, 5, 5, 5, solid transparent);
+        @include scale(border-top, 5, 5, null, solid $tooltip-color);
+        @include scale(border-right, null, null, 5, solid $tooltip-color);
+        position: absolute;
+        transform: translateX(-50%);
+        content: "";
+
+        @media #{$laptop} {
+            transform: translate(-100%, -50%);
+        }
+    }
+}
+
+// MODS

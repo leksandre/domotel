@@ -1,0 +1,21 @@
+{% for item in slides %}
+    <a href="promo.html" class="slider-news{% if item.modify %} {{ item.modify }}{% endif %}">
+        <div class="slider-news__images">
+            <picture{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+                <source media="(min-width: 320px)"
+                        {% if lazy %}loading="lazy" data-{% endif %}srcset="{{ item.src }}"
+                        data-origin="{{ item.src }}"
+                        data-big="{{ item.srcBig }}"
+                        type="image/jpeg">
+                <img {% if lazy %}loading="lazy" data-{% endif %}src="{{ item.src }}"
+                     data-origin="{{ item.src }}"
+                     data-big="{{ item.srcBig }}"
+                     alt="{{ item.alt }}">
+            </picture>
+        </div>
+        <div class="slider-news__content">
+            <div class="slider-news__title">{{ item.title }}</div>
+            <div class="slider-news__data">{{ item.date }}</div>
+        </div>
+    </a>
+{% endfor %}

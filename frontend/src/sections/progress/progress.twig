@@ -1,0 +1,108 @@
+<section id="progress"
+         class="section section_theme_progress j-anchor-section{% if animationClass %} {{ animationClass }}{% endif %}
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <h2 class="j-animation__header">Ход строительства</h2>
+                <div class="grid__wrapper">
+                    <div class="grid__row">
+                        <div class="grid__content">
+                            <div class="grid__features">
+                                <div class="grid__feature{% if animationClass %} j-animation__item{% endif %}">
+                                    <p class="grid__feature-title">Срок сдачи 4&nbsp;очереди</p>
+                                    <p class="grid__feature-text">Сентябрь 2021</p>
+                                </div>
+                                <div class="grid__feature{% if animationClass %} j-animation__item{% endif %}">
+                                    <p class="grid__feature-title">Срок сдачи 3&nbsp;очереди</p>
+                                    <p class="grid__feature-text">Сентябрь 2021</p>
+                                </div>
+                                <div class="grid__feature{% if animationClass %} j-animation__item{% endif %}">
+                                    <p class="grid__feature-title">Срок сдачи 2&nbsp;очереди</p>
+                                    <p class="grid__feature-text">Сентябрь 2021</p>
+                                </div>
+                                <div class="grid__feature{% if animationClass %} j-animation__item{% endif %}">
+                                    <p class="grid__feature-title">Срок сдачи 1&nbsp;очереди</p>
+                                    <p class="grid__feature-text">Сентябрь 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__factoid{% if animationClass %} j-animation__item{% endif %}">
+                            {% include '../../components/button/button.twig' with {
+                                modify: 'j-popup',
+                                dataAttr: 'data-ajax-online="true" data-ajax="/tests/online.json" data-query="GET"',
+                                text: 'Онлайн-трансляции'
+                            } %}
+                        </div>
+                        <div class="grid__content{% if animationClass %} j-animation__content{% endif %}">
+                            <p>На&nbsp;всех секциях выполнен 1-й этаж, начаты работы по&nbsp;второму этажу; Производится
+                                монтаж системы водоснабжения в&nbsp;подвальной части; Приступили к&nbsp;штукатурным
+                                работам.</p>
+                        </div>
+                        <div class="grid__content-section">
+                            {% embed '../../components/slider/slider.twig' with {
+                                id: 'slider_theme_banks j-slider-news j-animation__slider',
+                                caption: true,
+                                sliderWrapModify: "action"
+                            }%}
+                                {% block slides %}
+                                    {% include '../../components/progress-card/progress-card.twig' with {
+                                        animationClass: animationClass|default(false),
+                                        lazy: true,
+                                        items: [
+                                            {
+                                                id: 1,
+                                                src: '/images/picture/first-screen-bg.jpg',
+                                                srcBig: '/images/picture/first-screen-bg.jpg',
+                                                title: '29 сентября 2021',
+                                                info: '1 очередь',
+                                                video: 2,
+                                                photo: 24
+                                            },
+                                            {
+                                                id: 2,
+                                                src: '/images/picture/first-screen-bg.jpg',
+                                                srcBig: '/images/picture/first-screen-bg.jpg',
+                                                title: '29 сентября 2021',
+                                                info: '1 очередь',
+                                                video: 2,
+                                                photo: 24
+                                            },
+                                            {
+                                                id: 3,
+                                                src: '/images/picture/first-screen-bg.jpg',
+                                                srcBig: '/images/picture/first-screen-bg.jpg',
+                                                title: '29 сентября 2021',
+                                                info: '1 очередь',
+                                                video: 2,
+                                                photo: 24
+                                            },
+                                            {
+                                                id: 4,
+                                                src: '/images/picture/first-screen-bg.jpg',
+                                                srcBig: '/images/picture/first-screen-bg.jpg',
+                                                title: '29 сентября 2021',
+                                                info: '1 очередь',
+                                                video: 2,
+                                                photo: 24
+                                            },
+                                            {
+                                                id: 5,
+                                                src: '/images/picture/first-screen-bg.jpg',
+                                                srcBig: '/images/picture/first-screen-bg.jpg',
+                                                title: '29 сентября 2021',
+                                                info: '1 очередь',
+                                                video: 2,
+                                                photo: 24
+                                            }
+                                        ]
+                                    } %}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

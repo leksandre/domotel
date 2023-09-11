@@ -1,0 +1,191 @@
+// DEPENDENCIES
+@import "./styles/base";
+@import "../../src/components/list/list.scss";
+
+// SETTINGS
+$header-height: var(--header-height);
+$canvas-floor-bg: rgba($brand-base-rgb, 0.2);
+$breadcrumbs-dark-color: $brand-text;
+$breadcrumbs-icon-white: $white;
+$panel-overlay-bg: rgba($black-rgb, 0.7);
+$zoom-bg: $brand-text;
+$zoom-icon-bg: $white;
+
+// BLOCK
+// убирает отступ если на странице до выборщика есть другие блоки
+.section + .visual {
+    position: relative;
+    margin-top: 0;
+
+    &:before,
+    .visual-pinchzoom {
+        position: absolute;
+    }
+}
+
+.visual {
+    position: relative;
+    margin-top: $header-height;
+    width: 100%;
+    height: calc(100vh - #{$header-height});
+
+    &:before {
+        @include transition(all);
+        content: "";
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $panel-overlay-bg;
+        z-index: z(visualoverlay);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.is-overlay {
+        .visual-canvas__overlay {
+            fill-opacity: 0;
+        }
+
+        &:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+// ELEMENTS
+.visual__wrapper {
+    @include transition(opacity);
+    position: relative;
+    height: calc(100vh - #{$header-height});
+    width: 100%;
+    opacity: 0;
+
+    &.is-show {
+        opacity: 1;
+    }
+}
+
+.visual__canvas {
+    height: 100%;
+}
+
+.visual-canvas__overlay {
+    @include transition(fill-opacity);
+}
+
+.visual__header {
+    @include margin-level(top, green);
+    @include vertical-margins(1, 36);
+    position: absolute;
+    width: column(34, 36);
+    pointer-events: none;
+    z-index: z(default);
+}
+
+.visual__footer {
+    @include vertical-margins(1, 36);
+    pointer-events: none;
+    position: fixed;
+    bottom: 0;
+    width: column(34, 36);
+    z-index: z(default);
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        position: absolute;
+    }
+}
+
+// MODS
+.visual_frame_grid {
+    @include vertical-paddings(1, 36);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+
+    // Media
+    @media #{$laptop} {
+        @include vertical-paddings(2, 36);
+    }
+
+    &.visual:before,
+    .visual-pinchzoom,
+    .panel {
+        @include vertical-margins(1, 36);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        width: column(34, 36);
+
+        // Media
+        @media #{$laptop} {
+            @include vertical-margins(2, 36);
+            width: column(32, 36);
+        }
+    }
+
+    .visual-loader {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        width: column(34, 36);
+
+        @media #{$laptop} {
+            width: column(32, 36);
+        }
+    }
+
+    .visual-inner {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    }
+
+    .visual-canvas {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    }
+
+    .visual-canvas__zoom-controls {
+        right: column(1.5);
+    }
+}
+
+// GENERAL REPAINT ELEMENTS VIA THEME
+.visual_theme_floor {
+    .visual__wrapper {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        background-color: $canvas-floor-bg;
+    }
+
+    // Breadcrumbs
+    .visual-breadcrumbs {
+        color: $breadcrumbs-dark-color;
+    }
+
+    .visual-breadcrumbs__item {
+        &:not(:only-of-type):not(:last-of-type) {
+            &:after {
+                background-color: $breadcrumbs-dark-color;
+            }
+        }
+    }
+
+    .visual-breadcrumbs__back {
+        background-color: $breadcrumbs-dark-color;
+    }
+
+    .visual-breadcrumbs__back-icon {
+        stroke: $breadcrumbs-icon-white;
+    }
+
+    // Canvas
+    .visual__canvas {
+        @include scale(padding-top, 60, 80, 80);
+        @include scale(padding-bottom, 60, 80, 80);
+
+        @media #{$tablet-landscape} {
+            @include vertical-paddings(2, 36);
+        }
+
+        @media #{$laptop} {
+            @include vertical-paddings(4, 36);
+        }
+    }
+}
+

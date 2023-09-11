@@ -1,0 +1,54 @@
+{% set infrastructure = [{
+    id: 'kindergarden',
+    icon: 'kindergarden.svg',
+    name: 'Детские сады'
+},{
+    id: 'pharmacy',
+    icon: 'pharmacy.svg',
+    name: 'Аптеки'
+}, {
+    id: 'metro',
+    icon: 'metro.svg',
+    name: 'Метро'
+}, {
+    id: 'shop',
+    icon: 'shop.svg',
+    name: 'Магазины'
+}, {
+    id: 'school',
+    icon: 'school.svg',
+    name: 'Школы'
+}, {
+    id: 'parks',
+    icon: 'park.svg',
+    name: 'Парки'
+}] %}
+<div class="map-filter__overlay j-location-filter-list-toggle"></div>
+
+<div class="map-filter">
+    <div class="map-filter__head">
+        <button type="button" class="map-filter__head-close j-location-filter-list-toggle">
+            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.2426 1.24264L6 5.48528M6 5.48528L10.2426 9.72792M6 5.48528L1.75736 9.72792M6 5.48528L1.75736 1.24264" stroke="#0B1739" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="map-filter__header">
+        <span class="map-filter__title">Объекты на карте</span>
+        <button type="button" class="map-filter__header-button j-checkbox-toggle">Скрыть все</button>
+    </div>
+
+    <div class="map-filter__content j-map-filter__content">
+        <ul class="map-filter__infrastructure-list j-map-filter">
+            {% for item in infrastructure %}
+                {% include 'filter-item.twig' with {
+                    id  : item.id,
+                    icon: item.icon,
+                    name: item.name
+                } %}
+            {% endfor %}
+        </ul>
+    </div>
+    <button type="button" class="map-filter__content-close j-location-filter-list-toggle">Закрыть</button>
+</div>

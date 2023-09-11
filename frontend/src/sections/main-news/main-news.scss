@@ -1,0 +1,140 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$news-card-shadow: $shadow-color;
+
+.main-news {
+    .slider__slides-inner {
+        align-items: stretch;
+    }
+
+    .slider__slides {
+        // Media
+        @media #{$laptop} {
+            @include vertical-margins(3.75, 36);
+            width: column(28.5, 36);
+            overflow: hidden;
+        }
+    }
+
+    .slider__item {
+        @include padding-level(bottom, green);
+        @include vertical-paddings(0.5, 36);
+        min-height: 100%;
+        align-self: stretch;
+
+        // Media
+        @media #{$laptop} {
+            @include vertical-paddings(0.25, 28.5);
+        }
+
+        &:first-child {
+            @include push(2.5, 36);
+
+            // Media
+            @media #{$laptop} {
+                @include push(0);
+            }
+        }
+    }
+
+    .slider__controls {
+        display: none;
+
+        // Media
+        @media #{$tablet-landscape} {
+            @include vertical-margins(3, 36);
+            @include vertical-paddings(0);
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0;
+            width: column(30, 36);
+        }
+
+        @media #{$laptop} {
+            @include vertical-margins(4, 36);
+            width: column(28, 36);
+        }
+    }
+
+    .slider__arrows {
+        margin-left: 0;
+    }
+
+    .slider-news {
+        @include scale(border, 1, 1, 1, solid $news-card-shadow);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        @include scale(box-shadow, 0 6 18, 0 6 18, 0 6 18, solid $news-card-shadow);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &:hover {
+            .slider-news__title {
+                color: $brand-dark;
+            }
+        }
+    }
+
+    .slider-news__images {
+        @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        position: relative;
+        height: 0;
+        padding-bottom: 56.75%;
+        overflow: hidden;
+
+        picture,
+        img {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .slider-news__content {
+        @include prefix(2, 36);
+        @include suffix(2, 36);
+        @include padding-level(both, green);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        @media #{$tablet-portrait} {
+            @include prefix(1, 14.5);
+            @include suffix(1, 14.5);
+        }
+
+        @media #{$laptop} {
+            @include prefix(0.85, 9);
+            @include suffix(0.85, 9);
+        }
+    }
+}
+
+.slider-news__title {
+    @include transition(color);
+    @include font-size(h5);
+    color: $brand-text;
+}
+
+.slider-news__data {
+    @include margin-level(top, orange);
+    @include font-size(p3-regular);
+    color: $brand-dark;
+}

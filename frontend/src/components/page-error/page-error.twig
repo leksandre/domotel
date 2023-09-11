@@ -1,0 +1,37 @@
+<div class="page-error j-first-screen-bg {% if modify %}{{ modify }}{% endif %}">
+    {% if background %}
+        <div class="page-error__picture">
+            {% include '../../components/picture/picture.twig' with {
+                source : "/images/page-error/page-error-bg.jpg",
+                alt: "Картинка",
+                maxwidth: "1400"
+            }%}
+        </div>
+    {% endif %}
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <div class="page-error__content">
+                    <div class="page-error__number">
+                        {{ number }}
+                    </div>
+                    <h1 class="page-error__title">
+                        {{ title }}
+                    </h1>
+                    <div class="page-error__description">
+                        {{ descr }}
+                    </div>
+                    <div class="page-error__buttons">
+                        {% for link in links %}
+                            <a
+                                href="{{ link.href }}"
+                                class="button page-error__button {% if link.modify %} {{ link.modify }}{% endif %}">
+                                {{ link.text }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

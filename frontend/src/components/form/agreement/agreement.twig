@@ -1,0 +1,22 @@
+{% if type != 'text' %}
+    {% include '../../../components/form/checkbox/checkbox.twig' with {
+        type: type|default('checkbox'),
+        icon: true,
+        id: 'agreement',
+        name: 'agreement',
+        text: 'Согласен с <a class="link" href="#" target="_blank">политикой конфиденциальности</a>',
+        checked: true,
+        data_validate_required: true,
+        data_validate_name: 'agreement',
+        data_validate_required_msg: 'Для продолжения необходимо согласие с политикой конфиденциальности'
+    } %}
+    {% else %}
+        {% block text %}
+            Нажимая кнопку, вы подтверждаете свое
+                {% include '../../../components/link/link.twig' with {
+                    href: '#',
+                    text: 'согласие'
+                } %}
+            на обработку персональных данных
+        {% endblock %}
+{% endif %}

@@ -1,0 +1,30 @@
+<div class="range-slider {% if modify %} {{ modify }} {% endif %} j-range-slider">
+    <div class="range-slider__input-container">
+        <input
+            class="range-slider__input j-range-slider__input {% if modifyInput %} {{ modifyInput }} {% endif %}"
+            type="text"
+            value="{{ from }}"
+            name="{{ name }}[min]"
+            autocomplete="off"
+            {% if digit %} data-digit="true" {% endif %}
+            {% if disabled %} disabled {% endif %}
+        >
+        {% if percent %}
+            <span class="mortgage-calculator__filter-percent j-mortgage-calculator__percent">0%</span>
+        {% endif %}
+    </div>
+    <div class="range-slider__base">
+        <input id="{{ name }}" type="text" class="j-range-slider__base {% if modifyInput %} {{ modifyInput }} {% endif %}" value=""
+               data-min="{{ min }}"
+               data-max="{{ max }}"
+               data-from="{{ from|default(min) }}"
+               data-to="{{ to|default(max) }}"
+               data-type="{{ type|default('single') }}"
+               data-step="{{ step|default() }}"
+               data-min-interval="{{ step|default() }}"
+            {% if prettify %} data-prettify="{{prettify}}" {% endif %}
+            {% if digit %} data-digit="true" {% endif %}
+            {% if disabled %} data-disable="true" {% endif %}
+               autocomplete="off"/>
+    </div>
+</div>

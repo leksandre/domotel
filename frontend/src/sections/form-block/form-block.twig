@@ -1,0 +1,20 @@
+<div class="section{% if modify %} {{ modify }}{% endif %}">
+    <div class="grid">
+        <div class="grid__common">
+            <div class="grid__wrapper">
+                <div class="grid__row j-match-height">
+                    <div class="grid__form j-match-height__child">
+                        {% include '../../components/form/form-page.twig' %}
+                    </div>
+                    <div class="grid__poster j-match-height__child">
+                        {% include '../../components/picture/picture.twig' with {
+                            source : "/images/form-block/form-poster.jpg",
+                            alt: "Прекрасный панорамный вид на Жилой комплекс «Берёзка» с воды",
+                            maxwidth: "960"
+                        }%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

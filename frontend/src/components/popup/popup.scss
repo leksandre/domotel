@@ -1,0 +1,489 @@
+// Version - 1...
+// Documentation - https:// kelnik.gitbooks.io/kelnik-documentation/front-end/popup.html
+
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/management-layers";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$popup-overlay-bg: rgba($black-rgb, 0.7);
+$popup-overlay-opacity: 0.8;
+$popup-close-icon: $brand-text;
+$popup-content-background-color: $white;
+
+$popup-full-slider-bg: $red;
+$popup-full-slider-close-bg: $green;
+$popup-full-slider-close-icon: $white;
+
+$popup-form-success-content-background-color: rgba($violet, 0.2);
+$popup-form-error-content-background-color: rgba($yellow, 0.2);
+
+$popup-image-bg: $white;
+$popup-caption: $white;
+$popup-caption-bg: $brand-text;
+
+// White theme
+$popup-bg-white: $white;
+$popup-header-shadow-white: $black-rgb;
+$popup-close-bg-white: $brand-text;
+$popup-close-white: $white;
+
+// Callback theme
+$popup-swiper-bg-callback: $brand-gray;
+
+// COMPONENT
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: z(popup);
+    background-color: $popup-overlay-bg;
+    backdrop-filter: blur(7px);
+    opacity: 0;
+    // Тут не overflow: hidden auto, потому что из-за этого не работает body-scroll-lock в сафари 💩
+    overflow: auto;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.popup__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+// Close button
+.popup__close {
+    @include reset-button();
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    @include transition(opacity);
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: transparent;
+}
+
+.popup__close-icon {
+    width: 100%;
+    height: 100%;
+    fill: $popup-close-icon;
+}
+
+// Content
+.popup__container {
+    @include container();
+    width: 100%;
+
+    // Media
+    @media #{$tablet-landscape} {
+        @include row();
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.popup__wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    // Media
+    @media #{$tablet-portrait} {
+        position: relative;
+        margin: {
+            left: auto;
+            right: auto;
+        };
+        width: column(30, 36);
+    }
+
+    @media #{$laptop} {
+        width: column(14, 36);
+    }
+}
+
+.popup__inner {
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-bottom-right-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-bottom-left-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    position: relative;
+    width: 100%;
+    background-color: $popup-content-background-color;
+    pointer-events: auto;
+    overflow-y: scroll;
+    z-index: z(default);
+
+    // Media
+    @media #{$tablet-portrait} {
+        border-radius: calc(var(--is-br) * 8px);
+        overflow-y: unset;
+    }
+
+    @media #{$tablet-landscape} {
+        @include square-margin(both, 1.75, 32);
+    }
+
+    @media #{$laptop-wide} {
+        @include square-margin(both, 2, 19);
+    }
+}
+
+.popup__inner-wrapper {
+    @include vertical-margins(3, 36);
+    @include padding-level(bottom, violet);
+    width: column(30, 36);
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-margins(3.5, 30);
+        width: column(23, 30);
+    }
+
+    // Media
+    @media #{$laptop} {
+        @include vertical-margins(2, 14);
+        width: column(10, 14);
+    }
+}
+
+.popup__hidden-content {
+    display: none;
+}
+
+.popup__header {
+    width: 100%;
+
+    p {
+        @include font-size(p1-bold);
+    }
+}
+
+.popup__header-inner {
+    display: flex;
+    align-items: center;
+
+    // Media
+    @media #{$tablet-portrait} {
+        padding: 4px;
+    }
+
+    @media #{$laptop} {
+        padding: vw-desk(4);
+    }
+
+    @media #{$laptop-extra-wide} {
+        padding: 4px;
+    }
+
+    .popup__close {
+        align-self: flex-start;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+}
+
+.popup__gallery {
+    @include vertical-margins(3, 36);
+    @include padding-level(top, blue);
+    @include padding-level(bottom, pink);
+    width: column(30, 36);
+
+    // Media
+    @media #{$laptop} {
+        @include vertical-margins(2, 36);
+        width: column(32, 36);
+    }
+}
+
+.popup__gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:not(:first-child) {
+        @include margin-level(top, blue);
+    }
+
+    &:last-child {
+        @include margin-level(bottom, blue);
+    }
+
+    img {
+        display: block;
+        max-height: 90vh;
+
+        &.is-active {
+            z-index: z(default);
+        }
+    }
+
+    p {
+        @include margin-level(top, orange);
+        @include font-size(p2-regular);
+    }
+}
+
+.popup__planoplan-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// MODS
+.popup_state_open {
+    @include row();
+    opacity: 1;
+    animation: popup-open 0.3s ease-out 0.1s both;
+}
+
+.popup_state_close {
+    @include row();
+    opacity: 1;
+    animation: popup-close 0.3s ease-out both;
+}
+
+.popup_theme_white {
+    align-items: flex-start;
+
+    .popup__header {
+        box-shadow: 0 1px 0 rgba($popup-header-shadow-white, 0.06);
+    }
+
+    .popup__header-inner {
+        @include square-padding(both, 1);
+        @include prefix(3);
+        @include suffix(1);
+
+        // Media
+        @media #{$tablet-portrait} {
+            @include square-padding(both, 0.5);
+            @include suffix(0.5);
+        }
+
+        @media #{$laptop} {
+            @include prefix(2, 36);
+        }
+    }
+
+    .popup__wrapper {
+        background-color: $popup-bg-white;
+        min-height: 100%;
+        top: 0;
+
+        // Media
+        @media #{$tablet-portrait} {
+            width: 100%;
+        }
+    }
+
+    .popup__close {
+        background-color: $popup-close-bg-white;
+    }
+
+    .popup__close-icon {
+        fill: $popup-close-white;
+    }
+
+    .popup__content {
+        min-height: 100vh;
+
+        // Media
+        @media #{$tablet-landscape} {
+            min-height: inherit;
+        }
+    }
+}
+
+.popup_theme_callback {
+    &.popup_state_open {
+        .popup__wrapper {
+            animation: popup-appear 0.3s ease-out 0.1s both;
+
+            // Media
+            @media #{$tablet-portrait} {
+                animation: none;
+            }
+        }
+    }
+
+    &.popup_state_close {
+        .popup__wrapper {
+            animation: popup-disappear 0.3s ease-out both;
+
+            // Media
+            @media #{$tablet-portrait} {
+                animation: none;
+            }
+        }
+    }
+
+    .popup__wrapper {
+        @media #{$mobile-only} {
+            max-height: 100%;
+            overflow-y: scroll;
+        }
+    }
+
+    .popup__header-inner {
+        position: relative;
+
+        &:before {
+            @include scale(width, 80, 80, 80);
+            @include scale(height, 4, 4, 4);
+            @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+            @include pseudo();
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $popup-swiper-bg-callback;
+
+            // Media
+            @media #{$tablet-portrait} {
+                display: none;
+            }
+        }
+    }
+}
+
+.popup_theme_content {
+    .popup__wrapper {
+        min-height: 100%;
+        top: 0;
+
+        // Media
+        @media #{$tablet-portrait} {
+            width: 100%;
+        }
+    }
+
+    .popup__inner {
+        // Media
+        @media #{$tablet-landscape} {
+            @include square-margin(both, 0);
+        }
+
+        @media #{$laptop-wide} {
+            @include square-margin(both, 2);
+        }
+    }
+
+    .popup__inner-wrapper {
+        // Media
+        @media #{$laptop} {
+            @include vertical-margins(4.5);
+            @include square-padding(top, 1, 27);
+            @include square-padding(bottom, 2, 27);
+            width: column(27);
+        }
+    }
+
+    p {
+        &:not(:first-child) {
+            @include margin-level(top, orange);
+        }
+    }
+
+    h3 {
+        &:not(:first-child) {
+            @include margin-level(top, green);
+        }
+    }
+
+    h4 {
+        &:not(:first-child) {
+            @include margin-level(top, yellow);
+        }
+    }
+}
+
+.popup_theme_planoplan {
+    align-items: flex-start;
+
+    .popup__wrapper {
+        background-color: transparent;
+        min-height: 100%;
+        top: 0;
+
+        // Media
+        @media #{$tablet-portrait} {
+            width: 100%;
+        }
+    }
+
+    .popup__btn-close {
+        @include margin-level(top, orange);
+        position: absolute;
+        top: 0;
+        right: column(1, 36);
+    }
+}
+
+// KEYFRAMES
+@keyframes popup-open {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes popup-close {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+
+    99% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes popup-appear {
+    0% {
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes popup-disappear {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -100%;
+    }
+}

@@ -1,0 +1,3 @@
+#tab-forma-poiska div.form-group:nth-child(2) table[data-controller=matrix] tbody tr:not([class=add-row]):nth-child(-n+3){background-color:#edeef0}#tab-forma-poiska div.form-group:nth-child(2) table[data-controller=matrix] tbody tr:not([class=add-row]):nth-child(-n+3) .form-control,#tab-forma-poiska div.form-group:nth-child(2) table[data-controller=matrix] tbody tr:not([class=add-row]):nth-child(-n+3) input,#tab-forma-poiska div.form-group:nth-child(2) table[data-controller=matrix] tbody tr:not([class=add-row]):nth-child(-n+3) select{background:#fff}
+
+/*# sourceMappingURL=app.css.map*/

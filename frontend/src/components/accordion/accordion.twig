@@ -1,0 +1,22 @@
+<div class="accordion j-accordion {% if modify %}{{ modify }}{% endif %}"{% if dataAttr %} {{ dataAttr }}{% endif %}>
+    <header class="accordion__header j-accordion-header">
+        {% if button %}
+            <button class="accordion__title {% if titleModify %}{{ titleModify }}{% endif %} {% if buttonAnimationClass %} {{ buttonAnimationClass }}{% endif %} j-accordion-title">
+                {{ title }}
+            </button>
+        {% else %}
+            <div class="accordion__title {% if titleModify %}{{ titleModify }}{% endif %} j-accordion-title">
+                {{ title }}
+            </div>
+        {% endif %}
+    </header>
+
+    <div class="accordion__content-wrapper j-accordion-content-outer">
+        <div class="accordion__content j-accordion-content">
+            {% block content %}
+                <div>Контента нет</div>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+

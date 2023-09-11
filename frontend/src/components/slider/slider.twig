@@ -1,0 +1,7 @@
+<div class="slider{% if sliderModify %} {{ sliderModify }}{% endif %} {{ id }}"{% if sliderDataAttr %} {{ sliderDataAttr }}{% endif %}>
+    <div class="slider__wrap {{ slidesWrap|default('j-slides')}}{% if sliderWrapModify %} {{ sliderWrapModify }}{% endif %}">
+        {% block slides %}
+            <div>Нет слайдов</div>
+        {% endblock %}
+    </div>
+</div>

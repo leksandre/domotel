@@ -1,0 +1,141 @@
+{#
+    jclass - j идентификатор
+    modify - другой модификатор
+    isOpen
+    label
+    placeholder
+    infoPin - требуется ли восклицательный знак рядом с лейблом
+    infoPinText - текст тултипа этого инфо пина
+    validation - требуется валидация или нет
+    validationText - текст ошибки валидации
+    validationName - класс для связи иконки ошибки и селекта
+    checkboxModify - модификатор для чекбоксов в списке опшенов
+    optionType - тип инпута в списке опшенов
+    groupType - тип инпута у заголовка группы
+    groups - список групп, массив
+        isHidden - скрытая группа (заголовок скрыт)
+        name
+        value
+        inputText - текст, который подставится в список выбранного (если нужен отличный от text)
+        text
+        checked
+        disabled
+    options - список опшенов
+        value
+        name
+        text
+        inputText
+        description - доп текст
+        checked
+#}
+
+<div class="custom-select j-custom-select {{ jclass }} {{ modify }}{% if isOpen %} is-open{% endif %}"
+        {% if placeholder %}data-placeholder="{{ placeholder }}"{% endif %}
+        {% if validation %}data-validate-required="true" data-validate-required-msg="{{ validationText }}" data-validate-name="{{ validationName }}"{% endif %}>
+    {% if label %}
+        <div class="custom-select__label">
+            {{ label }}
+            {% if infoPin %}
+                {% include '../../info-pin/info-pin.twig' with {
+                    text: infoPinText|default('Обрати внимание, что часы указаны по московскому времени')
+                } %}
+            {% endif %}
+        </div>
+    {% endif %}
+    <div class="custom-select__input j-custom-select__input">
+        <span class="custom-select__input-text j-custom-select__value">{{ placeholder }}</span>
+        <span class="custom-select__input-icon">
+            {% include './media/arrow.svg.twig' %}
+        </span>
+    </div>
+    <div class="custom-select__content j-custom-select__content">
+        <div class="custom-select__content-inner">
+            <div class="custom-select__items j-custom-select__items">
+                {% if groups %}
+                    {% for group in groups %}
+                        <div class="custom-select__group j-custom-select__group">
+                            <div class="custom-select__group-checkbox">
+                                {% if group.fake %}
+                                    <div class="custom-select__group-checkbox-label j-custom-select__group-label
+                                            {% if group.checked %}is-checked{% endif %}">
+                                        <span class="custom-select__group-checkbox-text">{{ group.text }}</span>
+                                        <span class="custom-select__group-checkbox-icon">
+                                            {% include './media/check-big.svg' %}
+                                        </span>
+                                    </div>
+                                {% else %}
+                                    <input
+                                        id="{{ 'checkbox-' ~ group.name ~ group.value }}"
+                                        type="{{ groupType|default('checkbox') }}"
+                                        class="custom-select__group-checkbox-input j-custom-select__group-checkbox"
+                                        name="{{ group.name }}"
+                                        value="{{ group.value }}"
+                                        data-text="{{ group.inputText|default(group.text) }}"
+                                        {% if group.checked %}checked{% endif %}
+                                        {% if group.disabled %}disabled{% endif %}
+                                    >
+                                    <label for="{{ 'checkbox-' ~ group.name ~ group.value }}" class="custom-select__group-checkbox-label">
+                                        <span class="custom-select__group-checkbox-text">{{ group.text }}</span>
+                                        <span class="custom-select__group-checkbox-icon">
+                                            {% include './media/check-big.svg' %}
+                                        </span>
+                                    </label>
+                                {% endif %}
+                            </div>
+                            <div class="custom-select__group-items">
+                                {% for option in group.options %}
+                                    {% include '../checkbox/checkbox.twig' with {
+                                        modify: checkboxModify ~ ' custom-select__checkbox',
+                                        inputClass: 'j-custom-select__checkbox',
+                                        type: optionType ?: 'checkbox',
+                                        id: option.value,
+                                        name: option.name ?: name ~ '[]',
+                                        value: option.value,
+                                        dataAttr: [{
+                                            name: 'text',
+                                            value: option.inputText ?: option.text
+                                        }],
+                                        text: option.text,
+                                        description: option.description,
+                                        checked: option.checked,
+                                        disabled: option.disabled
+                                    } %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for option in options %}
+                        <div class="custom-select__item">
+                            {% include '../checkbox/checkbox.twig' with {
+                                modify: checkboxModify ~ ' custom-select__checkbox',
+                                inputClass: 'j-custom-select__checkbox',
+                                type: optionType ?: 'checkbox',
+                                id: option.value,
+                                name: option.name ?: name ~ '[]',
+                                value: option.value,
+                                dataAttr: [{
+                                    name: 'text',
+                                    value: option.inputText ?: option.text
+                                }],
+                                text: option.text,
+                                description: option.description,
+                                checked: option.checked,
+                                disabled: option.disabled
+                            } %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            {% if groups %}
+                <div class="custom-select__submit j-custom-select__close">Применить</div>
+            {% endif %}
+        </div>
+    </div>
+    {% if validation %}
+        <div class="input__error">
+            <div class="input__error-text " data-validate-error="callback_select"></div>
+        </div>
+    {% endif %}
+</div>

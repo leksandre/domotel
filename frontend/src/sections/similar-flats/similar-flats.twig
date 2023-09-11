@@ -1,0 +1,21 @@
+<section class="section{% if animationClass %} {{ animationClass }}{% endif %}">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <div class="j-animation__header">
+                    <h2>Похожие квартиры</h2>
+                </div>
+
+                <div class="similar-flats">
+                    <div class="similar-flats__container{% if animationClass %} j-animation__row" data-items="320:2,670:3{% endif %}">
+                        {% include '../../components/similar-flat-card/similar-flat-card.twig' with {
+                            animationClass|default(false),
+                            items
+                        } %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

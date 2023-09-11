@@ -1,0 +1,71 @@
+// DEPENDENCIES
+@import "../../common/styles/breakpoints";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/scale";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+
+// BLOCK
+.advantages {
+    @include row();
+}
+
+// ELEMENTS
+.advantage {
+    @include margin-level(top, green);
+    @include scale(padding-left, 0, 8, 8);
+    @include scale(padding-right, 0, 8, 8);
+    text-align: center;
+    width: 100%;
+
+    // Media
+    @media #{$tablet-portrait} {
+        width: 50%;
+    }
+}
+
+.advantage__icon {
+    @include scale(width, 64, 64, 64);
+    @include scale(height, 64, 64, 64);
+    margin: {
+        left: auto;
+        right: auto;
+    };
+
+    img {
+        @include object-fit(contain);
+        display: block;
+        width: 100%;
+        max-height: 100%;
+    }
+}
+
+.advantage__title {
+    @include margin-level(top, orange);
+}
+
+.advantage__text {
+    @include margin-level(top, tomato);
+}
+
+// MODS
+@for $num from 3 through 6 {
+    .advantages_wrap_#{$num} {
+        .advantage {
+            // Media
+            @media #{$laptop} {
+                width: column(1, $num);
+            }
+        }
+    }
+}
+
+.advantages_theme_nowrap {
+    // Media
+    @media #{$laptop} {
+        flex-wrap: nowrap;
+    }
+}

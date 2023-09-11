@@ -1,0 +1,23 @@
+<div class="gallery-mini">
+    {% embed '../slider/slider.twig' with {
+        id: sliderClassId,
+        caption: true,
+        sliderModify
+    }%}
+        {% block slides %}
+            {% if type == 'new' %}
+                {% include '../slider/themes/slider-utp/slider-utp.twig' with {
+                    lazy: lazy|default(false),
+                    sliderId: sliderId|default('0'),
+                    slides: gallerySlides
+                }%}    
+            {% else %}
+                {% include '../slider/themes/slider-mini/slider-mini.twig' with {
+                    lazy: lazy|default(false),
+                    sliderId: sliderId|default('0'),
+                    slides: gallerySlides
+                }%}
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+</div>

@@ -1,0 +1,23 @@
+<div class="promotions{% if isAnimation %} j-animation__row{% endif %}"{% if isAnimation %} data-items="320:1,670:2,1280:3"{% endif %}>
+    {% for item in items %}
+        <a href="promo.html" class="promotion {% if promotionModify %} {{ promotionModify }}{% endif %}{% if isAnimation %} j-animation__row-item{% endif %}">
+            {% if item.image %}
+                <div class="promotion__image">
+                    <img src="{{ item.image }}" alt="">
+                </div>
+            {% endif %}
+            {% if item.title or item.label %}
+            <div class="promotion__content">
+                {% if item.title %}
+                <div class="promotion__title">{{ item.title }}</div>
+                {% endif %}
+                {% if item.label %}
+                    <div class="promotion__labels">
+                        <span class="promotion__label {% if promotionLabelModify %} {{ promotionLabelModify }}{% endif %}">{{ item.label }}</span>
+                    </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>

@@ -1,0 +1,235 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/mixins";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$fullscreen-menu-bg: rgba($black-rgb, 0.7);
+$fullscreen-item-bg: rgba($white-rgb, 0.1);
+$fullscreen-item-bg-hover: rgba($white-rgb, 0.25);
+$fullscreen-item-color: rgba($white-rgb, 0.8);
+$fullscreen-sub-color: rgba($white-rgb, 0.5);
+$fullscreen-svg-fill: $brand-base;
+$fullscreen-scroll-track: transparent;
+$fullscreen-scroll-thumb: rgba($white-rgb, 0.2);
+
+.navigation-fullscreen {
+    display: none;
+
+    // MEDIA
+    @media #{$tablet-portrait} {
+        display: block;
+    }
+}
+
+.navigation-fullscreen__menu {
+    @include scale(padding-top, func "calc(var(--header-height) + $)" 24, func "calc(var(--header-height) + $)" 24, func "calc(var(--header-height) + $)" 24);
+    @include scale(padding-bottom, 60, 80, 80);
+    @include vertical-paddings(1, 36);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: $fullscreen-menu-bg;
+    backdrop-filter: blur(40px);
+    overflow: hidden;
+
+    // MEDIA
+    @media #{$laptop} {
+        @include vertical-paddings(0);
+    }
+
+    .details details:not(:last-child) summary {
+        border-bottom: none;
+    }
+}
+
+.navigation-fullscreen__menu-wrapper {
+    @include scale(max-width, null, null, 1600);
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        scrollbar-width: thin;
+        scrollbar-color: $fullscreen-scroll-thumb $fullscreen-scroll-track;
+    }
+
+    &::-webkit-scrollbar {
+        @include scale(width, null, 16, 16);
+        @include scale(height, null, 16, 16);
+    }
+
+    &::-webkit-scrollbar-track {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            background: $fullscreen-scroll-track;
+        }
+    }
+
+    &::-webkit-scrollbar-thumb {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            border-right: 10px $fullscreen-scroll-track solid;
+            background-color: $fullscreen-scroll-thumb;
+            background-clip: padding-box;
+        }
+    }
+}
+
+.navigation-fullscreen__main {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.navigation-fullscreen__main-row {
+    @include scale(width, 100%, 100%, func "calc(#{column(34, 36)} + $)" 16);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        grid-template-columns: repeat(auto-fit, minmax(max(100px, 19%), 1fr));
+    }
+
+    @media #{$laptop} {
+        @include vertical-margins(1, 36);
+    }
+}
+
+.navigation-fullscreen__main-item {
+    @include transition(background-color);
+    @include scale(min-height, 120, 160, 160);
+    @include scale(padding, 16, 24, 24 34);
+    @include scale(border-radius, 8, 8, 8);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: $fullscreen-item-bg;
+    color: $fullscreen-item-color;
+
+    &:hover {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            background-color: $fullscreen-item-bg-hover;
+        }
+    }
+}
+
+.navigation-fullscreen__main-ico {
+    margin-bottom: auto;
+
+    svg {
+        fill: $fullscreen-svg-fill;
+    }
+}
+
+.navigation-fullscreen__menu-sub {
+    @include scale(width, 100%, 100%, func "calc(94.44% + $)" 16);
+    @include scale(padding-bottom, 16, 24, 26);
+    @include scale(border-radius, 8, 8, 8);
+    position: relative;
+    margin-top: 2px;
+    background-color: $fullscreen-item-bg;
+    color: $fullscreen-item-color;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(max(100px, 33%), 1fr));
+    }
+
+    @media #{$laptop} {
+        @include vertical-margins(1, 36);
+        grid-template-columns: repeat(auto-fit, minmax(max(100px, 25%), 1fr));
+    }
+
+    // Размещаем тут чтобы перебить .details .summary
+    .navigation-fullscreen__sub-title {
+        @include scale(padding, 16, 16, 26 24 0);
+    }
+}
+
+.navigation-fullscreen__sub-title {
+    @include font-size(p1-bold);
+    display: inline-flex;
+    border-bottom: none;
+
+    &:not(a) {
+        // MEDIA
+        @media #{$laptop} {
+            cursor: default;
+        }
+    }
+}
+
+.navigation-fullscreen__sub-ico {
+    @include transition(transform);
+    @include row();
+    align-items: center;
+    margin-left: auto;
+    transform: scaleY(1);
+
+    // MEDIA
+    @media #{$laptop} {
+        display: none;
+    }
+
+    svg {
+        fill: $fullscreen-item-color;
+    }
+}
+
+.navigation-fullscreen__sub-list {
+    @include scale(padding, 0 16, 0 16, 0 24);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.navigation-fullscreen__sub-item {
+    @include transition(color);
+    @include scale(padding, 4 0, 5 0, 5 0);
+    @include font-size(p2-regular);
+    display: inline-flex;
+    width: auto;
+    color: $fullscreen-sub-color;
+
+    &:hover {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            color: $fullscreen-item-color;
+        }
+    }
+}
+
+// THEMES
+.navigation-fullscreen__main-row_theme_odd {
+    .navigation-fullscreen__main-item {
+        &:first-child {
+            grid-column: span 2;
+
+            // MEDIA
+            @media #{$tablet-landscape} {
+                grid-column: 1;
+            }
+        }
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

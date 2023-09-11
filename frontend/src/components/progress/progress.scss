@@ -1,0 +1,270 @@
+// Стили попапа хода строительства
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$progress-tab-bg-active: $brand-text;
+$progress-tab-color-active: $white;
+$progress-navigation-color: $white;
+$progress-navigation-bg: rgba($black-rgb, 0.3);
+
+// BLOCK
+.progress {
+    @include vertical-margins(3, 36);
+    @include padding-level(top, blue);
+    @include padding-level(bottom, pink);
+    width: column(30, 36);
+
+    // Media
+    @media #{$laptop} {
+        @include vertical-margins(4, 36);
+        width: column(28, 36);
+    }
+
+    + .progress__content {
+        @include margin-level(top, blue);
+    }
+
+    h4 + .progress__content {
+        @include margin-level(top, blue);
+    }
+
+    .button_theme_white {
+        &:hover {
+            // Media
+            @media #{$laptop} {
+                background-color: $progress-tab-bg-active;
+                border-color: transparent;
+                color: $progress-tab-color-active;
+            }
+        }
+
+        &.is-active {
+            background-color: $progress-tab-bg-active;
+            border-color: transparent;
+            color: $progress-tab-color-active;
+            pointer-events: none;
+        }
+    }
+}
+
+
+// ELEMENTS
+.progress__description {
+    &:not(:first-child) {
+        @include margin-level(top, yellow);
+    }
+
+    p {
+        // Media
+        @media #{$tablet-landscape} {
+            width: column(20, 30);
+        }
+
+        @media #{$laptop} {
+            width: column(18, 28);
+        }
+
+        &:not(:first-child) {
+            @include margin-level(top, tomato);
+        }
+    }
+
+    + .progress__content {
+        @include margin-level(top, blue);
+    }
+}
+
+.progress__content {
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-margins(-0.25, 30);
+        width: column(30.5, 30);
+    }
+
+    @media #{$laptop} {
+        @include vertical-margins(-0.25, 28);
+        width: column(28.5, 28);
+    }
+
+    &:last-of-type {
+        @include square-margin(bottom, -1.5, 30);
+
+        // Media
+        @media #{$tablet-portrait} {
+            @include square-margin(bottom, -0.5, 30);
+        }
+
+        @media #{$laptop} {
+            @include square-margin(bottom, -0.5, 28);
+        }
+    }
+}
+
+.progress__item {
+    @include square-margin(bottom, 1.5, 30);
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include square-margin(bottom, 0.5, 30.5);
+        @include vertical-margins(0.25, 30.5);
+    }
+
+    // Media
+    @media #{$laptop} {
+        @include square-margin(bottom, 0.5, 28.5);
+        @include vertical-margins(0.25, 28.5);
+    }
+}
+
+.progress__item-wrapper {
+    // Media
+    @media #{$tablet-portrait} {
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+
+        // Media
+        @media #{$tablet-portrait} {
+            @include object-fit(cover);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+    }
+}
+
+.progress__navigation {
+
+    @include scale(bottom, 32, 32, 32);
+    @include scale(padding, 8, 8, 8);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 72, func "calc(var(--is-br) * $)" 72, func "calc(var(--is-br) * $)" 72);
+    @include scale(height, 56, 56, 56);
+    width: auto;
+    position: sticky;
+    display: inline-flex;
+    align-items: center;
+    margin-left: -(column(2, 36));
+    background-color: $progress-navigation-bg;
+    backdrop-filter: blur(10px);
+
+    // MEDIA
+    @media #{$tablet-portrait} {
+        @include vertical-margins(1, 36);
+        width: column(34, 36);
+        display: flex;
+    }
+
+    &:not(:first-child) {
+        @include margin-level(top, blue);
+    }
+}
+
+.progress__navigation-button {
+    @include transition(opacity);
+    @include reset-button();
+    @include row();
+    @include font-size(p3-regular);
+    align-items: center;
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+
+        .button__text {
+            display: none;
+        }
+    }
+
+    &:first-child {
+        margin-right: auto;
+    }
+
+    &:last-child {
+        @include scale(margin-left, 34, auto, null);
+    }
+}
+
+.progress__navigation-button-text {
+    @include scale(margin-left, 16, 16, 16);
+    @include scale(margin-right, 16, 16, 16);
+    display: none;
+    color: $progress-navigation-color;
+
+    // Media
+    @media #{$tablet-portrait} {
+        display: block;
+    }
+}
+
+.progress__navigation-current {
+    @include font-size(p1-bold);
+    color: $progress-navigation-color;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+
+    // MEDIA
+    @media #{$tablet-portrait} {
+        display: block;
+    }
+}
+
+// MODS
+.progress__content_theme_tile {
+    // Media
+    @media #{$tablet-portrait} {
+        @include row();
+    }
+
+    .progress__item {
+        // Media
+        @media #{$tablet-portrait} {
+            width: column(14.75, 30.5);
+        }
+
+        @media #{$laptop} {
+            width: column(13.75, 28.5);
+        }
+
+        &:nth-child(5n + 1) {
+            // Media
+            @media #{$tablet-portrait} {
+                width: column(30, 30.5);
+            }
+
+            @media #{$laptop} {
+                width: column(28, 28.5);
+            }
+        }
+    }
+}
+
+.progress__tabs {
+    @include margin-level(bottom, white, rose);
+    @include row();
+
+    .button {
+        @include margin-level(bottom, rose);
+
+        &:not(:last-child) {
+            @include scale(margin-right, 4, 4, 4);
+        }
+    }
+}
+
+.progress__tabs-content {
+    @include margin-level(top, blue);
+}

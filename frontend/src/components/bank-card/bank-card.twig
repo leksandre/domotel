@@ -1,0 +1,19 @@
+{% for item in items %}
+    <article class="bank-card{% if item.modify %} {{ item.modify }}{% endif %}">
+        <a href="#" target="_blank" class="bank-card__bank">
+            <img src="{{ item.logo }}" alt="{{ item.alt }}" class="bank-card__logo">
+            <div class="bank-card__title">{{ item.alt }}</div>
+        </a>
+        <ul class="bank-card__conditions">
+            {% for condition in item.conditions %}
+                <li class="bank-card__condition">
+                    <span class="bank-card__key">{{ condition.key }}</span>
+                    <span class="bank-card__value">{{ condition.value }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="bank-card__footer">
+            {{ item.text }}
+        </div>
+    </article>
+{% endfor %}

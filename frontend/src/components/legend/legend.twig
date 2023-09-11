@@ -1,0 +1,12 @@
+<ul class="legend">
+    {% for item in items %}
+        <li class="legend__item">
+            <div class="legend__icon">
+                {% include './media/' ~ item.icon ~ '.svg'%}
+            </div>
+            <p class="legend__text">
+                {{ item.text }}
+            </p>
+        </li>
+    {% endfor %}
+</ul>

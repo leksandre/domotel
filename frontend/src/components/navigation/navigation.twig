@@ -1,0 +1,34 @@
+<nav class="navigation
+    {% if modify %} {{ modify }}{% endif %}"
+    {% if dataAttr %} {{ dataAttr }}{% endif %}>
+    <ul class="navigation__list {% if listModify %} {{ listModify }}{% endif %}">
+        {% for item in navigation %}
+            {% if isGroup and item.submenu %}
+                <li class="navigation__item">
+                    {% include '../navigation-group/navigation-group.twig' with {
+                        items: [
+                            {
+                                modify: 'j-group-navigation__navigation',
+                                dataAttr: 'data-group="true" data-show="960"',
+                                isButton: item.isButton,
+                                nested: item.nested,
+                                groupName: item.name,
+                                navigation: item.list
+                            }
+                        ]
+                    } %}
+                    
+                </li>    
+            {% else %}
+                <li class="navigation__item">
+                    <a class="navigation__link{% if isHomePage and not isSearch %} j-anchor{% endif %}" href="{{ item.href }}">
+                        {% if isGroup and item.icon %}
+                            {% include "./media/" ~ item.icon %}
+                        {% endif %}
+                        {{ item.name }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>

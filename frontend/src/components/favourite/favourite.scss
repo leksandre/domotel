@@ -1,0 +1,32 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+
+// SETTINGS
+$favourite-icon: $brand-text;
+
+// BLOCK
+.favourite {
+    position: relative;
+    cursor: pointer;
+}
+
+.favourite__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.favourite__icon {
+    svg {
+        path {
+            stroke: $favourite-icon;
+        }
+    }
+}
+
+// ELEMENTS
+
+// MODS
+

@@ -1,0 +1,241 @@
+// Документация - https:// kelnik.gitbooks.io/kelnik-documentation/content/front-end/components/button.html
+// Версия 1.0
+
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+
+// SETTINGS
+$button-bg: $brand-base;
+$button-bg-hover: rgba($brand-base-rgb, 0.8);
+$button-color: $white;
+
+$button-white-bg: $white;
+$button-white-brd: $brand-gray;
+$button-white-color: $brand-base;
+$button-white-color-hover: $white;
+
+$button-icon-fill: $white;
+
+// BLOCK
+.button {
+    @include reset-button();
+    @include transition(color, background-color, border-color, opacity, transform);
+    @include scale(padding-left, 24, 24, 24);
+    @include scale(padding-right, 24, 24, 24);
+    @include scale(min-height, 36, 40, 40);
+    @include scale(border, 1, 1, 1, solid transparent);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 18, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20);
+    @include font-size(p2-bold);
+    background-color: $button-bg;
+    color: $button-color;
+    display: inline-block;
+    line-height: 1.5;
+    text-align: center;
+
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            background-color: $button-bg-hover;
+        }
+    }
+
+    &:disabled,
+    &.is-disabled,
+    &-disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    @at-root a#{&} {
+        @include scale(line-height, 36, 40, 40);
+    }
+
+    // ПОСТОЯННЫЕ АНИМАЦИИ
+    // v1
+    &.button_animation_infinite-v1 {
+        animation: animation-v1 0.8s linear infinite both;
+    }
+
+    &.button_animation_infinite-v2 {
+        animation: button-animation-v4 0.8s ease-in-out infinite both;
+    }
+}
+
+// ELEMENTS
+
+// MODS
+.button_width_block {
+    width: 100%;
+}
+
+.button_theme_white {
+    background-color: $button-white-bg;
+    border-color: $button-white-brd;
+    color: $button-white-color;
+
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            border-color: transparent;
+            color: $button-white-color-hover;
+        }
+    }
+}
+
+.button_theme_icon {
+    @include scale(padding-right, 16, 16, 16);
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+        @include scale(margin-left, 8, 8, 8);
+        fill: $button-icon-fill;
+    }
+}
+
+.button_theme_left-icon {
+    svg {
+        @include scale(margin-right, 8, 8, 8);
+        margin-left: 0;
+    }
+}
+
+.button_size_mega {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+    @include scale(min-height, 48, 58, 58);
+}
+
+// ANIMATION
+.button_animation_hover-v1 {
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            animation: button-animation-v1 0.8s linear infinite both;
+        }
+    }
+}
+
+.button_animation_hover-v2 {
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            animation: button-animation-v2 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+        }
+    }
+}
+
+.button_animation_hover-v3 {
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            animation: button-animation-v3 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+        }
+    }
+}
+
+.button_animation_hover-v4 {
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            animation: button-animation-v4 0.8s ease-in-out infinite both;
+        }
+    }
+}
+
+// KEYFRAMES
+@keyframes button-animation-v1 {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes button-animation-v2 {
+    0%,
+    90%,
+    100% {
+        transform: rotate(0);
+        transform-origin: 50% 100%;
+    }
+
+    20%,
+    80% {
+        transform: rotate(2deg);
+    }
+
+    30%,
+    50% {
+        transform: rotate(-4deg);
+    }
+
+    40%,
+    60% {
+        transform: rotate(4deg);
+    }
+
+    70% {
+        transform: rotate(-2deg);
+    }
+}
+
+@keyframes button-animation-v3 {
+    0%,
+    80%,
+    100% {
+        transform: rotate(0);
+        transform-origin: 100% 50%;
+    }
+
+    20% {
+        transform: rotate(1deg);
+    }
+
+    30%,
+    50% {
+        transform: rotate(-2deg);
+    }
+
+    40%,
+    60% {
+        transform: rotate(2deg);
+    }
+
+    70% {
+        transform: rotate(-1deg);
+    }
+}
+
+@keyframes button-animation-v4 {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

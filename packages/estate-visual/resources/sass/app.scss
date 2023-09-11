@@ -1,0 +1,53 @@
+$arrowRotationTime: 0.5s;
+
+.kelnik-estate-visual-table {
+    overflow: hidden;
+
+    td {
+        width: 50%;
+        padding: 0.5rem 1rem !important;
+        padding-left: 1.5rem !important;
+
+        &.no-border {
+            border-bottom-width: 0;
+        }
+    }
+
+    .table-danger {
+        a, button {
+            display: inherit;
+
+            &:hover, &:focus {
+                background: none;
+            }
+        }
+    }
+}
+
+.kelnik-accordion-arrow {
+    position: absolute;
+    right: 2rem;
+}
+
+.kelnik-accordion {
+    .accordion-heading {
+        padding: 0.5rem 1rem;
+        padding-left: 1.5rem;
+        h6 {
+            text-decoration: none;
+        }
+        .kelnik-accordion-arrow {
+            transition: $arrowRotationTime;
+        }
+    }
+    .accordion-heading.collapsed {
+        .kelnik-accordion-arrow {
+            transform: rotate(180deg);
+            transition: $arrowRotationTime;
+        }
+    }
+
+    .kelnik-estate-visual-table {
+        margin-left: 3rem;
+    }
+}

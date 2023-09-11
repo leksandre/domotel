@@ -1,0 +1,36 @@
+<div class="checkbox{% if modify %} {{ modify }}{% endif %}">
+    <input
+        class="checkbox__input{% if inputClass %} {{ inputClass }}{% endif %}"
+        id="{{ type~'-' ~ name ~ value }}"
+        type="{{ type }}"
+        name="{{ name }}"
+        value="{{ value }}"
+        {% if checked %}checked{% endif %}
+        {% if disabled %}disabled{% endif %}
+        {% if id %}id="{{ id }}"{% endif %}
+        {% if dataAttr %}{% for attr in dataAttr %}data-{{ attr.name }}="{{ attr.value }}"{% endfor %}{% endif %}
+        {% for key, value in _context %}
+            {% if key|slice(0, 5) == 'data_' %}
+                {{ key|replace({'_': '-'}) }}="{{ value }}"
+            {% endif %}
+        {% endfor %}
+    >
+    <label class="checkbox__label" for="{{ type~'-' ~ name ~ value }}">
+        {% if icon|default(false) %}
+            <span class="checkbox__icon checkbox__icon_type_{{ type }}">
+            {% include './media/' ~ type ~ '.svg' %}
+        </span>
+        {% endif %}
+
+        <span class="checkbox__text">
+            {% block text %}
+                {{ text }}
+            {% endblock %}
+        </span>
+    </label>
+    {% if data_validate_name %}
+        <div class="checkbox__error">
+            <div class="checkbox__error-text {{ classError }}" data-validate-error="{{ data_validate_name }}"></div>
+        </div>
+    {% endif %}
+</div>

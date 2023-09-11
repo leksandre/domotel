@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {% include '../../frontend/src/pages/layout/_head.twig' %}
+        <title>Визуальный выборщик</title>
+    </head>
+    <body>
+    {% include '../../frontend/src/components/header/header.twig'  with {
+        headerModify: '',
+        isHomePage: false,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#news',
+                name: 'Новости'
+            },{
+                href: '#promotions',
+                name: 'Акции'
+            },{
+                href: '#how-to-buy',
+                name: 'Как купить'
+            }, {
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#documents',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+
+        <main>
+            {# О проекте #}
+             {% include '../../frontend/src/sections/about/about.twig' with {
+                title: 'О проекте'
+            } %}
+
+            <div id="visual"
+                 data-property-type="flat"
+                 data-overlay="0.2"
+                 data-base-url="visual"
+{#                 data-first-step="floor"#}
+{#                 data-first-step-id="1"#}
+                 data-plural="WyJcdTA0M2ZcdTA0M2VcdTA0M2NcdTA0MzVcdTA0NDlcdTA0MzVcdTA0M2RcdTA0MzhcdTA0MzUiLCJcdTA0M2ZcdTA0M2VcdTA0M2NcdTA0MzVcdTA0NDlcdTA0MzVcdTA0M2RcdTA0MzhcdTA0NGYiLCJcdTA0M2ZcdTA0M2VcdTA0M2NcdTA0MzVcdTA0NDlcdTA0MzVcdTA0M2RcdTA0MzhcdTA0MzkiXQ=="
+            ></div>
+        </main>
+
+        {% include '../../frontend/src/components/popup/forms/callback-parametric.twig' %}
+        <script async src="/js/common/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+// МИКСИНЫ
+// Загрузка шрифтов
+$path: "/fonts/";
+
+@mixin font($family, $src, $weight: false, $style: false) {
+    @font-face {
+        font-display: swap;
+        font-family: quote($family);
+        src: url($path + $src + ".woff2") format("woff2"), url($path + $src + ".woff") format("woff");
+
+        @if ($weight) {
+            font-weight: $weight;
+        }
+
+        @if ($style) {
+            font-style: $style;
+        }
+    }
+}
+
+// Добавление шрифтов
+@include font(ptRootUi, "pt-root-ui/pt-root-ui-light", 300);
+@include font(ptRootUi, "pt-root-ui/pt-root-ui-regular", 400);
+@include font(ptRootUi, "pt-root-ui/pt-root-ui-medium", 500);
+@include font(ptRootUi, "pt-root-ui/pt-root-ui-bold", 700);
+
+// Переменные
+$font: "ptRootUi", sans-serif;

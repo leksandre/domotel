@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {# ../../src/pages/layout/_head.twig #}
+        {% include '../../frontend/src/pages/layout/_head.twig' %}
+        <link rel="stylesheet" href="../../css/common/styles.css">
+        <title>Параметрический поиск</title>
+    </head>
+    <body class="j-animation">
+    {% include '../../frontend/src/components/header/header.twig' with {
+        headerModify: '',
+        isHomePage: false,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#news',
+                name: 'Новости'
+            },{
+                href: '#promotions',
+                name: 'Акции'
+            },{
+                href: '#how-to-buy',
+                name: 'Как купить'
+            }, {
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#documents',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+
+    <main>
+        <section class="section">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__parametric">
+                        <div id="parametric"
+                             data-url="/tests/parametric/parametric.php"
+                             data-base-url="/kvartiry"
+                             data-ts="eyJpdiI6ImdCVWdGWlNtdzdBRjRQVCtsWE9uV2c9PSIsInZhbHVlIjoid29xRTExa2FWQnRCMU5pZWxHMHJUQT09IiwibWFjIjoiYzE1ZjJlYzM4ZjNkZjA1ZDFkOWVmM2YyZjZhNzU2NzkzMTBhZGMxNjM1ZDRkNWIyZDNjM2ZlODg3Yjg4OGEyMCIsInRhZyI6IiJ9"
+                             data-st="eyJpdiI6InI4NXF3L1ZwYW1OQ3ZDck1iRDRQc3c9PSIsInZhbHVlIjoicEh2WlZpQm5BOTFISGF0ejlZWHNWUT09IiwibWFjIjoiZjc4YThmZTU3ZDI3MDc4MTc1YTY3OGJmYzkwZTJhZTk3OGFjOWU1YzYzYTU1YjFkZTEzNDRmMTY5YmVmZGM3NSIsInRhZyI6IiJ9"
+                             data-title="Квартиры"
+                             data-plural="WyJcdTA0M2ZcdTA0M2VcdTA0M2NcdTA0MzVcdTA0NDlcdTA0MzVcdTA0M2RcdTA0MzhcdTA0MzUiLCJcdTA0M2ZcdTA0M2VcdTA0M2NcdTA0MzVcdTA0NDlcdTA0MzVcdTA0M2RcdTA0MzhcdTA0NGYiLCJcdTA0M2ZcdTA0M2VcdTA0M2NcdTA0MzVcdTA0NDlcdTA0MzVcdTA0M2RcdTA0MzhcdTA0MzkiXQ==">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% set animationClass = 'j-animation__section' %}
+        {# УТП с маленькой галереей #}
+        {% include '../../frontend/src/sections/text-visual/text-visual.twig' with {
+            animationClass,
+            sliderId: '2'
+        } %}
+    </main>
+
+    {% include '../../frontend/src/sections/footer/footer.twig' %}
+    {% include '../../frontend/src/components/popup/forms/callback-parametric.twig' %}
+    <script async src="../js/common/app.js"></script>
+    </body>
+</html>

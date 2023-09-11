@@ -1,0 +1,479 @@
+// DEPENDENCIES
+@import "../../common/styles/colors-basic";
+@import "../../common/styles/colors";
+@import "../../common/styles/common";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/site-typography";
+@import "../../common/styles/typography";
+@import "../../common/styles/mixins";
+
+// SETTINGS
+$border-color: rgba($black-rgb, 0.1);
+$text-light: rgba($black-rgb, 0.5);
+$text-white: $white;
+$action-color: rgba($additional-1-rgb, 1);
+
+$orange-layer: 16px;
+$green-layer: 32px;
+
+// BLOCK
+.pdf {
+    width: 780px;
+    height: 100%;
+    color: $dark;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 auto;
+
+    h2 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    h3 {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 0;
+    }
+
+    h4 {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0;
+        font-weight: 700;
+    }
+
+    b {
+        font-weight: 700;
+    }
+}
+
+.pdf-main,
+.pdf-planoplan {
+    .pdf-section__left {
+        justify-content: center;
+    }
+}
+
+// ELEMENTS
+.pdf__container {
+    @include vertical-paddings(3);
+    padding-top: $green-layer;
+    padding-bottom: $green-layer;
+    width: 100%;
+    min-height: 1100px;
+    break-before: page;
+    break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+}
+
+// HEADER
+.pdf-header {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: $orange-layer;
+
+    &:before {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid $border-color;
+        content: "";
+    }
+}
+
+.pdf-header__logo {
+    @include post(5, 30);
+    width: column(6, 30);
+
+    img {
+        max-height: 60px;
+    }
+}
+
+.pdf-header__contacts {
+    display: flex;
+    justify-content: space-between;
+    width: column(19, 30);
+}
+
+.pdf-header__contacts-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+.pdf-header__contacts-type {
+    color: $text-light;
+}
+
+// FOOTER
+.pdf-footer {
+    position: relative;
+    align-self: flex-end;
+    margin-top: auto;
+    padding-top: $green-layer;
+    width: 100%;
+
+    &:before {
+        content: "";
+        display: block;
+        height: $orange-layer;
+        border-top: 1px solid $border-color;
+    }
+}
+
+.pdf-footer__items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pdf-footer__item {
+    font-size: 10px;
+    line-height: 15px;
+    font-weight: 400;
+    color: $text-light;
+}
+
+.pdf__text {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+// СЕТКА СЕКЦИИ НА 2 КОЛОНКИ НА 1 СТРАНИЦЕ
+.pdf-section {
+    display: flex;
+    margin-top: $green-layer;
+}
+
+.pdf-section__left {
+    @include post(4, 30);
+    display: flex;
+    width: column(13, 30);
+}
+
+.pdf-section__right {
+    width: column(13, 30);
+}
+
+.pdf-main__heading {
+    margin-bottom: $orange-layer;
+}
+
+.pdf-main__plan {
+    height: 280px; // Нужно жестко задавать высоту
+
+    img {
+        min-width: 200px;
+        max-height: 100%;
+    }
+}
+
+.pdf-main__prices {
+    margin-bottom: $orange-layer;
+}
+
+.pdf-main__price {
+    margin-bottom: 8px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    color: $brand-dark;
+}
+
+.pdf-main__price_action_price {
+    display: inline-block;
+}
+
+.pdf-main__action-wrapper {
+    display: inline;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.pdf-main__action {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    top: -3px;
+    margin-left: 14px;
+    padding: 0 6px;
+    border-radius: 40px;
+    background-color: $action-color;
+    color: $text-white;
+
+    &:before {
+        @include pseudo();
+        width: 3px;
+        height: 3px;
+        left: -11px;
+        display: block;
+        top: 50%;
+        border-radius: 50%;
+        background-color: rgba($brand-text-rgb, 0.2);
+        transform: translateY(-50%);
+    }
+}
+
+.pdf-main__basic-price {
+    text-decoration: line-through;
+    color: rgba($brand-text-rgb, 0.6);
+}
+
+.pdf-main__list {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.pdf-main__list-item {
+    display: flex;
+    align-items: center;
+}
+
+.pdf-main__list-type {
+    color: rgba($dark-rgb, 0.5);
+}
+
+.pdf-main__list_theme_dashed {
+    .pdf-main__list-item {
+        justify-content: space-between;
+        padding: 4px 0;
+        border-bottom: 1px dashed rgba($dark-rgb, 0.1);
+    }
+}
+
+.pdf-main__list_theme_dotted {
+    @include row();
+
+    .pdf-main__list-item {
+        position: relative;
+        margin-right: 12px;
+        white-space: break-spaces;
+
+        &:not(:last-child):after {
+            position: absolute;
+            right: -8px;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: rgba($dark-rgb, 0.3);
+            content: "";
+        }
+    }
+}
+
+.pdf-main__specials {
+    display: flex;
+    margin-top: $orange-layer;
+}
+
+.pdf__info-building {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.pdf__params {
+    margin-top: 24px;
+    display: flex;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 48px;
+}
+
+.pdf__params-search {
+    margin-top: 10px;
+    display: flex;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 48px;
+}
+
+.pdf__params-prices {
+    @include post(1, 30);
+    width: column(7, 30);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.pdf__prices {
+    @include post(1, 30);
+    width: column(7, 30);
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 24px;
+}
+
+.pdf__prices-commerce {
+    max-width: 100%;
+}
+
+.pdf__prices-sales {
+    margin-top: 5px;
+    color: $text-light;
+}
+
+.pdf__params-info {
+    @include post(1, 30);
+    flex-grow: 1;
+}
+
+.pdf__params-options {
+    width: column(8, 30);
+}
+
+.pdf__params-options-commerce {
+    min-width: 270px;
+}
+
+// PLANOPLAN
+.pdf-planoplan__plan {
+    height: 210px; // Нужно жестко задавать высоту
+
+    img {
+        min-width: 210px;
+        max-height: 100%;
+    }
+}
+
+.pdf-planoplan__text {
+    margin-top: 10px;
+}
+
+.pdf-planoplan__app {
+    display: flex;
+    margin-top: 22px;
+}
+
+.pdf-planoplan__qr {
+    @include post(2, 30);
+    width: column(8, 30);
+}
+
+.pdf-planoplan__list {
+    display: flex;
+    flex-direction: column;
+
+    li {
+        height: 30px;
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    img {
+        width: 102px;
+        height: 30px;
+    }
+}
+
+.pdf-plan {
+    img {
+        max-height: 160px;
+        width: auto;
+    }
+}
+
+.pdf-plan__text {
+    margin-top: 8px;
+    color: $text-light;
+}
+
+.pdf-about {
+    margin-top: $green-layer;
+}
+
+.pdf-about__address {
+    display: flex;
+    align-items: center;
+    margin-top: $orange-layer;
+
+    svg {
+        margin-right: 12px;
+        fill: $dark;
+    }
+}
+
+.pdf-about__images {
+    display: flex;
+    align-items: flex-start;
+    margin-top: $orange-layer;
+    margin-bottom: $green-layer;
+    height: 200px; // Нужно жестко задавать высоту
+}
+
+.pdf-about__images-item {
+    width: column(15.5, 30);
+    border-radius: 8px;
+    max-height: 100%;
+
+    &:first-child {
+        @include post(1, 30);
+    }
+}
+
+.pdf-details {
+    margin: $green-layer 0 $orange-layer;
+}
+
+.pdf-details__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    li {
+        display: inline-block;
+        width: column(8, 30);
+        min-width: column(8, 30);
+        margin-bottom: $orange-layer;
+
+        &:not(:nth-child(3n)) {
+            @include post(1, 30);
+        }
+    }
+}
+
+.pdf-details__heading {
+    color: rgba($dark-rgb, 0.6);
+}
+
+// КОНТАКТЫ
+.pdf-contacts {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: $green-layer;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        border-top: 1px solid $border-color;
+        content: "";
+    }
+}
+
+.pdf-contacts__list {
+    @include post(5, 30);
+    width: column(11, 30);
+    font-size: 14px;
+    line-height: 21px;
+
+    &:nth-child(even) {
+        @include post(0);
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
+    span {
+        display: block;
+    }
+}
+
+// MODS

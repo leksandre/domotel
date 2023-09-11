@@ -1,0 +1,135 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$text-content-color: $brand-light;
+
+// BLOCK
+.text-content {
+    @include margin-level(bottom, cyan);
+    @include row();
+
+    // Media
+    @media #{$laptop} {
+        display: block;
+        margin-bottom: 0;
+    }
+}
+
+// ELEMENTS
+.text-content__icon {
+    @media #{$tablet-portrait} {
+        @include suffix(1, 30);
+        width: column(4, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        @include suffix(0);
+    }
+
+    @media #{$laptop} {
+        width: auto;
+    }
+
+    img,
+    svg {
+        @include scale(width, 48, 48, 48);
+        @include scale(height, 48, 48, 48);
+    }
+
+    img {
+        @include object-fit(contain);
+    }
+
+    svg {
+        fill: $text-content-color;
+    }
+}
+
+.text-content__main {
+    width: 100%;
+
+    // Media
+    @media #{$tablet-portrait} {
+        width: column(26, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        width: column(16, 30);
+    }
+
+    @media #{$laptop} {
+        width: 100%;
+    }
+
+    &:not(:first-child) {
+        @include scale(margin-top, 12, 0, 16);
+    }
+}
+
+.text-content__title {
+    h2,
+    h3,
+    h4 {
+        @include font-size(h5);
+    }
+}
+
+.text-content__text {
+    &:not(:first-child) {
+        @include margin-level(top, orange);
+    }
+
+    p {
+        @include font-size(p2-regular);
+
+        :not(:first-child) {
+            @include margin-level(top, orange);
+        }
+    }
+
+    ul {
+        @include margin-level(bottom, white, yellow);
+
+        @media #{$tablet-portrait} {
+            @include row();
+        }
+
+        @media #{$laptop} {
+            display: block;
+        }
+
+        &:not(:first-child) {
+            @include margin-level(top, yellow);
+        }
+    }
+
+    li {
+        @include margin-level(bottom, yellow);
+        @include scale(padding-left, 32, 32, 32);
+        @include font-size(p2-bold);
+        position: relative;
+
+        @media #{$tablet-portrait} {
+            width: 50%;
+        }
+
+        @media #{$laptop} {
+            width: 100%;
+        }
+
+        &:before {
+            @include circle-mark($text-content-color);
+        }
+    }
+}
+
+.text-content__button {
+    @include margin-level(both, yellow);
+}
+
+// MODS

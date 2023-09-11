@@ -1,0 +1,12 @@
+{% for slide in slides %}
+    <div class="slider-fullsize" {% if slide.caption %} data-caption="{{ slide.caption }}"{% endif %}>
+        <div class="slider-fullsize__inner">
+            {% if slide.picture %}
+                {{ slide.picture }}
+            {% else %}
+            <img src="{{ slide.src }}" alt="{{ slide.alt }}">
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+

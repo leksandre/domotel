@@ -1,0 +1,29 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+
+// BLOCK
+.parametric-sort {
+    @include row();
+    align-items: center;
+    justify-content: center;
+
+    @media #{$laptop} {
+        position: relative;
+    }
+}
+
+// ELEMENTS
+.parametric-sort__heading {
+    @include margin-level(right, tomato);
+    @include row();
+    align-items: center;
+    cursor: pointer;
+    
+    svg {
+        @include margin-level(left, tomato);
+    }
+}
+
+// MODS

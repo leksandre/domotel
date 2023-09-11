@@ -1,0 +1,28 @@
+<section class="page-header{% if modify %} {{ modify }}{% endif %}">
+    {% if image %}
+        <div class="page-header__background">
+            {% include '../../components/picture/picture.twig' with {
+                source : "/images/picture/first-screen-bg.jpg",
+                alt: "Прекрасный панорамный вид на Жилой комплекс «Берёзка» с воды",
+                maxwidth: "1280"
+            }%}
+        </div>
+    {% endif %}
+    <div class="page-header__wrap">
+        <div class="page-header__content">
+            <div class="page-header__breadcrumbs">
+                {% include '../../components/breadcrumbs/breadcrumbs.twig' with breadcrumbs %}
+            </div>
+            <div class="page-header__title">
+                <h1>{{ title }}</h1>
+            </div>
+            {% if footnote %}
+                <div class="page-header__footnote">
+                    <span>
+                        {{ footnote }}
+                    </span>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

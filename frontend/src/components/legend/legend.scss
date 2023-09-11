@@ -1,0 +1,57 @@
+// DEPENDENCIES
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+
+// BLOCK
+.legend {
+    @include margin-level(bottom, white, orange);
+
+    // Media
+    @media #{$tablet-portrait} {
+        columns: 2;
+        column-gap: column(3, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        column-gap: column(2, 30);
+    }
+
+    @media #{$laptop} {
+        columns: auto;
+    }
+
+    &:not(:first-child) {
+        @include margin-level(top, cyan);
+    }
+}
+
+// ELEMENTS
+.legend__item {
+    @include margin-level(bottom, orange);
+    display: flex;
+    align-items: flex-start;
+    break-inside: avoid-column;
+}
+
+.legend__icon {
+    @include scale(width, 28, 28, 28);
+    @include scale(height, 28, 28, 28);
+    @include scale(margin-right, 16, 16, 16);
+    flex-shrink: 0;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.legend__text {
+    @include font-size(p2-regular);
+    align-self: center;
+}
+
+// MODS

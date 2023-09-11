@@ -1,0 +1,23 @@
+<div class="factoid-cards">
+    {% for card in items %}
+        <a href="#" class="factoid-card">
+            {% if card.image %}
+                <div class="factoid-card__image">
+                    <picture>
+                        <img src="{{ card.image }}" alt="">
+                    </picture>
+                </div>
+            {% endif %}
+            <div class="factoid-card__content">
+                <p class="factoid-card__announcement">{{ card.text }}</p>
+                <div class="factoid-card__footer">
+                    {% if isTime %}
+                        <time class="factoid-card__comment">{{ card.comment }}</time>
+                    {% else %}
+                        <span class="factoid-card__comment">{{ card.comment }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>

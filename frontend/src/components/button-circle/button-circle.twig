@@ -1,0 +1,17 @@
+{% if href %}
+    <a href="{{ href }}" class="button-circle{% if modify %} {{modify}}{% endif %}">
+        {% include "./media/" ~ icon %}
+    </a>
+{% else %}
+    <button type="button"
+        class="button-circle{% if modify %} {{ modify }}{% endif %}"
+        {% if dataAttr %} {{ dataAttr }}{% endif %}
+        {% if disabled %} disabled {% endif %}
+        {% if label %} aria-label="{{ label }}" {% endif %}
+    >
+        {% if icon %}
+            {% include "./media/" ~ icon %}
+        {% endif %}
+    </button>
+{% endif %}
+

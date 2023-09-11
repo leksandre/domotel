@@ -1,0 +1,100 @@
+{% extends "../layout/_layout.twig" %}
+{% block title %}PDF. Карточка квартиры с поиском и планопланом{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+    <div class="pdf">
+        <div class="pdf__container">
+            {% include './templates/pdf-header.twig' %}
+
+            <!-- Блок с планировкой -->
+            <div class="pdf__plan-double">
+                <div class="pdf__plan-item">
+                    <img src="/images/flat/flat-plan.png" alt="Планировка квартиры">
+                </div>
+                <div class="pdf__plan-item">
+                    <img src="/images/flat/flat-plan-2.png" alt="Планировка квартиры">
+                </div>
+            </div>
+            <!-- /Блок с планировкой -->
+
+            <!-- Блок с планировкой -->
+            <div class="pdf__plan-mini">
+                <div class="pdf__plan-mini-item">
+                    <div class="pdf__plan-mini-img">
+                        <img src="/images/flat/render.jpg" alt="На плане комплекса">
+                    </div>
+                    <div class="pdf__plan-mini-header">
+                        На плане комплекса
+                    </div>
+                </div>
+                <div class="pdf__plan-mini-item">
+                    <div class="pdf__plan-mini-img">
+                        <img src="/images/flat/floor-plan.png" alt="На плане 12 этажа">
+                    </div>
+                    <div class="pdf__plan-mini-header">
+                        На плане 12 этажа
+                    </div>
+                </div>
+            </div>
+            <!-- /Блок с планировкой -->
+
+            <!-- Блок с информацией об квартире -->
+            <section class="pdf__info">
+                <h2>3-комнатная №104</h2>
+
+                <div class="pdf__prices">
+                    <div>6 630 500 руб</div>
+                </div>
+                <div class="pdf__prices-sales">Цена указана со скидкой 5%</div>
+
+                <div class="pdf__params-search">
+                    <div class="pdf__params-info">
+                        <div>Cдача в 3 кв. 2018</div>
+                        <div><b>263,25м²</b> /  Жилая 50,56м² /  Кухня 15,25м²<b></b></div>
+                        <div><b>12</b> / 17 этаж</div>
+                    </div>
+
+                    <ul class="pdf__params-options">
+                        <li>— Вид на парк</li>
+                        <li>— Лоджия</li>
+                        <li>— Гардеробная</li>
+                    </ul>
+                </div>
+            </section>
+            <!-- /Блок с информацией об квартире -->
+
+            <!-- Блок про планоплан, не выводить если нет планоплана -->
+            <section class="pdf__planoplan">
+                <h2>Установите Planoplan Real Estate!</h2>
+
+                <div class="pdf__planoplan-content">
+                    <div class="pdf__planoplan-qr">
+                        <img src="/images/flat/qr.jpeg" alt="QR код">
+                    </div>
+                    <div class="pdf__planoplan-app">
+                        <ul class="pdf__planoplan-list">
+                            <li>
+                                <img src="/images/store-link/btn_google_2x.png" alt="Google Play">
+                            </li>
+                            <li>
+                                <img src="/images/store-link/bttn_apple_2x.png" alt="Appstore">
+                            </li>
+                        </ul>
+                        <p class="pdf__plamoplan-info">Cканируйте QR код в приложении и наслаждайтесь прогулкой в виртуальной реальности.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- /Блок про планоплан -->
+        </div>
+        <div class="pdf__container">
+            {% include './templates/pdf-header.twig' %}
+            {% include './templates/pdf-about.twig' %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

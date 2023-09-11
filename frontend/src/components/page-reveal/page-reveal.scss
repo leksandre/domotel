@@ -1,0 +1,91 @@
+// DEPENDENCIES
+@import "../../common/styles/scale";
+
+// BLOCK
+.page-reveal {
+    opacity: 0;
+    transition: 0.8s ease-out;
+    transition-property: opacity, transform;
+
+    // STATES
+    // АНИМАЦИЯ ПРИ ПРОКРУТКЕ v1
+    &.is-revealed {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// ELEMENTS
+.page-reveal__wrapper {
+    overflow-x: hidden;
+}
+
+// THEMES
+// АНИМАЦИЯ ПРИ ПРОКРУТКЕ v2
+.page-reveal_theme_vertical {
+    @include scale(translateY, 25, 25, 25);
+}
+
+// АНИМАЦИЯ ПРИ ПРОКРУТКЕ v3
+.page-reveal_theme_left {
+    @include scale(translateX, -50, -50, -50);
+}
+
+// АНИМАЦИЯ ПРИ ПРОКРУТКЕ v4
+.page-reveal_theme_slide {
+    &.is-revealed {
+        animation: slide-left-from-bottom 1s;
+    }
+}
+
+// АНИМАЦИЯ ПРИ ПРОКРУТКЕ v5
+.page-reveal_theme_scale {
+    &.is-revealed {
+        animation: slide-in 0.5s;
+    }
+}
+
+// АНИМАЦИЯ ПРИ ПРОКРУТКЕ v6
+.page-reveal_theme_puff {
+    &.is-revealed {
+        animation: puff-in 0.5s;
+    }
+}
+
+// KEYFRAMES
+// v4
+@keyframes slide-left-from-bottom {
+    0% {
+        transform: translateX(-50px) translateY(50px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+// v5
+@keyframes slide-in {
+    0% {
+        transform: translateY(-25px) scaleY(0.9) scaleX(0.9);
+        filter: blur(10px);
+    }
+
+    100% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+        filter: blur(0);
+    }
+}
+
+// v6
+@keyframes puff-in {
+    0% {
+        transform: scaleX(1.2);
+        filter: blur(4px);
+    }
+
+    100% {
+        transform: scaleX(1);
+        filter: blur(0);
+    }
+}

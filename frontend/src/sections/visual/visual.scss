@@ -1,0 +1,29 @@
+// DEPENDENCIES
+@import "../../common/styles/grid-mixins";
+
+// SETTINGS
+
+// BLOCK
+.visual-inner {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - var(--header-height) - 36px); // высота хэдера минус отступ у секции на моб.
+    overflow: hidden;
+
+    @media #{$tablet-portrait} {
+        height: auto;
+        min-height: calc(100vh - var(--header-height));
+        padding-top: unset;
+    }
+}
+
+// ELEMENTS
+.visual-inner__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// MODS

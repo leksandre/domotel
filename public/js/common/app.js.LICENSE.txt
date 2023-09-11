@@ -1,0 +1,29 @@
+/*!
+ * dist/inputmask
+ * https://github.com/RobinHerbots/Inputmask
+ * Copyright (c) 2010 - 2023 Robin Herbots
+ * Licensed under the MIT license
+ * Version: 5.0.8
+ */
+
+/*! Hammer.JS - v2.0.7 - 2016-04-22
+ * http://hammerjs.github.io/
+ *
+ * Copyright (c) 2016 Jorik Tangelder;
+ * Licensed under the MIT license */
+
+/**
+ *
+ *
+ * @author Jerry Bendy <jerry@icewingcc.com>
+ * @licence MIT
+ *
+ */
+
+/**
+ * Twig.js
+ *
+ * @copyright 2011-2020 John Roepke and the Twig.js Contributors
+ * @license   Available under the BSD 2-Clause License
+ * @link      https://github.com/twigjs/twig.js
+ */

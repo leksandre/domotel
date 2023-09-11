@@ -1,0 +1,132 @@
+{% extends '../../layout/_layout.twig' %}
+{% block title %}Главная страница{% endblock %}
+
+{% block header %}
+    {% include '../../../components/header/header.twig' with {
+        headerModify: 'header_theme_transparent',
+        isHomePage: true,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#news',
+                name: 'Новости'
+            },{
+                href: '#promotions',
+                name: 'Акции'
+            },{
+                href: '#flats',
+                name: 'Квартиры'
+            },{
+                href: '#how-to-buy',
+                name: 'Как купить'
+            }, {
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#documents',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {# Первый экран #}
+    {% include '../../../sections/first-screen/first-screen.twig' with {
+        modify: 'first-screen_full_height first-screen_with_search j-main-screen',
+        version: '1',
+        compilation: true,
+        isSearch: true,
+        flats: [
+            {
+                name: 'Однокомнатные квартиры',
+                price: '9,7',
+                area: '23,6'
+            },{
+                name: 'Двухкомнатные квартиры',
+                price: '18,7',
+                area: '49,5'
+            },{
+                name: 'Трехкомнатные квартиры',
+                price: '14,7',
+                area: '58,8'
+            },{
+                name: 'Четырехкомнатные квартиры',
+                price: '18,7',
+                area: '77,6'
+            }
+        ]
+    } %}
+
+    {#  Акции  #}
+    {% include '../../../sections/main-promotions/promotions.twig' with {
+        sectionModify: 'section_animate_background-brand',
+        promotionModify: 'promotion_animation_hover',
+        promotionLabelModify: 'promotion_label_animation-v1',
+        reveal,
+        items: [{
+            image: '/images/promotions/img1.png',
+            title: 'Скидка&nbsp;2% для жителей других городов',
+            label: 'Постоянная акция'
+        }, {
+            image: false,
+            title: 'В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'Цены на&nbsp;старте продаж от&nbsp;60&nbsp;тысяч рублей за&nbsp;квадратный метр!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'Скидка&nbsp;2% для жителей других городов',
+            label: 'Постоянная акция'
+        }]
+    } %}
+
+    <br>
+
+    {#  Акции  #}
+    {% include '../../../sections/main-promotions/promotions.twig' with {
+        sectionModify: 'section_animate_background-additional',
+        promotionModify: 'promotion_animation_hover',
+        promotionLabelModify: 'promotion_label_animation-v2',
+        reveal,
+        items: [{
+            image: '/images/promotions/img1.png',
+            title: 'Скидка&nbsp;2% для жителей других городов',
+            label: 'Постоянная акция'
+        }, {
+            image: false,
+            title: 'В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'Цены на&nbsp;старте продаж от&nbsp;60&nbsp;тысяч рублей за&nbsp;квадратный метр!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'Скидка&nbsp;2% для жителей других городов',
+            label: 'Постоянная акция'
+        }]
+    } %}
+{% endblock %}
+
+{% block footer %}
+    {% include '../../../sections/footer/footer.twig' %}
+{% endblock %}

@@ -1,0 +1,32 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$list-divider-bg: rgba($brand-text-rgb, 0.2);
+
+// BLOCK
+.parametric-result {
+    @include margin-level(top, yellow);
+    @include margin-level(bottom, pink);
+}
+
+// ELEMENTS
+.parametric-result__controls {
+    @media #{$tablet-portrait} {
+        @include row();
+        justify-content: space-between;
+    }
+
+    .list {
+        @include padding-level(bottom, yellow);
+    }
+}
+
+.parametric-result__more {
+    @include margin-level(top, cyan);
+    @include row();
+    align-items: center;
+    justify-content: center;
+}
+
+// MODS

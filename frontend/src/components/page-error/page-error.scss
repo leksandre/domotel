@@ -1,0 +1,146 @@
+// DEPENDENCIES
+@import "../../common/styles/breakpoints";
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/management-layers";
+@import "../../common/styles/vertical-indent";
+
+$error-text: $page-error-text;
+
+.page-error {
+    @include scale(padding-top, 60, 80, 80);
+    position: relative;
+    height: 100vh;
+    color: $error-text;
+    z-index: z(zero);
+}
+
+.page-error__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: z(zero);
+    overflow: hidden;
+
+    &:before {
+        @include pseudo();
+        @include fullsize(0);
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: z(default);
+    }
+
+    picture {
+        height: 100%;
+    }
+
+    img {
+        @include object-fit(cover);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.page-error__content {
+    @include padding-level(top, violet);
+    @include padding-level(bottom, violet);
+    position: relative;
+    width: 100%;
+    z-index: z(default);
+}
+
+.page-error__number {
+    @include font-size(p2-regular);
+    @include margin-level(bottom, yellow);
+}
+
+.page-error__title {
+    @include margin-level(bottom, green);
+}
+
+.page-error__description {
+    @include font-size(p1-regular);
+    @include margin-level(bottom, green);
+
+    @media #{$tablet-portrait} {
+        width: column(32, 36);
+    }
+
+    @media #{$tablet-landscape} {
+        width: column(30, 36);
+    }
+
+    @media #{$laptop} {
+        width: column(24, 36);
+    }
+}
+
+.page-error__buttons {
+    @include scale(column-gap, 16, 16, 20);
+    @include row();
+    width: 100%;
+}
+
+.page-error__button {
+    @include scale(margin-bottom, 16, 0, null);
+    @include scale(padding-left, 28, 28, 28);
+    @include scale(padding-right, 28, 28, 28);
+    @include scale(line-height, 34, 38, 38);
+    width: 100%;
+
+    // MEDIA
+    @media #{$tablet-portrait} {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+
+        // MEDIA
+        @media #{$tablet-portrait} {
+            margin-right: 0;
+        }
+    }
+
+    &:hover {
+        // MEDIA
+        @media #{$laptop} {
+            opacity: 0.5;
+        }
+    }
+
+    &.button_theme_white {
+        @include scale(border, 1, 1, 1, solid rgba($brand-text, 0.2));
+
+        &:hover {
+            // MEDIA
+            @media #{$laptop} {
+                color: $black;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+// theme
+.page-error_theme_dark {
+    background-color: $page-error-text;
+    color: $white;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: $white;
+    }
+
+    .page-error__content {
+        @include padding-level(top, red);
+        @include padding-level(bottom, red);
+    }
+}

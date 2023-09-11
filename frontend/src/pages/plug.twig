@@ -1,0 +1,14 @@
+{% extends "./layout/_layout.twig" %}
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    {% include '../components/plug/plug.twig' with {
+        picture: '/images/slider/slide-1.jpg',
+        logo: "/webicons/header/logo_light.svg",
+        name: "Берёзка",
+        title: "Запуск сайта ЖК&nbsp;&laquo;Берёзка&raquo; 24&nbsp;апреля 2021",
+        announcement: ['Жилой дом &laquo;Берёзка&raquo; будет расположен рядом с&nbsp;большим сосновым лесопарком (что весьма логично). Это новый, современный проект &laquo;ВДК&raquo; на&nbsp;левом берегу&nbsp;&mdash; с&nbsp;продуманной архитектурной концепцией и&nbsp;закрытой, благоустроенной территорией.'],
+        phone:"8 3545 987-78-78",
+        email:"bereza@multi.kelnik.ru"
+    } %}
+{% endblock %}

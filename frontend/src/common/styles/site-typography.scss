@@ -1,0 +1,13 @@
+// DEPENDENCIES
+@import "./colors";
+@import "./font-family";
+
+// SETTINGS
+$common-color: $brand-text;
+
+// Основные элементы
+html {
+    font-family: $font;
+    color: $common-color;
+}
+

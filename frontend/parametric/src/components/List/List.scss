@@ -1,0 +1,145 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$list-divider-bg: rgba($brand-text-rgb, 0.2);
+$list-item-brand-bg: rgba($brand-base-rgb, 0.16);
+$list-item-white-bg: $white;
+$list-color-light: rgba($brand-text-rgb, 0.5);
+$list-sort-color-active: $brand-text;
+$list-counter-active: $brand-base;
+
+// BLOCK
+.list {
+    @include row();
+    align-items: baseline;
+}
+
+// ELEMENTS
+.list__item {
+    @include margin-level(right, tomato);
+}
+
+.list__item-label {
+    color: $list-color-light;
+}
+
+.list__item-accent {
+    font-weight: 800;
+}
+
+.list__tooltip-container {
+    @include row();
+    justify-content: center;
+    cursor: pointer;
+
+    @media #{$tablet-portrait} {
+        position: relative;
+    }
+}
+
+// MODS
+// с точкой между элементами списка
+.list_theme_dot {
+    > .list__item {
+        &:not(:only-of-type):not(:last-of-type) {
+            @include scale(padding-right, 8, 8, 8);
+            position: relative;
+
+            &:after {
+                @include pseudo();
+                @include scale(width, 3, 3, 3);
+                @include scale(height, 3, 3, 3);
+                top: 50%;
+                right: -1px;
+                border-radius: 50%;
+                background-color: $list-divider-bg;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+// колонкой
+.list_theme_column {
+    flex-direction: column;
+
+    .list__item {
+        margin-right: 0;
+
+        &:not(:last-of-type) {
+            @include margin-level(bottom, tomato);
+        }
+    }
+}
+
+.list_theme_relative {
+    position: relative;
+}
+
+// список особенностей
+.list_theme_details-parametric {
+    @include scale(gap, 8, 8, 8);
+
+    .list__item {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 44, func "calc(var(--is-br) * $)" 44, func "calc(var(--is-br) * $)" 44);
+        @include scale(padding, 7 16, 4 16, 4 16);
+        background-color: $list-item-brand-bg;
+        white-space: nowrap;
+    }
+}
+
+.list_theme_sort {
+    .list__item {
+        @include transition(color);
+        @include force-height(21);
+        @include row();
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        width: 100%;
+        color: $list-color-light;
+        white-space: nowrap;
+
+        &:hover {
+            @media #{$laptop} {
+                color: $list-sort-color-active;
+            }
+        }
+
+        &.is-active {
+            color: $list-sort-color-active;
+        }
+    }
+}
+
+.list__item.list__item_option_counter {
+    @include transition(background-color, color);
+    margin-right: 0;
+
+    &.is-active {
+        background-color: $list-counter-active;
+        color: $white;
+    }
+}
+
+// размерности шрифтов
+.list_theme_accent {
+    @include font-size(p1-bold);
+}
+
+.list_theme_medium {
+    @include font-size(p2-regular);
+}
+
+.list_theme_regular {
+    @include font-size(p3-regular);
+}
+
+// отступы
+.list_indent_tomato {
+    @include margin-level(bottom, tomato);
+}
+
+.list_indent_yellow {
+    @include margin-level(bottom, yellow);
+}

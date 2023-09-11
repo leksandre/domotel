@@ -1,0 +1,31 @@
+<section id="flats"
+         class="section j-anchor-section{% if animationClass %} {{ animationClass }}{% endif %}
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="flats-block">
+        <div class="flats-block__content">
+            <div class="grid grid_theme_relative">
+                <div class="grid__row">
+                    <div class="grid__common">
+                        <h2 class="j-animation__header">Типовые квартиры</h2>
+                        <div class="flats-block__about">
+                            {% include './flats-about.twig' with {animationClass} %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flats-block__gallery">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__common">
+                        {% if flatsTheme == 'big-slider' %}
+                            {% include './themes/flats-big-slider.twig' with {animationClass} %}
+                        {% else %}
+                            {% include './themes/flats-cards.twig' with {animationClass} %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

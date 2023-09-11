@@ -1,0 +1,124 @@
+{% extends './layout/_layout.twig' %}
+{% block title %}Главная страница{% endblock %}
+
+{% block header %}
+    {% include '../components/header/header.twig' with {
+        headerModify: 'header_theme_transparent',
+        isHomePage: true,
+        isSearch: true,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#visualplan',
+                name: 'Выбрать на плане'
+            },{
+                href: '#how-to-buy',
+                name: 'Как купить'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ],
+        estateTypeNavigation: [
+            {
+                href: '/visual/',
+                name: 'На 3D-плане'
+            },{
+                href: '/kvartiry/',
+                name: 'По параметрам'
+            }
+        ],
+        additionalNavigation: [
+            {
+                href: '#',
+                name: 'Паркинги'
+            },{
+                href: '#',
+                name: 'Коммерция'
+            }
+        ],
+        searchFullNavigation: [
+            {
+                href: '/visual/',
+                name: 'Квартиры на 3D-плане',
+                icon: 'search-flat-visual.svg'
+            },{
+                href: '/kvartiry/',
+                name: 'Квартиры по параметрам',
+                icon: 'search-flat-params.svg'
+            },{
+                href: '/visual/',
+                name: 'Паркинги',
+                icon: 'search-parking.svg'
+            },{
+                href: '/kvartiry/',
+                name: 'Коммерция',
+                icon: 'search-commerce.svg'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {# Первый экран #}
+    {% include '../sections/first-screen/first-screen.twig' with {
+        modify: 'first-screen_full_height first-screen_with_search j-main-screen',
+        version: '1',
+        compilation: true,
+        isSearch: true,
+        flats: [
+            {
+                name: 'Однокомнатные квартиры',
+                price: '9,7',
+                area: '23,6'
+            },{
+                name: 'Двухкомнатные квартиры',
+                price: '18,7',
+                area: '49,5'
+            },{
+                name: 'Трехкомнатные квартиры',
+                price: '14,7',
+                area: '58,8'
+            },{
+                name: 'Четырехкомнатные квартиры',
+                price: '18,7',
+                area: '77,6'
+            }
+        ]
+    } %}
+    {# О проекте #}
+    {% include '../sections/about/about.twig' with {
+        title: 'О проекте'
+    } %}
+
+    {% include '../sections/first-screen/first-screen.twig' with {
+        modify: 'first-screen_full_height-laptop first-screen_with_animation j-main-screen',
+        version: '1',
+        slider: true
+    } %}
+
+    {#  Визуальный выборщик #}
+    {% include '../sections/visual/visual.twig' %}
+
+{#    #}{#  Визуальный выборщик: во всю ширину  #}
+{#    {% include '../sections/visual/visual.twig' with {#}
+{#        fullscreen: true#}
+{#    } %}#}
+
+    {# Как купить #}
+    {% include '../sections/how-to-buy/how-to-buy.twig' with {
+        mortgageCalculator: true,
+        detailsOpen: true
+    } %}
+
+    {# Контакты #}
+    {% include '../sections/contacts/contacts.twig' %}
+
+{% endblock %}
+
+{% block footer %}
+    {% include '../components/popup/forms/callback-parametric.twig' %}
+    {% include '../sections/footer/footer.twig' %}
+{% endblock %}

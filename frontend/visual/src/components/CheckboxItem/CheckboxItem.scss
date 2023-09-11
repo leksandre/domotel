@@ -1,0 +1,153 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$checkbox-bg: $white;
+$checkbox-bg-mobile: rgba(0, 0, 0, 0);
+$checkbox-hover: $brand-base;
+$checked-bg: $brand-dark;
+$checked-text: $white;
+$disabled-text: rgba($brand-text-rgb, 0.3);
+
+// BLOCK
+.checkbox {
+    display: block;
+    position: relative;
+    flex: 1 1 auto;
+    background-color: $checkbox-bg-mobile;
+
+    @media #{$tablet-landscape} {
+        background-color: $checkbox-bg;
+    }
+}
+
+// ELEMENTS
+.checkbox__label {
+    @include transition(color, background-color, opacity);
+    @include scale(padding, 12 20, 12 20, 12 20);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: $checkbox-bg-mobile;
+    cursor: pointer;
+
+    @media #{$tablet-landscape} {
+        background-color: $checkbox-bg;
+    }
+
+    &:before {
+        @include transition(all);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background: $checked-bg;
+        opacity: 0;
+        z-index: z(default);
+    }
+}
+
+.checkbox__legend {
+    @include scale(width, 12, 12, 12);
+    @include scale(height, 12, 12, 12);
+    @include scale(margin-right, 8, 8, 8);
+    flex: none;
+    border-radius: calc(var(--is-br) * 50%);
+    border: 2px solid $white;
+    z-index: z(default);
+}
+
+.checkbox__text {
+    @include font-size(p2-bold);
+    @include transition(color, opacity);
+    position: relative;
+    z-index: z(default);
+    width: inherit;
+    text-align: left;
+
+    @media #{$tablet-landscape} {
+        text-align: center;
+    }
+}
+
+// MODS
+.checkbox_theme_filter {
+    &:first-child {
+        @include scale(border-top-left-radius, 8, 66, 66);
+        @include scale(border-bottom-left-radius, 8, 66, 66);
+
+        .checkbox__label {
+            @include scale(border-top-left-radius, 8, 66, 66);
+            @include scale(border-bottom-left-radius, 8, 66, 66);
+
+            &:before {
+                @include scale(border-top-left-radius, 8, 66, 66);
+                @include scale(border-bottom-left-radius, 8, 66, 66);
+            }
+        }
+    }
+
+    &:last-child {
+        @include scale(border-top-right-radius, 8, 66, 66);
+        @include scale(border-bottom-right-radius, 8, 66, 66);
+        margin-right: 0;
+
+        .checkbox__label {
+            @include scale(border-top-right-radius, 8, 66, 66);
+            @include scale(border-bottom-right-radius, 8, 66, 66);
+
+            &:before {
+                @include scale(border-top-right-radius, 8, 66, 66);
+                @include scale(border-bottom-right-radius, 8, 66, 66);
+            }
+        }
+    }
+}
+
+// STATES
+.checkbox__input {
+    &:hover:not(:checked) {
+        ~ .checkbox__label:before {
+            &:before {
+                @media #{$laptop} {
+                    opacity: 1;
+                    background-color: $checkbox-hover;
+                }
+            }
+
+            .checkbox__text {
+                @media #{$laptop} {
+                    color: $checked-text;
+                }
+            }
+        }
+    }
+
+    &:checked {
+        ~ .checkbox__label {
+            &:before {
+                opacity: 1;
+            }
+
+            .checkbox__text {
+                color: $checked-text;
+            }
+        }
+    }
+
+    &:disabled {
+        ~ .checkbox__label {
+            pointer-events: none;
+
+            @media #{$laptop} {
+                cursor: default;
+            }
+
+            .checkbox__text {
+                color: $disabled-text;
+            }
+        }
+    }
+}

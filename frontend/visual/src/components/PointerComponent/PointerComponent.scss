@@ -1,0 +1,120 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$pointer-bg-light: $white;
+$pointer-bg-dark: $brand-text;
+$pointer-bg-hover: $brand-dark;
+$pointer-disabled-bg-light: rgba($white-rgb, 0.5);
+$pointer-disabled-bg-dark: rgba($brand-text-rgb, 0.5);
+$pointer-disabled-bg-flat: $brand-gray;
+$pointer-text: $brand-text;
+$pointer-text-hover: $white;
+$pointer-disabled-text: rgba($white-rgb, 0.7);
+
+// BLOCK
+.visual-pointer {
+    overflow: visible;
+
+    &.is-hovered {
+        .visual-pointer__info {
+            background-color: $pointer-bg-hover;
+            color: $pointer-text-hover;
+        }
+    }
+
+    &.is-disabled,
+    &.is-booked {
+        pointer-events: none;
+    }
+}
+
+// ELEMENTS
+.visual-pointer__item {
+    cursor: pointer;
+    position: relative;
+    width: auto;
+}
+
+.visual-pointer__info {
+    @include row();
+    @include font-size(p3-bold);
+    @include transition(background-color, color);
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: $pointer-bg-light;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    color: $pointer-text;
+}
+
+// ELEMENTS - ICONS
+.visual-pointer__booked-icon {
+    circle {
+        stroke: $pointer-bg-dark;
+    }
+
+    rect {
+        fill: $pointer-bg-dark;
+    }
+}
+
+// MODS
+.visual-pointer_theme_corpus,
+.visual-pointer_theme_building,
+.visual-pointer_theme_section {
+    .visual-pointer__item,
+    .visual-pointer__info {
+        @include scale(height, 24, 24, 24);
+        @include scale(min-width, 90, 90, 90);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 52, func "calc(var(--is-br) * $)" 52, func "calc(var(--is-br) * $)" 52);
+    }
+
+    .visual-pointer__info {
+        @include scale(padding, 0 12, 0 12, 0 12);
+    }
+}
+
+.visual-pointer_theme_floor {
+    .visual-pointer__item,
+    .visual-pointer__info {
+        @include font-size(pointer);
+        @include scale(height, 20, 20, 20);
+        @include scale(width, 20, 20, 20);
+        @include scale(min-width, 20, 20, 20);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 34, func "calc(var(--is-br) * $)" 34, func "calc(var(--is-br) * $)" 34);
+    }
+
+    &.is-disabled {
+        .visual-pointer__info {
+            background-color: $pointer-disabled-bg-light;
+            color: $pointer-disabled-text;
+        }
+    }
+}
+
+.visual-pointer_theme_premises {
+    pointer-events: none;
+
+    .visual-pointer__item,
+    .visual-pointer__info {
+        @include scale(width, 48, 48, 48);
+        @include scale(min-width, 48, 48, 48);
+        @include scale(height, 48, 48, 48);
+        border-radius: calc(var(--is-br) * 50%);
+    }
+
+    .visual-pointer__info {
+        background-color: $pointer-bg-dark;
+        color: $white;
+    }
+
+    &.is-disabled {
+        .visual-pointer__info {
+            background-color: $pointer-disabled-bg-flat;
+        }
+    }
+}

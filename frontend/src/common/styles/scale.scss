@@ -1,0 +1,226 @@
+// ЗАВИСИМОСТИ
+@use "sass:math";
+@import "./breakpoints";
+
+// ЦЕЛЕВЫЕ РАЗРЕШЕНИЯ
+$desktop-width: 1600;
+
+// "ПРИВАТНЫЕ" МЕТОДЫ
+// Здесь ничего не меняется
+// Первый из массива
+@function first($list) {
+    @return nth($list, 1);
+}
+
+// Последний из массива
+@function last($list) {
+    @return nth($list, length($list));
+}
+
+// Слайс как у js-массивов
+@function slice($list, $start: 1, $end: length($list)) {
+    $result: null;
+
+    @if type-of($start) != number or type-of($end) != number {
+        @warn "Either $start or $end are not a number for `slice`.";
+    } @else if $start > $end {
+        @warn "The start index has to be lesser than or equals to the end index for `slice`.";
+    } @else if $start < 1 or $end < 1 {
+        @warn "List indexes must be non-zero integers for `slice`.";
+    } @else if $start > length($list) {
+        @warn "List index is #{$start} but list is only #{length($list)} item long for `slice`.";
+    } @else if $end > length($list) {
+        @warn "List index is #{$end} but list is only #{length($list)} item long for `slice`.";
+    } @else {
+        $result: ();
+
+        @for $i from $start through $end {
+            $result: append($result, nth($list, $i));
+        }
+    }
+
+    @return $result;
+}
+
+// Замена подстроки
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// Округление чисел
+@function decimal-round($number, $digits: 0, $mode: ceil) {
+    $n: 1;
+
+    // $number должна быть числом
+    @if type-of($number) != number {
+        @warn "#{ $number } is not a number.";
+        @return $number;
+    }
+
+    // $digits должна быть числом без единиц измерения
+    @if type-of($digits) != number {
+        @warn "#{ $digits } is not a number.";
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn "#{ $digits } has a unit.";
+        @return $number;
+    }
+
+    @if $digits > 0 {
+        @for $i from 1 through $digits {
+            $n: $n * 10;
+        }
+    }
+
+    @if $mode == round {
+        @return math.div(round($number * $n), $n);
+    } @else if $mode == ceil {
+        @return math.div(ceil($number * $n), $n);
+    } @else if $mode == floor {
+        @return math.div(floor($number * $n), $n);
+    } @else {
+        @warn "#{ $mode } is undefined keyword.";
+        @return $number;
+    }
+}
+
+// Переводим пиксели в vw
+@function vw($size, $width) {
+    $context: ($width * 0.01);
+    @return decimal-round(math.div($size, $context), 3) * 1vw;
+}
+
+// Переводим число в пиксели
+@function num-to-px($num) {
+    @return $num * 1px;
+}
+
+// Генерирует CSS-правило с нужным медиа-выражением
+@mixin media-rule($media, $property, $value, $is-transform) {
+    $prop: $property;
+    $val: $value;
+
+    @if ($is-transform) {
+        $prop: "transform";
+        $val: #{$property + "("}$value#{")"};
+    }
+
+    @if $media {
+        @media #{$media} {
+            #{$prop}: $val;
+        }
+    } @else {
+        #{$prop}: $val;
+    }
+}
+
+// Генерирует отскейленный размер
+// $values - список значений для преобразования
+// $function - функция преобразования
+// $separator - разделитель итоговых значений
+// $suffix - что-то, что нужно добавить в самый конец после итоговых значений
+@function scale-values($values, $function, $separator: space, $suffix: false) {
+    $vals: $values;
+
+    // Функция ли переданное значение
+    $is-func: false;
+
+    @if first($values) == "func" {
+        $is-func: true;
+        $vals: slice($values, 3);
+    }
+
+    $scaled-values: ();
+
+    @each $v in $vals {
+        $value: $v;
+
+        @if type_of($v) == number and unit($v) == "" {
+            $value: call(get-function($function), $v);
+        }
+
+        @if $is-func {
+            $value: #{str-replace(nth($values, 2), "$", $value)};
+        }
+
+        $scaled-values: append($scaled-values, $value, $separator);
+    }
+
+    // Добавляем суффикс
+    @if $suffix {
+        $scaled-values: append($scaled-values, $suffix, $separator);
+    }
+
+    @return $scaled-values;
+}
+
+// НАЧИНАЯ ОТСЮДА МОЖНО ВНОСИТЬ ИЗМЕНЕНИЯ В СВОЙ ПРОЕКТ
+// "ПУБЛИЧНЫЕ" МЕТОДЫ, используй их в обход основного миксина, если нужно
+
+// vw для десктопа
+@function vw-desk($size) {
+    @return vw($size, $desktop-width);
+}
+
+// ОСНОВНОЙ МИКСИН
+// Задает правильные величины на всех разрешениях
+// $property - свойство, которое хотим отскейлить
+// $mvalues - значение для мобильных; принимает что угодно (если нужны пиксели, передавать без размерных единиц)
+// $dvalues - значение для десктопа; аналогично $mvalues
+// $suffix - что-то, что нужно вставить после отскейленных размеров
+@mixin scale($property, $mvalues, $tvalues, $dvalues, $suffix: null) {
+    // Список трансформаций, которые поддерживают скейл
+    $transforms: (
+        "translate",
+        "translateX",
+        "translateY",
+        "translateZ",
+        "translate3d"
+    );
+
+    // Трансформация ли переданное свойство
+    $is-transform: false;
+
+    // Разделитель значений
+    $separator: space;
+
+    // Если скейлим transform:translate, меняем разделитель для значений на запятую
+    @each $transform in $transforms {
+        @if $transform == $property {
+            $separator: comma;
+            $is-transform: true;
+        }
+    }
+
+    // Скейлим мобильные значения
+    @if $mvalues {
+        $mobile-values: scale-values($mvalues, num-to-px, $separator, $suffix);
+
+        // Отскейленные стили
+        @include media-rule(null, $property, $mobile-values, $is-transform);
+    }
+
+    // Скейлим таблетные значения
+    @if $tvalues {
+        $tablet-landscape-values: scale-values($tvalues, num-to-px, $separator, $suffix);
+
+        // Отскейленные стили
+        @include media-rule($tablet-landscape, $property, $tablet-landscape-values, $is-transform);
+    }
+
+    // Скейлим десктопные значения
+    @if $dvalues {
+        $laptop-values: scale-values($dvalues, vw-desk, $separator, $suffix);
+        $laptop-extra-wide-values: scale-values($dvalues, num-to-px, $separator, $suffix);
+
+        // Отскейленные стили
+        @include media-rule($laptop, $property, $laptop-values, $is-transform);
+        @include media-rule($laptop-extra-wide, $property, $laptop-extra-wide-values, $is-transform);
+    }
+}

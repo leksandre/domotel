@@ -1,0 +1,32 @@
+<div class="plug">
+    {% if picture %}
+    <div class="plug__picture">
+        <picture>
+            <img src="{{ picture }}" alt="">
+        </picture>
+    </div>
+    {% endif %}
+    <div class="plug__container">
+    {% if logo %}
+        <div class="plug__logo">
+            <img src="{{ logo }}" alt="{{ name }}">
+        </div>
+    {% endif %}
+        <div class="plug__content">
+            {% if title %}
+                <h1>{{ title }}</h1>
+            {% endif %}
+            {% if announcement.length %}
+                <div class="plug__announcement">
+                {% for text in announcement %}
+                    <p>{{ text }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+            <footer class="plug__footer">
+                <a href="tel:{{ phone|replace({' ': '', '(' : '', ')': '', '+': '', '-':''})|raw}}">{{ phone }}</a>
+                <a href="mailto:{{ email }}">{{ email }}</a>
+            </footer>
+        </div>
+    </div>
+</div>

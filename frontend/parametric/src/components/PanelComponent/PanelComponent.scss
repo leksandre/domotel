@@ -1,0 +1,135 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$panel-bg: $white;
+$panel-text-light: rgba($brand-text-rgb, 0.7);
+$header-line: $brand-gray;
+$list-divider-bg: rgba($brand-text-rgb, 0.2);
+
+// BLOCK
+.panel {
+    @include padding-level(bottom, yellow);
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    z-index: z(popup);
+    background-color: $panel-bg;
+}
+
+// ELEMENTS
+.panel__header {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:before {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+        @include scale(height, 4, 4, 4);
+        @include scale(width, 80, 80, 80);
+        @include pseudo();
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $header-line;
+    }
+}
+
+.panel__body {
+    overflow-y: auto;
+}
+
+.panel__render {
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
+.panel__render-image {
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.panel__content {
+    @include vertical-margins(1, 36);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+
+    @media #{$tablet-portrait} {
+        @include vertical-margins(6, 36);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-margins(8, 36);
+    }
+}
+
+.panel__info {
+    @include padding-level(top, yellow);
+    @include padding-level(bottom, cyan);
+    @include vertical-paddings(2, 34);
+}
+
+.panel__info-header {
+    @include margin-level(bottom, orange);
+    @include padding-level(bottom, yellow);
+    border-bottom: 1px solid rgba($black-rgb, 0.1);
+}
+
+.panel__title {
+    @include font-size(p1-bold);
+}
+
+.panel__deadline {
+    @include font-size(p3-regular);
+    color: $panel-text-light;
+}
+
+.panel__params {
+    @include padding-level(top, orange);
+}
+
+.panel__param {
+    @include margin-level(bottom, tomato);
+    @include font-size(p3-regular);
+    display: flex;
+    justify-content: space-between;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.panel__param-flats {
+    flex: 0 0 45%;
+    white-space: nowrap;
+}
+
+.panel__param-amount {
+    flex: 0 0 15%;
+    text-align: right;
+}
+
+.panel__value {
+    flex: 0 0 40%;
+    text-align: right;
+}
+
+.panel__price {
+    @include margin-level(right, tomato);
+    @include font-size(p1-bold);
+    display: inline-block;
+}
+
+// MODS

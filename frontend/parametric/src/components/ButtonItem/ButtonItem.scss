@@ -1,0 +1,148 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$filter-bg: $brand-text;
+$filter-text: $white;
+$counter-bg: $white;
+$counter-text: $brand-text;
+$border-color: $brand-gray-light;
+$brand-btn-bg: $brand-base;
+$disabled-text: $white;
+$disabled-bg: $brand-gray;
+
+// BLOCK
+.parametric-button {
+    @include reset-button();
+    @include row();
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    &:disabled {
+        pointer-events: none;
+        background-color: $disabled-bg;
+        color: $disabled-text;
+
+        @media #{$laptop} {
+            cursor: default;
+        }
+    }
+}
+
+// ELEMENTS
+.parametric-button__filter-button {
+    @include margin-level(both, yellow);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20);
+    @include scale(padding, 8 24, 8 24, 8 24);
+    @include font-size(p2-bold);
+    background-color: $filter-bg;
+    color: $filter-text;
+}
+
+.parametric-button__flats-button {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20);
+    @include scale(padding, 8 24, 8 24, 8 24);
+    @include font-size(p2-bold);
+    background-color: $brand-btn-bg;
+    color: $filter-text;
+}
+
+.parametric-button__text {
+    &:first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.parametric-button__more-button {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20);
+    @include scale(padding, 8 24, 8 24, 8 24);
+    @include font-size(p2-bold);
+    border: 1px solid $border-color;
+    width: 100%;
+
+    @media #{$tablet-portrait} {
+        width: auto;
+    }
+}
+
+.parametric-button__wrapper {
+    @include row();
+    justify-content: center;
+}
+
+.parametric-button__counter {
+    @include margin-level(left, tomato);
+    @include scale(width, 24, 24, 24);
+    @include scale(height, 24, 24, 24);
+    @include row();
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: $counter-bg;
+    color: $counter-text;
+}
+
+// MODS
+.parametric-button_full-width_mobile {
+    width: 100%;
+
+    @media #{$tablet-portrait} {
+        width: auto;
+    }
+}
+
+.parametric-button_full-width_tablet {
+    width: 100%;
+
+    @media #{$tablet-landscape} {
+        width: auto;
+    }
+}
+
+.parametric-button_scroll_button {
+    @include transition(transform, opacity);
+    @include margin-level(bottom, pink);
+    z-index: z(tooltip);
+    transform: translateY(110%);
+    opacity: 0;
+    bottom: 0;
+
+    &.is-active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    &.is-fixed {
+        position: fixed;
+    }
+
+    &.is-absolute {
+        position: absolute;
+    }
+
+    &.is-relative {
+        position: relative;
+    }
+}
+
+.parametric-button__icon_icon_after {
+    @include margin-level(left, tomato);
+}
+
+.parametric-button__icon_icon_before {
+    @include scale(margin-right, 12, 12, 12);
+}
+
+// кнопка смены вида
+.parametric-button_view_button {
+    &.is-active {
+        font-weight: 800;
+    }
+}
+
+.parametric-button_theme_tooltip {
+    @include margin-level(right, orange);
+    justify-content: space-between;
+    width: 100%;
+}

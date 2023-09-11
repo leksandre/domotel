@@ -1,0 +1,81 @@
+<div class="grid__gallery">
+    <div class="flats-block__wrapper">
+        {# если количество карточек больше, чем карточек по типу (2 или 3) #}
+        {% if data|length > flatsCardCount %}
+
+            {# на мобильных выводим все карточки с прокруткой (без "подгрузки") #}
+            <div class="flats-block__mobile-wrapper">
+                <div class="flats-block__container {% if animationClass %} j-animation__row{% endif %}"
+                     {% if animationClass %}data-items="320:2,670:3"{% endif %}>
+                    {% include '../../../components/flat-block-card/flat-block-card.twig' with {
+                        lazy: true,
+                        data: data,
+                        animationClass,
+                        popupClass: 'j-popup-callback'
+                    }%}
+                </div>
+            </div>
+
+            {# выводим карточки (2 или 3), остальные в обертку ("подгрузка" вида "скрыть/показать") #}
+            <div class="flats-block__desktop-wrapper j-flats-block-desktop">
+                {# обертка для верхних карточек #}
+                <div class="flats-block__top-desktop-wrapper">
+                    <div class="flats-block__container{% if animationClass %} j-animation__row{% endif %}"
+                         {% if animationClass %}data-items="320:2,670:3"{% endif %}>
+                        {% include '../../../components/flat-block-card/flat-block-card.twig' with {
+                            lazy: true,
+                            data: data|slice(0, flatsCardCount),
+                            animationClass,
+                            popupClass: 'j-popup-callback'
+                        }%}
+                    </div>
+                </div>
+
+                {# обертка для нижних карточек #}
+                <div class="flats-block__bottom-desktop-wrapper">
+
+                    {% embed '../../../components/accordion/accordion.twig' with {
+                        modify: 'accordion_theme_reverse',
+                        titleModify: 'button',
+                        button: true,
+                        dataAttr: 'data-change-title="true" data-initial-title="Показать все планировки" data-alternate-title="Скрыть все планировки"',
+                    } %}
+
+                        {% block content %}
+                            <div class="flats-block__container{% if animationClass %} j-animation__row{% endif %}"
+                                 {% if animationClass %}data-items="320:2,670:3"{% endif %}>
+                                {% include '../../../components/flat-block-card/flat-block-card.twig' with {
+                                    lazy: true,
+                                    items: data|slice(flatsCardCount, data|length),
+                                    animationClass,
+                                    popupClass: 'j-popup-callback'
+                                }%}
+                            </div>
+                        {% endblock %}
+
+                    {% endembed %}
+
+{#                        {% include '../../../components/button/button.twig' with {#}
+{#                            modify: 'j-spoiler__button',#}
+{#                            dataAttr: 'data-open="Показать все планировки" data-closed="callback"',#}
+{#                            ariaLabel: '',#}
+{#                            text: 'Показать все планировки',#}
+{#                        }%}#}
+                    </div>
+                </div>
+
+            </div>
+        {% else %}
+            {# если карточек 2 или 3, то выводим все сразу #}
+            <div class="flats-block__container{% if animationClass %} j-animation__row{% endif %}"
+                 {% if animationClass %}data-items="320:2,670:3"{% endif %}>
+                {% include '../../../components/flat-block-card/flat-block-card.twig' with {
+                    lazy: true,
+                    items: data,
+                    animationClass,
+                    popupClass: 'j-popup-callback'
+                }%}
+            </div>
+        {% endif %}
+    </div>
+</div>

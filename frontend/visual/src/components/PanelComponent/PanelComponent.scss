@@ -1,0 +1,225 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$panel-bg: $white;
+$panel-content-bg: rgba($brand-base-rgb, 0.16);
+$panel-text-light: rgba($brand-text-rgb, 0.7);
+$header-line: $brand-gray;
+$list-divider-bg: rgba($brand-text-rgb, 0.2);
+
+// BLOCK
+.panel {
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include padding-level(bottom, yellow);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    z-index: z(popup);
+    background-color: $panel-bg;
+}
+
+// ELEMENTS
+.panel__header {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:before {
+        @include scale(width, 80, 80, 80);
+        @include scale(height, 4, 4, 4);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+        @include pseudo();
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $header-line;
+    }
+}
+
+.panel__body {
+    overflow-y: scroll;
+}
+
+.panel__render {
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
+.panel__render-image {
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.panel__content {
+    @include vertical-margins(1, 36);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    background-color: $panel-content-bg;
+
+    @media #{$tablet-portrait} {
+        @include vertical-margins(6, 36);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-margins(8, 36);
+    }
+}
+
+.panel__info {
+    @include padding-level(top, yellow);
+    @include padding-level(bottom, cyan);
+    @include vertical-paddings(2, 34);
+}
+
+.panel__info-header {
+    border-bottom: 1px solid rgba($black-rgb, 0.1);
+
+    &:not(:last-child) {
+        @include margin-level(bottom, orange);
+        @include padding-level(bottom, yellow);
+    }
+}
+
+.panel__title {
+    @include font-size(p1-bold);
+}
+
+.panel__deadline {
+    @include font-size(p3-regular);
+    color: $panel-text-light;
+}
+
+.panel__params {
+    @include padding-level(top, orange);
+}
+
+.panel__param {
+    @include margin-level(bottom, tomato);
+    @include font-size(p3-regular);
+    display: flex;
+    justify-content: space-between;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.panel__param-flats {
+    flex: 0 0 45%;
+    white-space: nowrap;
+}
+
+.panel__param-amount {
+    flex: 0 0 15%;
+    text-align: right;
+}
+
+.panel__value {
+    flex: 0 1 40%;
+    text-align: right;
+}
+
+.panel__price {
+    @include margin-level(right, tomato);
+    @include font-size(p1-bold);
+    display: inline-block;
+}
+
+.panel__footer {
+    @include vertical-margins(1, 36);
+    @include padding-level(top, yellow);
+
+    @media #{$tablet-portrait} {
+        @include vertical-margins(6, 36);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-margins(8, 36);
+    }
+}
+
+// MODS
+.panel_theme_floor {
+    .panel__render-wrapper {
+        @include scale(padding, 8, 8, 8);
+    }
+
+    .panel__render {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        background-color: $panel-bg;
+    }
+
+    .panel__render-image {
+        top: 50%;
+        left: 50%;
+        max-height: 100%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .panel__info-header {
+        @include row();
+        align-items: baseline;
+        border-bottom: none;
+
+        &:not(:last-child) {
+            @include margin-level(bottom, tomato);
+            padding-bottom: 0;
+        }
+    }
+
+    .panel__title {
+        &:not(:only-of-type):not(:last-of-type) {
+            @include scale(margin-right, 20, 20, 20);
+            position: relative;
+
+            &:after {
+                @include pseudo();
+                @include scale(width, 3, 3, 3);
+                @include scale(height, 3, 3, 3);
+                @include scale(right, -11, -11, -11);
+                top: 50%;
+                display: block;
+                border-radius: 50%;
+                background-color: $list-divider-bg;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .panel__params {
+        @include row();
+        padding-top: 0;
+    }
+
+    .panel__param {
+        &:not(:last-child) {
+            @include scale(margin-right, 20, 20, 20);
+            position: relative;
+
+            &:after {
+                @include pseudo();
+                @include scale(width, 3, 3, 3);
+                @include scale(height, 3, 3, 3);
+                @include scale(right, -11, -11, -11);
+                top: 50%;
+                display: block;
+                border-radius: 50%;
+                background-color: $list-divider-bg;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{% extends './layout/_layout.twig' %}
+{% block title %}Главная страница{% endblock %}
+
+{% block header %}
+    {% include '../components/header/header.twig' with {
+        headerModify: 'header_theme_transparent',
+        isHomePage: true,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#news',
+                name: 'Новости'
+            },{
+                href: '#promotions',
+                name: 'Акции'
+            },{
+                href: '#flats',
+                name: 'Квартиры'
+            },{
+                href: '#how-to-buy',
+                name: 'Как купить'
+            }, {
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#documents',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {# О проекте #}
+    {% include '../sections/about/policy.twig' with {
+        title: 'Соглашение об&nbsp;обработке персональных данных'
+    } %}
+{% endblock %}
+
+{% block footer %}
+    {% include '../sections/footer/footer.twig' %}
+{% endblock %}

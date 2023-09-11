@@ -1,0 +1,385 @@
+// DEPENDENCIES
+@use "sass:math";
+@import "../../common/styles/colors";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$flat-block-card-bg: $white;
+$flat-block-card-border: $brand-gray;
+$flat-block-divider-line-bg: rgba($brand-text-rgb, 0.1);
+$flat-block-divider-dot-bg: rgba($brand-text-rgb, 0.3);
+$flat-block-title-theme-dark: $brand-text;
+$flat-block-title-theme-light: rgba($brand-text-rgb, 0.5);
+$flat-block-card-button-bg: $white;
+$flat-block-card-button-border: $brand-base;
+$flat-block-card-button-text: $brand-dark;
+$flat-block-card-button-bg-hover: $brand-base;
+$flat-block-card-button-text-hover: $white;
+
+// BLOCK
+.flat-block-card {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    background-color: $flat-block-card-bg;
+    position: relative;
+}
+
+// ELEMENTS
+.flat-block-card__content {
+    @include padding-level(both, yellow);
+    @include vertical-paddings(2, 30);
+
+    @media #{$tablet-portrait} {
+        @include vertical-paddings(2, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-paddings(1, 30);
+    }
+}
+
+.flat-block-card__plan-wrap {
+    @include margin-level(bottom, yellow);
+    position: relative;
+
+    img {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-height: 100%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .flat__controls {
+        top: 0;
+        right: 0;
+    }
+}
+
+.flat-block-card__gallery {
+    position: relative;
+
+    img {
+        top: 0;
+        transform: translate(-50%, 0);
+        pointer-events: none;
+    }
+}
+
+.flat-block-card__widget {
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
+
+.flat-block-card__title {
+    @include margin-level(bottom, yellow);
+}
+
+.flat-block-card__information {
+    @include margin-level(bottom, yellow);
+}
+
+.flat-block-card__info {
+    @include margin-level(bottom, tomato);
+    @include font-size(p2-regular);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.flat-block-card__info-title {
+    color: $flat-block-title-theme-light;
+}
+
+.flat-block-card__info-divider {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        content: "";
+    }
+}
+
+.flat-block-card__info-value {
+    white-space: nowrap;
+}
+
+.flat-block-card__labels {
+    @include margin-level(bottom, yellow);
+
+    .flat__specials-list {
+        @include scale(margin-bottom, -4, -4, -4);
+
+        @media #{$tablet-landscape} {
+            @include scale(margin-bottom, -8, -8, -8);
+        }
+    }
+}
+
+// MODS
+.flat-block-card_theme_big-slider,
+.flat-block-card_theme_two-cards {
+    .flat-block-card__info-divider {
+        @include scale(margin, 0 16, 0 16, 0 16);
+        width: 100%;
+
+        &:after {
+            @include scale(border, 1, 1, 1, solid $flat-block-divider-line-bg);
+            width: 100%;
+        }
+    }
+}
+
+// ширина в колонках карточек до десктопа для вида карточками
+.flat-block-card_theme_two-cards,
+.flat-block-card_theme_three-cards {
+    @include scale(border, 1, 1, 1, solid $flat-block-card-border);
+    @include post(1, 36);
+    min-width: column(30, 36);
+
+    @media #{$tablet-portrait} {
+        min-width: column(14.5, 36);
+    }
+
+    @media #{$laptop} {
+        min-width: unset;
+    }
+
+    &:first-child {
+        @include push(3, 36);
+
+        @media #{$laptop} {
+            @include push(0);
+        }
+    }
+
+    &:last-child {
+        @include post(3, 36);
+
+        @media #{$laptop} {
+            @include post(0);
+        }
+    }
+
+    .flat-block-card__content {
+        @include vertical-paddings(1.5, 14.5);
+    }
+}
+
+// вид большим слайдером
+.flat-block-card_theme_big-slider {
+    .flat-block-card__content {
+        @media #{$tablet-landscape} {
+            @include row();
+            @include suffix(2, 30);
+        }
+
+        @media #{$laptop} {
+            @include suffix(2, 28);
+        }
+    }
+
+    .flat-block-card__plan-wrap {
+        @include scale(height, 312, 512, 512);
+        display: flex;
+        margin-bottom: 0;
+        pointer-events: none;
+
+        @media #{$tablet-portrait-only} {
+            height: 512px;
+        }
+
+        @media #{$tablet-landscape} {
+            @include post(1, 28);
+            @include column(17, 28);
+        }
+
+        @media #{$laptop} {
+            @include post(1, 26);
+            @include column(15, 26);
+        }
+    }
+
+    .flat-block-card__title {
+        @include font-size(h4);
+    }
+
+    .flat-block-card__info-title {
+        color: $flat-block-title-theme-dark;
+    }
+
+    .flat-block-card__info {
+        &:last-child {
+            .flat-block-card__info-value {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .flat-block-card__details {
+        @media #{$tablet-landscape} {
+            @include column(10, 28);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media #{$laptop} {
+            @include column(10, 26);
+        }
+    }
+}
+
+// вид двумя карточками
+.flat-block-card_theme_two-cards {
+    @include scale(margin-bottom, null, null, 24);
+
+    @media #{$laptop} {
+        @include post(1, 28);
+        width: column(13.5, 28);
+    }
+
+    &:nth-child(2n) {
+        @media #{$laptop} {
+            @include post(0);
+        }
+    }
+
+    .flat-block-card__plan-wrap,
+    .flat-block-card__plan-wrap img,
+    .flat-block-card__gallery {
+        @include scale(height, 230, 330, 330);
+    }
+
+    .flat-block-card__title {
+        @include font-size(h5);
+    }
+
+    .flat-block-card__content {
+        @include padding-level(bottom, blue);
+    }
+
+    .flat-block-card__information {
+        @media #{$laptop} {
+            @include row();
+            justify-content: space-between;
+        }
+    }
+
+    .flat-block-card__info {
+        @media #{$laptop} {
+            @include post(0.5, 13.5);
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        &:first-child {
+            @media #{$laptop} {
+                width: column(4, 13.5);
+            }
+        }
+
+        &:nth-child(2) {
+            @media #{$laptop} {
+                width: column(3, 13.5);
+            }
+        }
+
+        &:last-child {
+            @media #{$laptop} {
+                @include post(0);
+                width: column(5.5, 13.5);
+            }
+        }
+    }
+
+    .flat-block-card__info-title {
+        @include margin-level(bottom, rose);
+    }
+
+    .flat-block-card__info-divider {
+        @media #{$laptop} {
+            display: none;
+        }
+    }
+
+    .flat-block-card__info-value {
+        @include font-size(lead-bold);
+
+        @media #{$laptop} {
+            white-space: pre-line;
+        }
+    }
+}
+
+// вид тремя карточками
+.flat-block-card_theme_three-cards {
+    @include scale(margin-bottom, null, null, 24);
+
+    @media #{$laptop} {
+        @include post(0.5, 28);
+        width: column(9, 28);
+    }
+
+    &:nth-child(3n) {
+        @media #{$laptop} {
+            @include post(0);
+        }
+    }
+
+    .flat-block-card__plan-wrap,
+    .flat-block-card__plan-wrap img,
+    .flat-block-card__gallery {
+        @include scale(height, 196, 240, 240);
+    }
+
+    .flat-block-card__title {
+        @include font-size(p1-bold);
+    }
+
+    .flat-block-card__info {
+        justify-content: unset;
+    }
+
+    .flat-block-card__info-divider {
+        @include scale(margin, 0 10, 0 10, 0 10);
+
+        &:after {
+            @include scale(left, -2, -2, -2);
+            @include scale(width, 3, 3, 3);
+            @include scale(height, 3, 3, 3);
+            border-radius: 50%;
+            background-color: $flat-block-divider-dot-bg;
+        }
+    }
+
+    .flat-block-card__buttons {
+        .button {
+            background-color: $flat-block-card-button-bg;
+            border-color: $flat-block-card-button-border;
+            color: $flat-block-card-button-text;
+
+            &:hover {
+                // Media
+                @media #{$laptop} {
+                    border-color: transparent;
+                    background-color: $flat-block-card-button-bg-hover;
+                    color: $flat-block-card-button-text-hover;
+                }
+            }
+        }
+    }
+}

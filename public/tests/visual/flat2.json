@@ -1,0 +1,454 @@
+{
+    "data": {
+        "settings": {
+            "hidePrice": {
+                "status": false,
+                "text": "Цена по запросу"
+            },
+            "popup": {
+                "id": "callback-parametric"
+            },
+            "zoom": true
+        },
+        "breadcrumbs": [
+            {
+                "link": "/",
+                "name": "Генплан"
+            },
+            {
+                "link": "/building/1/",
+                "name": "Корпус 1.1"
+            },
+            {
+                "link": "/building/1/floor/1",
+                "name": "Этаж 3"
+            }
+        ],
+        "render": {
+            "link": "/images/visual/flat-plan-2.png"
+        },
+        "compass": {
+            "degree": 132
+        },
+        "perspective": [
+            {
+                "id": 1,
+                "active": false
+            },
+            {
+                "id": 2,
+                "active": true
+            }
+        ],
+        "filters": [
+            {
+                "type": "checkbox",
+                "category": "room",
+                "label": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043a\u043e\u043c\u043d\u0430\u0442",
+                "items": [
+                    {
+                        "id": 1,
+                        "value": 1,
+                        "name": "\u0421\u0442\u0443\u0434\u0438\u044f",
+                        "title": {
+                            "full": "\u0421\u0442\u0443\u0434\u0438\u044f",
+                            "short": "\u0421\u0442"
+                        },
+                        "checked": false,
+                        "disabled": false,
+                        "color": "#6DE3FD"
+                    },
+                    {
+                        "id": 2,
+                        "value": 2,
+                        "name": "\u041e\u0434\u043d\u043e\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u041e\u0434\u043d\u043e\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "1\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false,
+                        "color": "#A47FEB"
+                    },
+                    {
+                        "id": 3,
+                        "value": 3,
+                        "name": "\u0414\u0432\u0443\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0414\u0432\u0443\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "2\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false,
+                        "color": "#F66897"
+                    },
+                    {
+                        "id": 4,
+                        "value": 4,
+                        "name": "\u0422\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0422\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "3\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 5,
+                        "value": 5,
+                        "name": "\u0427\u0435\u0442\u044b\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0427\u0435\u0442\u044b\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "4\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 6,
+                        "value": 6,
+                        "name": "\u041f\u044f\u0442\u0438\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u041f\u044f\u0442\u0438\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "5\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    }
+                ]
+            },
+            {
+                "type": "button",
+                "category": "floor",
+                "label": "\u042d\u0442\u0430\u0436",
+                "items": [
+                    {
+                        "id": 9,
+                        "title": "1",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 1
+                    },
+                    {
+                        "id": 15,
+                        "title": "2",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 2
+                    },
+                    {
+                        "id": 20,
+                        "title": "3",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 3
+                    },
+                    {
+                        "id": 25,
+                        "title": "4",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 4
+                    },
+                    {
+                        "id": 29,
+                        "title": "5",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 5
+                    },
+                    {
+                        "id": 30,
+                        "title": "6",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 4,
+                        "priority": 6
+                    },
+                    {
+                        "id": 32,
+                        "title": "7",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 6,
+                        "priority": 7
+                    },
+                    {
+                        "id": 33,
+                        "title": "8",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 8
+                    },
+                    {
+                        "id": 34,
+                        "title": "9",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 9
+                    },
+                    {
+                        "id": 35,
+                        "title": "10",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 10
+                    },
+                    {
+                        "id": 36,
+                        "title": "11",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 11
+                    },
+                    {
+                        "id": 37,
+                        "title": "12",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 12
+                    },
+                    {
+                        "id": 38,
+                        "title": "13",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 4,
+                        "priority": 13
+                    },
+                    {
+                        "id": 39,
+                        "title": "14",
+                        "active": true,
+                        "disabled": false,
+                        "amount": 6,
+                        "priority": 14
+                    }
+                ]
+            }
+        ],
+        "elements": [
+            {
+                "id": "1",
+                "link": "/pages/flat-card.html",
+                "path": "M39 128.422H121.079V292.026L200.94 291.471V473.376H39V128.422Z",
+                "tooltip": {
+                    "title": "Трехкомнатная №240",
+                    "linkTitle": "Смотреть квартиру",
+                    "price": 14478987,
+                    "area": 45.7,
+                    "block": "1.2",
+                    "floor": {
+                        "value": 3,
+                        "total": 24
+                    }
+                },
+                "pointer": {
+                    "text": "3-к",
+                    "top": 354,
+                    "left": 92,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "2",
+                "link": "/pages/flat-card.html",
+                "description": "",
+                "viewType": "card",
+                "path": "M121.079 152.621H281.7V126.203H364.124V152.621V291.051H121.079V152.621Z",
+                "render": "/images/flat/flat-plan.png",
+                "maskColor": "#f66897",
+                "tooltip": {
+                    "title": "Двухкомнатная №241",
+                    "linkTitle": "Смотреть квартиру",
+                    "showPrice": true,
+                    "price": 14478987,
+                    "actionPrice": {
+                        "value": 300000,
+                        "base": 6630500
+                    },
+                    "area": 45.7,
+                    "block": "1.2",
+                    "section": "2",
+                    "floor": {
+                        "value": 3,
+                        "total": 24
+                    }
+                },
+                "pointer": {
+                    "text": "2-к",
+                    "top": 197,
+                    "left": 223,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "3",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M745.546 139.312H667.349V112.895H584.925V153.05V291.48H745.546V139.312Z",
+                "maskColor": "#6de3fd",
+                "tooltip": {
+                    "title": "Однокомнатная №241",
+                    "linkTitle": "Смотреть квартиру",
+                    "showPrice": true,
+                    "price": 14478987,
+                    "area": 45.7,
+                    "block": "1.2",
+                    "floor": "Этаж 2"
+                },
+                "pointer": {
+                    "text": "1-к",
+                    "top": 197,
+                    "left": 642,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "4",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M907.209 139.244H829.012V112.826H746.588V152.981V291.411H907.209V139.244Z",
+                "disabled": true,
+                "tooltip": {
+                    "title": "Продано"
+                },
+                "pointer": {
+                    "top": 194,
+                    "left": 806,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "5",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M1071 179.398H987.519V154.037H908.266V194.192V335.792H987.519V472.637H1071V335.792V179.398Z",
+                "tooltip": {
+                    "title": "Двухкомнатная №241",
+                    "linkTitle": "Смотреть квартиру",
+                    "showPrice": true,
+                    "price": 14478987,
+                    "actionPrice": {
+                        "value": 300000,
+                        "base": 6630500
+                    },
+                    "area": 45.7,
+                    "block": "1.2",
+                    "section": "2",
+                    "floor": {
+                        "value": 3,
+                        "total": 24
+                    }
+                },
+                "pointer": {
+                    "text": "2-к",
+                    "top": 239,
+                    "left": 980,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "6",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M202.379 336.85H363V473.166V501.169H282.689V473.166H202.379V336.85Z",
+                "disabled": true,
+                "tooltip": {
+                    "title": "Продано"
+                },
+                "pointer": {
+                    "top": 382,
+                    "left": 269,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "7",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M510.939 336.85H365.113V473.166V501.169H436.969V486.903H510.939V336.85Z",
+                "disabled": true,
+                "tooltip": {
+                    "title": "Продано"
+                },
+                "pointer": {
+                    "top": 387,
+                    "left": 416,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "8",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M511.995 336.85H666.276V473.166V501.169H585.965V486.903H511.995V336.85Z",
+                "disabled": true,
+                "tooltip": {
+                    "title": "Забронировано"
+                },
+                "pointer": {
+                    "top": 387,
+                    "left": 571,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "9",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M827.954 336.85H667.333V473.166V501.169H745.53V473.166H827.954V336.85Z",
+                "disabled": true,
+                "tooltip": {
+                    "title": "Продано"
+                },
+                "pointer": {
+                    "top": 382,
+                    "left": 718,
+                    "type": "premises"
+                }
+            },
+            {
+                "id": "10",
+                "link": "/pages/flat-card.html",
+                "viewType": "card",
+                "path": "M987.52 336.85H827.955V473.166V501.169H906.152V473.166H987.52V336.85Z",
+                "tooltip": {
+                    "title": "Двухкомнатная №241",
+                    "linkTitle": "Смотреть квартиру",
+                    "showPrice": true,
+                    "price": 14478987,
+                    "actionPrice": {
+                        "value": 300000,
+                        "base": 6630500
+                    },
+                    "area": 45.7,
+                    "block": "1.2",
+                    "section": "2",
+                    "floor": {
+                        "value": 3,
+                        "total": 24
+                    }
+                },
+                "pointer": {
+                    "text": "2-к",
+                    "top": 385,
+                    "left": 884,
+                    "type": "premises"
+                }
+            }
+        ]
+    },
+    "success": true,
+    "messages": []
+}

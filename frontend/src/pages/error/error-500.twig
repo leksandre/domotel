@@ -1,0 +1,52 @@
+{% extends "../layout/_layout.twig" %}
+{% block title %}Ошибка!{% endblock %}
+
+{% block header %}
+    {% include '../../components/header/header.twig' with {
+        isSearch: true,
+        isHomePage: true,
+        activeGroup: 'page-error',
+        pageError: true,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#action',
+                name: 'Акции'
+            },{
+                href: '#how-buy',
+                name: 'Как купить'
+            },{
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#docs',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {% include '../../components/page-error/page-error.twig' with {
+        modify: '',
+        background: false,
+        number: '500 ошибка',
+        title: 'Ошибка сервера',
+        descr: 'На сервере появилась критическая ошибка. Мы не знаем, что произошло, но уже разбираемся. Попробуйте перейти на главную страницу или зайти через некоторое время. Если у вас срочный вопрос — позвоните по телефону 8 800 565-78-78',
+        links: [
+            {
+                href: 'home.html',
+                text: 'На главную',
+                modify: 'button_theme_color'
+            }
+        ]
+    }%}
+{% endblock %}

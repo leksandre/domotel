@@ -1,0 +1,19 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$loader-bg: rgba($brand-text-rgb, 0.2);
+
+// BLOCK
+.visual-loader {
+    background-color: $loader-bg;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: z(nav);
+}
+
+// ELEMENTS
+
+// MODS

@@ -1,0 +1,94 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$filter-line: $brand-gray;
+$filter-bg: $white;
+$filter-overlay-bg: rgba($black-rgb, 0.7);
+
+// BLOCK
+.parametric {
+    position: relative;
+    height: 100vh;
+    opacity: 0;
+
+    &:before {
+        @include transition(all);
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $filter-overlay-bg;
+        z-index: z(header);
+        opacity: 0;
+        visibility: hidden;
+        content: "";
+    }
+
+    @media #{$laptop} {
+        @include row();
+    }
+
+    &.is-ready {
+        height: auto;
+        opacity: 1;
+    }
+
+    &.is-overlay {
+        &:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+// ELEMENTS
+.parametric__title {
+    @include font-size(h1);
+
+    &:first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.parametric__content {
+    width: 100%;
+
+    @media #{$laptop} {
+        @include post(2, 33);
+        width: column(21, 33);
+    }
+}
+
+.parametric__filter {
+    @media #{$laptop} {
+        @include row();
+        align-items: flex-start;
+        justify-content: center;
+        width: column(10, 33);
+    }
+}
+
+.parametric__filter-body {
+    overflow-y: scroll;
+}
+
+.parametric-button__filter-close {
+    margin-left: auto;
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+.parametric__filter-footer {
+    @include padding-level(both, yellow);
+    background-color: $filter-bg;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: z(default);
+}
+
+// MODS

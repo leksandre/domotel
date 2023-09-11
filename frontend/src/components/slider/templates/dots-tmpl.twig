@@ -1,0 +1,7 @@
+<ul class="slider__dots j-slider-dots">
+    {% for i in items %}
+        <li class="slider__dots-item">
+            <button class="slider__dot" aria-label="{{ 'Слайд #' ~ loop.index }}"></button>
+        </li>
+    {% endfor %}
+</ul>

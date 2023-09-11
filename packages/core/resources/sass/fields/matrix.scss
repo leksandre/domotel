@@ -1,0 +1,36 @@
+.matrix {
+    .matrix_picture {
+        .picture-preview {
+            max-width: 50px;
+            max-height: 50px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            display: block !important;
+        }
+
+        .picture-text {
+            display: none;
+            visibility: hidden;
+        }
+
+        .picture-actions {
+            padding: 0.25rem !important;
+        }
+
+        .btn {
+            font-size: 0.85rem;
+        }
+    }
+
+    font-size: 0.85rem;
+
+    .bootstrap-tagsinput,
+    .form-control {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .input-append-slug span.input-group-text {
+        padding: 0;
+    }
+}

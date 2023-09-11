@@ -1,0 +1,417 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$border-color: $brand-gray;
+$card-active-bg: rgba($brand-base-rgb, 0.08);
+$card-processing-bg: $brand-gray-light-rgb;
+$booking-button-bg: rgba($brand-base-rgb, 0.2);
+$booking-button-color: $brand-base;
+
+// BLOCK
+.result-list {
+    &.is-processing {
+        .result-list__item {
+            overflow: hidden;
+            pointer-events: none;
+
+            &:before,
+            &:after {
+                display: flex;
+            }
+        }
+    }
+
+    &.is-sort-open {
+        pointer-events: none;
+    }
+}
+
+// ELEMENTS
+.result-list__item {
+    @include transition(background-color);
+    display: block;
+    position: relative;
+
+    &:before,
+    &:after {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: z(tooltip);
+        content: "";
+    }
+
+    &:before {
+        background: rgba($card-processing-bg, 0.05);
+        backdrop-filter: blur(3px);
+    }
+
+    &:after {
+        background: linear-gradient(to left, rgba($card-processing-bg, 0) 0%, rgba($card-processing-bg, 0.15) 30%, rgba($card-processing-bg, 0) 81%), linear-gradient(to right, rgba($card-processing-bg, 0) 0%, rgba($card-processing-bg, 0.15) 30%, rgba($card-processing-bg, 0) 81%);
+        animation-duration: 0.6s;
+        animation-iteration-count: infinite;
+        animation-name: moving-gradient;
+        animation-timing-function: linear;
+    }
+
+    @at-root a#{&} {
+        &:hover {
+            @media #{$laptop} {
+                background-color: $card-active-bg;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.result-list__container {
+    position: relative;
+}
+
+.result-list__icons {
+    @include row();
+    position: absolute;
+    align-items: center;
+}
+
+.result-list__booked {
+    position: relative;
+
+    img {
+        @include scale(max-height, 24, 24, 24);
+        @include scale(max-width, 24, 24, 24);
+    }
+}
+
+.result-list__price {
+    @include margin-level(bottom, rose);
+    @include margin-level(right, tomato);
+    @include font-size(p1-bold);
+}
+
+.result-list__details {
+    @include scale(gap, 8, 8, 8);
+    @include row();
+    position: relative;
+
+    @media #{$tablet-portrait} {
+        position: unset;
+    }
+}
+
+.result-list__title {
+    display: block;
+
+    .list__item {
+        display: inline;
+        margin-right: 0;
+
+        &:not(:only-of-type):not(:last-of-type) {
+            padding-right: 0;
+
+            &:after {
+                @include scale(margin, 0 8, 0 8, 0 8);
+                display: inline-block;
+                position: static;
+                transform: none;
+                top: inherit;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.result-list__bottom {
+    @include margin-level(top, yellow);
+    @include scale(gap, 12, 16, 16);
+    @include row();
+}
+
+.result-list__button-booking {
+    @include scale(height, 36, 40, 40);
+    @include scale(padding, 0 18, 0 24, 0 24);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+    @include font-size(p2-bold);
+    background-color: $booking-button-bg;
+    color: $booking-button-color;
+    z-index: z(default);
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+// MODS
+// вид таблицей
+.result-list_theme_row {
+    .result-list__icons {
+        bottom: 0;
+        right: 0;
+
+        // MEDIA
+        @media #{$tablet-portrait} {
+            position: relative;
+            bottom: auto;
+            right: auto;
+            margin-right: 0;
+            margin-left: auto;
+            margin-top: auto;
+        }
+
+        &:not(:first-child) {
+            @include scale(margin-bottom, null, null, 8);
+        }
+    }
+
+    .result-list__favourite {
+        @include margin-level(right, tomato);
+    }
+
+    .result-list__button-booking {
+        // Media
+        @media #{$laptop} {
+            margin-top: 0;
+        }
+    }
+
+
+    .result-list__item {
+        @include padding-level(both, yellow);
+        border-top: 1px solid $border-color;
+
+        &:last-child {
+            border-bottom: 1px solid $border-color;
+        }
+    }
+
+    .result-list__container {
+        display: flex;
+        flex-direction: row-reverse;
+
+        @media #{$tablet-portrait} {
+            @include vertical-margins(1, 32);
+            flex-direction: row;
+        }
+
+        @media #{$laptop} {
+            @include push(1, 21);
+            @include post(0.5, 21);
+        }
+    }
+
+    .result-list__plan {
+        width: column(8, 32);
+        height: 75px;
+
+        @media #{$tablet-portrait} {
+            width: column(7, 30);
+            height: 120px;
+        }
+
+        @media #{$tablet-landscape} {
+            width: column(5, 30);
+        }
+
+        @media #{$laptop} {
+            width: column(3, 21);
+            height: vw-desk(120);
+        }
+
+        @media #{$laptop-extra-wide} {
+            height: 120px;
+        }
+    }
+
+    .result-list__content {
+        @include post(3, 32);
+        width: column(21, 32);
+
+        @media #{$tablet-portrait} {
+            @include post(0);
+            @include push(1, 30);
+            width: column(22, 30);
+        }
+
+        @media #{$tablet-landscape} {
+            @include push(1, 30);
+            width: column(24, 30);
+        }
+
+        @media #{$laptop} {
+            @include push(1, 21);
+            width: column(17, 21);
+        }
+    }
+
+    .result-list__info {
+        @media #{$tablet-portrait} {
+            @include row();
+        }
+    }
+
+    .result-list__bottom {
+        // MEDIA
+        @media #{$tablet-portrait} {
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
+    }
+
+    .result-list__general {
+        @media #{$tablet-portrait} {
+            width: column(15, 22);
+        }
+
+        @media #{$tablet-landscape} {
+            width: column(19, 24);
+        }
+
+        @media #{$laptop} {
+            width: column(13, 17);
+        }
+    }
+
+    .result-list__prices {
+        @media #{$tablet-portrait} {
+            width: column(7, 22);
+            text-align: right;
+        }
+
+        @media #{$tablet-landscape} {
+            width: column(5, 24);
+        }
+
+        @media #{$laptop} {
+            width: column(4, 17);
+        }
+    }
+
+    .result-list__action-wrapper {
+        @media #{$tablet-portrait} {
+            display: block;
+        }
+    }
+
+    .result-list__action {
+        @media #{$tablet-portrait} {
+            position: initial;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .action-price__action {
+        &:before {
+            @media #{$tablet-portrait} {
+                @include visually-hidden();
+            }
+        }
+    }
+}
+
+// вид карточкой
+.result-list_theme_card {
+    @include padding-level(top, yellow);
+    @include margin-level(bottom, white, yellow);
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid transparent;
+
+    @media #{$tablet-portrait} {
+        @include row();
+    }
+
+    .result-list__container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .result-list__icons {
+        flex-direction: column;
+        right: column(-1, 32);
+        top: 0;
+
+        @media #{$tablet-portrait} {
+            right: column(-0.5, 15.5);
+        }
+
+        @media #{$laptop} {
+            right: column(-1, 15.5);
+        }
+    }
+
+    .result-list__favourite {
+        @include margin-level(bottom, tomato);
+    }
+
+    .result-list__item {
+        @include margin-level(bottom, yellow);
+        @include padding-level(both, yellow);
+        @include vertical-paddings(2, 32);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        border: 1px solid $border-color;
+
+        @media #{$tablet-portrait} {
+            @include vertical-paddings(1, 32);
+            width: column(15.5, 32);
+        }
+
+        @media #{$laptop} {
+            @include vertical-paddings(1, 21);
+            width: column(10, 21);
+        }
+
+        &:nth-child(odd) {
+            @media #{$tablet-portrait} {
+                @include post(1, 32);
+            }
+
+            @media #{$laptop} {
+                @include post(1, 21);
+            }
+        }
+    }
+
+    .result-list__plan {
+        @include margin-level(bottom, yellow);
+        @include scale(height, 240, 240, 240);
+        position: relative;
+        flex: none;
+    }
+
+    .result-list__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .result-list__bottom {
+        height: 100%;
+        align-items: flex-start;
+    }
+
+    .result-list__button-booking {
+        margin-right: 0;
+        margin-left: 0;
+        align-self: flex-end;
+    }
+}
+
+// KEYFRAMES
+@keyframes moving-gradient {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
+}

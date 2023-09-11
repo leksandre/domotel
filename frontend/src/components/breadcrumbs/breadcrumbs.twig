@@ -1,0 +1,20 @@
+<ul class="breadcrumbs">
+    <li class="breadcrumb__item breadcrumb__item_show_mobile">
+        <button class="breadcrumb__back-btn" onclick="history.back();">
+            <span class="breadcrumb__back-btn-icon">
+                {% include './media/arrow.svg' %}
+            </span>
+            <span class="breadcrumb__back-btn-text">Назад</span>
+        </button>
+    </li>
+    {% for breadcrumb in breadcrumbs %}
+        <li class="breadcrumb__item">
+            {% if not loop.last %}
+                <a class="breadcrumb" href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+                <span class="breadcrumb__delimiter">/</span>
+            {% else %}
+                <span class="breadcrumb">{{ breadcrumb.text }}</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

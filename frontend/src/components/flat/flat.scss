@@ -1,0 +1,295 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/management-layers";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+// Контролы
+$control-bg: $white;
+$control-active-bg: $brand-text;
+$control-active-text: $white;
+$control-border: $brand-gray;
+$control-bg-hover: rgba($brand-gray-rgb, 0.9);
+$control-icon: $brand-text;
+// Карточка
+$flat-bg: $white;
+$flat-text: $brand-text;
+$flat-text-light: rgba($brand-text-rgb, 0.5);
+$flat-final-price: $brand-dark;
+$flat-line: rgba($brand-text-rgb, 0.1);
+$flat-labels-bg: rgba($gray-rgb, 0.4);
+$flat-labels-color: rgba($brand-text-rgb, 0.7);
+
+$callback-button-fill: $brand-base;
+$callback-button-fill-hover: $white;
+
+// BLOCK
+.flat {
+    @media #{$tablet-landscape} {
+        @include row();
+    }
+}
+
+// ELEMENTS
+.flat__card {
+    @include margin-level(bottom, pink);
+
+    @media #{$tablet-landscape} {
+        @include post(2, 32);
+        margin-bottom: 0;
+        width: column(21, 32);
+    }
+}
+
+.flat__tabs-content {
+    @include column(1, 1);
+
+    &:not(.is-active) {
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+}
+
+.flat__controls {
+    @include scale(top, 8, 8, 8);
+    @include scale(right, 8, 8, 8);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.flat__fullscreen-button {
+    @include reset-button();
+    @include margin-level(bottom, tomato);
+    @include font-size(input);
+    @include transition(background-color);
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    @include scale(border, 1, 1, 1, solid $control-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: $control-bg;
+
+    // Media
+    @media #{$laptop} {
+        &:not(.is-active):hover {
+            background-color: $control-bg-hover;
+        }
+    }
+
+    &.is-active {
+        @include scale(border, 1, 1, 1, solid $control-active-bg);
+        color: $control-active-text;
+        background-color: $control-active-bg;
+    }
+
+    svg {
+        @include scale(width, 12, 12, 12);
+        @include scale(height, 12, 12, 12);
+        fill: $control-icon;
+    }
+}
+
+// Карточка
+.flat__plan {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 10, func "calc(var(--is-br) * $)" 10, func "calc(var(--is-br) * $)" 10);
+    @include scale(height, 420, 640, 640);
+    @include scale(min-height, 380, 380, 380);
+    @include scale(max-height, null, func "calc(100vh - $)" 200, func "calc(100vh - $)" 200);
+    background-color: $flat-bg;
+    position: relative;
+    overflow: hidden;
+    z-index: z(default);
+
+    @media #{$tablet-portrait} {
+        max-height: calc(100vh - 225px);
+    }
+}
+
+.flat__widget {
+    @include column(1, 1);
+    height: inherit;
+    max-height: 100%;
+}
+
+.flat__image {
+    @include vertical-paddings(1.5, 32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    @media #{$tablet-landscape} {
+        @include vertical-paddings(1.5, 21);
+    }
+
+    img {
+        @include object-fit(contain, center);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.flat__slider {
+    height: 100%;
+}
+
+.flat__info {
+    @media #{$tablet-landscape} {
+        width: column(9, 32);
+    }
+}
+
+.flat__general {
+    @include margin-level(bottom, yellow);
+}
+
+.flat__title {
+    @include margin-level(bottom, tomato);
+    @include font-size(h4);
+    color: $flat-text;
+}
+
+.flat__price {
+    @include margin-level(bottom, tomato);
+    @include margin-level(right, tomato);
+    @include font-size(h5);
+    color: $flat-final-price;
+}
+
+.flat__callback {
+    @include scale(gap, 8, 8, 8);
+    @include margin-level(bottom, green);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .button {
+        width: 100%;
+
+        // MEDIA
+        @media #{$tablet-landscape} {
+            width: auto;
+        }
+    }
+}
+
+.flat__callback-print {
+    justify-content: center;
+
+    &:hover {
+        svg {
+            // MEDIA
+            @media #{$laptop} {
+                fill: $callback-button-fill-hover;
+            }
+        }
+    }
+
+    svg {
+        @include transition(fill);
+        fill: $callback-button-fill;
+    }
+}
+
+.flat__details {
+    @include margin-level(bottom, green);
+}
+
+.flat__general-details {
+    @include margin-level(bottom, yellow);
+}
+
+.flat__details-title {
+    @include margin-level(bottom, orange);
+    @include font-size(p2-bold);
+}
+
+.flat__details-list {
+    @include column(1, 1);
+}
+
+.flat__detail {
+    @include row();
+    @include margin-level(bottom, tomato);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flat__detail-name {
+    @include font-size(p2-regular);
+    color: $flat-text-light;
+}
+
+.flat__detail-separator {
+    @include scale(margin, 0 16, 0 16, 0 16);
+    @include scale(height, 1, 1, 1);
+    height: 1px;
+    flex-grow: 1;
+    background-color: $flat-line;
+}
+
+.flat__detail-value {
+    @include font-size(p2-regular);
+    color: $flat-text;
+}
+
+.flat__more-details-title {
+    @include scale(margin-right, 16, 16, 16);
+    @include font-size(p3-bold);
+    cursor: pointer;
+}
+
+.flat__more-details-content {
+    @include margin-level(both, yellow);
+}
+
+.flat__more-details-icon {
+    @include transition(transform);
+    display: flex;
+
+    svg {
+        path {
+            stroke: $flat-text;
+        }
+    }
+}
+
+// Особенности
+.flat__specials-title {
+    @include margin-level(bottom, orange);
+    @include font-size(p2-bold);
+}
+
+.flat__specials-list {
+    @include row();
+}
+
+.flat__specials-detail {
+    @include scale(padding, 6 16, 6 16, 6 16);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 44, func "calc(var(--is-br) * $)" 44, func "calc(var(--is-br) * $)" 44);
+    @include margin-level(bottom, rose);
+    @include font-size(p3-regular);
+    color: $flat-labels-color;
+    background-color: $flat-labels-bg;
+    white-space: nowrap;
+
+    &:not(:last-child) {
+        @include margin-level(right, rose);
+    }
+}
+
+// MODS
+.flat__detail_accent_detail {
+    .flat__detail-value {
+        @include font-size(p2-bold);
+    }
+}

@@ -1,0 +1,21 @@
+<div class="popup{% if modify %} {{ modify }}{% endif %}{% if targetModify %} popup_theme_{{ targetModify }}{% endif%} j-popup__body">
+    <div class="popup__overlay j-popup__overlay"></div>
+    <div class="popup__container">
+        <div class="popup__wrapper">
+            <div class="popup__inner">
+                <div class="popup__header j-popup__header">
+                    <div class="popup__header-inner">
+                        <button type="button" class="popup__close j-popup__close" aria-label="{{ buttonAriaLabel|default('Закрыть') }}">
+                            {% include '../media/close.twig' %}
+                        </button>
+                    </div>
+                </div>
+                <div class="popup__inner-wrapper">
+                    <div class="popup__content j-popup__content">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

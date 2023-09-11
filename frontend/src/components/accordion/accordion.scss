@@ -1,0 +1,27 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+
+// BLOCK
+
+// ELEMENTS
+.accordion__header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion__content-wrapper {
+    @include transition(height);
+    height: 0;
+    overflow: hidden;
+}
+
+// MODS
+.accordion_theme_reverse {
+    display: flex;
+    flex-direction: column-reverse;
+}

@@ -1,0 +1,58 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/scale";
+
+// Версия - 1...
+// Документация - https:// kelnik.gitbooks.io/kelnik-documentation/content/front-end/components/loader.html
+
+// SETTINGS
+$loader-item-bg: $brand-light;
+
+// BLOCK
+.loader {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+}
+
+// ELEMENTS
+.loader__item {
+    @include scale(width, 16, 16, 16);
+    @include scale(height, 16, 16, 16);
+    @include scale(margin-left, 15, 15, 15);
+    @include scale(margin-right, 15, 15, 15);
+    background-color: $loader-item-bg;
+    border-radius: calc(var(--is-br) * 50%);
+
+    &:nth-child(1) {
+        animation: scale 0.6s 0s linear infinite alternate;
+    }
+
+    &:nth-child(2) {
+        animation: scale 0.6s 0.2s linear infinite alternate;
+    }
+
+    &:nth-child(3) {
+        animation: scale 0.6s 0.4s linear infinite alternate;
+    }
+}
+
+// MODS
+
+// ANIMATIONS
+@keyframes scale {
+    from {
+        transform: scale(0.7);
+    }
+
+    to {
+        transform: scale(1.3);
+    }
+}

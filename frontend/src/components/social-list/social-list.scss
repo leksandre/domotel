@@ -1,0 +1,33 @@
+// DEPENDENCIES
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+
+// BLOCK
+.social {
+    @include margin-level(top, orange);
+    @include row();
+    align-items: center;
+
+    @media #{$tablet-landscape} {
+        flex-wrap: nowrap;
+        justify-content: end;
+        margin-top: 0;
+    }
+}
+
+// ELEMENTS
+.social__list {
+    @include margin-level(top, orange);
+
+    @media #{$tablet-landscape} {
+        margin-top: 0;
+    }
+
+    &:not(:last-of-type) {
+        @include margin-level(right, orange);
+    }
+}
+
+// MODS

@@ -1,0 +1,93 @@
+// DEPENDENCIES
+@import "../../common/styles/breakpoints";
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/management-layers";
+@import "../../common/styles/scale";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$c-notice-bg: rgba($dark-rgb, 0.85);
+$c-notice-text: $white;
+$c-notice-link: $brand-base;
+$c-notice-link-hover: $brand-dark;
+$c-notice-link-brd: rgba($white-rgb, 0.75);
+
+// BLOCK
+.cookies-notice {
+    @include transition(transform);
+    @include scale(padding, 16 18, 24 48, 24 48);
+    @include scale(bottom, 0, 32, 32);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+    background-color: $c-notice-bg;
+    position: fixed;
+    display: none;
+    flex-wrap: wrap;
+    width: 100%;
+    z-index: z(cookies);
+
+    // Media
+    @media #{$tablet-landscape} {
+        flex-wrap: nowrap;
+        align-items: center;
+        left: 50%;
+        transform: translateY(200%) translateX(-50%);
+        width: auto;
+    }
+
+    &.is-show {
+        display: flex;
+    }
+
+    &.is-open {
+        // Media
+        @media #{$tablet-landscape} {
+            transform: translateY(0) translateX(-50%);
+        }
+    }
+}
+
+// ELEMENTS
+.cookies-notice__text {
+    @include font-size(p3-regular);
+    @include scale(width, 100%, 365, 365);
+    color: $c-notice-text;
+
+    p {
+        @include font-size(p3-regular);
+
+        &:not(:first-child) {
+            @include margin-level(top, tomato);
+        }
+    }
+
+    a,
+    button {
+        @include transition(border-bottom-color, color);
+        @include reset-button();
+        border-bottom: 1px solid $c-notice-link-brd;
+        color: $c-notice-link;
+
+        &:hover {
+            // Media
+            @media #{$laptop} {
+                border-bottom-color: transparent;
+                color: $c-notice-link-hover;
+            }
+        }
+    }
+}
+
+.cookies-notice__button {
+    @include scale(margin-top, 16, 0, null);
+    @include scale(margin-left, null, 32, 32);
+    width: 100%;
+
+    // Media
+    @media #{$tablet-landscape} {
+        width: auto;
+    }
+}
+
+// MODS

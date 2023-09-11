@@ -1,0 +1,92 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$filter-bg: rgba($brand-base-rgb, 0.16);
+$filter-label: rgba($brand-text-rgb, 0.7) ;
+
+// BLOCK
+.parametric-filter {
+    @include vertical-margins(1, 36);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    display: none;
+    background: $filter-bg;
+
+    @media #{$tablet-portrait} {
+        @include vertical-margins(6, 36);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-margins(8, 36);
+    }
+
+    @media #{$laptop} {
+        @include vertical-margins(0);
+        display: flex;
+    }
+}
+
+// ELEMENTS
+.parametric-filter__wrapper {
+    width: 100%;
+}
+
+.parametric-filter__form {
+    @include padding-level(top, yellow);
+    width: 100%;
+}
+
+.parametric-filter__content {
+    @include vertical-paddings(2, 34);
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 10);
+    }
+}
+
+.parametric-filter__container {
+    @include scale(margin-bottom, 24, 24, 24); // static
+
+    &:last-child {
+        @include scale(margin-bottom, 32, 32, 32); // static
+    }
+}
+
+.parametric-filter__filter {
+    @include row();
+}
+
+.parametric-filter__label {
+    @include margin-level(bottom, tomato);
+    @include font-size(p3-regular);
+    color: $filter-label;
+}
+
+.parametric-filter__footer {
+    border-top: 1px solid white;
+}
+
+.parametric-filter__reset {
+    @include row();
+    justify-content: center;
+}
+
+.parametric-filter__reset-button {
+    @include reset-button();
+    @include padding-level(both, yellow);
+    @include font-size(p3-regular);
+    width: 100%;
+}
+
+// MODS
+.parametric-filter__filter_space_between {
+    justify-content: space-between;
+}
+
+// вид мобильного фильтра до 1280
+.parametric-filter_mobile_filter {
+    @include scale(margin, 0 0 70 0, 0 0 88 0, null);
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+}

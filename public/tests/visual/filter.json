@@ -1,0 +1,312 @@
+{
+    "data": {
+        "settings": {
+            "hidePrice": {
+                "status": false,
+                "text": "Цена по запросу"
+            }
+        },
+        "breadcrumbs": [
+            {
+                "link": "/",
+                "name": "Выбор корпуса"
+            }
+        ],
+        "render": {
+            "link": "/images/visual/building-render-1.jpg",
+            "shift": {
+                "vertical": 20,
+                "horizontal": 50
+            }
+        },
+        "compass": {
+            "degree": 87
+        },
+        "perspective": [
+            {
+                "id": 1,
+                "active": true
+            },
+            {
+                "id": 2,
+                "active": false
+            }
+        ],
+        "filters": [
+            {
+                "type": "checkbox",
+                "category": "room",
+                "label": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043a\u043e\u043c\u043d\u0430\u0442",
+                "items": [
+                    {
+                        "id": 1,
+                        "value": 1,
+                        "name": "\u0421\u0442\u0443\u0434\u0438\u044f",
+                        "title": {
+                            "full": "\u0421\u0442\u0443\u0434\u0438\u044f",
+                            "short": "\u0421\u0442"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 2,
+                        "value": 2,
+                        "name": "\u041e\u0434\u043d\u043e\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u041e\u0434\u043d\u043e\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "1\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 3,
+                        "value": 3,
+                        "name": "\u0414\u0432\u0443\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0414\u0432\u0443\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "2\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 4,
+                        "value": 4,
+                        "name": "\u0422\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0422\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "3\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 5,
+                        "value": 5,
+                        "name": "\u0427\u0435\u0442\u044b\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0427\u0435\u0442\u044b\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "4\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 6,
+                        "value": 6,
+                        "name": "\u041f\u044f\u0442\u0438\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u041f\u044f\u0442\u0438\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "5\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    }
+                ]
+            },
+            {
+                "type": "button",
+                "category": "floor",
+                "label": "\u042d\u0442\u0430\u0436",
+                "items": [
+                    {
+                        "id": 9,
+                        "title": "1",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 0,
+                        "priority": 1
+                    },
+                    {
+                        "id": 15,
+                        "title": "2",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 2
+                    },
+                    {
+                        "id": 20,
+                        "title": "3",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 3
+                    },
+                    {
+                        "id": 25,
+                        "title": "4",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 4
+                    },
+                    {
+                        "id": 29,
+                        "title": "5",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 5
+                    },
+                    {
+                        "id": 30,
+                        "title": "6",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 4,
+                        "priority": 6
+                    },
+                    {
+                        "id": 32,
+                        "title": "7",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 6,
+                        "priority": 7
+                    },
+                    {
+                        "id": 33,
+                        "title": "8",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 8
+                    },
+                    {
+                        "id": 34,
+                        "title": "9",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 9
+                    },
+                    {
+                        "id": 35,
+                        "title": "10",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 10
+                    },
+                    {
+                        "id": 36,
+                        "title": "11",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 11
+                    },
+                    {
+                        "id": 37,
+                        "title": "12",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 12
+                    },
+                    {
+                        "id": 38,
+                        "title": "13",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 4,
+                        "priority": 13
+                    },
+                    {
+                        "id": 39,
+                        "title": "14",
+                        "active": true,
+                        "disabled": false,
+                        "amount": 6,
+                        "priority": 14
+                    }
+                ]
+            }
+        ],
+        "elements": [
+            {
+                "id": "1",
+                "link": "building/1/",
+                "path": "M672.5 247.5L662.5 240V230.5L661 230L660 162.5L659 162V155.5L683.5 140L691 145L693 144L698 147.5V149.5L703 153H705.5L711.5 156V158L732.5 172.5L734.5 171.5L756 185.5V187L786 206.5L786.5 209L791 212L793 211L798 215L798.5 217.5L804.5 222V227L803.5 228.5L801 295L799 296.5V305.5L785 315.5V309L770 299L766 302L764 301L755 295L746.5 299.5L732.5 289V287L725.5 282L720.5 285.5L709.5 277.5V271.5L705.5 268.5H703L685.5 256.5L683 258.5L672 250.5L672.5 247.5Z",
+                "render": "/images/visual/floor-render-1.jpg",
+                "tooltip": {
+                    "title": "Корпус 1.1",
+                    "linkTitle": "Перейти в корпус 1.1",
+                    "deadline": "Сдача I кв. 2023",
+                    "params": [
+                        {
+                            "flats": "Трехкомнатные",
+                            "price": 18900000,
+                            "amount": 11
+                        },
+                        {
+                            "flats": "Четырехкомнатные",
+                            "price": 27100000,
+                            "amount": 83
+                        }
+                    ]
+                },
+                "pointer": {
+                    "text": "Корпус 1.1",
+                    "top": 140,
+                    "left": 659,
+                    "type": "corpus"
+                }
+            },
+            {
+                "id": "2",
+                "link": "building/2/",
+                "path": "M563.5 214L539 231L544 304L545.5 305L546 312.5L544.5 314L547 315.5V321.5L560 331.5L564.5 328.5L574 336V341L582.5 347.5L585 346L590.5 349.5V356L603 365.5L607.5 363L614.5 368V371.5L623.5 378.5L627 376L636 383V389.5L649.5 399.5L653.5 396.5L661 402L684 385V376L685.5 374.5V302L679.5 296.5V294.5L671.5 289V284L657 274.5L654 276L651.5 274.5L649.5 276L631 262V255L618.5 245.5L612 249.5L600 240V237L592.5 231V227.5L579 217L574 220.5L563.5 214Z",
+                "render": "/images/visual/floor-render-1.jpg",
+                "tooltip": {
+                    "title": "Корпус 1.2",
+                    "linkTitle": "Перейти в корпус 1.2",
+                    "deadline": "Сдача I кв. 2023",
+                    "params": [
+                        {
+                            "flats": "Однокомнатные",
+                            "price": 10400000,
+                            "amount": 85
+                        },
+                        {
+                            "flats": "Двухкомнатные",
+                            "price": 12900000,
+                            "amount": 24
+                        },
+                        {
+                            "flats": "Трехкомнатные",
+                            "price": 18900000,
+                            "amount": 11
+                        },
+                        {
+                            "flats": "Двухкомнатные",
+                            "price": 12900000,
+                            "amount": 24
+                        },
+                        {
+                            "flats": "Трехкомнатные",
+                            "price": 18900000,
+                            "amount": 11
+                        },
+                        {
+                            "flats": "Четырехкомнатные",
+                            "price": 27100000,
+                            "amount": 83
+                        }
+                    ]
+                },
+                "pointer": {
+                    "text": "Корпус 1.2",
+                    "top": 214,
+                    "left": 539,
+                    "type": "corpus"
+                }
+            }
+        ]
+    },
+    "success": true,
+    "messages": []
+}

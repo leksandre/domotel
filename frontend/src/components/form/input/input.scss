@@ -1,0 +1,113 @@
+// DEPENDENCIES
+@import "../../../common/styles/colors";
+@import "../../../common/styles/font-sizes";
+@import "../../../common/styles/mixins";
+@import "../../../common/styles/vertical-indent";
+
+// SETTINGS
+$input-bg: rgba($brand-gray-light-rgb, 0.8);
+$input-bg-disabled: rgba($white, 0.8);
+$input-border-disabled: $brand-gray;
+$input-color: $brand-text;
+$label-color: rgba($brand-text-rgb, 0.72);
+$placeholder-color: rgba($brand-text-rgb, 0.5);
+$placeholder-color-disabled: rgba($brand-text-rgb, 0.3);
+$placeholder-color-hover: $brand-text;
+$error-color: $error;
+$success-color: $brand-base;
+
+// BLOCK
+.input {
+    width: 100%;
+    position: relative;
+}
+
+// ELEMS
+.input__label {
+    @include margin-level(bottom, rose);
+    @include font-size(label);
+    display: block;
+    color: $label-color;
+}
+
+.input__input {
+    @include transition(border-color);
+    @include scale(padding, 16, 16, 16);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include font-size(input);
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: $input-bg;
+    border: 1px solid transparent;
+    color: $input-color;
+
+    &[disabled="disabled"] {
+        border-color: $input-border-disabled;
+        background-color: $input-bg-disabled;
+        pointer-events: none;
+
+        &::placeholder {
+            color: $placeholder-color-disabled;
+        }
+    }
+
+    &::placeholder {
+        @include transition(color);
+        @include font-size(placeholder);
+        color: $placeholder-color;
+    }
+
+    &:not([disabled="disabled"]):hover {
+        @media #{$laptop} {
+            &::placeholder {
+                color: $placeholder-color-hover;
+            }
+        }
+    }
+
+    &.validate-input-success {
+        border-color: $success-color;
+    }
+
+    &.validate-input-error {
+        border-color: $error-color;
+
+        & ~ .input__error {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+textarea.input__input {
+    @include scale(padding-top, 10, 10, 10);
+    @include scale(min-height, 120, 120, 120);
+    resize: none;
+
+    // Media
+    @media #{$tablet-portrait} {
+        height: 100%;
+    }
+}
+
+.input__icon {
+    @include scale(width, 20, 20, 20);
+    @include scale(height, 20, 20, 20);
+    @include scale(right, 20, 20, 20);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.input__error {
+    @include transition(opacity);
+    @include font-size(label);
+    position: absolute;
+    opacity: 0;
+}
+
+.input__error-text {
+    color: $error-color;
+}

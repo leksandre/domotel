@@ -1,0 +1,1348 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/management-layers";
+@import "../../common/styles/mixins";
+@import "../../common/styles/scale";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$fs-color: $white;
+$fs-img-gradient: $black-rgb;
+$fs-lead-bg: $brand-base;
+$fs-button-down-shadow-focus: rgba($brand-text-rgb, 0.6);
+$header-height: var(--header-height);
+$fs-bg-overlay: rgba($black-rgb, 0.4);
+$fs-bg-lead: rgba($white-rgb, 0.05);
+
+$lead-theme-third-bg: $white;
+$lead-theme-third-color: $brand-text;
+$lead-theme-third-shadow: rgba($dark-rgb, 0.08);
+$lead-theme-icon-third-fill: $brand-base;
+
+$fs-v3-bg: $white;
+$fs-v3-slider-item-bg: $brand-base;
+$fs-v3-slider-item-color: $white;
+
+// BLOCK
+.first-screen {
+    position: relative;
+    color: $fs-color;
+}
+
+// ELEMENTS
+.first-screen__background {
+    @include fullsize(0);
+    position: absolute;
+    overflow: hidden;
+}
+
+.first-screen__background-picture,
+.slider-first-screen__inner {
+    position: relative;
+    height: 100%;
+
+    &:before {
+        @include pseudo();
+        @include fullsize(0);
+        background: linear-gradient(180deg, rgba($fs-img-gradient, 0) 53.7%, rgba($fs-img-gradient, 0.7) 100%), linear-gradient(0deg, rgba($fs-img-gradient, 0.2), rgba($fs-img-gradient, 0.2));
+        z-index: z(default);
+    }
+
+    img {
+        @include object-fit(cover);
+        position: fixed;
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        @media #{$tablet-landscape} {
+            position: static;
+        }
+    }
+}
+
+.first-screen__background-picture {
+    clip-path: inset(0);
+
+    picture {
+        height: 100%;
+    }
+}
+
+.first-screen__background-video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    clip-path: inset(0);
+
+    @media #{$tablet-landscape} {
+        clip-path: unset;
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+
+        @media #{$tablet-landscape} {
+            position: absolute;
+        }
+    }
+}
+
+.first-screen__background-slider {
+    height: 100%;
+
+    .slider,
+    .slider__wrapper,
+    .slider__slides,
+    .slider__slides-inner,
+    .slider__item {
+        height: 100%;
+    }
+
+    .slider-first-screen {
+        &:before {
+            @include pseudo();
+            @include fullsize(0);
+            background: linear-gradient(180deg, rgba($fs-img-gradient, 0) 53.7%, rgba($fs-img-gradient, 0.7) 100%), linear-gradient(0deg, rgba($fs-img-gradient, 0.2), rgba($fs-img-gradient, 0.2));
+        }
+    }
+
+    .slider__item {
+        position: relative;
+        cursor: default;
+    }
+
+    .slider__counter {
+        @include suffix(3, 36);
+        margin: 0;
+
+        @media #{$laptop} {
+            @include suffix(4, 36);
+        }
+    }
+}
+
+.first-screen__wrap {
+    @include row();
+    position: relative;
+
+    // Media
+    @media #{$laptop} {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.first-screen__top {
+    @include margin-level(bottom, pink);
+    @include container();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.first-screen__content {
+    @include margin-level(both, cyan);
+    @include vertical-margins(3, 36);
+    width: column(30, 36);
+
+    // Media
+    @media #{$tablet-landscape} {
+        @include row();
+        align-items: flex-start;
+    }
+
+    @media #{$laptop} {
+        @include vertical-margins(4, 36);
+        width: column(28, 36);
+    }
+}
+
+.first-screen__content-container {
+    width: 100%;
+
+    // Media
+    @media #{$tablet-landscape} {
+        @include post(2, 30);
+        width: column(18, 30);
+    }
+
+    @media #{$laptop} {
+        @include post(2, 28);
+        width: column(18, 28);
+    }
+}
+
+.first-screen__header {
+    width: 100%;
+
+    // Media
+    @media #{$laptop} {
+        width: column(17, 18);
+    }
+}
+
+.first-screen__slogan {
+    h1 {
+        @include font-size(p2-regular);
+        color: $fs-color;
+    }
+}
+
+.first-screen__title {
+    @include font-size(hero);
+    display: block;
+
+    &:not(:first-child) {
+        @include margin-level(top, tomato);
+    }
+}
+
+.first-screen__tags {
+    @include margin-level(top, blue);
+}
+
+.first-screen__lead-container {
+    @include scale(margin-top, 28, 0, null);
+    width: 100%;
+
+    // Media
+    @media #{$tablet-landscape} {
+        width: column(10, 30);
+    }
+
+    @media #{$laptop} {
+        width: column(8, 28);
+    }
+}
+
+.first-screen__lead-content {
+    @include vertical-margins(2);
+    width: column(32);
+
+    // Media
+    @media #{$tablet-landscape} {
+        @include vertical-margins(3);
+        width: column(30);
+    }
+
+    @media #{$laptop} {
+        @include vertical-margins(4);
+        width: column(28);
+    }
+}
+
+.first-screen__lead {
+    @include padding-level(both, green);
+    @include vertical-paddings(3, 30);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    width: 100%;
+    background-color: $fs-lead-bg;
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-paddings(2, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-paddings(1, 10);
+    }
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 8);
+    }
+
+    &.with-offset {
+        @include transition(margin-bottom);
+        @include scale(margin-bottom, func "var(--fs-ch, $)" -40, func "var(--fs-ch, $)" -40, func "var(--fs-ch, $)" -40);
+    }
+}
+
+.first-screen__lead-label {
+    @include font-size(p3-regular);
+}
+
+.first-screen__lead-title {
+    @include font-size(lead-bold);
+
+    @at-root a#{&} {
+        @include transition(opacity);
+        display: block;
+
+        &:hover {
+            // Media
+            @media #{$laptop} {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &:not(:first-child) {
+        @include margin-level(top, tomato);
+    }
+}
+
+.first-screen__lead-link {
+    @include margin-level(top, yellow);
+    @include font-size(p3-regular);
+    display: inline-block;
+
+    svg {
+        @include scale(width, 16, 16, 16);
+        @include scale(height, 16, 16, 16);
+        @include scale(margin-left, 4, 4, 4);
+        fill: $fs-color;
+        vertical-align: middle;
+    }
+
+    @at-root a#{&} {
+        @include transition(opacity);
+
+        // Media
+        @media #{$laptop} {
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+    }
+}
+
+.first-screen__lead-icon {
+    @include scale(width, 24, 24, 24);
+    @include scale(height, 24, 24, 24);
+    flex-shrink: 0;
+
+    svg {
+        fill: $lead-theme-icon-third-fill;
+    }
+}
+
+
+.first-screen__lead-arrow {
+    @include scale(width, 20, 20, 20);
+    @include scale(height, 20, 20, 20);
+    margin-left: auto;
+    flex-shrink: 0;
+    display: none;
+
+    // Media
+    @media #{$tablet-portrait} {
+        display: block;
+    }
+
+    svg {
+        fill: $lead-theme-icon-third-fill;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.first-screen__flats-compilation {
+    @include container();
+    @include row();
+    @include scale(margin-bottom, 60, 60, 60);
+    margin-top: auto;
+
+    .first-screen__content {
+        @include row();
+
+        @media #{$tablet-landscape-only} {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.first-screen__flats-compilation-blocks {
+    width: 100%;
+
+    @media #{$tablet-portrait} {
+        @include row();
+    }
+
+    @media #{$tablet-landscape} {
+        display: none;
+    }
+}
+
+.first-screen__flats-compilation-slider {
+    display: none;
+    width: 100%;
+
+    @media #{$tablet-landscape} {
+        @include row();
+    }
+}
+
+.first-screen__slider {
+    height: 100%;
+
+    .slider,
+    .slider__wrapper,
+    .slider__slides,
+    .slider__slides-inner,
+    .slider__item {
+        height: 100%;
+    }
+
+    .slider__item {
+        cursor: default;
+    }
+
+    .slider__controls {
+        @include container();
+        @include margin-level(bottom, violet);
+        position: absolute;
+        display: block;
+        padding: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    .slider__counter {
+        @include suffix(3, 36);
+        margin: 0;
+
+        @media #{$laptop} {
+            @include suffix(4, 36);
+        }
+    }
+
+    .slider__counter-current {
+        color: $white;
+    }
+}
+
+.first-screen__scroll {
+    @include reset-button();
+    @include scale(width, 32, 32, 32);
+    @include scale(height, 32, 32, 32);
+    @include scale(bottom, 30, 30, 30);
+    animation: timing 3s ease infinite;
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:after {
+        @include pseudo();
+        @include scale(top, -14, -14, -14);
+        @include scale(right, -14, -14, -14);
+        @include scale(left, -14, -14, -14);
+        @include scale(bottom, -14, -14, -14);
+    }
+
+    &:focus {
+        @include scale(box-shadow, 0 0 50 0, 0 0 50 0, 0 0 50 0, $fs-button-down-shadow-focus);
+    }
+
+    svg {
+        fill: $fs-color;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// MODS
+/* stylelint-disable selector-max-pseudo-class */
+.first-screen:not(.first-screen_full_height):not(.first-screen_full_height-laptop):not(.first-screen_theme_alternative):not(.first-screen_version_3) {
+    .first-screen__content {
+        // Media
+        @media #{$laptop} {
+            @include square-padding(both, 1, 28);
+        }
+    }
+}
+/* stylelint-enable selector-max-pseudo-class */
+.first-screen_full_height {
+    .first-screen__wrap {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .first-screen__scroll {
+        display: block;
+    }
+}
+
+.first-screen_full_height-laptop {
+    .first-screen__wrap {
+        // Media
+        @media #{$laptop} {
+            min-height: 100vh;
+        }
+    }
+
+    .first-screen__scroll {
+        // Media
+        @media #{$laptop} {
+            display: block;
+        }
+    }
+}
+
+.first-screen_with_search {
+    .first-screen__wrap {
+        justify-content: flex-start;
+    }
+
+    .first-screen__top {
+        @media #{$tablet-landscape} {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// THEMES
+.first-screen_theme_alternative {
+    @include scale(min-height, func "calc(100vh - $)" 62, func "calc(100vh - var(--header-logo-height) - $)" 60, func "calc(100vh - var(--header-logo-height) - $)" 62); // 62 в мобильной версии = 40пкс высота шапки + 20 высота нижнего отступа, в остальных случаях просто высота шапки - высота логотипа
+    @include scale(margin-top, func "calc(var(--header-logo-height) + $)" 42, func "calc(var(--header-logo-height) + $)" 60, func "calc(var(--header-logo-height) + $)" 62);
+    @include scale(max-width, null, null, 1600);
+    @include vertical-margins(1, 36);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: column(34, 36);
+    height: auto;
+
+    // MEDIA
+    @media #{$laptop-wide} {
+        @include center();
+        width: 100%;
+    }
+
+    .first-screen__background {
+        @include transition(opacity);
+        @include padding-level(bottom, green);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        // MEDIA
+        @media #{$laptop-wide} {
+            @include vertical-margins(1, 36);
+            width: column(34, 36);
+        }
+    }
+
+    .first-screen__background-picture {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16);
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        &:before {
+            @include scale(border-radius, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16);
+            @include pseudo();
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $fs-bg-overlay;
+            z-index: z(default);
+        }
+
+        img {
+            position: absolute;
+        }
+    }
+
+    .first-screen__background-slider {
+        .slider-first-screen {
+            @include scale(border-radius, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16);
+            overflow: hidden;
+        }
+    }
+
+    .first-screen__background-video {
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16, func "calc(var(--is-br) * $)" 16);
+        overflow: hidden;
+    }
+
+    .first-screen__wrap {
+        @include padding-level(bottom, green);
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+
+        // MEDIA
+        @media #{$laptop-wide} {
+            @include vertical-margins(1, 36);
+            width: column(34, 36);
+        }
+    }
+
+    .first-screen__top {
+        @include margin-level(bottom, white);
+        justify-content: flex-start;
+        height: auto;
+        flex: 1 1 auto;
+    }
+
+    .first-screen__content {
+        @include margin-level(top, violet);
+        @include margin-level(bottom, white);
+        @include vertical-margins(2, 36);
+        display: flex;
+        flex-direction: column;
+        width: column(32, 36);
+        height: 100%;
+
+        // MEDIA
+        @media #{$tablet-landscape} {
+            width: column(28, 36);
+        }
+    }
+
+    .first-screen__content-container {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+
+    .first-screen__slogan {
+        @include font-size(p3-regular);
+        text-align: center;
+    }
+
+    .first-screen__title {
+        @include margin-level(top, rose);
+        @include font-size(h2);
+        text-align: center;
+    }
+
+    .first-screen__tags {
+        @include margin-level(top, yellow);
+    }
+
+    .first-screen__lead-container {
+        @include scale(padding-top, 28, 0, null);
+        @include padding-level(bottom, tomato);
+        margin-top: auto;
+        margin-bottom: 0;
+
+        // MEDIA
+        @media #{$tablet-landscape} {
+            width: 100%;
+        }
+    }
+
+    .first-screen__lead {
+        @include padding-level(both, tomato);
+        background-color: $fs-bg-lead;
+        backdrop-filter: blur(10px);
+        text-align: center;
+    }
+
+    .first-screen__lead-title {
+        @include font-size(p3-bold);
+    }
+
+    .first-screen__flats-compilation {
+        @include margin-level(bottom, white);
+        @include padding-level(bottom, cyan);
+
+        // MEDIA
+        @media #{$tablet-landscape} {
+            justify-content: center;
+        }
+
+        .first-screen__content {
+            @include margin-level(top, white);
+
+            // MEDIA
+            @media #{$tablet-landscape} {
+                flex-direction: row;
+            }
+        }
+
+        .flats-compilation {
+            @include padding-level(both, orange);
+            background-color: $fs-bg-lead;
+            backdrop-filter: blur(10px);
+            color: $white;
+
+            // MEDIA
+            @media #{$laptop} {
+                min-height: 0;
+            }
+
+            &:after {
+                display: none;
+            }
+
+            .flats-compilation__heading {
+                // MEDIA
+                @media #{$laptop} {
+                    min-height: 0;
+                }
+            }
+
+            .flats-compilation__list {
+                @include margin-level(top, tomato);
+            }
+        }
+    }
+
+    .slider_theme_flats-compilation {
+        .slider__arrow:not(.is-disabled) {
+            background-color: $fs-bg-lead;
+            backdrop-filter: blur(10px);
+
+            svg {
+                fill: $white;
+            }
+        }
+    }
+}
+
+.first-screen_theme_alternative-full {
+    @media #{$laptop-wide} {
+        max-width: 100%;
+    }
+}
+
+.first-screen_version_3 {
+    background-color: var(--color-fs-bg, $fs-v3-bg);
+    display: flex;
+    flex-direction: column;
+
+    .first-screen__wrap {
+        order: 0;
+        z-index: z(default);
+    }
+
+    .first-screen__top {
+        margin: 0;
+
+        .first-screen__content {
+            @include margin-level(top, white);
+            @include margin-level(bottom, white);
+            @include padding-level(top, pink);
+            @include vertical-margins(2);
+            width: column(32);
+
+            // Media
+            @media #{$tablet-landscape} {
+                @include vertical-margins(3);
+                width: column(30);
+            }
+
+            @media #{$laptop} {
+                @include vertical-margins(4);
+                width: column(28);
+            }
+        }
+    }
+
+    .first-screen__content-container {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+
+    .first-screen__header {
+        text-align: center;
+    }
+
+    .first-screen__slogan {
+        h1 {
+            @include font-size(hero);
+            color: $brand-text;
+        }
+    }
+
+    .first-screen__title {
+        @include margin-level(top, orange);
+        @include font-size(lead-bold);
+        color: $brand-text;
+    }
+
+    .first-screen__tags {
+        @include margin-level(top, pink);
+        @include margin-level(bottom, blue);
+
+        // Media
+        @media #{$laptop-wide} {
+            @include vertical-margins(4, 28);
+            width: column(20, 28);
+        }
+
+        .tags {
+            text-align: center;
+        }
+    }
+
+    .first-screen__lead-container {
+        @include container();
+        width: 100%;
+
+        + .first-screen__flats-compilation {
+            @include margin-level(top, tomato);
+        }
+    }
+
+    .first-screen__lead {
+        @include padding-level(both, yellow);
+        @include scale(padding-left, 24, 24, 24);
+        @include scale(padding-right, 24, 24, 24);
+        display: flex;
+        align-items: center;
+        background-color: $lead-theme-third-bg;
+        filter: drop-shadow(0 10px 60px $lead-theme-third-shadow);
+        color: $lead-theme-third-color;
+    }
+
+    .first-screen__lead-title {
+        @include scale(margin-left, 16, 16, 16);
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .first-screen__flats-compilation-blocks {
+        @include custom-scrollbar(transparent);
+        display: flex;
+        overflow-x: auto;
+        overflow-y: visible;
+
+        // MEDIA
+        @media #{$tablet-portrait} {
+            flex-wrap: nowrap;
+        }
+
+        @media #{$tablet-landscape} {
+            display: none;
+        }
+    }
+
+    .first-screen__flats-compilation {
+        @include transition(margin-bottom);
+        // Высота блока 160 + 20px на плюсик
+        @include scale(min-height, 180, 230, 230);
+        @include scale(margin-bottom, func "var(--fs-ch, $)" -90, func "var(--fs-ch, $)" -115, func "var(--fs-ch, $)" -115);
+
+        .first-screen__content {
+            margin: 0;
+            width: 100%;
+
+            // Media
+            @media #{$tablet-landscape} {
+                @include vertical-margins(3);
+                width: column(30);
+            }
+
+            // Media
+            @media #{$laptop} {
+                @include vertical-margins(4);
+                width: column(28);
+            }
+        }
+    }
+
+    .first-screen__flats-compilation-slider {
+        height: 100%;
+    }
+
+    .slider_theme_flats-compilation {
+        .slider__wrap,
+        .slider__wrapper,
+        .slider__slides,
+        .slider__slides-inner {
+            height: 100%;
+        }
+
+        .slider__item {
+            @include scale(padding-left, null, 4, 4);
+            @include scale(padding-right, null, 4, 4);
+            height: 100%;
+            overflow-y: visible;
+
+            // Media
+            @media #{$tablet-landscape} {
+                display: flex;
+            }
+        }
+    }
+
+    .flats-compilation {
+        @include scale(min-width, 200, none, null);
+        @include scale(max-width, 230, none, null);
+        @include scale(width, auto, func "calc(#{column(1, 3)} - $)" 8, func "calc(#{column(1, 4)} - $)" 8);
+        @include scale(margin-right, 8, 8, 8);
+        @include scale(margin-bottom, 20, 20, 20);
+        @include padding-level(top, green);
+        @include padding-level(bottom, blue);
+        width: auto;
+        flex: none;
+        background-color: $fs-v3-slider-item-bg;
+        color: $fs-v3-slider-item-color;
+        text-align: center;
+        overflow: visible;
+
+        // Media
+        @media #{$tablet-landscape} {
+            flex-grow: 1;
+        }
+
+        &:after {
+            content: none;
+        }
+
+        &:first-child {
+            margin-left: column(2);
+
+            // Media
+            @media #{$tablet-landscape} {
+                margin-left: 0;
+            }
+        }
+
+        &:last-child {
+            margin-right: column(2);
+
+            // Media
+            @media #{$tablet-landscape} {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .flats-compilation__heading {
+        @include font-size(h5);
+    }
+
+    .flats-compilation__list {
+        @include padding-level(top, orange);
+        justify-content: center;
+    }
+
+    .flats-compilation__list-item {
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .first-screen__background {
+        @include scale(min-height, 490, 540, 650);
+        position: relative;
+        order: 1;
+        height: 100vh;
+    }
+
+    .first-screen__background-picture {
+        img {
+            position: static;
+        }
+    }
+}
+
+// АНИМАЦИЯ ПЕРВОГО ЭКРАНА - V1
+.first-screen_with_animation {
+    .first-screen__slogan {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFadeIn 0.6s ease-out both;
+        }
+    }
+
+    .first-screen__title {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFadeIn 0.6s ease-out 0.3s both;
+        }
+    }
+
+    .first-screen__tags {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFadeIn 0.6s ease-out 0.6s both;
+        }
+    }
+
+    .first-screen__lead {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFadeIn 0.6s ease-out 0.9s both;
+        }
+    }
+
+    .first-screen__flats-compilation {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFadeIn 0.6s ease-out 1.2s both;
+        }
+    }
+}
+
+// АНИМАЦИЯ ПЕРВОГО ЭКРАНА - V2
+.first-screen_with_animation-v2 {
+    .first-screen__slogan {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFocusInFadeIn 0.6s ease-in both;
+        }
+    }
+
+    .first-screen__title {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFocusInFadeIn 0.6s ease-in 0.3s both;
+        }
+    }
+
+    .first-screen__tags {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFocusInFadeIn 0.6s ease-in 0.6s both;
+        }
+    }
+
+    .first-screen__lead {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFocusInFadeIn 0.6s ease-in 0.9s both;
+        }
+    }
+
+    .first-screen__flats-compilation {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenFocusInFadeIn 0.6s ease-in 1.2s both;
+        }
+    }
+}
+
+// АНИМАЦИЯ ПЕРВОГО ЭКРАНА - V3
+.first-screen_with_animation-v3 {
+    .first-screen__slogan {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftFadeIn 0.6s ease-in both;
+        }
+    }
+
+    .first-screen__title {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftFadeIn 0.6s ease-in 0.3s both;
+        }
+    }
+
+    .first-screen__tags {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftFadeIn 0.6s ease-in 0.6s both;
+        }
+    }
+
+    .first-screen__lead {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftFadeIn 0.6s ease-in 0.9s both;
+        }
+    }
+
+    .first-screen__flats-compilation {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftFadeIn 0.6s ease-in 1.2s both;
+        }
+    }
+}
+
+// АНИМАЦИЯ ПЕРВОГО ЭКРАНА - V4
+.first-screen_with_animation-v4 {
+    .first-screen__slogan {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftBottomFadeIn 0.6s ease-in both;
+        }
+    }
+
+    .first-screen__title {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftBottomFadeIn 0.6s ease-in 0.3s both;
+        }
+    }
+
+    .first-screen__tags {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftBottomFadeIn 0.6s ease-in 0.6s both;
+        }
+    }
+
+    .first-screen__lead {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftBottomFadeIn 0.6s ease-in 0.9s both;
+        }
+    }
+
+    .first-screen__flats-compilation {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenSlideLeftBottomFadeIn 0.6s ease-in 1.2s both;
+        }
+    }
+}
+
+// АНИМАЦИЯ ПЕРВОГО ЭКРАНА - V5
+.first-screen_with_animation-v5 {
+    .first-screen__slogan {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenScaleInFadeIn 0.6s ease-in both;
+        }
+    }
+
+    .first-screen__title {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenScaleInFadeIn 0.6s ease-in 0.3s both;
+        }
+    }
+
+    .first-screen__tags {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenScaleInFadeIn 0.6s ease-in 0.6s both;
+        }
+    }
+
+    .first-screen__lead {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenScaleInFadeIn 0.6s ease-in 0.9s both;
+        }
+    }
+
+    .first-screen__flats-compilation {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenScaleInFadeIn 0.6s ease-in 1.2s both;
+        }
+    }
+}
+
+// АНИМАЦИЯ ПЕРВОГО ЭКРАНА - V6
+.first-screen_with_animation-v6 {
+    .first-screen__slogan {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenPuffInFadeIn 0.6s ease-in both;
+        }
+    }
+
+    .first-screen__title {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenPuffInFadeIn 0.6s ease-in 0.3s both;
+        }
+    }
+
+    .first-screen__tags {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenPuffInFadeIn 0.6s ease-in 0.6s both;
+        }
+    }
+
+    .first-screen__lead {
+        @include transition(opacity, transform);
+
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenPuffInFadeIn 0.6s ease-in 0.9s both;
+        }
+    }
+
+    .first-screen__flats-compilation {
+        // Media
+        @media #{$tablet-landscape} {
+            animation: mainScreenPuffInFadeIn 0.6s ease-in 1.2s both;
+        }
+    }
+}
+
+// KEYFRAMES
+// v1
+@keyframes mainScreenFadeIn {
+    0% {
+        @include scale(translateY, 20, 20, 20);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// v2
+@keyframes mainScreenFocusInFadeIn {
+    0% {
+        @include scale(translateY, 20, 20, 20);
+        filter: blur(12px);
+        letter-spacing: 0.05em;
+        opacity: 0;
+    }
+
+    100% {
+        filter: blur(0);
+        transform: none;
+        opacity: 1;
+    }
+}
+
+// v3
+@keyframes mainScreenSlideLeftFadeIn {
+    0% {
+        @include scale(translateX, -50, -50, -50);
+        filter: blur(12px);
+        letter-spacing: 0.05em;
+        opacity: 0;
+    }
+
+    100% {
+        filter: blur(0);
+        transform: none;
+        opacity: 1;
+    }
+}
+
+// v4
+@keyframes mainScreenSlideLeftBottomFadeIn {
+    0% {
+        transform: translateX(-50px) translateY(50px);
+        filter: blur(12px);
+        letter-spacing: 0.05em;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+// v5
+@keyframes mainScreenScaleInFadeIn {
+    0% {
+        transform: translateY(-25px) scaleY(0.9) scaleX(0.9);
+        filter: blur(12px);
+        letter-spacing: 0.05em;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+// v6
+@keyframes mainScreenPuffInFadeIn {
+    0% {
+        transform: scaleX(1.2);
+        filter: blur(12px);
+        letter-spacing: 0.05em;
+        opacity: 0;
+    }
+
+    100% {
+        transform: scaleX(1);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+//
+@keyframes timing {
+    50% {
+        @include scale(bottom, 15, 15, 15);
+    }
+}
+
+@keyframes mainScreenOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes mainScreenZoom {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes mainScreenZoomRevert {
+    0% {
+        transform: none;
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}

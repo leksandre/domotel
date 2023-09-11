@@ -1,0 +1,9 @@
+<ul class="flat__details-list">
+    {% for detail in data %}
+        <li class="flat__detail {% if detail.accent %}flat__detail_accent_detail{% endif %}">
+            <div class="flat__detail-name">{{ detail.name }}</div>
+            <div class="flat__detail-separator"></div>
+            <div class="flat__detail-value">{{ detail.value }}</div>
+        </li>
+    {% endfor %}
+</ul>

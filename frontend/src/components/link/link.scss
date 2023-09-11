@@ -1,0 +1,40 @@
+// DEPENDENCIES
+@import "../../common/styles/breakpoints";
+@import "../../common/styles/colors";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$link-color: $brand-dark;
+
+// BLOCK
+.link {
+    @include reset-button();
+    @include transition(opacity);
+    display: inline-flex;
+    cursor: pointer;
+    text-decoration: none;
+    color: $link-color;
+
+    &:hover,
+    &:active {
+        @media #{$laptop} {
+            opacity: 0.8;
+        }
+    }
+
+    svg {
+        @include margin-level(left, tomato);
+        @include transition(transform);
+    }
+}
+
+// MODS
+.link_theme_external {
+    &:hover,
+    &:active {
+        svg {
+            @include scale(translate, null, null, 2 -2);
+        }
+    }
+}

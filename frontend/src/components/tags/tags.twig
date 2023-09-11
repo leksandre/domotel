@@ -1,0 +1,9 @@
+{% if items %}
+    <ul class="tags{% if modify %} {{ modify }}{% endif %}">
+        {% for item in items %}
+            <li class="tag{% if item.modify %} {{ item.modify }}{% endif %}">
+                {{ item.text }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

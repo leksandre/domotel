@@ -1,0 +1,79 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+
+// SETTINGS
+$bcr-color: $white;
+
+// BLOCK
+.breadcrumbs {
+    @include row();
+}
+
+// ELEMENTS
+.breadcrumb__item {
+    @include font-size(p3-regular);
+    color: $bcr-color;
+    display: none;
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include row();
+    }
+
+    &:not(:last-child) {
+        @include scale(margin-right, 8, 8, 8);
+    }
+}
+
+.breadcrumb {
+    // Media
+    @media #{$tablet-portrait} {
+        opacity: 0.8;
+    }
+
+    @at-root a#{&} {
+        @include transition(opacity);
+        @include scale(margin-right, 8, 8, 8);
+
+        &:hover {
+            // Media
+            @media #{$laptop} {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.breadcrumb__back-btn {
+    @include reset-button();
+    opacity: 0.8;
+}
+
+.breadcrumb__back-btn-icon {
+    display: inline-block;
+    vertical-align: middle;
+    @include scale(width, 16, 16, 16);
+    @include scale(height, 16, 16, 16);
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.breadcrumb__back-btn-text {
+    @include scale(margin-left, 8, 8, 8);
+}
+
+// MODS
+.breadcrumb__item_show_mobile {
+    display: block;
+
+    // Media
+    @media #{$tablet-portrait} {
+        display: none;
+    }
+}

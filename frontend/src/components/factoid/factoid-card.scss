@@ -1,0 +1,136 @@
+// DEPENDENCIES
+@use "sass:math";
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$card-color: $brand-text;
+$card-bg: $white;
+$card-shadow: $shadow-color;
+$card-accent: $brand-dark;
+
+// BLOCK
+.factoid-cards {
+    @include margin-level(bottom, white, orange);
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-margins(-0.5, 30);
+        @include row();
+        width: column(31, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-margins(-0.25, 30);
+        width: column(30.5, 30);
+    }
+
+    &:not(:first-child) {
+        @include margin-level(top, yellow);
+    }
+}
+
+// ELEMENTS
+.factoid-card {
+    @include margin-level(bottom, orange);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(box-shadow, 0 10 60, 0 10 60, 0 10 60, $card-shadow);
+    display: flex;
+    flex-direction: column;
+    background-color: $card-bg;
+    color: $card-color;
+    overflow: hidden;
+    width: 100%;
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-margins(0.5, 31);
+        width: column(14.5, 31);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-margins(0.25, 30.5);
+        width: column(math.div(29, 3), 30.5);
+    }
+
+    @media #{$laptop} {
+        @include vertical-margins(0);
+        width: 100%;
+    }
+
+    &:nth-child(3) {
+        // Media
+        @media #{$tablet-portrait-only} {
+            display: none;
+        }
+    }
+}
+
+.factoid-card__image {
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    width: 100%;
+
+    img {
+        @include object-fit(cover);
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    picture:first-child,
+    img:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.factoid-card__content {
+    @include padding-level(both, green);
+    @include vertical-paddings(2, 30);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    width: 100%;
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-paddings(1, 14.5);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-paddings(1, math.div(29, 3));
+    }
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 8);
+    }
+}
+
+.factoid-card__announcement {
+    @include font-size(p2-regular);
+}
+
+.factoid-card__footer {
+    margin-top: auto;
+
+    &:not(:first-child) {
+        @include padding-level(top, green);
+    }
+}
+
+.factoid-card__comment {
+    @include font-size(p3-regular);
+    color: $card-accent;
+    display: inline-block;
+}
+
+// MODS

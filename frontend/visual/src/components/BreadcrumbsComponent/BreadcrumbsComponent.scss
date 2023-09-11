@@ -1,0 +1,92 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$breadcrumbs-color: $white;
+$breadcrumbs-icon: $black;
+$breadcrumbs-arrow-color: $black;
+
+// BLOCK
+.visual-breadcrumbs {
+    position: relative;
+    top: 0;
+    left: 0;
+    color: $breadcrumbs-color;
+}
+
+// ELEMENTS
+.visual-breadcrumbs__container {
+    @include scale(height, 40, 48, 48);
+    @include row();
+    align-items: center;
+}
+
+.visual-breadcrumbs__back {
+    @include scale(height, 40, 48, 48);
+    @include scale(width, 40, 48, 48);
+    @include margin-level(right, yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: $breadcrumbs-color;
+    pointer-events: auto;
+}
+
+.visual-breadcrumbs__back-icon {
+    position: relative;
+    left: -2px;
+    stroke: $breadcrumbs-icon;
+}
+
+.visual-breadcrumbs__list {
+    @include row();
+}
+
+.visual-breadcrumbs__item {
+    pointer-events: auto;
+
+    &:not(:only-of-type):not(:last-of-type) {
+        @include margin-level(right, green);
+        position: relative;
+
+        &:after {
+            @include pseudo();
+            @include scale(width, 3, 3, 3);
+            @include scale(height, 3, 3, 3);
+            @include scale(right, -16, -16, -16);
+            top: 50%;
+            display: block;
+            border-radius: 50%;
+            background-color: $breadcrumbs-color;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.visual-breadcrumbs__step {
+    @include font-size(lead-bold);
+    pointer-events: none;
+    cursor: initial;
+}
+
+.visual-breadcrumbs__floor-switcher {
+    @include row();
+    @include font-size(lead-bold);
+    align-items: center;
+    pointer-events: auto;
+}
+
+.visual-filter__floor-switcher-button {
+    @include scale(margin-right, 4, 4, 4);
+}
+
+.visual-breadcrumbs__floor-switcher-arrows {
+    @include scale(height, 24, 24, 24);
+
+    svg {
+        fill: $breadcrumbs-arrow-color;
+    }
+}
+
+// MODS

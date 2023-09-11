@@ -1,0 +1,142 @@
+{% extends "../layout/_layout-pdf.twig" %}
+{% block title %}PDF. Карточка квартиры{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    <div class="pdf">
+        <div class="pdf__container">
+            {% include './templates/pdf-header.twig' %}
+
+            <!-- Блок с информацией о квартире -->
+            <div class="pdf-section pdf-main">
+                <div class="pdf-section__left">
+                    <div class="pdf-main__plan">
+                        <img src="/images/pdf/flat-2d-plan.jpg" alt="Планировка квартиры">
+                    </div>
+                </div>
+                <div class="pdf-section__right">
+                    <h2 class="pdf-main__heading">3-комнатная №104</h2>
+
+                    <div class="pdf-main__prices">
+                        <div class="pdf-main__price {% if actionPrice %}pdf-main__price_action_price{% endif %}">
+                            6 630 500 ₽
+                        </div>
+
+                        {% if actionPrice %}
+                            <div class="pdf-main__action-wrapper">
+                                <div class="pdf-main__action">
+                                    <span class="pdf-main__action-value">
+                                        -300 000 ₽
+                                    </span>
+                                </div>
+                                <div class="pdf-main__basic-price">
+                                    6 630 500 ₽
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <ul class="pdf-main__list pdf-main__list_theme_dashed">
+                        <li class="pdf-main__list-item">
+                            <div class="pdf-main__list-type">Общая площадь</div>
+                            <div class="pdf-main__list-value">67,75 м²</div>
+                        </li>
+                        <li class="pdf-main__list-item">
+                            <div class="pdf-main__list-type">Жилая</div>
+                            <div class="pdf-main__list-value">38,25 м²</div>
+                        </li>
+                        <li class="pdf-main__list-item">
+                            <div class="pdf-main__list-type">Кухня</div>
+                            <div class="pdf-main__list-value">13,00 м²</div>
+                        </li>
+                        <li class="pdf-main__list-item">
+                            <div class="pdf-main__list-type">Корпус</div>
+                            <div class="pdf-main__list-value">1</div>
+                        </li>
+                        <li class="pdf-main__list-item">
+                            <div class="pdf-main__list-type">Секция</div>
+                            <div class="pdf-main__list-value">2</div>
+                        </li>
+                        <li class="pdf-main__list-item">
+                            <div class="pdf-main__list-type">Этаж</div>
+                            <div class="pdf-main__list-value">12 из 17</div>
+                        </li>
+                        <li class="pdf-main__list-item">
+                            <div class="pdf-main__list-type">Срок сдачи</div>
+                            <div class="pdf-main__list-value">IV кв. 2024</div>
+                        </li>
+                    </ul>
+
+                    <div class="pdf-main__specials">
+                        <ul class="pdf-main__list pdf-main__list_theme_dotted">
+                            <li class="pdf-main__list-item pdf-main__list-type">Особенности</li>
+                            <li class="pdf-main__list-item">Вид на парк</li>
+                            <li class="pdf-main__list-item">Гардеробная</li>
+                            <li class="pdf-main__list-item">Большая кухня</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /Блок с информацией о квартире -->
+
+            <!-- Блок про планоплан, не выводить если нет планоплана -->
+            <section class="pdf-section pdf-planoplan">
+                <div class="pdf-section__left">
+                    <div class="pdf-planoplan__plan">
+                        <img src="/images/pdf/flat-3d-plan.jpg" alt="Планировка квартиры">
+                    </div>
+                </div>
+                <div class="pdf-section__right">
+                    <h3>Установите Planoplan <br>Real Estate!</h3>
+                    <p class="pdf__text pdf-planoplan__text">
+                        Сканируйте в приложении. Смотрите планировку в виртуальной реальности
+                    </p>
+
+                    <div class="pdf-planoplan__app">
+                        <div class="pdf-planoplan__qr">
+                            <img src="/images/pdf/tour-qr.jpg" alt="QR код">
+                        </div>
+                        <ul class="pdf-planoplan__list">
+                            <li>
+                                <img src="/webicons/pdf/store-apple.svg" alt="Google Play">
+                            </li>
+                            <li>
+                                <img src="/webicons/pdf/store-google.svg" alt="Appstore">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- /Блок про планоплан -->
+
+            <!-- Блок с планами: поэтажный и жк-->
+            <section class="pdf-section">
+                <div class="pdf-section__left">
+                    <div class="pdf-plan">
+                        <img src="http://sample-dev.multi.ksdev.ru/storage/3946/4480/394612783e48a2f3b5a5914bcd57744e21134c82.jpg" alt="На плане этажа">
+                        <div class="pdf-plan__text">На плане этажа</div>
+                    </div>
+                </div>
+                <div class="pdf-section__right">
+                    <div class="pdf-plan">
+                        <img src="/images/pdf/complex-plan.jpg" alt="На генплане">
+                        <div class="pdf-plan__text">На генплане</div>
+                    </div>
+                </div>
+            </section>
+            <!-- /Блок с планами: поэтажный и жк-->
+
+            {% include './templates/pdf-footer.twig' %}
+        </div>
+
+        <div class="pdf__container">
+            {% include './templates/pdf-header.twig' %}
+            {% include './templates/pdf-about.twig' %}
+            {% include './templates/pdf-footer.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,262 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$section-bg: $white;
+$section-bg-accent: $brand-base;
+$section-bg-flat: rgba($brand-base-rgb, 0.16);
+$section-color: $brand-text;
+$section-color-accent: $white;
+
+$factoid-promo-color: $white;
+$factoid-promo-bg: $brand-dark;
+
+// BLOCK
+.section {
+    @include padding-level(both, pink);
+    background-color: $section-bg;
+    color: $section-color;
+}
+
+// ELEMENTS
+
+// MODS
+.section_theme_media {
+    @include padding-level(both, blue);
+}
+
+.section_theme_accent {
+    background-color: $section-bg-accent;
+    color: $section-color-accent;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: $section-color-accent;
+    }
+}
+
+.section_theme_flat {
+    @include padding-level(top, green);
+}
+
+.section_theme_flat-background {
+    background-color: $section-bg-flat;
+}
+
+.section_theme_promo {
+    .factoid-card__announcement {
+        @include font-size(p2-bold);
+    }
+
+    .factoid-card__comment {
+        @include scale(padding, 3 12, 3 12, 3 12);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+        @include font-size(p3-bold);
+        background-color: $factoid-promo-bg;
+        color: $factoid-promo-color;
+    }
+}
+
+.section_theme_progress {
+    .grid__factoid {
+        @include row();
+        align-items: flex-start;
+
+        .button {
+            // Media
+            @media #{$tablet-landscape} {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.section_theme_contacts {
+    .grid__wrapper_theme_contacts {
+        @media #{$tablet-landscape} {
+            @include row();
+            align-items: baseline;
+            justify-content: space-between;
+        }
+    }
+}
+
+.section_theme_portrait-utp {
+    .grid__text {
+        // MEDIA
+        @media #{$laptop} {
+            @include vertical-margins(4, 36);
+            width: column(28, 36);
+            order: 1;
+        }
+    }
+
+    .text-content {
+        @include scale(padding-left, null, 14, 14);
+        @include margin-level(bottom, white);
+
+        // MEDIA
+        @media #{$tablet-landscape} {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    .text-content__main {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            width: 100%;
+        }
+    }
+
+    .text-content__title {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            width: column(20, 32);
+        }
+    }
+
+    .text-content__text {
+        display: flex;
+        flex-direction: column;
+
+        // MEDIA
+        @media #{$tablet-landscape} {
+            display: grid;
+            grid-auto-flow: column dense;
+            grid-auto-columns: 1fr;
+            gap: 0 column(2, 32);
+
+            /* grid-template-rows / grid-template-columns values */
+            grid-template: repeat(2, auto) / column(20, 32) column(8, 32);
+            grid-template-areas: "text list" "button list";
+        }
+
+        p {
+            order: 1;
+
+            // MEDIA
+            @media #{$tablet-landscape} {
+                grid-area: text;
+            }
+        }
+
+        ul {
+            @include margin-level(bottom, white);
+            order: 2;
+
+            // MEDIA
+            @media #{$tablet-landscape} {
+                grid-area: list;
+                flex-direction: column;
+            }
+
+            &:not(:first-child) {
+                @include scale(margin-top, 24, 0, null);
+            }
+
+            li {
+                @include margin-level(bottom, yellow);
+
+                // MEDIA
+                @media #{$tablet-landscape} {
+                    width: 100%;
+                }
+
+                &:last-child {
+                    @include margin-level(bottom, white);
+                }
+
+                &:before {
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        .text-content__button {
+            @include margin-level(top, cyan);
+            @include margin-level(bottom, white);
+            order: 3;
+
+            // MEDIA
+            @media #{$tablet-landscape} {
+                grid-area: button;
+            }
+        }
+    }
+
+    .grid__visual {
+        @include margin-level(top, blue);
+        margin-right: 0;
+        width: column(35, 36);
+
+        // MEDIA
+        @media #{$laptop} {
+            @include vertical-margins(4, 36);
+            width: column(28, 36);
+        }
+    }
+}
+
+$indents: white, rose, tomato, orange, yellow, green, cyan, blue, violet, pink, red, magenta;
+
+@for $i from 1 through length($indents) {
+    $indent: nth($indents, $i);
+
+    .section_top_indent-#{$i - 1} {
+        @include padding-level(top, $indent);
+    }
+
+    .section_bottom_indent-#{$i - 1} {
+        @include padding-level(bottom, $indent);
+    }
+}
+
+// ANIMATIONS
+.section_animate_background-base {
+    animation: base-color-change 4s linear infinite alternate both;
+}
+
+.section_animate_background-additional {
+    animation: additional-color-change 8s linear infinite alternate both;
+}
+
+// KEYFRAMES
+@keyframes base-color-change {
+    0% {
+        background-color: $brand-base;
+    }
+
+    50% {
+        background-color: $brand-dark;
+    }
+
+    100% {
+        background-color: $brand-light;
+    }
+}
+
+@keyframes additional-color-change {
+    0% {
+        background: $additional-1;
+    }
+
+    33.3% {
+        background: $additional-2;
+    }
+
+    66.6% {
+        background: $additional-3;
+    }
+
+    100% {
+        background: $additional-4;
+    }
+}

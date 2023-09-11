@@ -1,0 +1,840 @@
+<section id="how-to-buy"
+         class="section j-anchor-section{% if animationClass %} {{ animationClass }}{% endif %}
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <h2 class="j-animation__header">Как купить</h2>
+                <div class="grid__wrapper">
+                    <div class="grid__row">
+                        <div class="grid__content{% if animationClass %} j-animation__content{% endif %}">
+                            <p>Продажи в&nbsp;ЖК&nbsp;&laquo;Берёзка&raquo; ведутся строго по&nbsp;договорам долевого
+                                участия (ДДУ), согласно действующему законодательству&nbsp;РФ (&#8470;&nbsp;214‑ФЗ)</p>
+                        </div>
+                        <div class="grid__content-section">
+                            <div class="details">
+                                <details {% if detailsOpen %} open {% endif %} class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Ипотека
+                                        </span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__row">
+                                            <div class="grid__content">
+                                                <p>Ипотека у&nbsp;16&nbsp;банков-партнёров, которые предоставляют
+                                                    льготные условия покупателям квартир в&nbsp;ЖК&nbsp;&laquo;Березки&raquo;.
+                                                    В&nbsp;расчете применяются процентные ставки без учета
+                                                    дополнительных льгот.</p>
+                                            </div>
+                                            <div class="grid__factoid">
+                                                {% include '../../components/factoid/factoid.twig' with {
+                                                    modify: 'factoids_size_small',
+                                                    items: [
+                                                        {
+                                                            text: '<p>Бесплатная консультация со&nbsp;специалистом
+                                                            по&nbsp;номеру&nbsp;<a href="tel:88007004736">8 (800) 700-47-36</a>,
+                                                            ежедневно с&nbsp;9&nbsp;до&nbsp;20.00</p>',
+                                                            button: 'Заказать конкультацию'
+                                                        }
+                                                    ]
+                                                }%}
+                                            </div>
+                                        </div>
+                                        <div class="grid__content-section">
+                                            {% if mortgageCalculator %}
+                                                {% include '../../components/mortgage-calculator/mortgage-calculator.twig' with {
+                                                    priceDisabled: priceDisabled|default(false),
+                                                    programs: [
+                                                        {
+                                                            creditAmountMax: 7000000,
+                                                            creditAmountMin: 1000000,
+                                                            bankId: 1,
+                                                            rate: 6.1,
+                                                            limitation: 25,
+                                                            limitationMin: 5,
+                                                            firstPayment: 20,
+                                                            firstPaymentMax: 100,
+                                                            logo: "/webicons/bank-card/raif.svg",
+                                                            name: "Райффайзен Банк",
+                                                            about: 'Семейная ипотека. Ипотека с государственной поддержкой для семей. Текст
+                                                                с описанием программы. Семейная ипотека. Ипотека с государственной поддержкой для семей. Текст
+                                                                с описанием программы.'
+                                                        },
+                                                        {
+                                                            creditAmountMax: 8900000,
+                                                            creditAmountMin: 2000000,
+                                                            bankId: 1,
+                                                            rate: 8.5,
+                                                            limitation: 30,
+                                                            limitationMin: 5,
+                                                            firstPayment: 15,
+                                                            firstPaymentMax: 100,
+                                                            logo: "/webicons/bank-card/raif.svg",
+                                                            name: "Райффайзен Банк",
+                                                            about: 'Ипотека с государственной поддержкой для семей.'
+                                                        },
+                                                        {
+                                                            creditAmountMax: 12900000,
+                                                            creditAmountMin: 1500000,
+                                                            bankId: 2,
+                                                            rate: 10,
+                                                            limitation: 30,
+                                                            limitationMin: 10,
+                                                            firstPayment: 25,
+                                                            firstPaymentMax: 100,
+                                                            logo: "/webicons/bank-card/sber.svg",
+                                                            name: "Сбербанк",
+                                                            sort: 1
+                                                        }
+                                                    ]
+                                                } %}
+                                            {% else %}
+                                                {% embed '../../components/slider/slider.twig' with {
+                                                    id: 'slider_theme_banks j-slider-news',
+                                                    caption: true,
+                                                    sliderWrapModify: "action"
+                                                }%}
+                                                    {% block slides %}
+                                                        {% include '../../components/bank-card/bank-card.twig' with {
+                                                            items: [
+                                                                {
+                                                                    logo: '/webicons/bank-card/alfa.svg',
+                                                                    alt: 'Альфабанк',
+                                                                    conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                    text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                                },
+                                                                {
+                                                                    logo: '/webicons/bank-card/sber.svg',
+                                                                    alt: 'Сбербанк',
+                                                                    conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                    text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                                },
+                                                                {
+                                                                    logo: '/webicons/bank-card/raif.svg',
+                                                                    alt: 'Райффайзенбанк',
+                                                                    conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                    text: '<p>Без первого взноса</p>'
+                                                                },{
+                                                                    logo: '/webicons/bank-card/sber.svg',
+                                                                    alt: 'Сбербанк',
+                                                                    conditions: [
+                                                                        {
+                                                                            key: 'Ставка',
+                                                                            value: 'от 6,1%'
+                                                                        },{
+                                                                            key: 'Первый взнос',
+                                                                            value: 'от 20%'
+                                                                        },{
+                                                                            key: 'Срок, до',
+                                                                            value: '20 лет'
+                                                                        }
+                                                                    ],
+                                                                    text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                                },{
+                                                                    logo: '/webicons/bank-card/sber.svg',
+                                                                    alt: 'БФА банк',
+                                                                    conditions: [
+                                                                        {
+                                                                            key: 'Ставка',
+                                                                            value: 'от 6,1%'
+                                                                        },{
+                                                                            key: 'Первый взнос',
+                                                                            value: 'от 20%'
+                                                                        },{
+                                                                            key: 'Срок, до',
+                                                                            value: '20 лет'
+                                                                        }
+                                                                    ],
+                                                                    text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                                }
+                                                            ]
+                                                        }%}
+                                                    {% endblock %}
+                                                {% endembed %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </details>
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            100% оплата
+                                        </span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__row">
+                                            <div class="grid__content">
+                                                <p>Ипотека у&nbsp;16&nbsp;банков-партнёров, которые предоставляют
+                                                    льготные условия покупателям квартир в&nbsp;ЖК&nbsp;&laquo;Березки&raquo;.
+                                                    В&nbsp;расчете применяются процентные ставки без учета
+                                                    дополнительных льгот.</p>
+                                            </div>
+                                            <div class="grid__factoid">
+                                                {% include '../../components/factoid/factoid.twig' with {
+                                                    modify: 'factoids_size_small',
+                                                    items: [
+                                                        {
+                                                            text: '<p>Бесплатная консультация со&nbsp;специалистом
+                                                            по&nbsp;номеру&nbsp;<a href="tel:88007004736">8 (800) 700-47-36</a>,
+                                                            ежедневно с&nbsp;9&nbsp;до&nbsp;20.00</p>',
+                                                            button: 'Заказать конкультацию'
+                                                        }
+                                                    ]
+                                                }%}
+                                            </div>
+                                        </div>
+                                        <div class="grid__content-section">
+                                            {% embed '../../components/slider/slider.twig' with {
+                                                id: 'slider_theme_banks j-slider-news',
+                                                caption: true,
+                                                sliderWrapModify: "action"
+                                            }%}
+                                                {% block slides %}
+                                                    {% include '../../components/bank-card/bank-card.twig' with {
+                                                        items: [
+                                                            {
+                                                                logo: '/webicons/bank-card/alfa.svg',
+                                                                alt: 'Альфабанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/raif.svg',
+                                                                alt: 'Райффайзенбанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Без первого взноса</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'БФА банк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            }
+                                                        ]
+                                                    }%}
+                                                {% endblock %}
+                                            {% endembed %}
+                                        </div>
+                                    </div>
+                                </details>
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Рассрочка
+                                        </span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__row">
+                                            <div class="grid__content">
+                                                <p>Ипотека у&nbsp;16&nbsp;банков-партнёров, которые предоставляют
+                                                    льготные условия покупателям квартир в&nbsp;ЖК&nbsp;&laquo;Березки&raquo;.
+                                                    В&nbsp;расчете применяются процентные ставки без учета
+                                                    дополнительных льгот.</p>
+                                            </div>
+                                            <div class="grid__factoid">
+                                                {% include '../../components/factoid/factoid.twig' with {
+                                                    modify: 'factoids_size_small',
+                                                    items: [
+                                                        {
+                                                            text: '<p>Бесплатная консультация со&nbsp;специалистом
+                                                            по&nbsp;номеру&nbsp;<a href="tel:88007004736">8 (800) 700-47-36</a>,
+                                                            ежедневно с&nbsp;9&nbsp;до&nbsp;20.00</p>',
+                                                            button: 'Заказать конкультацию'
+                                                        }
+                                                    ]
+                                                }%}
+                                            </div>
+                                        </div>
+                                        <div class="grid__content-section">
+                                            {% embed '../../components/slider/slider.twig' with {
+                                                id: 'slider_theme_banks j-slider-news',
+                                                caption: true,
+                                                sliderWrapModify: "action"
+                                            }%}
+                                                {% block slides %}
+                                                    {% include '../../components/bank-card/bank-card.twig' with {
+                                                        items: [
+                                                            {
+                                                                logo: '/webicons/bank-card/alfa.svg',
+                                                                alt: 'Альфабанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/raif.svg',
+                                                                alt: 'Райффайзенбанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Без первого взноса</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'БФА банк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            }
+                                                        ]
+                                                    }%}
+                                                {% endblock %}
+                                            {% endembed %}
+                                        </div>
+                                    </div>
+                                </details>
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Субсидии
+                                        </span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__row">
+                                            <div class="grid__content">
+                                                <p>Ипотека у&nbsp;16&nbsp;банков-партнёров, которые предоставляют
+                                                    льготные условия покупателям квартир в&nbsp;ЖК&nbsp;&laquo;Березки&raquo;.
+                                                    В&nbsp;расчете применяются процентные ставки без учета
+                                                    дополнительных льгот.</p>
+                                            </div>
+                                            <div class="grid__factoid">
+                                                {% include '../../components/factoid/factoid.twig' with {
+                                                    modify: 'factoids_size_small',
+                                                    items: [
+                                                        {
+                                                            text: '<p>Бесплатная консультация со&nbsp;специалистом
+                                                            по&nbsp;номеру&nbsp;<a href="tel:88007004736">8 (800) 700-47-36</a>,
+                                                            ежедневно с&nbsp;9&nbsp;до&nbsp;20.00</p>',
+                                                            button: 'Заказать конкультацию'
+                                                        }
+                                                    ]
+                                                }%}
+                                            </div>
+                                        </div>
+                                        <div class="grid__content-section">
+                                            {% embed '../../components/slider/slider.twig' with {
+                                                id: 'slider_theme_banks j-slider-news',
+                                                caption: true,
+                                                sliderWrapModify: "action"
+                                            }%}
+                                                {% block slides %}
+                                                    {% include '../../components/bank-card/bank-card.twig' with {
+                                                        items: [
+                                                            {
+                                                                logo: '/webicons/bank-card/alfa.svg',
+                                                                alt: 'Альфабанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/raif.svg',
+                                                                alt: 'Райффайзенбанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Без первого взноса</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'БФА банк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            }
+                                                        ]
+                                                    }%}
+                                                {% endblock %}
+                                            {% endembed %}
+                                        </div>
+                                    </div>
+                                </details>
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Материнский капитал
+                                        </span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__row">
+                                            <div class="grid__content">
+                                                <p>Ипотека у&nbsp;16&nbsp;банков-партнёров, которые предоставляют
+                                                    льготные условия покупателям квартир в&nbsp;ЖК&nbsp;&laquo;Березки&raquo;.
+                                                    В&nbsp;расчете применяются процентные ставки без учета
+                                                    дополнительных льгот.</p>
+                                            </div>
+                                            <div class="grid__factoid">
+                                                {% include '../../components/factoid/factoid.twig' with {
+                                                    modify: 'factoids_size_small',
+                                                    items: [
+                                                        {
+                                                            text: '<p>Бесплатная консультация со&nbsp;специалистом
+                                                            по&nbsp;номеру&nbsp;<a href="tel:88007004736">8 (800) 700-47-36</a>,
+                                                            ежедневно с&nbsp;9&nbsp;до&nbsp;20.00</p>',
+                                                            button: 'Заказать конкультацию'
+                                                        }
+                                                    ]
+                                                }%}
+                                            </div>
+                                        </div>
+                                        <div class="grid__content-section">
+                                            {% embed '../../components/slider/slider.twig' with {
+                                                id: 'slider_theme_banks j-slider-news',
+                                                caption: true,
+                                                sliderWrapModify: "action"
+                                            }%}
+                                                {% block slides %}
+                                                    {% include '../../components/bank-card/bank-card.twig' with {
+                                                        items: [
+                                                            {
+                                                                logo: '/webicons/bank-card/alfa.svg',
+                                                                alt: 'Альфабанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/raif.svg',
+                                                                alt: 'Райффайзенбанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Без первого взноса</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'БФА банк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            }
+                                                        ]
+                                                    }%}
+                                                {% endblock %}
+                                            {% endembed %}
+                                        </div>
+                                    </div>
+                                </details>
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Программа &laquo;Меняйте старое жилье на&nbsp;новую квартиру&raquo;
+                                        </span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__row">
+                                            <div class="grid__content">
+                                                <p>Ипотека у&nbsp;16&nbsp;банков-партнёров, которые предоставляют
+                                                    льготные условия покупателям квартир в&nbsp;ЖК&nbsp;&laquo;Березки&raquo;.
+                                                    В&nbsp;расчете применяются процентные ставки без учета
+                                                    дополнительных льгот.</p>
+                                            </div>
+                                            <div class="grid__factoid">
+                                                {% include '../../components/factoid/factoid.twig' with {
+                                                    modify: 'factoids_size_small',
+                                                    items: [
+                                                        {
+                                                            text: '<p>Бесплатная консультация со&nbsp;специалистом
+                                                            по&nbsp;номеру&nbsp;<a href="tel:88007004736">8 (800) 700-47-36</a>,
+                                                            ежедневно с&nbsp;9&nbsp;до&nbsp;20.00</p>',
+                                                            button: 'Заказать конкультацию'
+                                                        }
+                                                    ]
+                                                }%}
+                                            </div>
+                                        </div>
+                                        <div class="grid__content-section">
+                                            {% embed '../../components/slider/slider.twig' with {
+                                                id: 'slider_theme_banks j-slider-news',
+                                                caption: true,
+                                                sliderWrapModify: "action"
+                                            }%}
+                                                {% block slides %}
+                                                    {% include '../../components/bank-card/bank-card.twig' with {
+                                                        items: [
+                                                            {
+                                                                logo: '/webicons/bank-card/alfa.svg',
+                                                                alt: 'Альфабанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },
+                                                            {
+                                                                logo: '/webicons/bank-card/raif.svg',
+                                                                alt: 'Райффайзенбанк',
+                                                                conditions: [
+                                                                {
+                                                                    key: 'Ставка',
+                                                                    value: 'от 6,1%'
+                                                                },{
+                                                                    key: 'Первый взнос',
+                                                                    value: 'от 20%'
+                                                                },{
+                                                                    key: 'Срок, до',
+                                                                    value: '20 лет'
+                                                                }
+                                                            ],
+                                                                text: '<p>Без первого взноса</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'Сбербанк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Семейная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            },{
+                                                                logo: '/webicons/bank-card/sber.svg',
+                                                                alt: 'БФА банк',
+                                                                conditions: [
+                                                                    {
+                                                                        key: 'Ставка',
+                                                                        value: 'от 6,1%'
+                                                                    },{
+                                                                        key: 'Первый взнос',
+                                                                        value: 'от 20%'
+                                                                    },{
+                                                                        key: 'Срок, до',
+                                                                        value: '20 лет'
+                                                                    }
+                                                                ],
+                                                                text: '<p>Военная ипотека. Ипотека с государственной поддержкой для семей с детьми</p>'
+                                                            }
+                                                        ]
+                                                    }%}
+                                                {% endblock %}
+                                            {% endembed %}
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

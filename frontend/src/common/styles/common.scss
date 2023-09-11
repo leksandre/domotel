@@ -1,0 +1,109 @@
+// DEPENDENCIES
+@import "./colors";
+@import "./mixins";
+
+// С box-sizing: border-box; гораздо удобнее работать при подсчёте размеров блока
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+// margin - В любом нашем проекте не требуется какое-либо другое значение кроме 0
+// font-smoothing сглаживает шрифты
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-anchor: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+// Отключаем подсветку у ссылок при тапе.
+a,
+button,
+label {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    @include transition(color);
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+
+    &[href^="tel:"] {
+        white-space: nowrap;
+    }
+}
+
+// Картинки не должны выходить из родительского блока если они превосходят его по размерам
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+textarea {
+    resize: none;
+}
+
+input,
+textarea {
+    appearance: none;
+    /* stylelint-disable property-no-vendor-prefix */
+    -webkit-appearance: none;
+    /* stylelint-enable */
+    font-family: inherit;
+    border: none;
+    border-radius: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:invalid {
+        box-shadow: none;
+    }
+
+    &::-ms-clear {
+        display: none;
+    }
+
+    /* stylelint-disable property-no-vendor-prefix */
+    &:-webkit-autofill {
+        transition: background-color 0s 50000s;
+
+        &[readonly="readonly"] {
+            -webkit-text-fill-color: rgba($brand-text-rgb, 0.7);
+        }
+    }
+    /* stylelint-enable */
+    &[type="search"]::-webkit-search-decoration,
+    &[type="search"]::-webkit-search-cancel-button,
+    &[type="search"]::-webkit-search-results-button,
+    &[type="search"]::-webkit-search-results-decoration {
+        /* stylelint-disable property-no-vendor-prefix */
+        -webkit-appearance: none;
+        /* stylelint-enable */
+    }
+}
+
+picture {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+iframe {
+    border-style: none;
+}

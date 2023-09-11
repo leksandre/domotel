@@ -1,0 +1,16 @@
+// DEPENDENCIES
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+
+// BLOCK
+
+// ELEMENTS
+.premises-prices__price {
+    @include margin-level(right, tomato);
+    @include font-size(p1-bold);
+    display: inline-block;
+}
+
+// MODS

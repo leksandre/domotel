@@ -1,0 +1,89 @@
+<header class="header{% if headerModify %} {{ headerModify }}{% endif%}{% if not pageError %} j-header{% endif %}">
+    <div class="header__container">
+        <div class="header__inner j-header__inner">
+            <a class="header__logo j-header__drive" href="home.html">
+                <img class="header__logo-light" src="/webicons/header/logo_light.svg" alt="ЖК Березки">
+                <img class="header__logo-dark" src="/webicons/header/logo_dark.svg" alt="ЖК Березки">
+            </a>
+            {# {% if isFullscreen %}
+            <div class="header__navigation">
+                {% include '../navigation-fullscreen/navigation-fullscreen.twig' %}
+            </div> #}
+            {% if not isFullscreen and isSearch %}
+                <div class="header__search-navigation">
+                    {% include '../navigation-group/navigation-group.twig' with {
+                        items: [
+                            {
+                                modify: 'j-group-navigation__navigation',
+                                dataAttr: 'data-group="true" data-show="960"',
+                                groupName: 'О проекте',
+                                navigation: navigation
+                            },
+                            {
+                                modify: 'j-group-navigation__navigation',
+                                dataAttr: 'data-group="true" data-show="670" data-group-start="670" data-group-end="1280"',
+                                groupName: 'Квартиры',
+                                navigation: estateTypeNavigation
+                            },
+                            {
+                                dataAttr: 'data-show="1280"',
+                                navigation: additionalNavigation
+                            }
+                        ]
+                    } %}
+                </div>
+            {% elseif not isFullscreen and isGroup %}
+                <div class="header__navigation j-header__nav">
+                    {% include '../navigation/navigation.twig' with {
+                        modify: 'j-folding-navigation',
+                        navigation: additionalNavigation
+                    }%}
+                </div>
+            {% elseif not isFullscreen %}
+                <div class="header__navigation j-header__nav">
+                    {% include '../navigation/navigation.twig' with {
+                        modify: 'j-folding-navigation',
+                        navigation
+                    }%}
+                </div>
+            {% endif %}
+            <div class="header__lead j-header__drive">
+                <div class="header__phone">
+                    {% include '../phone/phone.twig' with {
+                        phone: '+7 (812) 000-00-00'
+                    }%}
+                </div>
+                {% include '../button/button.twig' with {
+                    modify: 'header__callback-button j-popup-callback',
+                    dataAttr: 'data-callback="true" data-href="callback"',
+                    ariaLabel: 'Заказать звонок',
+                    text: 'Заказать звонок'
+                }%}
+                {% include '../button-circle/button-circle.twig' with {
+                    icon: 'phone.svg.twig',
+                    modify: 'header__mobile-phone j-popup-callback',
+                    dataAttr: 'data-callback="true" data-href="callback"',
+                }%}
+                <button class="header__burger j-burger" aria-label="Меню">
+                    <span class="header__burger-text">Меню</span>
+                    <span class="header__burger-line"></span>
+                </button>
+            </div>
+            <div class="header__mobile-menu">
+                {% if estateGroupNavigation %}
+                    {% include '../navigation-mobile/navigation-mobile.twig' with {
+                        isSearch: true,
+                        searchFullNavigation: estateGroupNavigation,
+                        navigation: additionalNavigation,
+                        navigationAbout
+                     } %}
+                {% elseif isFullscreen %}
+                    {% include '../navigation-fullscreen/navigation-fullscreen.twig' %}
+                {% else %}
+                    {% include '../navigation-mobile/navigation-mobile.twig' with navigation, searchFullNavigation %}
+                {% endif %}
+            </div>
+            {% include '../../components/popup/forms/callback.twig' %}
+        </div>
+    </div>
+</header>

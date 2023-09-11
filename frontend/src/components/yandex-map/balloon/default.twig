@@ -1,0 +1,35 @@
+<div class="yandex-map-balloon {% if modifyClass %}{{ modifyClass }} {% endif %} j-yandex-map-balloon">
+    <div class="yandex-map-balloon__modal">
+        {% if balloon.image %}
+            <div class="yandex-map-balloon__visual">
+                <div class="yandex-map-balloon__visual-wrap">
+                    <img src="{{ balloon.image }}" alt={{ balloon.title }}>
+                </div>
+            </div>
+        {% endif %}
+        <div class="yandex-map-balloon__info">
+            <span class="yandex-map-balloon__title">{{ balloon.title }}</span>
+            <div class="yandex-map-balloon__text">
+                {{ balloon.text }}
+            </div>
+        </div>
+    </div>
+
+    <div class="yandex-map-balloon__panel">
+        <div class="yandex-map-balloon__panel-content">
+            {% if balloon.image %}
+                <div class="yandex-map-balloon__panel-visual">
+                    <div class="yandex-map-balloon__panel-visual-wrap">
+                        <img src="{{ balloon.image }}" alt={{ balloon.title }}>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="yandex-map-balloon__panel-info">
+                <span class="yandex-map-balloon__panel-title">{{ balloon.title }}</span>
+                <div class="yandex-map-balloon__contacts-text">
+                    {{ balloon.text }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

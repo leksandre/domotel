@@ -1,0 +1,21 @@
+{# БОЕВОЙ ШАБЛОН #}
+{# используется при выводе в попап параметрического поиска информации о цене #}
+{# см.:
+    - frontend/src/components/form/form-parametric-content.twig
+    - frontend/parametric/src/components/ResultList/ResultList.vue
+#}
+
+<div class="action-price__action-wrapper">
+    <div class="action-price__action">
+        <span class="action-price__action-value">
+            -{{ actionValue }} ₽
+        </span>
+{#        <span class="action-price__action-icon">#}
+{#            {% include './media/actionInfoIcon.svg' %}#}
+{#        </span>#}
+    </div>
+
+    <div class="action-price__basic-price">
+        {{ basicPrice }} ₽
+    </div>
+</div>

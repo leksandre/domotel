@@ -1,0 +1,36 @@
+<div class="section{% if modify %} {{ modify }}{% endif %}">
+    <div class="grid grid_side_laptop">
+        <div class="grid__common">
+            <div class="grid__wrapper">
+                <div class="grid__row">
+                    <article class="grid__content">
+                        <div class="grid__content-section">
+                            {% block content %}{% endblock %}
+                        </div>
+                        <div class="grid__content-section">
+                            {% include '../../components/button/button.twig' with {
+                                href: '#',
+                                text: 'Отделка в&nbsp;квартирах'
+                            } %}
+                        </div>
+                        <div class="grid__content-section">
+                            {% include '../../components/gallery-mini/gallery-mini.twig' with {
+                                lazy: true,
+                                gallerySlides: [
+                                    {
+                                        src: '/images/picture/first-screen-bg.jpg',
+                                        srcBig: '/images/picture/first-screen-bg.jpg',
+                                        alt: 'Изображение ЖК'
+                                    }
+                                ]
+                            }%}
+                        </div>
+                    </article>
+                    <aside class="grid__factoid">
+                        {% block aside %}{% endblock %}
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

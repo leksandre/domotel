@@ -1,0 +1,219 @@
+// DEPENDENCIES
+@import "../../../common/styles/colors";
+@import "../../../common/styles/font-sizes";
+@import "../../../common/styles/grid-mixins";
+@import "../../../common/styles/mixins";
+@import "../../../common/styles/vertical-indent";
+
+.map-filter__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    background-color: rgba($black-rgb, 0.2);
+    height: 100%;
+    width: 100%;
+    display: none;
+
+    @media #{$tablet-landscape} {
+        display: none;
+
+        .is-open & {
+            display: none;
+        }
+    }
+
+    .is-open & {
+        display: block;
+
+        @media #{$tablet-landscape} {
+            display: none;
+        }
+    }
+}
+
+.map-filter {
+    @include transition(transform);
+    @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-bottom-right-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border-bottom-left-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(left, 0, func "calc(#{column(3, 36)} + $)" 16, func "calc(#{column(2, 36)} + $)" 16);
+    @include scale(bottom, 0, 64, 64);
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: $white;
+    transform: translateY(150%);
+
+    .is-open & {
+        transform: translateY(0);
+    }
+
+    @media #{$tablet-portrait} {
+        @include push(6, 36);
+        width: column(24, 36);
+    }
+
+    @media #{$tablet-landscape} {
+        @include push(0);
+        width: column(12, 36);
+    }
+}
+
+.map-filter__head {
+    @include scale(height, 32, 32, 32);
+    box-shadow: inset 0 -1px 0 rgba($black-rgb, 0.04);
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:before {
+        @include scale(width, 80, 80, 80);
+        @include scale(height, 4, 4, 4);
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 24, func "calc(var(--is-br) * $)" 24, func "calc(var(--is-br) * $)" 24);
+        background-color: $brand-gray;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+    }
+
+    @media #{$tablet-landscape} {
+        display: none;
+    }
+}
+
+.map-filter__head-close {
+    @include reset-button();
+    @include scale(width, 24, 24, 24);
+    @include scale(height, 24, 24, 24);
+    @include scale(margin-right, 4, 4, 4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.map-filter__header {
+    @include margin-level(both, orange);
+    @include push(2, 36);
+    @include post(2, 36);
+    @include scale(margin-right, null, 24, 24);
+    @include scale(margin-left, null, 24, 24);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media #{$tablet-portrait} {
+        @include push(1, 24);
+        @include post(1, 24);
+    }
+}
+
+.map-filter__title {
+    @include font-size(p2-bold);
+}
+
+.map-filter__header-button {
+    @include reset-button();
+    @include font-size(p3-regular);
+}
+
+.map-filter__content {
+    @include push(3, 36);
+    @include post(3, 36);
+    @include scale(height, 330, 330, 330);
+    @include scale(margin-right, null, 32, 32);
+    @include scale(margin-left, null, 32, 32);
+
+    @media #{$mobile-landscape-orientation} {
+        height: 40vh;
+    }
+
+    @media #{$tablet-portrait} {
+        @include push(1.5, 24);
+        @include post(1.5, 24);
+    }
+}
+
+.map-filter__infrastructure-list {
+    @include custom-scrollbar();
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.map-filter__infrastructure-item {
+    @include scale(margin-bottom, 16, 16, 16);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.map-filter__infrastructure-label {
+    @include transition(opacity);
+    @include font-size(p2-regular);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+
+    @media #{$laptop} {
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    img,
+    svg {
+        @include scale(width, 28, 28, 28);
+        margin-right: column(1.5, 32);
+    }
+}
+
+.map-filter__fake-checkbox {
+    @include reset-button();
+    @include scale(width, 24, 24, 24);
+    @include scale(height, 24, 24, 24);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+    padding: 0;
+    margin-left: auto;
+    margin-right: column(2, 30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-filter__checkbox {
+    @include checkbox-states(".map-filter__fake-checkbox", false);
+}
+
+.map-filter__content-close {
+    @include reset-button();
+    @include push(2, 36);
+    @include post(2, 36);
+    @include margin-level(both, orange);
+    @include scale(padding, 8 0, null, null);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+    @include font-size(p2-bold);
+    background-color: $brand-base;
+    width: column(32, 36);
+    color: $white;
+    display: flex;
+    justify-content: center;
+
+    @media #{$tablet-portrait} {
+        @include push(1, 24);
+        @include post(1, 24);
+        width: column(22, 24);
+    }
+
+    @media #{$tablet-landscape} {
+        display: none;
+    }
+}

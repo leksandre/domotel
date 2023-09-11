@@ -1,0 +1,123 @@
+<div id="{{ id }}-form" class="form j-form">
+    <form action="/tests/form.php" method="post" class="form__form"
+          data-validate data-validate-check="key" data-validate-check="submit">
+
+        <input name="message_bot" type="hidden" value="hi, i'm bot">
+        <div class="form__title">Заказ звонка</div>
+        <div class="form__caption">Менеджер перезвонит вам и ответит на вопросы</div>
+
+        {% if parametric %}
+            <div class="j-form__parametric-content"></div>
+        {% endif %}
+
+        <div class="form__input">
+            {% include './input/input.twig' with {
+                name: 'name',
+                label: 'Ваше имя',
+                ariaLabel: 'Ваше имя',
+                placeholder: 'Введите ваше имя',
+                data_validate_required: true,
+                data_validate_letters: true,
+                data_validate_name: 'name',
+                data_validate_required_msg: 'Укажите ваше имя'
+            } %}
+        </div>
+
+        <div class="form__input">
+            {% include './input/input.twig' with {
+                name: 'phone',
+                label: 'Мобильный телефон',
+                ariaLabel: 'Мобильный телефон',
+                placeholder: 'Введите ваш телефон',
+                data_validate_required: true,
+                data_validate_name: 'phone',
+                data_validate_mask: '+ 7 (999) 999-99-99',
+                data_validate_mask_msg: 'Номер телефона должен состоять из 10 цифр',
+                data_validate_required_msg: 'Укажите номер телефона'
+            } %}
+        </div>
+
+        {% include './custom-select/custom-select.twig' with {
+            name: "complex",
+            jclass: "j-form__select j-custom-select_single_select",
+            multiple: false,
+            disabled: false,
+            label: 'Удобное время звонка',
+            placeholder: 'Выберите удобное для Вас время звонка',
+            checkboxModify: 'checkbox_theme_accent',
+            validation: true,
+            validationText: 'Выберите 1 значение',
+            validationName: 'callback_select',
+            infoPin: true,
+            infoPinText: 'Обрати внимание, что часы указаны по московскому времени',
+            options: [{
+                value: "1",
+                name: 'all',
+                text: "Любое",
+                inputText: "Любое",
+                disabled: false,
+                selected: false
+            }, {
+                value: "2",
+                name: 'nine',
+                text: "9.00 - 12.00",
+                inputText: "9.00 - 12.00",
+                disabled: false,
+                selected: false
+            },{
+                value: "3",
+                name: 'twelve',
+                text: "12.00 - 15:00",
+                inputText: "12.00 - 15:00",
+                disabled: false,
+                selected: false
+            },{
+                value: "4",
+                name: 'fifteen',
+                text: "15.00 - 18:00",
+                inputText: "15.00 - 18:00",
+                disabled: false,
+                selected: false
+            },{
+                value: "5",
+                name: 'deep_night',
+                text: "18.00 - 21.00",
+                inputText: "18.00 - 21.00",
+                disabled: false,
+                selected: false
+            }]
+        } %}
+
+{#        <input type="hidden" name="flat[data]" id="flat[data]1" class="j-form__fill-field">#}
+
+        <div class="form__submit">
+            {% include '../../components/button/button.twig' with {
+                type: 'submit',
+                dataAttr: 'data-send-text="Отправляем..." data-success-text="Отправлено" data-error-text="Повторить отправку"',
+                modify: 'button_width_block button_size_mega j-form-submit',
+                ariaLabel: 'Заказать звонок',
+                text: 'Заказать звонок'
+            }%}
+        </div>
+
+        <div class="form__agreement">
+            {% include './agreement/agreement.twig' with {
+                type: 'text'
+            } %}
+        </div>
+    </form>
+
+    <div class="form__response j-form-success">
+        <div class="form__response-heading">Форма отправлена</div>
+        <div class="form__response-message">
+            Менеджер перезвонит
+        </div>
+    </div>
+
+    <div class="form__response j-form-error">
+        <div class="form__response-heading">Ошибка</div>
+        <div class="form__response-message">
+            Попробуйте заполнить форму позднее
+        </div>
+    </div>
+</div>

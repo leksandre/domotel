@@ -1,0 +1,42 @@
+<div id="share" class="form {% if formModify %}{{ formModify }}{% endif %}  j-form">
+    <form action="#" method="post" class="form__form"
+          data-validate data-validate-check="key" data-validate-check="submit">
+        <input name="message_bot" type="hidden" value="hi, i'm bot">
+
+        <div class="form__input">
+            {% include './input/input.twig' with {
+                name: 'email',
+                type: 'email',
+                label: 'Электронная почта',
+                ariaLabel: 'Электронная почта',
+                placeholder: 'E-mail адрес',
+                data_validate_required: true,
+                data_validate_name: 'email',
+                data_validate_required_msg: 'Укажите e-mail адрес'
+            } %}
+        </div>
+
+        <div class="form__submit">
+            {% include '../../components/button/button.twig' with {
+                type: 'submit',
+                dataAttr: 'data-send-text="Отправляем..." data-success-text="Отправлено" data-error-text="Повторить отправку"',
+                modify: 'button_width_block j-form-submit',
+                ariaLabel: 'Отправить на email',
+                text: 'Отправить'
+            }%}
+        </div>
+    </form>
+
+    <div class="form__response j-form-success">
+        <div class="form__response-message">
+            PDF-файл с квартирой отправлен вам на эл. почту
+        </div>
+    </div>
+
+    <div class="form__response j-form-error">
+        <div class="form__response-heading">Ошибка</div>
+        <div class="form__response-message">
+            Попробуйте заполнить форму позднее
+        </div>
+    </div>
+</div>

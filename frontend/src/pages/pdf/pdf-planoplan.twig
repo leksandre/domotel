@@ -1,0 +1,72 @@
+{% extends "../layout/_layout.twig" %}
+{% block title %}PDF. Карточка квартиры с планопланом{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+    <div class="pdf">
+        <div class="pdf__container">
+            {% include './templates/pdf-header.twig' %}
+
+            <!-- Блок с планировкой -->
+            <div class="pdf__plan">
+                <img src="/images/flat/flat-plan.png" alt="Планировка квартиры">
+            </div>
+            <!-- /Блок с планировкой -->
+
+            <!-- Блок с информацией об квартире -->
+            <section class="pdf__info">
+                <h2>Трехкомнатная квартира</h2>
+                <div class="pdf__params">
+                    <div class="pdf__params-prices">
+                        <div>от 6 630 500</div>
+                        <div>до 66 650 000 руб</div>
+                    </div>
+
+                    <div class="pdf__params-info">
+                        <div>Общая площадь от 63,5 до 65м²<b></b></div>
+                        <div>Этажи с 1 по 10</div>
+                    </div>
+
+                    <ul class="pdf__params-options">
+                        <li>— Вид на парк</li>
+                        <li>— Лоджия</li>
+                        <li>— Гардеробная</li>
+                    </ul>
+                </div>
+            </section>
+            <!-- /Блок с информацией об квартире -->
+
+            <!-- Блок про планоплан, не выводить если нет планоплана -->
+            <section class="pdf__planoplan">
+                <h2>Установите приложение Planoplan GO!</h2>
+
+                <div class="pdf__planoplan-content">
+                    <div class="pdf__planoplan-qr">
+                        <img src="/images/flat/qr.jpeg" alt="QR код">
+                    </div>
+                    <div class="pdf__planoplan-app">
+                        <ul class="pdf__planoplan-list">
+                            <li>
+                                <img src="/images/store-link/btn_google_2x.png" alt="Google Play">
+                            </li>
+                            <li>
+                                <img src="/images/store-link/bttn_apple_2x.png" alt="Appstore">
+                            </li>
+                        </ul>
+                        <p class="pdf__plamoplan-info">Cканируйте QR код в приложении и наслаждайтесь прогулкой в виртуальной реальности.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- /Блок про планоплан -->
+        </div>
+        <div class="pdf__container">
+            {% include './templates/pdf-header.twig' %}
+            {% include './templates/pdf-about.twig' %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

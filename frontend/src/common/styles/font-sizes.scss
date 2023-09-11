@@ -1,0 +1,61 @@
+// Версия - 1.2
+// Документация - https://kelnik.gitbooks.io/kelnik-documentation/content/front-end/font-sizes.html
+@import "./scale";
+@import "./breakpoints";
+
+// НАСТРОЙКИ
+$font-sizes: (
+    /*          320             960            1280         1600          LH   FW */
+    hero:       (num-to-px(36), num-to-px(64), vw-desk(64), num-to-px(64), 1.1, 700),
+    h1:         (num-to-px(32), num-to-px(56), vw-desk(56), num-to-px(56), 1.1, 700),
+    h2:         (num-to-px(28), num-to-px(48), vw-desk(48), num-to-px(48), 1.1, 700),
+    h3:         (num-to-px(24), num-to-px(40), vw-desk(40), num-to-px(40), 1.2, 700),
+    h4:         (num-to-px(22), num-to-px(32), vw-desk(32), num-to-px(32), 1.2, 700),
+    h5:         (num-to-px(20), num-to-px(24), vw-desk(24), num-to-px(24), 1.2, 700),
+    lead:       (num-to-px(18), num-to-px(22), vw-desk(22), num-to-px(22), 1.5, 400),
+    lead-bold:  (num-to-px(18), num-to-px(22), vw-desk(22), num-to-px(22), 1.5, 700),
+    p1-regular: (num-to-px(16), num-to-px(18), vw-desk(18), num-to-px(18), 1.5, 400),
+    p1-bold:    (num-to-px(16), num-to-px(18), vw-desk(18), num-to-px(18), 1.5, 700),
+    p2-regular: (num-to-px(14), num-to-px(16), vw-desk(16), num-to-px(16), 1.5, 400),
+    p2-bold:    (num-to-px(14), num-to-px(16), vw-desk(16), num-to-px(16), 1.5, 700),
+    p3-regular: (num-to-px(12), num-to-px(14), vw-desk(14), num-to-px(14), 1.5, 400),
+    p3-bold:    (num-to-px(12), num-to-px(14), vw-desk(14), num-to-px(14), 1.5, 700),
+    disclaimer: (num-to-px(12), num-to-px(12), vw-desk(12), num-to-px(12), 1.5, 400),
+    input:      (num-to-px(16), num-to-px(16), vw-desk(16), num-to-px(16), 1.5, 700),
+    placeholder:(num-to-px(16), num-to-px(16), vw-desk(16), num-to-px(16), 1.5, 400),
+    label:      (num-to-px(14), num-to-px(14), vw-desk(14), num-to-px(14), 1.5, 400),
+    pointer:    (num-to-px(12), num-to-px(12), vw-desk(12), num-to-px(12), 1.5, 700),
+);
+
+$breakpoints: (
+    $mobile,
+    $tablet-landscape,
+    $laptop,
+    $laptop-extra-wide
+);
+
+$line-heights-amount: length(map-get($font-sizes, h1)) - 1;
+
+// МИКСИНЫ
+// Генерирует font-size и line-height для брекйпоинта
+@mixin generateFontSize($font-size, $i) {
+    font-size: #{nth(nth(map-get($font-sizes, $font-size), $i), 1)};
+
+    @if length(nth(map-get($font-sizes, $font-size), $line-heights-amount)) > 1 {
+        line-height: #{nth(nth(map-get($font-sizes, $font-size), $line-heights-amount), $i)};
+    } @else {
+        line-height: #{nth(nth(map-get($font-sizes, $font-size), $line-heights-amount), 1)};
+    }
+}
+
+// Создает всю структуру размеров шрифта со всеми брейкпоинтами
+@mixin font-size($font-size) {
+    @for $i from 1 through length($breakpoints) {
+        @if nth($breakpoints, $i) == "only screen" {
+            @include generateFontSize($font-size, $i); } @else {
+            @media #{nth($breakpoints, $i)} {
+                @include generateFontSize($font-size, $i); }
+        }
+    }
+    font-weight: #{nth(map-get($font-sizes, $font-size), $line-heights-amount + 1)};
+}

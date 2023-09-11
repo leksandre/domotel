@@ -1,0 +1,24 @@
+{% for slide in slides %}
+    <div class="slider-mini"{% if slide.caption %} data-caption="{{ slide.caption }}"{% endif %}>
+        <div class="slider-mini__inner">
+            <picture{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+                <source media="(min-width: 320px)"
+                        {% if lazy %}loading="lazy"
+                        data-{% endif %}srcset="{{ slide.src }}"
+                        type="image/jpeg">
+                <img {% if lazy %}loading="lazy"
+                     data-{% endif %}src="{{ slide.src }}"
+                     alt="{{ slide.alt }}">
+            </picture>
+            <button class="slider__fullscreen-button j-popup-slider"
+                    data-gallery="true"
+                    data-src="{{ slide.srcBig }}"
+                    data-alt="{{ slide.alt }}"
+                    data-caption="{{ slide.alt }}"
+                    data-slider="{{ sliderId }}"
+                    aria-label="Open in fullscreen">
+                {% include '../../media/fullsize-icon.svg.twig' %}
+            </button>
+        </div>
+    </div>
+{% endfor %}

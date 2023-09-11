@@ -1,0 +1,42 @@
+<div class="popup{% if modify %} {{ modify }}{% endif %} j-popup__body">
+    <div class="popup__overlay j-popup__overlay"></div>
+    <div class="popup__wrapper">
+        <div class="popup__header">
+            <div class="grid">
+                <div class="popup__header-inner">
+                    <p>Онлайн-трансляции</p>
+                    <button type="button" class="popup__close j-popup__close"
+                            aria-label="{{ buttonAriaLabel|default('Закрыть') }}">
+                        {% include '../media/close.twig' %}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="progress j-popup__content" data-content="progress__tabs-content">
+                {% if tabs|length %}
+                    <div class="progress__tabs">
+                        {% for tab in tabs %}
+                            <button type="button"
+                                    class="button button_theme_white j-video__tab{% if loop.index == 1 %} is-active{% endif %}"
+                                    data-video="{{ tab.video.url }}">
+                                {{ tab.title }}
+                            </button>
+                        {% endfor %}
+                    </div>
+                    <div class="progress__tabs-content">
+                        <div class="progress__content">
+                            <div class="progress__item video">
+                                <iframe src="{{ tabs[0].video.url }}" allowfullscreen class="j-video__iframe"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="progress__content">
+                        <h4 style="color: red;">Заполните данные</h4>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

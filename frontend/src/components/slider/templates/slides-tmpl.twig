@@ -1,0 +1,13 @@
+{#тело слайдера#}
+<div class="slider__wrapper">
+    <div class="slider__slides{% if modify %} slider__slides_{{ modify }}{% endif %}">
+        <div class="slider__slides-inner {{ wrap }}{% if innerModify %} {{ innerModify }}{% endif %}"{% if innerData %} {{ innerData }}{% endif %}>
+            {% for item in items %}
+                <div class="slider__item{% if slidesModify %} {{ slidesModify }}{% endif %}" style="min-width: {{ width }}; flex-basis: {{ width }};">
+                    {{ item }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="slider__controls{% if modify %} slider__controls_{{ modify }}{% endif %}"></div>

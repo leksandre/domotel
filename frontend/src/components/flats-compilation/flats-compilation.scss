@@ -1,0 +1,143 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$compilation-bg: $white;
+$compilation-bg-hover: rgba($white-rgb, 0.9);
+$compilation-line: $brand-base;
+$compilation-text: $brand-text;
+$list-divider-bg: rgba($brand-text-rgb, 0.2);
+
+$list-plus-fill: rgba($brand-text-rgb, 0.7);
+$list-plus-bg: $white;
+
+// BLOCK
+.flats-compilation {
+    @include row();
+    @include padding-level(both, yellow);
+    @include transition(background-color);
+    @include scale(min-height, null, 128, 128);
+    @include scale(margin-bottom, 2, 2, 2);
+    @include scale(padding-left, 24, 24, 24);
+    @include scale(padding-right, 24, 24, 24);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    background-color: $compilation-bg;
+    color: $compilation-text;
+    overflow: hidden;
+
+    @media #{$tablet-portrait-only} {
+        min-height: 128px;
+    }
+
+    @media #{$tablet-portrait} {
+        width: calc(#{column(15, 30)} - 1px);
+
+        &:nth-child(odd) {
+            margin-right: 1px;
+        }
+
+        &:nth-child(even) {
+            margin-left: 1px;
+        }
+    }
+
+    @media #{$tablet-landscape} {
+        width: calc(#{column(10, 30)} - 2px);
+
+        &:nth-child(odd),
+        &:nth-child(even) {
+            margin: {
+                left: 1px;
+                right: 1px;
+            };
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @media #{$laptop} {
+        width: calc(#{column(7, 28)} - 2px);
+
+        &:hover {
+            background-color: $compilation-bg-hover;
+        }
+    }
+
+    &:after {
+        @include pseudo();
+        @include scale(height, 4, 4, 4);
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-color: $compilation-line;
+    }
+}
+
+// ELEMENTS
+.flats-compilation__heading {
+    @include scale(min-height, null, 48, 48);
+    @include font-size(p2-bold);
+
+    @media #{$tablet-portrait-only} {
+        min-height: 48px;
+    }
+}
+
+.flats-compilation__list {
+    @include row();
+}
+
+.flats-compilation__list-item {
+    @include margin-level(right, tomato);
+    @include font-size(p3-regular);
+
+    &:not(:last-child) {
+        @include scale(padding-right, 8, 8, 8);
+        position: relative;
+
+        &:after {
+            @include pseudo();
+            @include scale(width, 3, 3, 3);
+            @include scale(height, 3, 3, 3);
+            right: -1px;
+            top: 50%;
+            border-radius: 50%;
+            background-color: $list-divider-bg;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.flats-compilation__list-plus {
+    @include scale(width, 38, 38, 38);
+    @include scale(height, 38, 38, 38);
+    @include scale(bottom, -19, -19, -19);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    border-radius: 50%;
+    background-color: $list-plus-bg;
+    transform: translateX(-50%);
+
+    svg {
+        fill: $list-plus-fill;
+    }
+}
+
+// MODS

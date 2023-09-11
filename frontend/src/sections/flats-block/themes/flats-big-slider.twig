@@ -1,0 +1,16 @@
+<div class="grid__gallery{% if animationClass %} j-animation__item{% endif %}">
+    {% embed '../../../components/slider/slider.twig' with {
+        id: 'j-slider',
+        sliderModify: 'slider_theme_flats-big-slider',
+        caption: true
+    }%}
+        {% block slides %}
+            {% include '../../../components/flat-block-card/flat-block-card.twig' with {
+                lazy: true,
+                sliderId: sliderId|default('0'),
+                data,
+                popupClass: 'j-popup-slider'
+            }%}
+        {% endblock %}
+    {% endembed %}
+</div>

@@ -1,0 +1,37 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// BLOCK
+.similar-flats {
+    @include margin-level(top, blue);
+    @include vertical-margins(-3.5, 36);
+    width: column(43, 36);
+    overflow: hidden;
+
+    @media #{$laptop} {
+        @include vertical-margins(0);
+        overflow: unset;
+        width: 100%;
+    }
+}
+
+// ELEMENTS
+.similar-flats__container {
+    @include row();
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    @media #{$laptop} {
+        flex-wrap: wrap;
+        overflow-x: unset;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// MODS
+

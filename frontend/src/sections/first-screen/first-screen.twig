@@ -1,0 +1,152 @@
+<section class="first-screen{% if modify %} {{ modify }}{% endif %}"{% if version %} data-version="{{ version }}"{% endif %}>
+    <div class="first-screen__background">
+        {% if compilation %}
+            <div class="first-screen__background-picture">
+                {% include '../../components/picture/picture.twig' with {
+                    source : "/images/picture/first-screen-bg.jpg",
+                    alt: "Прекрасный панорамный вид на Жилой комплекс «Берёзка» с воды",
+                    maxwidth: "1280"
+                }%}
+            </div>
+        {% elseif iframe %}
+            <div class="first-screen__background-video j-first-screen__video"
+                 style="background-image: url('/images/first-screen/videoposter.jpg');">
+                <iframe class="j-first-screen__iframe"
+                        src="https://player.vimeo.com/video/667271712?h=a3bab43b47&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;controls=0&amp;title=0"
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="">
+                </iframe>
+            </div>
+        {% elseif youtube %}
+            <div class="first-screen__background-video j-first-screen__video"
+                 style="background-image: url('/images/first-screen/videoposter.jpg');">
+                <div class="j-first-screen__youtube" data-id="Wkn-MFJ3iXc"></div>
+            </div>
+        {% elseif slider %}
+            <div class="first-screen__background-slider">
+                {% embed '../../components/slider/slider.twig' with {
+                    id: 'j-first-screen-slider',
+                }%}
+                    {% block slides %}
+                        {% include '../../components/slider/themes/slider-first-screen/slider-first-screen.twig' with {
+                            slides: [
+                                {
+                                    src: '/images/picture/first-screen-bg.jpg',
+                                    alt: 'Изображение ЖК'
+                                }, {
+                                    src: '/images/picture/first-screen-bg.jpg',
+                                    alt: 'Изображение ЖК'
+                                }, {
+                                    src: '/images/picture/first-screen-bg.jpg',
+                                    alt: 'Изображение ЖК'
+                                }
+                            ]
+                        }%}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="first-screen__wrap">
+        <div class="first-screen__top">
+            <div class="first-screen__content">
+                <div class="first-screen__content-container">
+                    <div class="first-screen__header">
+                        <div class="first-screen__slogan">
+                            <h1>Жилой комплекс &laquo;Берёзка&raquo;</h1>
+                        </div>
+                        <strong class="first-screen__title">Качество и&nbsp;удобство&nbsp;&mdash; в&nbsp;приоритете!</strong>
+                    </div>
+                    <div class="first-screen__tags">
+                        {% include '../../components/tags/tags.twig' with {
+                            modify: tagsModify|default('tags_theme_colorful'),
+                            items: [
+                                {
+                                    text: 'м. Тропарево',
+                                },{
+                                    text: '1 очередь – май 2019',
+                                },{
+                                    text: 'Квартиры от 2,2 млн руб',
+                                },{
+                                    text: 'Продуманные планировки с большими кухнями',
+                                },{
+                                    text: 'Свой парк 6Га',
+                                }
+                            ]
+                        }%}
+                    </div>
+                </div>
+                {% if version != '3' %}
+                    <div class="first-screen__lead-container">
+                        <div class="first-screen__lead">
+                            {% if version == '1' %}
+                                <span class="first-screen__lead-label">Акция до&nbsp;30&nbsp;сентября 2021</span>
+                            {% endif %}
+                            <a href="#" class="first-screen__lead-title">В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!</a>
+                            {% if version == '1' %}
+                                <a href="#news" class="first-screen__lead-link"><span>Все акции</span>{% include './media/arrow-down.svg' %}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if version == '3' %}
+            <div class="first-screen__lead-container">
+                <div class="first-screen__lead-content">
+                    <a href="#" class="first-screen__lead{% if version == '3' and not flats.length %} with-offset j-first-screen-offset{% endif %}">
+                        <div class="first-screen__lead-icon">
+                            {% include "./media/lead-icon.svg" %}
+                        </div>
+                        <span class="first-screen__lead-title">В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!</span>
+                        <div class="first-screen__lead-arrow">
+                            {% include "./media/arrow-right.svg" %}
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if isSearch and flats.length %}
+            <div class="first-screen__flats-compilation{% if version == '3' %} j-first-screen-offset{% endif %}">
+                <div class="first-screen__content">
+                    {# на мобильных всегда блоки: слайдер нужен с 960 при количестве подборок больше 3 #}
+                    {# если подборок максимум 3, то везде блоки #}
+                    {% if flats|length < 4 %}
+                        {% include '../../components/flats-compilation/flats-compilation.twig' with {
+                            items: flats
+                        } %}
+                    {% else %}
+                        {# если подборок больше 3 #}
+                        {# сначала блоками #}
+                        <div class="first-screen__flats-compilation-blocks">
+                            {% include '../../components/flats-compilation/flats-compilation.twig' with {
+                                items: flats,
+                                plus: version == '3'
+                            } %}
+                        </div>
+                        {# слайдер с 960 #}
+                        <div class="first-screen__flats-compilation-slider">
+                            {% embed '../../components/slider/slider.twig' with {
+                                id: 'slider_theme_flats-compilation j-flats-compilation-slider',
+                            }%}
+                                {% block slides %}
+                                    {% include '../../components/slider/themes/slider-compilation/slider-compilation.twig' with {
+                                        slides: flats,
+                                        plus: version == '3'
+                                    }%}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if version == '1' %}
+            <button class="first-screen__scroll j-first-screen-scroll" aria-label="Прокрутить вниз">
+                {% include './media/scroll-down.svg' %}
+            </button>
+        {% endif %}
+    </div>
+</section>

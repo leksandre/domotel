@@ -1,0 +1,166 @@
+{% extends 'layout/_layout.twig' %}
+{% block title %}Главная страница{% endblock %}
+{% block bodyModify %}{{ 'j-animation' }}{% endblock %}
+
+{% block header %}
+    {% include '../components/header/header.twig' with {
+        headerModify: 'header_theme_transparent',
+        isHomePage: true,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#news',
+                name: 'Новости'
+            },{
+                href: '#promotions',
+                name: 'Акции'
+            },{
+                href: '#how-to-buy',
+                name: 'Как купить'
+            }, {
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#documents',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {% set animationClass = 'j-animation__section' %}
+
+    {# Карточка квартиры #}
+    {% include '../sections/flat-card/flat-card.twig' with {
+        modify: false
+    } %}
+
+    {#  Акции  #}
+    {% include '../sections/main-promotions/promotions.twig' with {
+        animationClass,
+        items: [{
+            image: '/images/promotions/img1.png',
+            title: 'Скидка&nbsp;2% для жителей других городов',
+            label: 'Постоянная акция'
+        }, {
+            image: false,
+            title: 'В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'Цены на&nbsp;старте продаж от&nbsp;60&nbsp;тысяч рублей за&nbsp;квадратный метр!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'В&nbsp;сентябре скидки на&nbsp;2‑комнатные квартиры!',
+            label: 'до&nbsp;3&nbsp;марта 2024'
+        }, {
+            image: false,
+            title: 'Скидка&nbsp;2% для жителей других городов',
+            label: 'Постоянная акция'
+        }]
+    } %}
+
+    {# Как купить #}
+    {% include '../sections/how-to-buy/how-to-buy.twig' with {
+        mortgageCalculator: true,
+        priceDisabled: true,
+        detailsOpen: true
+    } %}
+
+    {# Похожие квартиры #}
+    {% include '../sections/similar-flats/similar-flats.twig' with {
+        animationClass,
+        items: [
+            {
+                id: '249',
+                src: ['/images/flat/flat-plan-3.png'],
+                title: '1-комнатная № 9',
+                area: '38,9 м²',
+                floor: {
+                    total: '9',
+                    value: '5'
+
+                },
+                block: '4',
+                section: '1',
+                price: '6 010 600 ₽',
+                actionPrice: {
+                    value: '280 247',
+                    base: '8 604 923'
+                },
+                specials: ['Отделка', 'Французский балкон', 'Вид во двор']
+            },
+            {
+                id: '250',
+                src: ['/images/flat/flat-plan-4.png'],
+                title: 'Студия № 12',
+                area: '37,6 м²',
+                floor: {
+                    total: '9',
+                    value: '1'
+                },
+                block: '3',
+                section: '2',
+                price: '5 875 000 ₽',
+                specials: ['Отделка', 'Лоджия', 'Кухня-гостиная']
+            },
+            {
+                id: '251',
+                src: ['/images/flat/flat-plan-2.png'],
+                title: '1-комнатная № 13',
+                area: '38,9 м²',
+                floor: {
+                    total: '9',
+                    value: '3'
+                },
+                block: '1',
+                section: '1',
+                price: '6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия']
+            },
+            {
+                id: '252',
+                src: ['/images/flat/flat-plan-2.png'],
+                title: 'Студия № 15',
+                area: '37,6 м²',
+                floor: {
+                    total: '9',
+                    value: '5'
+                },
+                block: '5',
+                section: '6',
+                price: '6 010 600 ₽',
+                specials: ['Отделка', 'Лоджия']
+            },
+            {
+                id: '253',
+                src: ['/images/flat/flat-plan.png'],
+                title: '1-комнатная № 14',
+                area: '38,9 м²',
+                floor: {
+                    total: '9',
+                    value: '7'
+                },
+                block: '6',
+                section: '1',
+                price: '5 875 000₽',
+                specials: ['Лоджия']
+            }
+        ]
+    } %}
+
+{% endblock %}
+
+{% block footer %}
+    {% include '../sections/footer/footer.twig' %}
+{% endblock %}

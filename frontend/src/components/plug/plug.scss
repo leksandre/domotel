@@ -1,0 +1,122 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$plug-color: $white;
+$plug-bg: $brand-base;
+$plug-gradient: $black-rgb;
+
+// BLOCK
+.plug {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: column(2);
+    background-color: $plug-bg;
+    color: $plug-color;
+
+    // Media
+    @media #{$laptop} {
+        padding: column(1);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: $plug-color;
+    }
+}
+
+// ELEMENTS
+.plug__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+        @include pseudo();
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba($plug-gradient, 0.2) 0%, rgba($plug-gradient, 0.49) 100%);
+    }
+
+    picture,
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    img {
+        @include object-fit(cover);
+    }
+}
+
+.plug__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+}
+
+.plug__logo {
+    // Media
+    @media #{$laptop} {
+        width: column(4.5);
+    }
+
+    img {
+        @include scale(max-height, 25, 25, 40);
+    }
+}
+
+.plug__content {
+    @include scale(grid-gap, 24, 24, 40);
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: auto;
+    padding-top: column(2, 32);
+
+    @media #{$laptop} {
+        padding-top: column(1, 34);
+        width: column(17, 34);
+    }
+}
+
+.plug__announcement {
+    p {
+        @include font-size(lead);
+    }
+}
+
+.plug__footer {
+    @include margin-level(bottom, white, blue);
+    @include row();
+
+    a {
+        @include margin-level(bottom, blue);
+        @include font-size(lead-bold);
+        color: $plug-color;
+        text-decoration: none;
+
+        &:not(:last-child) {
+            @include post(2, 32);
+
+            @media #{$laptop} {
+                @include post(1, 17);
+            }
+        }
+    }
+}
+
+// MODS

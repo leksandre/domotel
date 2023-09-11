@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="theme-color" content="#95d0a1">
+
+    <link rel="stylesheet" href="/css/common/styles.css?v=2">
+    <script>
+        yandexMapKey = 'bad866a8-aafe-4d56-ad9f-91e3e128a41c';
+    </script>
+
+    <title>Главная страница</title>
+</head>
+
+<body class="">
+
+    <header class="header header_theme_transparent j-header">
+        <div class="header__container">
+            <div class="header__inner j-header__inner">
+                <a class="header__logo j-header__drive" href="home.html">
+                    <img class="header__logo-light" src="/webicons/header/logo_light.svg" alt="ЖК Березки">
+                    <img class="header__logo-dark" src="/webicons/header/logo_dark.svg" alt="ЖК Березки">
+                </a>
+
+                <div class="header__navigation j-header__nav">
+                    <nav class="navigation
+     j-folding-navigation">
+                        <ul class="navigation__list ">
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#about">
+
+                                    О проекте
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#location">
+
+                                    Расположение
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#news">
+
+                                    Новости
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#promotions">
+
+                                    Акции
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#flats">
+
+                                    Квартиры
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#how-to-buy">
+
+                                    Как купить
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#progress">
+
+                                    Ход строительства
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#documents">
+
+                                    Документы
+                                </a>
+                            </li>
+
+                            <li class="navigation__item">
+                                <a class="navigation__link j-anchor" href="#contacts">
+
+                                    Контакты
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__lead j-header__drive">
+                    <div class="header__phone">
+                        <a href="tel:+78120000000" class="phone">
+                            <span class="phone__number">+7 (812) 000-00-00</span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="button header__callback-button j-popup-callback" data-callback="true" data-href="callback" aria-label="Заказать звонок">
+                        <span>Заказать звонок</span>
+                    </button>
+
+                    <button type="button" class="button-circle header__mobile-phone j-popup-callback" data-callback="true" data-href="callback">
+
+                        <svg width="14" height="14" viewBox="0 0 14 14">
+                            <path id="rrb6a" d="M11.748 0h.298c.996.402 1.693 1.91 1.892 2.916.498 3.318-2.09 6.234-4.58 8.145-2.09 1.709-6.272 4.524-8.661 1.81-.398-.202-.697-.704-.697-1.207.1-.804.796-1.408 1.394-1.81.398-.302 1.394-1.207 1.99-1.207.499 0 .897.604 1.196.905l.497.503c.1.1 1.295-.704 1.494-.804a7.53 7.53 0 0 0 1.394-1.106c.398-.403.796-.905 1.095-1.307.1-.202.896-1.408.896-1.509 0 0-.697-.704-.896-1.005-.399-.604-.697-1.106-.299-1.81.2-.302.398-.503.597-.805.399-.402.797-.804 1.295-1.106.298-.2.696-.502 1.095-.603z" />
+                        </svg>
+
+                    </button>
+
+                    <button class="header__burger j-burger" aria-label="Меню">
+                        <span class="header__burger-text">Меню</span>
+                        <span class="header__burger-line"></span>
+                    </button>
+                </div>
+                <div class="header__mobile-menu">
+                    <nav class="navigation-mobile j-navigation-mobile">
+                        <ul class="navigation-mobile__list">
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#about">
+                                    О проекте
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#location">
+                                    Расположение
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#news">
+                                    Новости
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#promotions">
+                                    Акции
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#flats">
+                                    Квартиры
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#how-to-buy">
+                                    Как купить
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#progress">
+                                    Ход строительства
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#documents">
+                                    Документы
+                                </a>
+                            </li>
+
+                            <li class="navigation-mobile__list-item">
+                                <a class="navigation-mobile__link j-anchor" href="#contacts">
+                                    Контакты
+                                </a>
+                            </li>
+
+                        </ul>
+                        <div class="navigation-mobile__phone">
+                            <a href="tel:+78120000000" class="phone">
+                                <span class="phone__number">+7 (812) 000-00-00</span>
+                            </a>
+
+                        </div>
+                    </nav>
+                </div>
+
+                <template id="callback">
+                    <div class="form">
+                        <div id="callback-form" class="form j-form">
+                            <form action="/tests/form.php" method="post" class="form__form" data-validate data-validate-check="key" data-validate-check="submit">
+
+                                <input name="message_bot" type="hidden" value="hi, i'm bot">
+                                <div class="form__title">Заказ звонка</div>
+                                <div class="form__caption">Менеджер перезвонит вам и ответит на вопросы</div>
+
+                                <div class="form__input">
+
+                                    <label for="input-name" class="input__label">Ваше имя
+
+                                    </label>
+
+                                    <div class="input ">
+
+                                        <input type="text" class="input__input " id="input-name" name="name" aria-label="Ваше имя" placeholder="Введите ваше имя" data-validate-required="true" data-validate-letters="true" data-validate-name="name" data-validate-required-msg="Укажите ваше имя">
+
+                                        <div class="input__error">
+                                            <div class="input__error-text " data-validate-error="name"></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form__input">
+
+                                    <label for="input-phone" class="input__label">Мобильный телефон
+
+                                    </label>
+
+                                    <div class="input ">
+
+                                        <input type="text" class="input__input " id="input-phone" name="phone" aria-label="Мобильный телефон" placeholder="Введите ваш телефон" data-validate-required="true" data-validate-name="phone" data-validate-mask="+ 7 (999) 999-99-99" data-validate-mask-msg="Номер телефона должен состоять из 10 цифр" data-validate-required-msg="Укажите номер телефона">
+
+                                        <div class="input__error">
+                                            <div class="input__error-text " data-validate-error="phone"></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="custom-select j-custom-select j-form__select j-custom-select_single_select " data-placeholder="Выберите удобное для Вас время звонка" data-validate-required="true" data-validate-required-msg="Выберите 1 значение" data-validate-name="callback_select">
+
+                                    <div class="custom-select__label">
+                                        Удобное время звонка
+
+                                        <span class="info-pin">
+                                            <svg width="2" height="8" viewBox="0 0 2 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="2" height="5" rx="1" fill="white" />
+                                                <rect y="6" width="2" height="2" rx="1" fill="white" />
+                                            </svg>
+
+                                            <div class="info-pin__tooltip">Обрати внимание, что часы указаны по московскому времени</div>
+                                        </span>
+
+                                    </div>
+
+                                    <div class="custom-select__input j-custom-select__input">
+                                        <span class="custom-select__input-text j-custom-select__value">Выберите удобное для Вас время звонка</span>
+                                        <span class="custom-select__input-icon">
+                                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1.5L6 6.5L11 1.5" stroke="black" stroke-width="2" stroke-linecap="round" />
+                                            </svg>
+
+                                        </span>
+                                    </div>
+                                    <div class="custom-select__content j-custom-select__content">
+                                        <div class="custom-select__content-inner">
+                                            <div class="custom-select__items j-custom-select__items">
+
+                                                <div class="custom-select__item">
+                                                    <div class="checkbox checkbox_theme_accent custom-select__checkbox">
+                                                        <input class="checkbox__input j-custom-select__checkbox" id="checkbox-all1" type="checkbox" name="all" value="1" id="1" data-text="Любое">
+                                                        <label class="checkbox__label" for="checkbox-all1">
+
+                                                            <span class="checkbox__text">
+
+                                                                Любое
+
+                                                            </span>
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="custom-select__item">
+                                                    <div class="checkbox checkbox_theme_accent custom-select__checkbox">
+                                                        <input class="checkbox__input j-custom-select__checkbox" id="checkbox-nine2" type="checkbox" name="nine" value="2" id="2" data-text="9.00 - 12.00">
+                                                        <label class="checkbox__label" for="checkbox-nine2">
+
+                                                            <span class="checkbox__text">
+
+                                                                9.00 — 12.00
+
+                                                            </span>
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="custom-select__item">
+                                                    <div class="checkbox checkbox_theme_accent custom-select__checkbox">
+                                                        <input class="checkbox__input j-custom-select__checkbox" id="checkbox-twelve3" type="checkbox" name="twelve" value="3" id="3" data-text="12.00 - 15:00">
+                                                        <label class="checkbox__label" for="checkbox-twelve3">
+
+                                                            <span class="checkbox__text">
+
+                                                                12.00 — 15:00
+
+                                                            </span>
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="custom-select__item">
+                                                    <div class="checkbox checkbox_theme_accent custom-select__checkbox">
+                                                        <input class="checkbox__input j-custom-select__checkbox" id="checkbox-fifteen4" type="checkbox" name="fifteen" value="4" id="4" data-text="15.00 - 18:00">
+                                                        <label class="checkbox__label" for="checkbox-fifteen4">
+
+                                                            <span class="checkbox__text">
+
+                                                                15.00 — 18:00
+
+                                                            </span>
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="custom-select__item">
+                                                    <div class="checkbox checkbox_theme_accent custom-select__checkbox">
+                                                        <input class="checkbox__input j-custom-select__checkbox" id="checkbox-deep_night5" type="checkbox" name="deep_night" value="5" id="5" data-text="18.00 - 21.00">
+                                                        <label class="checkbox__label" for="checkbox-deep_night5">
+
+                                                            <span class="checkbox__text">
+
+                                                                18.00 — 21.00
+
+                                                            </span>
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="input__error">
+                                        <div class="input__error-text " data-validate-error="callback_select"></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form__submit">
+
+                                    <button type="submit" class="button button_width_block button_size_mega j-form-submit" data-send-text="Отправляем..." data-success-text="Отправлено" data-error-text="Повторить отправку" aria-label="Заказать звонок">
+                                        <span>Заказать звонок</span>
+                                    </button>
+
+                                </div>
+
+                                <div class="form__agreement">
+
+                                    Нажимая кнопку, вы подтверждаете свое
+                                    <a href="#" class="link">
+
+                                        <span class="link__text">согласие</span>
+
+                                    </a>
+
+                                    на обработку персональных данных
+
+                                </div>
+                            </form>
+
+                            <div class="form__response j-form-success">
+                                <div class="form__response-heading">Форма отправлена</div>
+                                <div class="form__response-message">
+                                    Менеджер перезвонит
+                                </div>
+                            </div>
+
+                            <div class="form__response j-form-error">
+                                <div class="form__response-heading">Ошибка</div>
+                                <div class="form__response-message">
+                                    Попробуйте заполнить форму позднее
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </template>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="first-screen first-screen_full_height first-screen_with_search j-main-screen" data-version="1">
+            <div class="first-screen__background">
+
+                <div class="first-screen__background-picture">
+
+                    <picture>
+
+                        <source media="(min-width: 320px)" srcset="/images/picture/first-screen-bg.jpg" type="image/jpeg">
+
+                        <img src="/images/picture/first-screen-bg.jpg" alt="Прекрасный панорамный вид на Жилой комплекс «Берёзка» с воды">
+                    </picture>
+
+                </div>
+
+            </div>
+            <div class="first-screen__wrap">
+                <div class="first-screen__top">
+                    <div class="first-screen__content">
+                        <div class="first-screen__content-container">
+                            <div class="first-screen__header">
+                                <div class="first-screen__slogan">
+                                    <h1>Жилой комплекс «Берёзка»</h1>
+                                </div>
+                                <strong class="first-screen__title">Качество и удобство — в приоритете!</strong>
+                            </div>
+                            <div class="first-screen__tags">
+
+                                <ul class="tags tags_theme_colorful">
+
+                                    <li class="tag">
+                                        м. Тропарево
+                                    </li>
+
+                                    <li class="tag">
+                                        1 очередь — май 2019
+                                    </li>
+
+                                    <li class="tag">
+                                        Квартиры от 2,2 млн руб
+                                    </li>
+
+                                    <li class="tag">
+                                        Продуманные планировки с большими кухнями
+                                    </li>
+
+                                    <li class="tag">
+                                        Свой парк 6Га
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="first-screen__lead-container">
+                            <div class="first-screen__lead">
+
+                                <span class="first-screen__lead-label">Акция до 30 сентября 2021</span>
+
+                                <a href="#" class="first-screen__lead-title">В сентябре скидки на 2‑комнатные квартиры!</a>
+
+                                <a href="#news" class="first-screen__lead-link"><span>Все акции</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 3.5C8.27614 3.5 8.5 3.72386 8.5 4V11.2929L10.6464 9.14645C10.8417 8.95118 11.1583 8.95118 11.3536 9.14645C11.5488 9.34171 11.5488 9.65829 11.3536 9.85355L8 13.2071L4.64645 9.85355C4.45118 9.65829 4.45118 9.34171 4.64645 9.14645C4.84171 8.95118 5.15829 8.95118 5.35355 9.14645L7.5 11.2929V4C7.5 3.72386 7.72386 3.5 8 3.5Z" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="first-screen__flats-compilation">
+                    <div class="first-screen__content">
+
+                        <div class="first-screen__flats-compilation-blocks">
+
+                            <a class="flats-compilation" href="#">
+                                <div class="flats-compilation__heading">
+                                    Однокомнатные квартиры
+                                </div>
+                                <ul class="flats-compilation__list">
+                                    <li class="flats-compilation__list-item">
+                                        от 9,7 млн ₽
+                                    </li>
+                                    <li class="flats-compilation__list-item">
+                                        от 23,6 м²
+                                    </li>
+                                </ul>
+
+                            </a>
+
+                            <a class="flats-compilation" href="#">
+                                <div class="flats-compilation__heading">
+                                    Двухкомнатные квартиры
+                                </div>
+                                <ul class="flats-compilation__list">
+                                    <li class="flats-compilation__list-item">
+                                        от 18,7 млн ₽
+                                    </li>
+                                    <li class="flats-compilation__list-item">
+                                        от 49,5 м²
+                                    </li>
+                                </ul>
+
+                            </a>
+
+                            <a class="flats-compilation" href="#">
+                                <div class="flats-compilation__heading">
+                                    Трехкомнатные квартиры
+                                </div>
+                                <ul class="flats-compilation__list">
+                                    <li class="flats-compilation__list-item">
+                                        от 14,7 млн ₽
+                                    </li>
+                                    <li class="flats-compilation__list-item">
+                                        от 58,8 м²
+                                    </li>
+                                </ul>
+
+                            </a>
+
+                            <a class="flats-compilation" href="#">
+                                <div class="flats-compilation__heading">
+                                    Четырехкомнатные квартиры
+                                </div>
+                                <ul class="flats-compilation__list">
+                                    <li class="flats-compilation__list-item">
+                                        от 18,7 млн ₽
+                                    </li>
+                                    <li class="flats-compilation__list-item">
+                                        от 77,6 м²
+                                    </li>
+                                </ul>
+
+                            </a>
+
+                        </div>
+
+                        <div class="first-screen__flats-compilation-slider">
+                            <div class="slider slider_theme_flats-compilation j-flats-compilation-slider">
+                                <div class="slider__wrap j-slides">
+
+                                    <a class="flats-compilation" href="#">
+                                        <div class="flats-compilation__heading">
+                                            Однокомнатные квартиры
+                                        </div>
+                                        <ul class="flats-compilation__list">
+                                            <li class="flats-compilation__list-item">
+                                                от 9,7 млн ₽
+                                            </li>
+                                            <li class="flats-compilation__list-item">
+                                                от 23,6 м²
+                                            </li>
+                                        </ul>
+
+                                    </a>
+
+                                    <a class="flats-compilation" href="#">
+                                        <div class="flats-compilation__heading">
+                                            Двухкомнатные квартиры
+                                        </div>
+                                        <ul class="flats-compilation__list">
+                                            <li class="flats-compilation__list-item">
+                                                от 18,7 млн ₽
+                                            </li>
+                                            <li class="flats-compilation__list-item">
+                                                от 49,5 м²
+                                            </li>
+                                        </ul>
+
+                                    </a>
+
+                                    <a class="flats-compilation" href="#">
+                                        <div class="flats-compilation__heading">
+                                            Трехкомнатные квартиры
+                                        </div>
+                                        <ul class="flats-compilation__list">
+                                            <li class="flats-compilation__list-item">
+                                                от 14,7 млн ₽
+                                            </li>
+                                            <li class="flats-compilation__list-item">
+                                                от 58,8 м²
+                                            </li>
+                                        </ul>
+
+                                    </a>
+
+                                    <a class="flats-compilation" href="#">
+                                        <div class="flats-compilation__heading">
+                                            Четырехкомнатные квартиры
+                                        </div>
+                                        <ul class="flats-compilation__list">
+                                            <li class="flats-compilation__list-item">
+                                                от 18,7 млн ₽
+                                            </li>
+                                            <li class="flats-compilation__list-item">
+                                                от 77,6 м²
+                                            </li>
+                                        </ul>
+
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="first-screen__scroll j-first-screen-scroll" aria-label="Прокрутить вниз">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <title>Mouse icon</title>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16 1.49902C12.4101 1.49902 9.5 4.40917 9.5 7.99902V16.999C9.5 20.5889 12.4101 23.499 16 23.499C19.5899 23.499 22.5 20.5889 22.5 16.999V7.99902C22.5 4.40917 19.5899 1.49902 16 1.49902ZM8.5 7.99902C8.5 3.85689 11.8579 0.499023 16 0.499023C20.1421 0.499023 23.5 3.85689 23.5 7.99902V16.999C23.5 21.1412 20.1421 24.499 16 24.499C11.8579 24.499 8.5 21.1412 8.5 16.999V7.99902Z" />
+                        <path d="M17.3996 6.59922C17.3996 5.82602 16.7728 5.19922 15.9996 5.19922C15.2264 5.19922 14.5996 5.82602 14.5996 6.59922V9.39922C14.5996 10.1724 15.2264 10.7992 15.9996 10.7992C16.7728 10.7992 17.3996 10.1724 17.3996 9.39922V6.59922Z" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9996 5.69922C15.5026 5.69922 15.0996 6.10216 15.0996 6.59922V9.39922C15.0996 9.89628 15.5026 10.2992 15.9996 10.2992C16.4967 10.2992 16.8996 9.89628 16.8996 9.39922V6.59922C16.8996 6.10216 16.4967 5.69922 15.9996 5.69922ZM14.0996 6.59922C14.0996 5.54988 14.9503 4.69922 15.9996 4.69922C17.049 4.69922 17.8996 5.54988 17.8996 6.59922V9.39922C17.8996 10.4486 17.049 11.2992 15.9996 11.2992C14.9503 11.2992 14.0996 10.4486 14.0996 9.39922V6.59922Z" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.6464 27.6455C12.8417 27.4502 13.1583 27.4502 13.3536 27.6455L16 30.2919L18.6464 27.6455C18.8417 27.4502 19.1583 27.4502 19.3536 27.6455C19.5488 27.8407 19.5488 28.1573 19.3536 28.3526L16 31.7061L12.6464 28.3526C12.4512 28.1573 12.4512 27.8407 12.6464 27.6455Z" />
+                    </svg>
+
+                </button>
+
+            </div>
+        </section>
+
+        <section id="promotions" class="section section_theme_accent section_animate_background-brand j-anchor-section
+    ">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__common">
+                        <h2 class="j-animation__header">Акции</h2>
+                        <div class="promotions">
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__image">
+                                    <img src="/images/promotions/img1.png" alt="">
+                                </div>
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">Скидка 2% для жителей других городов</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v1">Постоянная акция</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">В сентябре скидки на 2‑комнатные квартиры!</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v1">до 3 марта 2024</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">Цены на старте продаж от 60 тысяч рублей за квадратный метр!</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v1">до 3 марта 2024</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">В сентябре скидки на 2‑комнатные квартиры!</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v1">до 3 марта 2024</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">Скидка 2% для жителей других городов</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v1">Постоянная акция</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+
+        <section id="promotions" class="section section_theme_accent section_animate_background-additional j-anchor-section
+    ">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__common">
+                        <h2 class="j-animation__header">Акции</h2>
+                        <div class="promotions">
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__image">
+                                    <img src="/images/promotions/img1.png" alt="">
+                                </div>
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">Скидка 2% для жителей других городов</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v2">Постоянная акция</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">В сентябре скидки на 2‑комнатные квартиры!</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v2">до 3 марта 2024</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">Цены на старте продаж от 60 тысяч рублей за квадратный метр!</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v2">до 3 марта 2024</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">В сентябре скидки на 2‑комнатные квартиры!</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v2">до 3 марта 2024</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <a href="promo.html" class="promotion  promotion_animation_hover">
+
+                                <div class="promotion__content">
+
+                                    <div class="promotion__title">Скидка 2% для жителей других городов</div>
+
+                                    <div class="promotion__labels">
+                                        <span class="promotion__label  promotion_label_animation-v2">Постоянная акция</span>
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script async src="/js/common/app.js"></script>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__inner">
+                <div class="footer__developer">
+                    <a href="#" target="_blank" class="footer__developer-logo">
+                        <img src="/webicons/footer/logo.svg" alt="Логотип ООО Зелёный Город">
+                    </a>
+                    <p class="footer__developer-copyright">
+                        © 2021 Застройщик ООО СЗ «Зелёный Город»
+                    </p>
+                </div>
+                <div class="footer__info">
+                    <div class="footer__info-links">
+                        <a href="#" class="footer__info-link">Правила обработки персональных данных</a>
+                        <a href="#" class="footer__info-link">Журнал обработки данных</a>
+                    </div>
+                    <div class="footer__info-disclaimer">
+                        <p>Копирование любого материала с настоящего сайта допускается только с письменного
+                            разрешения администрации сайта. Информация о ценах, планировках, а также специальных
+                            предложениях, размещённых на данном сайте, носит исключительно ознакомительный характер,
+                            не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса
+                            Российской Федерации. Представленные на сайте изображения объектов долевого строительства
+                            носят предварительный ознакомительный характер и могут отличаться от фактических
+                            проектных решений, реализуемых застройщиком</p>
+                    </div>
+                </div>
+                <div class="footer__author">
+                    <a href="https://multi.kelnik.ru/" target="_blank" class="footer__author-logo">
+                        <svg width="72" height="20" viewBox="0 0 72 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.17477 19.6041C3.27787 19.6041 3.36313 19.5237 3.36313 19.4207V0.498299C3.36313 0.395306 3.27787 0.31193 3.17477 0.31193L0.519874 0.317815C0.416771 0.317815 0.333496 0.401191 0.333496 0.503204V19.4217C0.333496 19.5256 0.416771 19.6041 0.519874 19.6041H3.17477ZM11.5374 5.52788C9.80824 7.47462 8.11387 9.38213 7.60034 9.95754C8.13707 10.5435 10.335 12.9505 12.3721 15.1813L12.3739 15.1834C14.3057 17.299 16.0924 19.2555 16.1797 19.3496C16.258 19.4339 16.1668 19.6046 16.0677 19.6046H12.5998C12.5076 19.6046 12.4204 19.5369 12.3391 19.4398L5.08027 11.2062V8.71475L12.3391 0.480157C12.4204 0.383049 12.5076 0.316348 12.5998 0.316348H15.8258C15.9289 0.316348 16.0181 0.482119 15.9437 0.572361C15.8431 0.680558 13.6639 3.13388 11.5374 5.52788ZM27.6351 7.00318C26.4703 5.71625 24.9356 5.11104 22.9113 5.11104C20.8284 5.11104 19.2769 5.72704 18.1001 7.04928C16.9194 8.37643 16.3166 10.2068 16.3166 12.5364C16.3166 14.8895 16.9194 16.7425 18.0793 18.0882C19.2541 19.434 20.7858 20 22.8359 20C24.4608 20 25.8249 19.6616 26.9848 18.7592C28.1219 17.8823 28.8278 16.7405 29.1212 15.3251L29.1252 15.329C29.1263 15.3253 29.1256 15.3218 29.1251 15.3191L29.1248 15.3178C29.1246 15.3167 29.1245 15.3158 29.1247 15.3151L29.1252 15.3143C29.1371 15.1926 29.0112 15.1926 29.0112 15.1926H26.3801C26.1937 15.9175 25.8219 16.5845 25.2687 16.9926C24.7116 17.3957 23.8303 17.6419 23.0233 17.6419C21.8832 17.6419 20.8611 17.2466 20.2346 16.5384C19.607 15.8332 19.1391 14.7208 19.1678 13.4006H29.026C29.2303 13.4006 29.3155 13.2789 29.3284 13.1151C29.3611 12.6747 29.3631 12.5521 29.3631 12.3588C29.3631 10.0891 28.7871 8.30188 27.6351 7.00318ZM20.2772 8.43528C19.6894 9.06403 19.27 10.0508 19.1738 11.224H26.51C26.5031 10.0734 26.1343 9.09542 25.5513 8.45293C24.9615 7.82516 23.9086 7.46419 22.836 7.46419C21.8119 7.46419 20.8612 7.82516 20.2772 8.43528ZM34.7365 19.4207C34.7365 19.5237 34.6512 19.6041 34.5481 19.6041H32.0766C31.9695 19.6041 31.8873 19.5237 31.8873 19.4207V0.498305C31.8873 0.401197 31.9695 0.317821 32.0766 0.317821H34.5481C34.6512 0.317821 34.7365 0.401197 34.7365 0.498305V19.4207ZM61.4815 19.6041C61.5846 19.6041 61.6669 19.5237 61.6669 19.4207V0.509095C61.6669 0.401197 61.5846 0.317821 61.4815 0.317821H59.0071C58.902 0.317821 58.8197 0.401197 58.8197 0.509095V19.4207C58.8197 19.5237 58.902 19.6041 59.0071 19.6041H61.4815ZM65.431 12.3591C66.2485 11.4045 67.8502 9.49743 69.1317 7.97154C70.1362 6.77545 70.9441 5.81356 71.0234 5.72822C71.1007 5.64681 71.0085 5.47123 70.9094 5.47123H68.1573C68.0661 5.47123 67.9789 5.53989 67.8956 5.63602L63.3858 11.1114V13.6058L68.1355 19.4342C68.2158 19.5343 68.304 19.6 68.3933 19.6H71.3832C71.4854 19.6 71.5756 19.4293 71.4973 19.3459C71.3198 19.1527 69.0922 16.7181 65.431 12.3591ZM55.8226 19.6041C55.9266 19.6041 56.0089 19.5237 56.0089 19.4207V5.66956C56.0089 5.56657 55.9266 5.48221 55.8226 5.48221H53.3491C53.246 5.48221 53.1607 5.56657 53.1607 5.66956V19.4207C53.1607 19.5237 53.246 19.6041 53.3491 19.6041H55.8226ZM56.0089 3.01183C56.0089 3.11482 55.9266 3.19624 55.8226 3.19624H53.3491C53.246 3.19624 53.1607 3.11482 53.1607 3.01183V0.508591C53.1607 0.401674 53.246 0.318298 53.3491 0.318298H55.8226C55.9266 0.318298 56.0089 0.401674 56.0089 0.508591V3.01183ZM37.5456 11.5296C37.5456 5.10869 42.3042 5.10869 44.0252 5.10869C45.781 5.10869 50.3512 5.10869 50.3512 11.5296V19.4209C50.3512 19.5239 50.2659 19.6043 50.1628 19.6043H47.6804C47.5793 19.6043 47.495 19.5239 47.495 19.4209V11.2196C47.495 7.57759 44.9085 7.55405 43.9499 7.55405L43.9283 7.55405C42.9304 7.55385 40.4028 7.55334 40.4028 11.2216L40.4067 19.4209C40.4067 19.5239 40.3234 19.6043 40.2203 19.6043H37.732C37.6289 19.6043 37.5456 19.5239 37.5456 19.4209V11.5296Z" fill="#0B1739" />
+                        </svg>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookies-notice j-cookies-notice" data-timer="30">
+        <div class="cookies-notice__text">
+            Мы используем файлы cookie. Продолжая пользоваться сайтом, вы соглашаетесь
+            <button class="j-popup" data-no-hash="true" data-href="cookies" data-modify="content">
+                с использованием файлов cookie
+            </button> или <a href="#">с использованием файлов cookie в виде ссылки</a>
+        </div>
+        <div class="cookies-notice__button">
+
+            <button type="button" class="button button_theme_color j-cookies-notice__button" aria-label="Кнопонька">
+                <span>Принимаю</span>
+            </button>
+
+        </div>
+    </div>
+    <template id="cookies">
+        <h2>О файлах Cookie</h2>
+        <p>Файл cookie представляет собой небольшой файл, обычно состоящий из букв и цифр. Когда вы посещаете
+            сайт, файл сохраняется на вашем компьютере, планшетном ПК, телефоне или другом устройстве. Cookies
+            помогают нам повысить эффективность работы сайта и получить аналитические данные.</p>
+        <h3>Типы файлов cookie</h3>
+        <h4>Строго необходимые файлы cookie.</h4>
+        <p>Эти файлы cookie необходимы, чтобы сайт работал корректно, они позволят Вам передвигаться по нашему сайту и использовать
+            его возможности. Эти файлы не идентифицируют вас как личность. Если вы не согласны использовать
+            данный тип файлов, это может оказать влияние на производительность веб-сайта, или его компонентов.</p>
+        <h4>Файлы cookie, относящиеся к производительности, эффективности и аналитике.</h4>
+        <p>Эти файлы помогают нам понять, как посетители взаимодействуют с нашим сайтом, предоставляя информацию о тех
+            областях, которые они посетили и количестве времени, которое они провели на сайте, так же они
+            показывают проблемы в работе интернет-ресурса, например, сообщения об ошибках. Это поможет нам
+            улучшить работу сайта.</p>
+        <p>Файлы cookie, относящиеся к аналитике, также помогают нам измерять эффективность рекламных кампаний и оптимизировать
+            содержание сайтов для тех, кого заинтересовала наша реклама. Данный тип файлов cookies не может быть
+            использован для вашей идентификации. Вся информация, которая собирается и анализируется, анонимна.</p>
+        <p>Функциональные файлы cookie. Эти файлы cookie служат для того, чтобы опознавать пользователей, возвращающихся на наш
+            сайт. Они позволяют нам индивидуально подбирать содержание сайта для вас, приветствовать вас по имени и запоминать
+            ваши предпочтения. Если вы блокируете этот тип файлов, то это может повлиять на производительность
+            и функциональность веб-сайта и может ограничить доступ к контенту на сайте.</p>
+        <h4>Рекламные файлы cookie.</h4>
+        <p>В эти файлы cookie записываются сведения о ваших посещениях сайтов, в том числе, о посещении
+            наших сайтов и страниц, а также данные о ссылках и рекламе, которые вы выбирали для
+            просмотра. Одна из целей, которые мы ставим перед собой, — отражать на наших
+            веб-сайтах тот контент, который наиболее полно ориентирован на Вас.</p>
+        <h3>Управление файлами cookie</h3>
+        <p>Вы можете ограничить, заблокировать или удалить файлы cookie через настройки вашего браузера.</p>
+    </template>
+
+</body>
+
+</html>

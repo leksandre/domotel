@@ -1,0 +1,55 @@
+<div class="yandex-map-balloon yandex-map-balloon_theme_contacts j-yandex-map-balloon
+    {% if balloon.main %} yandex-map-balloon_theme_contacts-main {% endif %}">
+    <div class="yandex-map-balloon__modal">
+        <div class="yandex-map-balloon__contacts-img">
+                <img src="{{ balloon.image }}" alt={{ balloon.title }}>
+        </div>
+        <div class="yandex-map-balloon__contacts-content">
+            <div class="yandex-map-balloon__contacts-title">
+                {% if balloon.main %}
+                    <span class="string-accent string-accent_color_light-yellow">{{ balloon.title }}</span>
+                {% else %}
+                    <div class="link-accent link-accent_theme_nolink {{ balloon.titleModify }}">{{  balloon.title }}</div>
+                {% endif %}
+            </div>
+            <div class="yandex-map-balloon__contacts-text">
+                {{ balloon.text }}
+            </div>
+            <div class="yandex-map-balloon__contacts-link">
+                <a href="{{ balloon.route }}" class="link-under link-under_theme_line-light-gray">
+                    <span class="link-under__text">Построить маршрут</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="yandex-map-balloon__panel">
+        <div class="yandex-map-balloon__panel-header j-yandex-map-panel-header">
+            <div class="yandex-map-balloon__panel-hand"></div>
+            <div class="yandex-map-balloon__panel-header-content">
+                <div class="yandex-map-balloon__contacts-title">
+                    {% if balloon.main %}
+                        <span class="string-accent string-accent_color_light-yellow">{{ balloon.title }}</span>
+                    {% else %}
+                        <div class="link-accent link-accent_theme_nolink {{ balloon.titleModify }}">{{  balloon.title }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="yandex-map-balloon__panel-content j-yandex-map-panel-content">
+            <div class="yandex-map-balloon__contacts-text">
+                {{ balloon.text }}
+            </div>
+            <div class="yandex-map-balloon__contacts-link">
+                <a href="{{ balloon.route }}" class="link-under link-under_theme_line-light-gray">
+                    <span class="link-under__text">Построить маршрут</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <a class="yandex-map-balloon__close j-yandex-map-close-baloon">
+        <img src="/images/icons/close-white.svg" alt="cross">
+    </a>
+</div>

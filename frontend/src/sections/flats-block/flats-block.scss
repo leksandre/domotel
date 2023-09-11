@@ -1,0 +1,85 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$section-bg: rgba($brand-base-rgb, 0.16);
+
+// BLOCK
+.flats-block {
+    h2 {
+        width: 50%;
+
+        @media #{$tablet-portrait} {
+            width: 100%;
+        }
+    }
+}
+
+// ELEMENTS
+.flats-block__content {
+    @include padding-level(top, magenta);
+    background-color: $section-bg;
+}
+
+.flats-block__about {
+    @include margin-level(top, green);
+}
+
+.flats-block__gallery {
+    position: relative;
+
+    &:before {
+        @include scale(height, 50%, 50%, 400);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: $section-bg;
+        content: "";
+    }
+}
+
+.flats-block__wrapper {
+    @include vertical-margins(-3.5, 36);
+    width: column(43, 36);
+    overflow: hidden;
+
+    @media #{$laptop} {
+        @include vertical-margins(0);
+        overflow: unset;
+        width: 100%;
+    }
+}
+
+.flats-block__container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media #{$laptop} {
+        flex-wrap: wrap;
+        overflow-x: unset;
+    }
+}
+
+.flats-block__mobile-wrapper {
+    @media #{$laptop} {
+        display: none;
+    }
+}
+
+.flats-block__desktop-wrapper {
+    display: none;
+
+    @media #{$laptop} {
+        display: block;
+    }
+}
+
+// MODS

@@ -1,0 +1,230 @@
+@import "./scale";
+
+// стандартный transition
+@mixin transition($property...) {
+    transition-property: $property;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+// Правильное скрытие элементов со страницы
+@mixin visually-hidden() {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 0;
+    width: 0;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+// правильное увеличение текста
+@mixin text-transform($letter-spacing: 0.2em) {
+    text-transform: uppercase;
+
+    @if ($letter-spacing != false) {
+        letter-spacing: $letter-spacing;
+    }
+}
+
+// Убирает базовые стили со списков
+@mixin reset-list() {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+@mixin reset-link() {
+    color: inherit;
+    text-decoration: inherit;
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin reset-text() {
+    & > * {
+        font-size: inherit;
+        line-height: inherit;
+        margin-bottom: 0;
+    }
+}
+
+// Убирает браузерные стили у тега button
+/* stylelint-disable  property-no-vendor-prefix */
+@mixin reset-button() {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    text-align: inherit;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+
+    /* Remove excess padding and border in Firefox 4+ */
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+/* stylelint-enable */
+
+// Добавляем object-fit для img,
+// font-family нужен для работы полифила.
+@mixin object-fit($property: none, $direction: center) {
+    object-fit: $property;
+    object-position: $direction;
+    font-family: "object-fit: #{$property}; object-position: #{$direction};";
+}
+
+// Маркер списка
+@mixin circle-mark($color) {
+    @include pseudo();
+    @include scale(width, 8, 8, 8);
+    @include scale(height, 8, 8, 8);
+    @include scale(top, 8, 8, 8);
+    @include scale(left, 8, 8, 8);
+    background-color: $color;
+    border-radius: 50%;
+}
+
+@mixin force-size($width, $height: $width) {
+    width: $width;
+    min-width: $width;
+    max-width: $width;
+    height: $height;
+    min-height: $height;
+    max-height: $height;
+}
+
+@mixin force-height($height) {
+    @include scale(height, $height, $height, $height);
+    @include scale(min-height, $height, $height, $height);
+    @include scale(max-height, $height, $height, $height);
+}
+
+@mixin custom-scrollbar($color: rgba($brand-base-rgb, 0.5), $size: "4px") {
+    &::-webkit-scrollbar {
+        width: #{$size};
+        height: #{$size};
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @include scale(border-radius, 24, 24, 24);
+        background: $color;
+
+        &:hover {
+            background-image: $color;
+        }
+    }
+}
+
+@mixin fullsize($size: 0) {
+    top: $size;
+    right: $size;
+    bottom: $size;
+    left: $size;
+}
+
+// Абсолютный псевдоэлемент
+@mixin pseudo() {
+    content: "";
+    position: absolute;
+}
+
+// Сокрытие чекбокса и стилизация псевдо чекбокса
+// $sibling {class} - класс, который нужно стилизовать под чекбокс
+@mixin checkbox-states($sibling: label, $alternative: false) {
+    @include visually-hidden();
+
+    + #{$sibling} {
+        @include transition(border);
+        position: relative;
+        border-color: $brand-gray;
+        border-style: solid;
+
+        @if ($alternative == false) {
+            border-width: 1px;
+        } @else if ($alternative == true) {
+            border-width: 0;
+        } @else {
+            border-width: $alternative;
+        }
+    }
+
+    &:checked,
+    &.is-checked {
+        + #{$sibling} {
+            border-width: 0;
+            background-color: $brand-dark;
+
+            &:after {
+                background-repeat: no-repeat;
+                background-position: center;
+                display: inline-block;
+                vertical-align: baseline;
+                text-align: center;
+            }
+        }
+    }
+
+    &:disabled,
+    &.is-disabled {
+        + #{$sibling} {
+            background-color: rgba($white-rgb, 0.3);
+        }
+    }
+
+    &.is-error,
+    &.has-error {
+        + #{$sibling} {
+            border-color: rgba($red-rgb, 0.4);
+            background-color: rgba($red-rgb, 0.2);
+        }
+    }
+}
+
+@function rgba-to-rgb($rgba, $background: white) {
+    @return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
+}
+
+@mixin fullOverflow() {
+    display: flex;
+    min-width: 100%;
+    padding-left: calc((100vw - 100%) / 2);
+    margin-left: calc((100vw - 100%) / 2 * -1);
+    margin-right: calc((100vw - 100%) / 3 * -1);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    &:after {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: calc(100vw - 100%);
+        height: 1px;
+    }
+}

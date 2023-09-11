@@ -1,0 +1,128 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$canvas-overlay: $brand-text;
+$mask-color: $brand-base;
+$mask-color-hover: $brand-dark;
+$zoom-bg: $white;
+$zoom-icon-bg: $brand-base;
+$zoom-icon-disabled: rgba($black-rgb, 0.2);
+$zoom-control-size: 44;
+
+// BLOCK
+.visual-canvas {
+    @include custom-scrollbar(transparent, 0);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    line-height: 0;
+    overflow: auto;
+    transform-origin: 0 0;
+
+    // Media
+    @media #{$laptop} {
+        overflow: hidden;
+    }
+}
+
+// ELEMENTS
+.visual-canvas__svg {
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+
+    // Media
+    @media #{$tablet-landscape} {
+        width: 100%;
+    }
+}
+
+.visual-canvas__overlay {
+    fill: $canvas-overlay;
+}
+
+.visual-canvas__path {
+    @include transition(fill, fill-opacity, stroke);
+    fill: $mask-color;
+    fill-opacity: 0.3;
+    stroke: $mask-color;
+    stroke-width: 2px;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+
+    &.is-hovered {
+        fill-opacity: 0.5;
+        stroke: $mask-color-hover;
+    }
+
+    &.is-disabled {
+        fill: $white;
+        fill-opacity: 0.2;
+        stroke: none;
+    }
+
+    &.is-booked {
+        fill: $white;
+        fill-opacity: 0.2;
+        stroke: none;
+    }
+}
+
+.visual-canvas__zoom-controls {
+    @include transition(opacity);
+    @include scale(top, func "calc(50% - $)" $zoom-control-size, func "calc(50% - $)" $zoom-control-size, func "calc(50% - $)" $zoom-control-size);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: column(1);
+
+    @media #{$tablet-landscape} {
+        left: column(-1);
+    }
+
+    @media #{$laptop} {
+        left: column(-4);
+    }
+}
+
+.visual-canvas__zoom-control {
+    @include transition(color);
+    @include reset-button();
+    @include scale(width, $zoom-control-size, $zoom-control-size, $zoom-control-size);
+    @include scale(height, $zoom-control-size, $zoom-control-size, $zoom-control-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $zoom-bg;
+    text-align: center;
+    margin-left: auto;
+    -webkit-tap-highlight-color: transparent;
+
+    &:first-child {
+        @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80);
+        @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80);
+    }
+
+    &:last-child {
+        @include scale(border-bottom-right-radius, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80);
+        @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80, func "calc(var(--is-br) * $)" 80);
+    }
+}
+
+.visual-canvas__zoom-icon {
+    @include transition(fill);
+    fill: $zoom-icon-bg;
+
+    &.is-disabled {
+        fill: $zoom-icon-disabled;
+    }
+}
+
+// MODS
+
+// THEMES
+.visual-canvas_theme_floor {
+    overflow: visible;
+}

@@ -1,0 +1,141 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$border-color: $brand-gray;
+$list-divider-bg: rgba($brand-text-rgb, 0.2);
+
+// BLOCK
+.similar-flat-card {
+    @include margin-level(bottom, yellow);
+    @include padding-level(both, yellow);
+    @include vertical-paddings(2, 32);
+    @include post(1, 36);
+    @include scale(border, 1, 1, 1, solid $border-color);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    display: block;
+    min-width: column(30, 36);
+
+    @media #{$tablet-portrait} {
+        @include vertical-paddings(1, 32);
+        min-width: column(14.5, 36);
+    }
+
+    @media #{$laptop} {
+        @include post(0.5, 28);
+        width: column(9, 28);
+        min-width: unset;
+    }
+
+    &:first-child {
+        @include push(3, 36);
+
+        @media #{$laptop} {
+            @include push(0);
+        }
+    }
+
+    &:last-child {
+        @include post(3, 36);
+
+        @media #{$laptop} {
+            @include post(0);
+        }
+    }
+
+    &:nth-child(3n) {
+        @media #{$laptop} {
+            @include post(0);
+        }
+    }
+}
+
+// ELEMENTS
+.similar-flat-card__container {
+    position: relative;
+
+    .flat-block-card__gallery {
+        @include scale(height, 196, 240, 240);
+    }
+
+    .flat__controls {
+        top: 0;
+        right: 0;
+    }
+}
+
+.similar-flat-card__plan {
+    @include margin-level(bottom, yellow);
+    @include scale(height, 196, 240, 240);
+    position: relative;
+
+    img {
+        @include scale(height, 196, 240, 240);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-height: 100%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.similar-flat-card__plan-wrap,
+.similar-flat-card__plan-wrap img {
+    @include scale(height, 196, 240, 240);
+}
+
+.similar-flat-card__list {
+    @include row();
+    @include margin-level(bottom, tomato);
+    align-items: baseline;
+}
+
+.similar-flat-card__list-item {
+    @include margin-level(right, tomato);
+
+    &:not(:last-child) {
+        @include scale(padding-right, 8, 8, 8);
+        position: relative;
+
+        &:after {
+            @include pseudo();
+            @include scale(width, 3, 3, 3);
+            @include scale(height, 3, 3, 3);
+            @include scale(right, -1, -1, -1);
+            top: 50%;
+            display: block;
+            border-radius: 50%;
+            background-color: $list-divider-bg;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.similar-flat-card__title {
+    @include font-size(p1-bold);
+}
+
+.similar-flat-card__information {
+    @include margin-level(bottom, yellow);
+}
+
+.similar-flat-card__price {
+    @include margin-level(bottom, rose);
+    @include margin-level(right, tomato);
+    @include font-size(p1-bold);
+}
+
+.similar-flat-card__prices {
+    font-size: 0;
+
+    .action-price__action {
+        @include scale(top, -1, -1, -1);
+    }
+}
+
+// MODS

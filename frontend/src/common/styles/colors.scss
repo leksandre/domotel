@@ -1,0 +1,60 @@
+// Default colors
+$violet: var(--color-violet);
+$violet-rgb: var(--color-violet-rgb);
+$indigo: var(--color-indigo);
+$indigo-rgb: var(--color-indigo-rgb);
+$blue: var(--color-blue);
+$blue-rgb: var(--color-blue-rgb);
+$green: var(--color-green);
+$green-rgb: var(--color-green-rgb);
+$yellow: var(--color-yellow);
+$yellow-rgb: var(--color-yellow-rgb);
+$orange: var(--color-orange);
+$orange-rgb: var(--color-orange-rgb);
+$red: var(--color-red);
+$red-rgb: var(--color-red-rgb);
+$error: var(--color-error-red);
+$error-rgb: var(--color-error-red-rgb);
+$black: var(--color-black);
+$black-rgb: var(--color-black-rgb);
+$white: var(--color-white);
+$white-rgb: var(--color-white-rgb);
+$gray: var(--color-gray);
+$gray-rgb: var(--color-gray-rgb);
+$dark: var(--color-dark);
+$dark-rgb: var(--color-dark-rgb);
+
+// Brand color
+$brand-text: var(--color-brand-text);
+$brand-text-rgb: var(--color-brand-text-rgb);
+$brand-headers: var(--color-brand-headers);
+$brand-headers-rgb: var(--color-brand-headers-rgb);
+$brand-gray: var(--color-brand-gray);
+$brand-gray-rgb: var(--color-brand-gray-rgb);
+$brand-gray-light: var(--color-brand-gray-light);
+$brand-gray-light-rgb: var(--color-brand-gray-light-rgb);
+$brand-base: var(--color-brand-base);
+$brand-base-rgb: var(--color-brand-base-rgb);
+$brand-light: var(--color-brand-light);
+$brand-light-rgb: var(--color-brand-light-rgb);
+$brand-dark: var(--color-brand-dark);
+$brand-dark-rgb: var(--color-brand-dark-rgb);
+// $brand-gradient: linear-gradient(135deg, $brand-base 0%, $brand-dark 100%);
+$additional-1: var(--color-additional-1);
+$additional-1-rgb: var(--color-additional-1-rgb);
+$additional-2: var(--color-additional-2);
+$additional-2-rgb: var(--color-additional-2-rgb);
+$additional-3: var(--color-additional-3);
+$additional-3-rgb: var(--color-additional-3-rgb);
+$additional-4: var(--color-additional-4);
+$additional-4-rgb: var(--color-additional-4-rgb);
+$additional-5: var(--color-additional-5, var(--color-brand-base));
+$additional-5-rgb: var(--color-additional-5-rgb, var(--color-brand-base-rgb));
+$shadow-color: rgba(33, 36, 32, 0.08);
+
+// Color page error (404, 410....)
+$page-error-text: var(--color-page-error-text);
+
+@function hextorgb($hex) {
+    @return red($hex), green($hex), blue($hex);
+}

@@ -1,0 +1,2409 @@
+{
+    "data": {
+        "settings": {
+            "hidePrice": {
+                "status": false,
+                "text": "Цена по запросу"
+            },
+            "popup": {
+                "id": "callback-parametric"
+            },
+            "zoom": true
+        },
+        "breadcrumbs": [
+            {
+                "link": "/",
+                "name": "Генплан"
+            },
+            {
+                "link": "/building/1/",
+                "name": "Корпус 1.1"
+            },
+            {
+                "link": "/building/1/floor/1",
+                "name": "Этаж 3"
+            }
+        ],
+        "render": {
+            "link": "/images/visual/flat-plan-1.png",
+            "shift": {
+                "horizontal": 0,
+                "vertical": 0
+            }
+        },
+        "compass": {
+            "degree": 132
+        },
+        "perspective": [
+            {
+                "id": 1,
+                "active": true
+            },
+            {
+                "id": 2,
+                "active": false
+            }
+        ],
+        "filters": [
+            {
+                "type": "checkbox",
+                "category": "room",
+                "label": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043a\u043e\u043c\u043d\u0430\u0442",
+                "items": [
+                    {
+                        "id": 1,
+                        "value": 1,
+                        "name": "\u0421\u0442\u0443\u0434\u0438\u044f",
+                        "title": {
+                            "full": "\u0421\u0442\u0443\u0434\u0438\u044f",
+                            "short": "\u0421\u0442"
+                        },
+                        "checked": false,
+                        "disabled": false,
+                        "color": "#6DE3FD"
+                    },
+                    {
+                        "id": 2,
+                        "value": 2,
+                        "name": "\u041e\u0434\u043d\u043e\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u041e\u0434\u043d\u043e\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "1\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false,
+                        "color": "#A47FEB"
+                    },
+                    {
+                        "id": 3,
+                        "value": 3,
+                        "name": "\u0414\u0432\u0443\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0414\u0432\u0443\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "2\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false,
+                        "color": "#F66897"
+                    },
+                    {
+                        "id": 4,
+                        "value": 4,
+                        "name": "\u0422\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0422\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "3\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 5,
+                        "value": 5,
+                        "name": "\u0427\u0435\u0442\u044b\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u0427\u0435\u0442\u044b\u0440\u0435\u0445\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "4\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    },
+                    {
+                        "id": 6,
+                        "value": 6,
+                        "name": "\u041f\u044f\u0442\u0438\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                        "title": {
+                            "full": "\u041f\u044f\u0442\u0438\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f",
+                            "short": "5\u043a"
+                        },
+                        "checked": false,
+                        "disabled": false
+                    }
+                ]
+            },
+            {
+                "type": "button",
+                "category": "floor",
+                "label": "\u042d\u0442\u0430\u0436",
+                "items": [
+                    {
+                        "id": 9,
+                        "title": "1",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 1
+                    },
+                    {
+                        "id": 15,
+                        "title": "2",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 2
+                    },
+                    {
+                        "id": 20,
+                        "title": "3",
+                        "active": true,
+                        "disabled": false,
+                        "amount": 0,
+                        "priority": 3
+                    },
+                    {
+                        "id": 25,
+                        "title": "4",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 4
+                    },
+                    {
+                        "id": 29,
+                        "title": "5",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 5
+                    },
+                    {
+                        "id": 30,
+                        "title": "6",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 4,
+                        "priority": 6
+                    },
+                    {
+                        "id": 32,
+                        "title": "7",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 6,
+                        "priority": 7
+                    },
+                    {
+                        "id": 33,
+                        "title": "8",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 8
+                    },
+                    {
+                        "id": 34,
+                        "title": "9",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 9
+                    },
+                    {
+                        "id": 35,
+                        "title": "10",
+                        "active": false,
+                        "disabled": true,
+                        "amount": 0,
+                        "priority": 10
+                    },
+                    {
+                        "id": 36,
+                        "title": "11",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 11
+                    },
+                    {
+                        "id": 37,
+                        "title": "12",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 5,
+                        "priority": 12
+                    },
+                    {
+                        "id": 38,
+                        "title": "13",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 4,
+                        "priority": 13
+                    },
+                    {
+                        "id": 39,
+                        "title": "14",
+                        "active": false,
+                        "disabled": false,
+                        "amount": 6,
+                        "priority": 14
+                    }
+                ]
+            }
+        ],
+        "elements": [
+            {
+                "id": 1838,
+                "link": null,
+                "path": "M850.9,896.73,837,851.66l76-24.14,7.37,23.37L909.5,854.5l12.2,38.17-31,10.11-5.29-17.18Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": false,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 28\u0430",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1839,
+                "link": null,
+                "path": "M887.63,905.35l.3.95,17.17-5.41-.3-.95,17.89-5.65a3,3,0,0,0,2.44.29l3.81-1.21,18.34,58.18-31.47,9.92-1.2-3.81a3,3,0,0,0-1.16-1.57,2.37,2.37,0,0,0-1.82-.39,2.43,2.43,0,0,0-1.42.87c-.53.67.16,1.67.33,2.45l2.93,8-30.69,9.67-19.94-63.53Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 29\u0430",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1840,
+                "link": null,
+                "path": "M835.77,943.72l-6.31-20,31.47-9.92,20,63.53-32.42,10.22L834.82,944Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 30\u0430",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1841,
+                "link": null,
+                "path": "M825.64,924.9l6.32,20,.95-.3,13.89,43.6-32.07,10-19.85-63.62Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 31\u0430",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1842,
+                "link": "\/kvartira-32",
+                "path": "M756.17,937.36l16.22-5.11,2.7,8.58L793.31,935l20,63.86-34.81,10.59L775,998.54l-32,10.08-19.32-61.28a3.22,3.22,0,0,0-.31-.68l32.51-10.25Z",
+                "render": "\/storage\/4858\/7050\/4858c8fbe10bd7d1ce34996637c87e6eaf325a97.svg",
+                "disabled": false,
+                "maskColor": "#CB52A7",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 32\u0430",
+                    "linkTitle": "\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u043f\u043e\u043c\u0435\u0449\u0435\u043d\u0438\u0435",
+                    "area": 59.299999999999997,
+                    "price": 8302000,
+                    "showPrice": true,
+                    "state": {
+                        "available": true,
+                        "title": "\u0421\u0432\u043e\u0431\u043e\u0434\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": "card",
+                "description": null
+            },
+            {
+                "id": 1843,
+                "link": null,
+                "path": "M771.18,928.43,755,933.55l.3,1-43.93,14.61-10-32.75,60-18.92Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 33\u0430",
+                    "linkTitle": false,
+                    "area": 24.760000000000002,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1844,
+                "link": null,
+                "path": "M733.22,871.2l18.12-5.71,9.47,30-60,18.92L690.62,882l41.85-13.19Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 34\u0430",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1845,
+                "link": null,
+                "path": "M721.24,829.89l17.17-5.41L750,861.2l-60,18.9-11.31-34.47,8-2.33.41,1.53,3.81-1.2-1.8-5.72,4.76-1.51L720.64,828Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 35\u0430",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1846,
+                "link": null,
+                "path": "M695.89,832.64l-7.51-23.84,97.22-30.66,8.6-2.93L801,796.76s-1,.52-.48,2.84l.4.27h0l14.78,42.62L805,846l4.66,14.79-28.14,8.87L770.2,833.85l-24.32,7.67-5.57-17.64-1.2-3.82-19.07,6-24,7.57A2.9,2.9,0,0,0,695.89,832.64Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "3-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 36\u0430",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1847,
+                "link": null,
+                "path": "M711.82,738.49l25.27-8-.3-1-.3-1-8.12-25.75,46.73-14.74,7.5,24L775,715.3a3,3,0,0,0-1.7,3.67l8.16,25.88-7.65,2.62,8.74,27.44L687.17,805l-7.82-24.79,41.49-13.09Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "3-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 16\u0431",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1848,
+                "link": null,
+                "path": "M649.27,724.66l51-16.08,18,57.22-39.58,12.48-8.42-26.7a3,3,0,0,0-3.76-2l-6.68,2.1-2.4-7.63-3.82,1.2.67,2.13-9,2.82-8.22-23.85,11.5-3.63Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 17\u0431",
+                    "linkTitle": false,
+                    "area": 39.729999999999997,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1849,
+                "link": null,
+                "path": "M681.53,675.69l7.63-2.4,9.93,31.47-51,16.09-11.51,3.63-16.42-52,54.94-17.32Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 18\u0431",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1850,
+                "link": null,
+                "path": "M680.39,648.79l-17.64,5.57.75,2.38-44,13.86L612,646.91l10.63-3.74c1.67-.42,2.63-1.16,2.11-2.8l-1.27-4,3.81-1.2a3,3,0,0,0,2-3.77l-8.42-26.7,41.49-13.08Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 19\u0431",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1851,
+                "link": null,
+                "path": "M720.1,570.22,680,582.84l1.21,3.82,44.82-14.13,8.11,25.7c-.13-.4,1.32,2.09,3.89.92l7.7-2.81L754,622.7l-55.44,17.22-8.72-27.66-17.16,5.41-9-28.61-43.4,13.68L612.44,578l37.2-11.73.3.95L672.83,560l-.3-1,40.05-12.63Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "3-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 20\u0431",
+                    "linkTitle": false,
+                    "area": 82.400000000000006,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1852,
+                "link": null,
+                "path": "M637.49,506.09l23.37-7.37,2.38-.75,1.43-.45-8.11-25.75,46.67-15,8,26.15L700,486.56l9.26,29.4-2.86.9a3,3,0,0,0-2,3.76L712,544.46l-40.05,12.63-.3-1-22.89,7.22.3.95L611.84,576,604,551.24l43.4-13.68Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "3-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 25\u0432",
+                    "linkTitle": false,
+                    "area": 81.659999999999997,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1853,
+                "link": null,
+                "path": "M644.91,536.25l-41.49,13.08-8.12-25.75a3,3,0,0,0-3.76-2l-3.82,1.2L586.5,519l-13.94,4.13-8.11-26,62-19.54Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 26\u0432",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1854,
+                "link": null,
+                "path": "M549.44,448.7l61.87-19,9.47,28.82L613.5,461l5,17-54.57,17.4Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 27\u0432",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1855,
+                "link": null,
+                "path": "M539.36,416.88l62.17-19.72,9.78,30.39L548.75,447.2Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 28\u0432",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1856,
+                "link": null,
+                "path": "M592.88,398l-54,17.11-6.07-19.45,13.55-4.26-8.83-25.78L586.92,350l8.88,29.86L588,382.3Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 29\u0432",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1857,
+                "link": null,
+                "path": "M518.8,308.54h65.33v7.74h-4.24l-.71,2.69.71,9.54,5.81,19.79-59.59,19.17-8.52-27.88Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 30\u0432",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1858,
+                "link": null,
+                "path": "M591.26,308H649l9.44,30-51.1,15.91-11.84-37.62h-4.22Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 31\u0432",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1859,
+                "link": null,
+                "path": "M608.58,356l49.84-15.83,18.15,55.25L626.26,412Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 32\u0432",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1860,
+                "link": null,
+                "path": "M669.52,95.5H694V203.25h-25.6V166H653.6V140.94h-9.1V83h25Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 23\u0433",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1861,
+                "link": null,
+                "path": "M578,168h89v35H624v4h3v23H616v1H578Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 24\u0433",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1862,
+                "link": null,
+                "path": "M597,266H578V232h52v1a2.38,2.38,0,0,0,2.5,3H642v32H597Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 25\u0433",
+                    "linkTitle": false,
+                    "area": 24.510000000000002,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1863,
+                "link": null,
+                "path": "M642,270v35.36L630.87,305H578V270Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 26\u0433",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1864,
+                "link": null,
+                "path": "M553,269h5v19h18v18H493V282h9a3,3,0,0,0,3-3V255h48Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": false,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 27\u0433",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1865,
+                "link": null,
+                "path": "M558,251H505V225H493V199h57v22h8Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 28\u0433",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1866,
+                "link": null,
+                "path": "M558,174h-8v23H493V170h12V143h53Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 29\u0433",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1867,
+                "link": null,
+                "path": "M577,141H505V76h39V63h30V76h3Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 30\u0433",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1868,
+                "link": null,
+                "path": "M842.52,98.5H870V204.25h-26.6V159H825.6V130.94h-8.1V86h25Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 16\u0434",
+                    "linkTitle": false,
+                    "area": 56.409999999999997,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1869,
+                "link": null,
+                "path": "M841,161v18l2,2v23.23c-1.17.41-1,1.51-1,2.81v5h0a3,3,0,0,0-3,3v10H801V161Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 17\u0434",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1870,
+                "link": null,
+                "path": "M798,161v17h2v47H768V161Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 18\u0434",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1871,
+                "link": null,
+                "path": "M723.5,160h42.7v64.5H728V212.25h-4.5Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 19\u0434",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1872,
+                "link": null,
+                "path": "M725,78h24v54.94h-8.1V159H722.1v44.25H695.5V95.5H721V90h4Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 20\u0434",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1873,
+                "link": null,
+                "path": "M1018.52,98.5H1046V204.25h-26.6V159H1001.6V130.94h-8.1V86h25Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 16\u0435",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1874,
+                "link": null,
+                "path": "M1017,161v18l2,2v23.23c-1.17.41-1,1.51-1,2.81v5h0a3,3,0,0,0-3,3v10H977V161Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 17\u0435",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1875,
+                "link": null,
+                "path": "M974,161v17h2v47H944V161Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 18\u0435",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1876,
+                "link": null,
+                "path": "M900.5,160h42.7v64.5H905V212.25h-4.5Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 19\u0435",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1877,
+                "link": null,
+                "path": "M902,86h24v44.94h-9.1V158H899.1v46.25H872.5V98.5H902Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 20\u0435",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1878,
+                "link": null,
+                "path": "M1178,159V133h-9V79h24v9.5c.08,2.72.08,2.72,2,3V96a2.38,2.38,0,0,0,2.5,3H1221V204h-25V159Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 16\u0436",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1879,
+                "link": null,
+                "path": "M1192,161v20h2v23.23a3,3,0,0,0-2,2.81v5h0a3,3,0,0,0-3,3v10h-36V161Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 17\u0436",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1880,
+                "link": null,
+                "path": "M1149,161v17h2v47h-31V161Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 18\u0436",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1881,
+                "link": null,
+                "path": "M1075.5,161h42.7v63.5H1080V212.25h-4.5Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 19\u0436",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1882,
+                "link": null,
+                "path": "M1077,86h23v44.94h-8.1V159H1074.1v45.25h-26.6V98.5H1077Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 20\u0436",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1883,
+                "link": null,
+                "path": "M1343,76h0a3,3,0,0,0,3-3V63h30V76h37v65h-28v-2h-17v2h-25Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 25\u0437",
+                    "linkTitle": false,
+                    "area": 62.799999999999997,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1884,
+                "link": null,
+                "path": "M1416,199h-54V162h8l-.28-19H1413v29h13v27Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 26\u0437",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1885,
+                "link": null,
+                "path": "M1384,256h-22V224h8V201h56v27h-13v30h-29Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 27\u0437",
+                    "linkTitle": false,
+                    "area": 38.619999999999997,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1886,
+                "link": null,
+                "path": "M1416,313h-54V260h51v26h14v28h-11Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 28\u0437",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1887,
+                "link": null,
+                "path": "M1293,276.21V277h50v17h17.5v19H1293v1h-10V276.06C1281.33,276.08,1291,276.2,1293,276.21Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 29\u0437",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1888,
+                "link": null,
+                "path": "M1343,236v39h-60V236Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 30\u0437",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1889,
+                "link": null,
+                "path": "M1253,204V168h90v67h-48V204Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 31\u0437",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1890,
+                "link": null,
+                "path": "M1266,166h-15v38h-27V99h25a3,3,0,0,0,3-3V86h23v55h-9Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 32\u0437",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1891,
+                "link": null,
+                "path": "M1294,425h-11V396h12V373h48v52Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 31\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1892,
+                "link": null,
+                "path": "M1293,317h49.53l.47,28.5V371h-48V349a3,3,0,0,0-3-3h-9V316h10Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 32\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1893,
+                "link": null,
+                "path": "M1352,316h75v31h-65V330h-10Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 33\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1894,
+                "link": null,
+                "path": "M1410,404h-48V349h46v26h13v29Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 34\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1895,
+                "link": null,
+                "path": "M1362,406h59v29h-13v25h-46Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 35\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1896,
+                "link": null,
+                "path": "M1410,512h-48V462h46v22h13v29h-11Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 36\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1897,
+                "link": null,
+                "path": "M1408.3,567H1362V515h59v29h-13Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 37\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1898,
+                "link": null,
+                "path": "M1352,601V588h10V570h51v2h12v31h-8v-2Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 38\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1899,
+                "link": null,
+                "path": "M1342,601.14c-14.12,0-27.82-.09-38.49-.14H1295V578h-12V548h59Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 39\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1900,
+                "link": null,
+                "path": "M1283,546V493h59v53Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 40\u0438",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1901,
+                "link": null,
+                "path": "M1426,631h-66v23h-25v7h-2v29h-28V676h-11V663h0V604h132Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "3-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 28\u043a",
+                    "linkTitle": false,
+                    "area": 76.709999999999994,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1902,
+                "link": null,
+                "path": "M1362,675V633h65.72c0,13.87,0,27.5,0,42Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 29\u043a",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1903,
+                "link": null,
+                "path": "M1417,676h10.77c0,13.31-.1,25.94-.15,38H1362V678h55Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 30\u043a",
+                    "linkTitle": false,
+                    "area": 25.940000000000001,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1904,
+                "link": null,
+                "path": "M1375.64,757H1361V715h65.25c-.1,17.9-.2,30.92-.23,37h-13v5Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 31\u043a",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1905,
+                "link": null,
+                "path": "M1345,778V757h68v62h-30a3,3,0,0,0-3,3v10h-36V778Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 32\u043a",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1906,
+                "link": null,
+                "path": "M1314,822V777h0V758h27v19l2,1v54h-33V822Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "\u0421\u0442\u0443\u0434\u0438\u044f \u2116 33\u043a",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1907,
+                "link": null,
+                "path": "M1310,758v19h3v43h-5v12h-40V758Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "1-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 34\u043a",
+                    "linkTitle": false,
+                    "area": 37.969999999999999,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1908,
+                "link": null,
+                "path": "M1268,832h-36V822a3,3,0,0,0-3-3h-30V757h69Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 35\u043a",
+                    "linkTitle": false,
+                    "area": 0,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            },
+            {
+                "id": 1909,
+                "link": null,
+                "path": "M1280,691v47h-39v18h-32V716h-12V691Z",
+                "render": "\/webicons\/flat\/plug.svg",
+                "disabled": true,
+                "maskColor": "#FFFFFF",
+                "tooltip": {
+                    "title": "2-\u043a\u043e\u043c\u043d\u0430\u0442\u043d\u0430\u044f \u2116 36\u043a",
+                    "linkTitle": false,
+                    "area": 52.609999999999999,
+                    "price": null,
+                    "showPrice": false,
+                    "state": {
+                        "available": false,
+                        "title": "\u041f\u0440\u043e\u0434\u0430\u043d\u043e",
+                        "additionalTitle": null,
+                        "icon": null
+                    },
+                    "floor": {
+                        "value": "5",
+                        "total": 11
+                    },
+                    "block": "Aerocity 1",
+                    "options": []
+                },
+                "pointer": false,
+                "viewType": null,
+                "description": null
+            }
+        ]
+    },
+    "success": true,
+    "messages": []
+}

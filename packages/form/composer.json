@@ -1,0 +1,32 @@
+{
+    "name": "kelnik/laravel-module-form",
+    "description": "Laravel module Form",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kelnik Studios",
+            "email": "developer@kelnik.ru"
+        }
+    ],
+    "version": "1.8.5",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0",
+        "kelnik/laravel-module-core": "*",
+        "kelnik/laravel-module-page": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kelnik\\Form\\": "src/",
+            "Kelnik\\Form\\Database\\Factories\\": "database/factories/",
+            "Kelnik\\Form\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kelnik\\Form\\Providers\\FormServiceProvider"
+            ]
+        }
+    }
+}

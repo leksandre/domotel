@@ -1,0 +1,41 @@
+// DEPENDENCIES
+@import "../../../common/styles/breakpoints";
+@import "../../../common/styles/colors";
+@import "../../../common/styles/mixins";
+@import "../../../common/styles/scale";
+
+.yandex-map__fullscreen-button {
+    @include transition(background-color);
+    @include scale(width, 32, 32, 32);
+    @include scale(height, 32, 32, 32);
+    @include scale(margin-top, 8, 16, 16);
+    @include scale(right, 8, 16, 16);
+    @include scale(box-shadow, 0 2 4, 0 2 4, 0 2 4, rgba($brand-text, 0.2));
+    position: relative;
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: $white;
+    cursor: pointer;
+
+    &:hover {
+        @media #{$laptop} {
+            background-color: rgba($brand-gray-rgb, 0.9);
+        }
+    }
+
+    &.is-open {
+        svg {
+            @include scale(width, 19, 19, 19);
+            @include scale(height, 19, 19, 19);
+        }
+    }
+
+    svg {
+        @include scale(width, 14, 14, 14);
+        @include scale(height, 14, 14, 14);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        stroke: $brand-text;
+    }
+}

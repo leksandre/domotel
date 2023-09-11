@@ -1,0 +1,68 @@
+{
+  "data": {
+    "zoom": 10,
+    "zoomMargin": 20,
+    "center": [
+      59.939550,
+      30.422058
+    ],
+    "markers": [
+      {
+        "id": 52,
+        "coords": [
+          59.939550,
+          30.422058
+        ],
+        "icon": {
+          "type": "all",
+          "src": "https:\/\/sample-dev.multi.ksdev.ru\/webicons\/yandex-map\/pin.svg",
+          "size": {
+            "width": 48,
+            "height": 48
+          }
+        },
+        "type": "all",
+        "position": "top",
+        "balloon": {
+          "title": "\u0413\u043b\u0430\u0432\u043d\u044b\u0439 \u043e\u0444\u0438\u0441 \u043f\u0440\u043e\u0434\u0430\u0436",
+          "image": null,
+          "text": ""
+        },
+        "modifyClass": "object"
+      },
+      {
+        "id": 54,
+        "coords": [
+          59.939194,
+          30.415321
+        ],
+        "icon": {
+          "type": "all",
+          "src": "https:\/\/sample-dev.multi.ksdev.ru\/webicons\/yandex-map\/pin.svg",
+          "size": {
+            "width": 48,
+            "height": 48
+          }
+        },
+        "type": "all",
+        "position": "top",
+        "balloon": {
+          "title": "\u0418\u043f\u043e\u0442\u0435\u0447\u043d\u044b\u0439 \u0446\u0435\u043d\u0442\u0440 \u00ab\u0412\u0414\u041a\u00bb",
+          "image": null,
+          "text": ""
+        },
+        "modifyClass": "object"
+      }
+    ],
+    "polygons": [
+        {
+            "id": 1,
+            "coords": [
+                [59.937685, 30.408217],
+                [59.941918, 30.4298412]
+            ],
+            "image": "/images/yandex-map/bg.png"
+        }
+    ]
+  }
+}

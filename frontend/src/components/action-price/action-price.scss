@@ -1,0 +1,68 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$flat-action: $white;
+$flat-action-bg: rgba($additional-1-rgb, 1);
+$flat-action-pseudo: rgba($brand-text-rgb, 0.2);
+$flat-pre-action-price: rgba($brand-text-rgb, 0.64);
+
+// BLOCK
+.action-price {
+    display: inline-block;
+}
+
+.action-price__action-wrapper {
+    display: inline;
+}
+
+.action-price__action {
+    @include font-size(p3-bold);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    @include scale(top, -3, -3, -3);
+    @include scale(margin-left, 11, 11, 11);
+    @include scale(padding, 0 6, 0 6, 0 6);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 40, func "calc(var(--is-br) * $)" 40, func "calc(var(--is-br) * $)" 40);
+    background-color: $flat-action-bg;
+    color: $flat-action;
+
+    &:before {
+        @include pseudo();
+        @include scale(width, 3, 3, 3);
+        @include scale(height, 3, 3, 3);
+        @include scale(left, -11, -11, -11);
+        display: block;
+        top: 50%;
+        border-radius: 50%;
+        background-color: $flat-action-pseudo;
+        transform: translateY(-50%);
+    }
+}
+
+.action-price__action-icon {
+    svg {
+        @include margin-level(left, rose);
+        display: block;
+        margin-top: -1px;
+
+        circle {
+            fill: $flat-action;
+            stroke: $flat-action;
+        }
+
+        path {
+            stroke: $flat-action-bg;
+        }
+    }
+}
+
+.action-price__basic-price {
+    @include font-size(p2-regular);
+    text-decoration: line-through;
+    color: $flat-pre-action-price;
+}

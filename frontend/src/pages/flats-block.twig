@@ -1,0 +1,375 @@
+{% extends './layout/_layout.twig' %}
+{% block title %}Главная страница{% endblock %}
+
+{% block header %}
+    {% include '../components/header/header.twig' with {
+        headerModify: 'header_theme_transparent',
+        isHomePage: true,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#news',
+                name: 'Новости'
+            },{
+                href: '#promotions',
+                name: 'Акции'
+            },{
+                href: '#flats',
+                name: 'Квартиры'
+            },{
+                href: '#how-to-buy',
+                name: 'Как купить'
+            }, {
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#documents',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {# Первый экран #}
+    {% include '../sections/first-screen/first-screen.twig' with {
+        modify: 'first-screen_full_height j-main-screen',
+        version: '1',
+        compilation: true
+    } %}
+
+    {# О проекте #}
+    {% include '../sections/about/about.twig' with {
+        title: 'О проекте'
+    } %}
+
+    {# Квартиры: блок со слайдером #}
+    {% include '../sections/flats-block/flats-block.twig' with {
+        flatsTheme: 'big-slider',
+        blockModify: 'flat-block-card_theme_big-slider',
+        data: [
+            {
+                id: '242',
+                planoplan: true,
+                planoplanData: 'eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwidWlkIjoiOTRiNzI1ZTg4MDdiOThkOGJmMzhhZmE0M2U4YjVlZWE3MjZhOWZmYzA2YTNkMDY3NTQ1MzBkNjU4YTAxMDM3MiIsImVsIjoiZmJsb2NrXzMiLCJwcmltYXJ5Q29sb3IiOiIjMEIxNzM5Iiwic2Vjb25kYXJ5Q29sb3IiOiIjRjRGN0Y3IiwidGV4dENvbG9yIjoiIzAwMDAwMCIsImJhY2tncm91bmRDb2xvciI6IiNGRkZGRkYiLCJhY3RpdmVUYWIiOiJ0aHJlZV9xdWFydGVyIn0=',
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия']
+            },
+            {
+                id: '243',
+                planoplan: true,
+                planoplanData: 'eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwidWlkIjoiOTRiNzI1ZTg4MDdiOThkOGJmMzhhZmE0M2U4YjVlZWE3MjZhOWZmYzA2YTNkMDY3NTQ1MzBkNjU4YTAxMDM3MiIsImVsIjoiZmJsb2NrXzMiLCJwcmltYXJ5Q29sb3IiOiIjMEIxNzM5Iiwic2Vjb25kYXJ5Q29sb3IiOiIjRjRGN0Y3IiwidGV4dENvbG9yIjoiIzAwMDAwMCIsImJhY2tncm91bmRDb2xvciI6IiNGRkZGRkYiLCJhY3RpdmVUYWIiOiJ0aHJlZV9xdWFydGVyIn0=',
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия', 'Джакузи', 'Гардеробная']
+            },
+            {
+                id: '244',
+                src: ['/images/flat/flat-plan.png'],
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия']
+            },
+            {
+                id: '245',
+                src: ['/images/flat/flat-plan-2.png'],
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Отделка', 'Лоджия']
+            },
+            {
+                id: '246',
+                src: ['/images/flat/flat-plan.png'],
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Лоджия']
+            }
+        ]
+    } %}
+
+    {# Квартиры: блок с двумя карточками без подгрузки #}
+    {% include '../sections/flats-block/flats-block.twig' with {
+        flatsTheme: 'two-cards',
+        flatsCardCount: 2,
+        blockModify: 'flat-block-card_theme_two-cards',
+        data: [
+            {
+                id: '2421',
+                src: [
+                    {
+                        planoplanData: 'eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwidWlkIjoiOTRiNzI1ZTg4MDdiOThkOGJmMzhhZmE0M2U4YjVlZWE3MjZhOWZmYzA2YTNkMDY3NTQ1MzBkNjU4YTAxMDM3MiIsImVsIjoiZmJsb2NrXzMiLCJwcmltYXJ5Q29sb3IiOiIjMEIxNzM5Iiwic2Vjb25kYXJ5Q29sb3IiOiIjRjRGN0Y3IiwidGV4dENvbG9yIjoiIzAwMDAwMCIsImJhY2tncm91bmRDb2xvciI6IiNGRkZGRkYiLCJhY3RpdmVUYWIiOiJ0aHJlZV9xdWFydGVyIn0=',
+                    },
+                    {
+                        src: '/images/flat/flat-plan-3.png'
+                    },
+                    {
+                        src: '/images/flat/flat-plan-4.png'
+                    }
+                ],
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия']
+            },
+            {
+                id: '247',
+                src: [
+                {
+                    src: '/images/flat/flat-plan-3.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-4.png'
+                }
+            ],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: 'от 38,9 м²',
+                floor: '2 – 9',
+                price: 'от 6 010 600 ₽',
+                specials: ['Отделка', 'Французский балкон', 'Вид во двор']
+            }
+        ]
+    } %}
+
+    {# Квартиры: блок с двумя карточками с подгрузкой #}
+    {% include '../sections/flats-block/flats-block.twig' with {
+        flatsTheme: 'two-cards',
+        flatsCardCount: 2,
+        blockModify: 'flat-block-card_theme_two-cards',
+        data: [
+            {
+                id: '249',
+                src: [
+                {
+                    src: '/images/flat/flat-plan-3.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-4.png'
+                }
+            ],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: 'от 38,9 м²',
+                floor: '2 – 9',
+                price: 'от 6 010 600 ₽',
+                specials: ['Отделка', 'Французский балкон', 'Вид во двор']
+            },
+            {
+                id: '250',
+                src: ['/images/flat/flat-plan-3.png'],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Отделка', 'Лоджия', 'Кухня-гостиная']
+            },
+            {
+                id: '251',
+                src: [
+                {
+                    src: '/images/flat/flat-plan.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-2.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-3.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-4.png'
+                }
+            ],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2 +',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия']
+            },
+            {
+                id: '252',
+                src: ['/images/flat/flat-plan-2.png'],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Отделка', 'Лоджия']
+            },
+            {
+                id: '253',
+                src: ['/images/flat/flat-plan.png'],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Лоджия']
+            }
+        ]
+    } %}
+
+    {# Квартиры: блок с тремя карточками без подгрузки #}
+    {% include '../sections/flats-block/flats-block.twig' with {
+        flatsTheme: 'three-cards',
+        flatsCardCount: 3,
+        blockModify: 'flat-block-card_theme_three-cards',
+        data: [
+            {
+                id: '254',
+                src: [
+                {
+                    src: '/images/flat/flat-plan-3.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-4.png'
+                }
+            ],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: 'от 38,9 м²',
+                floor: '2 – 9',
+                price: 'от 6 010 600 ₽',
+                specials: ['Отделка', 'Французский балкон', 'Вид во двор']
+            },
+            {
+                id: '255',
+                src: ['/images/flat/flat-plan-3.png'],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Отделка', 'Лоджия', 'Кухня-гостиная']
+            },
+            {
+                id: '256',
+                src: [
+                {
+                    src: '/images/flat/flat-plan.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-2.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-3.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-4.png'
+                }
+            ],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2 +',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия']
+            }
+        ]
+    } %}
+
+    {# Квартиры: блок с тремя карточками с подгрузкой #}
+    {% include '../sections/flats-block/flats-block.twig' with {
+        flatsTheme: 'three-cards',
+        flatsCardCount: 3,
+        blockModify: 'flat-block-card_theme_three-cards',
+        data: [
+            {
+                id: '257',
+                src: [
+                {
+                    src: '/images/flat/flat-plan-3.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-4.png'
+                }
+            ],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: 'от 38,9 м²',
+                floor: '2 – 9',
+                price: 'от 6 010 600 ₽',
+                specials: ['Отделка', 'Французский балкон', 'Вид во двор']
+            },
+            {
+                id: '258',
+                src: ['/images/flat/flat-plan-3.png'],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Отделка', 'Лоджия', 'Кухня-гостиная']
+            },
+            {
+                id: '259',
+                src: [
+                {
+                    src: '/images/flat/flat-plan.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-2.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-3.png'
+                },
+                {
+                    src: '/images/flat/flat-plan-4.png'
+                }
+            ],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2 +',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Кухня-гостиная', 'Отделка', 'Лоджия']
+            },
+            {
+                id: '260',
+                src: ['/images/flat/flat-plan-2.png'],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Отделка', 'Лоджия']
+            },
+            {
+                id: '261',
+                src: ['/images/flat/flat-plan.png'],
+                showBig: true,
+                title: '1-комнатная квартира Тип 1-2',
+                area: '37,6 – 38,9 м²',
+                floor: '2 – 9',
+                price: '5 875 000 – 6 010 600 ₽',
+                specials: ['Лоджия']
+            }
+        ]
+    } %}
+
+{% endblock %}
+
+{% block footer %}
+    {% include '../sections/footer/footer.twig' %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{
+    "name": "kelnik/laravel-module-core",
+    "description": "Laravel module Core",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kelnik Studios",
+            "email": "developer@kelnik.ru"
+        }
+    ],
+    "version": "1.8.5",
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "artesaos/seotools": "^1.2",
+        "cache/memcached-adapter": "^1.0",
+        "cache/predis-adapter": "^1.0",
+        "laravel/framework": "^10.0",
+        "laravel/tinker": "^2.7",
+        "orchid/platform": "^14.0",
+        "phenx/php-font-lib": "^0.5.2",
+        "swayok/cache-filesystem-adapter": "*",
+        "swayok/alternative-laravel-cache": "^6.1",
+        "predis/predis": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kelnik\\Core\\": "src/",
+            "Kelnik\\Core\\Database\\Factories\\": "database/factories/",
+            "Kelnik\\Core\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kelnik\\Core\\Providers\\CoreServiceProvider"
+            ]
+        }
+    }
+}

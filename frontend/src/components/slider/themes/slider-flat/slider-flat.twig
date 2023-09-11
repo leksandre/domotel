@@ -1,0 +1,29 @@
+{# слайдер в карточке квартиры #}
+{% for slide in slides %}
+    <div class="slider-flat"{% if slide.caption %} data-caption="{{ slide.caption }}"{% endif %}>
+        <div class="slider-flat__inner">
+            <picture{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+                <source media="(min-width: 320px)"
+                        {% if lazy %}loading="lazy"
+                        data-{% endif %}srcset="{{ slide.src }}"
+                        type="image/jpeg">
+                <img {% if lazy %}loading="lazy"
+                     data-{% endif %}src="{{ slide.src }}"
+                     alt="{{ slide.alt }}">
+            </picture>
+        </div>
+
+        <div class="flat__controls">
+            <button class="flat__fullscreen-button j-popup-slider"
+                    data-gallery="true"
+                    data-slider="{{ sliderId }}"
+                    data-src="{{ slide.srcBig }}"
+                    data-alt="{{ slide.alt }}"
+                    data-caption="{{ slide.alt }}"
+                    aria-label="Open in fullscreen">
+                {% include '../../media/fullsize-icon.svg.twig' %}
+            </button>
+        </div>
+
+    </div>
+{% endfor %}

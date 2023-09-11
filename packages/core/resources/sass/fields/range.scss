@@ -1,0 +1,28 @@
+$range-label-color: #495057 !default;
+$range-label-width: 45px !default;
+
+span.kelnik-range-value {
+    display: inline-block;
+    position: relative;
+    width: $range-label-width;
+    color: #ffffff;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background: $range-label-color;
+    padding: 3px 7px;
+    margin-left: 8px;
+    top: -5px;
+
+    &:after {
+        position: absolute;
+        top: 6px;
+        left: -7px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-right: 7px solid $range-label-color;
+        border-bottom: 7px solid transparent;
+        content: "";
+    }
+}

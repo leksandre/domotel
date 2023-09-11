@@ -1,0 +1,61 @@
+// DEPENDENCIES
+@import "../../../common/styles/breakpoints";
+@import "../../../common/styles/colors";
+@import "../../../common/styles/mixins";
+@import "../../../common/styles/scale";
+
+.yandex-map__zoom-button {
+    @include scale(width, 32, 32, 32);
+    @include scale(height, 32, 32, 32);
+    @include transition(background-color);
+    @include scale(box-shadow, 0 2 4, 0 2 4, 0 2 4, rgba($brand-text-rgb, 0.2));
+    position: relative;
+    background-color: $white;
+    user-select: none;
+
+    &:first-child {
+        @include scale(border-top-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    }
+
+    &:last-child {
+        @include scale(border-bottom-right-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    }
+
+    &:hover {
+        @media #{$laptop} {
+            background-color: rgba($brand-gray-rgb, 0.9);
+        }
+    }
+}
+
+.yandex-map__zoom-buttons-wrapper {
+    transform: translateY(-50%);
+}
+
+.yandex-map__zoom-button_theme_zoom-in,
+.yandex-map__zoom-button_theme_zoom-out {
+    cursor: pointer;
+
+    &:after,
+    &:before {
+        @include scale(width, 12, 12, 12);
+        @include scale(height, 2, 2, 2);
+        @include transition(background-color);
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $brand-text;
+        border-radius: calc(var(--is-br) * 25%);
+        content: "";
+    }
+}
+
+.yandex-map__zoom-button_theme_zoom-in {
+    &:after {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+}

@@ -1,0 +1,38 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$emptyResultIconFill: $brand-dark;
+
+// BLOCK
+.empty-result {
+    @include row();
+    @include margin-level(both, pink);
+    flex-direction: column;
+    align-items: center;
+}
+
+// ELEMENTS
+.empty-result__icon {
+    @include margin-level(bottom, green);
+
+    path {
+        fill: $emptyResultIconFill;
+    }
+}
+
+.empty-result__title {
+    @include margin-level(bottom, tomato);
+    @include font-size(p2-regular);
+}
+
+.empty-result__text {
+    @include font-size(p3-regular);
+    text-align: center;
+
+    &:first-letter {
+        text-transform: capitalize;
+    }
+}
+
+// MODS

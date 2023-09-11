@@ -1,0 +1,69 @@
+.admin-page-list_menu {
+    float: right;
+
+    div.form-group {
+        display: table-cell;
+
+        svg {
+            scale: 1.2;
+            margin: 0 10px;
+        }
+
+        a {
+            display: inline-flex;
+            padding: 0;
+        }
+
+        button {
+            display: inline-flex;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.handle {
+    cursor: move;
+    cursor: grab;
+}
+
+.kelnik-table .admin-page-list_truncate {
+    display: inline-block !important;
+    max-width: 420px;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    line-height: initial;
+}
+
+.template-selector__group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .template-selector__label {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        gap: 1em 0;
+
+        input {
+            position: initial;
+        }
+
+        &.active {
+            span.icon {
+                border-color: #0075FF;
+                border-width: 2px;
+            }
+        }
+
+        span.icon {
+            display: block;
+            width: 300px;
+            height: 166px;
+            border: 1px solid #99A6AD66;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+    }
+}

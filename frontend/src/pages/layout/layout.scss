@@ -1,0 +1,12 @@
+// DEPENDENCIES
+@import "../../common/styles/grid-mixins";
+
+// BLOCK
+.layout {
+    @include row();
+}
+
+// ELEMENT
+.layout__content {
+    @include column(36, 36);
+}

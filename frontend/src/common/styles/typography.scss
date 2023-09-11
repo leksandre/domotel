@@ -1,0 +1,177 @@
+// ЗАВИСИМОСТИ
+@import "./colors";
+@import "./font-sizes";
+@import "./vertical-indent";
+
+// SETTINGS
+$headers-color: $brand-headers;
+$list-style: decimal, lower-alpha, lower-roman;
+
+@mixin reset-list-counter($number) {
+    $list: "";
+
+    @for $index from $number + 1 through 9 {
+        $list: $list + " list-" + $index;
+    }
+    counter-reset: unquote($list);
+}
+
+// Заголовки
+h1 {
+    @include font-size(h1);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+    color: $headers-color;
+}
+
+h2 {
+    @include font-size(h2);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+    color: $headers-color;
+}
+
+h3 {
+    @include font-size(h3);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+    color: $headers-color;
+}
+
+h4 {
+    @include font-size(h4);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+    color: $headers-color;
+}
+
+h5 {
+    @include font-size(h5);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+    color: $headers-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+p {
+    @include font-size(p1-regular);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+}
+
+// Списки
+ol,
+ul {
+    font: inherit;
+    font-size: 100%;
+    border: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.typo-reset {
+    li {
+        @include font-size(p1-regular);
+    }
+
+    ul {
+        li:before {
+            @include scale(padding-right, 5, 5, 5);
+            content: "•";
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: right;
+        }
+    }
+
+    ol {
+        counter-reset: list-0 list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+
+        > li {
+            counter-increment: list-0;
+            counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+
+            &:before {
+                @include scale(padding-right, 5, 5, 5);
+                content: counter(list-0) ". ";
+                position: absolute;
+                white-space: nowrap;
+                top: 0;
+                left: 0;
+            }
+
+            @for $num from 1 through 9 {
+                &.ql-indent-#{$num} {
+                    @include reset-list-counter($num);
+                    counter-increment: unquote("list-#{$num}");
+
+                    &:before {
+                        // @include scale(width, $indent, $indent, $indent);
+                        content: counter(unquote("list-#{$num}"), nth($list-style, $num % 3 + 1)) ". ";
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
+    ul,
+    ol {
+        li {
+            @include scale(padding-left, 24, 24, 24);
+            position: relative;
+
+            &:not(:first-child) {
+                @include margin-level(top, yellow);
+            }
+        }
+
+        &:not(:first-child) {
+            @include margin-level(top, yellow);
+        }
+
+        ol,
+        ul {
+            @include margin-level(top, yellow);
+        }
+    }
+
+    ul ul,
+    ol ol {
+        @include scale(margin-left, 40, 40, 40);
+    }
+
+    @for $num from 1 through 9 {
+        .ql-indent-#{$num} {
+            $indent: 24 * ($num + 1);
+            @include scale(padding-left, $indent, $indent, $indent);
+
+            &:before {
+                @include scale(width, $indent, $indent, $indent);
+            }
+        }
+    }
+}

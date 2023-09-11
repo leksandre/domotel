@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "target": "es2019",
+        "module": "esnext",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "allowJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "types": [
+            "node",
+            "webpack-env",
+            "user-agent-data-types"
+        ],
+        "paths": {
+            "@/*": ["../src/*"]
+        },
+        "lib": [
+            "es6",
+            "dom",
+            "dom.iterable",
+            "scripthost",
+            "ES2021.String"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "../src/**/*.ts",
+        "../src/**/*.tsx",
+        "../src/**/*.vue",
+        "../src/**/*.js"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,0 +1,190 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$tooltip-bg: $white;
+$tooltip-bg-floor-switcher: $black;
+$tooltip-text-floor-switcher: $white;
+$tooltip-text-light: rgba($brand-text-rgb, 0.7);
+$list-divider-bg: rgba($brand-text-rgb, 0.2);
+$action-bg: $additional-1;
+$action-text: $white;
+$pre-action-price: rgba($brand-text-rgb, 0.64);
+
+// BLOCK
+.visual-tooltip {
+    @include padding-level(top, orange);
+    @include padding-level(bottom, yellow);
+    @include scale(min-width, 280, 280, 280);
+    @include scale(padding-left, 24, 24, 24);
+    @include scale(padding-right, 24, 24, 24);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 6, func "calc(var(--is-br) * $)" 6, func "calc(var(--is-br) * $)" 6);
+    display: block;
+    position: absolute;
+    background-color: $tooltip-bg;
+    pointer-events: none;
+    z-index: z(visualtooltip);
+
+    &:before {
+        @include scale(border, 8, 8, 8, solid transparent);
+        @include scale(border-top, 8, 8, 8, solid #{$tooltip-bg});
+        content: "";
+        position: absolute;
+        bottom: 1px;
+        left: 50%;
+        transform: translate(-50%, 100%);
+    }
+
+    &.is-under {
+        &:before {
+            @include scale(border-top, 8, 8, 8, solid transparent);
+            @include scale(border-bottom, 8, 8, 8, solid #{$tooltip-bg});
+            top: 0;
+            bottom: auto;
+            transform: translate(-50%, -100%);
+        }
+    }
+
+    &.is-right {
+        &:before {
+            @include scale(border-top, 8, 8, 8, solid transparent);
+            @include scale(border-right, 8, 8, 8, solid #{$tooltip-bg});
+            top: 50%;
+            left: 0;
+            bottom: auto;
+            transform: translate(-100%, -50%);
+        }
+    }
+
+    &.is-left {
+        &:before {
+            @include scale(border-top, 8, 8, 8, solid transparent);
+            @include scale(border-left, 8, 8, 8, solid #{$tooltip-bg});
+            top: 50%;
+            left: auto;
+            right: 0;
+            bottom: auto;
+            transform: translate(100%, -50%);
+        }
+    }
+}
+
+// ELEMENTS
+.visual-tooltip__header {
+    &:not(:last-child) {
+        @include padding-level(bottom, orange);
+        border-bottom: 1px solid rgba($black-rgb, 0.1);
+    }
+}
+
+.visual-tooltip__title {
+    @include font-size(p1-bold);
+}
+
+.visual-tooltip__deadline {
+    @include font-size(p3-regular);
+    color: $tooltip-text-light;
+}
+
+.visual-tooltip__params {
+    @include padding-level(top, orange);
+}
+
+.visual-tooltip__param {
+    @include margin-level(bottom, tomato);
+    @include font-size(p3-regular);
+    display: flex;
+    justify-content: space-between;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.visual-tooltip__param-flats {
+    @include margin-level(right, orange);
+    width: 50%;
+    white-space: nowrap;
+}
+
+.visual-tooltip__param-amount {
+    @include margin-level(right, orange);
+    width: 20%;
+    text-align: right;
+}
+
+.visual-tooltip__value {
+    width: 30%;
+    text-align: right;
+}
+
+.visual-tooltip__price {
+    @include margin-level(right, tomato);
+    @include font-size(p1-bold);
+}
+
+// MODS
+.visual-tooltip_width_auto {
+    width: auto;
+}
+
+.visual-tooltip_theme_floor {
+    &:not(.visual-tooltip_width_auto) {
+        @include scale(width, 320, 320, 320);
+    }
+
+    .visual-tooltip__header {
+        @include margin-level(bottom, tomato);
+        @include row();
+        align-items: baseline;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .visual-tooltip__title {
+        &:not(:only-of-type):not(:last-of-type) {
+            @include scale(margin-right, 20, 20, 20);
+            position: relative;
+
+            &:after {
+                @include pseudo();
+                @include scale(width, 3, 3, 3);
+                @include scale(height, 3, 3, 3);
+                @include scale(right, -11, -11, -11);
+                top: 50%;
+                display: block;
+                border-radius: 50%;
+                background-color: $list-divider-bg;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.visual-tooltip_theme_floor-switcher {
+    @include font-size(p3-regular);
+    @include scale(padding, 12 16, 12 16, 12 16);
+    width: auto;
+    background-color: $tooltip-bg-floor-switcher;
+    color: $tooltip-text-floor-switcher;
+
+    &.visual-tooltip {
+        &.is-under {
+            &:before {
+                @include scale(border-bottom, 8, 8, 8, solid #{$tooltip-bg-floor-switcher});
+            }
+        }
+
+        &.is-right {
+            &:before {
+                @include scale(border-right, 8, 8, 8, solid #{$tooltip-bg-floor-switcher});
+            }
+        }
+
+        &.is-left {
+            &:before {
+                @include scale(border-left, 8, 8, 8, solid #{$tooltip-bg-floor-switcher});
+            }
+        }
+    }
+}

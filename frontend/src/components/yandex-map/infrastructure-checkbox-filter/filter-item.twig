@@ -1,0 +1,12 @@
+<li class="map-filter__infrastructure-item">
+    <label class="map-filter__infrastructure-label">
+        {% include "../../../components/legend/media/"~ icon %} {{ name }}
+        <input class="map-filter__checkbox j-map-filter-item" type="checkbox" id="{{ id }}" name="{{ id }}" data-type="{{ id }}" checked>
+
+        <span class="map-filter__fake-checkbox">
+            <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 3.72727L4.67647 7L10.5 1" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </span>
+    </label>
+</li>

@@ -1,0 +1,31 @@
+<div class="text-content">
+    <div class="text-content__icon{% if isAnimation %} j-animation__item{% endif %}">
+        <img src="/webicons/text-content/{{ icon }}" alt="">
+    </div>
+    <div class="text-content__main">
+        <div class="text-content__title{% if isAnimation %} j-animation__item{% endif %}">
+            <h3>{{ title }}</h3>
+        </div>
+        <div class="text-content__text{% if isAnimation %} j-animation__content{% endif %}">
+            {% for text in texts %}
+                <p>{{ text }}</p>
+            {% endfor %}
+
+            <div class="text-content__button{% if isAnimation %} j-animation__content-item{% endif %}">
+                {% include '../../components/button/button.twig' with {
+                    href: 'http://sample-dev.multi.ksdev.ru/kvartiry/',
+                    text: 'Параметрический поиск'
+                } %}
+            </div>
+
+            {% if list %}
+                <ul>
+                    {% for item in list %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+    </div>
+</div>

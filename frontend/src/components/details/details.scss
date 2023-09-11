@@ -1,0 +1,111 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+// https://css-tricks.com/how-to-animate-the-details-element/
+$details-brd: $brand-gray;
+$details-summary-accent-color: $brand-dark;
+
+// BLOCK
+.details {
+    details {
+        width: 100%;
+
+        &:not(:last-child) {
+            summary {
+                @include scale(border-bottom, 1, 1, 1, solid $details-brd);
+            }
+        }
+
+        &[data-open="true"] {
+            .summary__icon:after {
+                transform: rotate(180deg) translate(-50%, -50%);
+            }
+            
+            .flat__more-details-icon {
+                transform: rotate(180deg);
+            }
+
+            .navigation-fullscreen__sub-ico {
+                transform: scaleY(-1);
+            }
+
+            .summary__text {
+                color: $details-summary-accent-color;
+            }
+        }
+    }
+
+    summary {
+        @include padding-level(both, orange);
+        display: flex;
+        align-items: center;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+}
+
+// ELEMENTS
+.summary__icon {
+    @include scale(border, 1, 1, 1, solid $details-brd);
+    @include scale(margin-right, 20, 20, 20);
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    display: block;
+    position: relative;
+    border-radius: calc(var(--is-br) * 50%);
+    flex-shrink: 0;
+
+    &:before,
+    &:after {
+        @include pseudo();
+        @include scale(border-radius, func "calc(var(--is-br) * $)" 2, func "calc(var(--is-br) * $)" 2, func "calc(var(--is-br) * $)" 2);
+        @include scale(width, 14, 14, 14);
+        @include scale(height, 2, 2, 2);
+        background-color: $details-summary-accent-color;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &:after {
+        @include transition(transform);
+        transform: rotate(90deg) translate(-50%, -50%);
+        transform-origin: 0 0;
+    }
+}
+
+.summary__text {
+    @include transition(color);
+    @include font-size(h5);
+}
+
+.summary__count {
+    @include font-size(p3-bold);
+    @include scale(padding, 0 12, 0 12, 0 12);
+    @include scale(border, 1, 1, 1, solid $details-brd);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 50, func "calc(var(--is-br) * $)" 50, func "calc(var(--is-br) * $)" 50);
+    display: block;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.details__content {
+    @include padding-level(top, cyan);
+    @include padding-level(bottom, violet);
+    @include scale(border-top, 1, 1, 1, solid $details-brd);
+    @include scale(border-bottom, 1, 1, 1, solid $details-brd);
+    @include scale(margin-top, -1, -1, -1);
+    @include scale(margin-bottom, -1, -1, -1);
+}
+
+// MODS

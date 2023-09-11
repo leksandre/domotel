@@ -1,0 +1,31 @@
+{
+    "name": "kelnik/laravel-module-image",
+    "description": "Laravel module Image",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kelnik Studios",
+            "email": "developer@kelnik.ru"
+        }
+    ],
+    "version": "1.8.5",
+    "require": {
+        "php": "^8.1",
+        "ext-fileinfo": "*",
+        "illuminate/support": "^10.0",
+        "intervention/image": "^2.6",
+        "kelnik/laravel-module-core": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kelnik\\Image\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kelnik\\Image\\Providers\\ImageServiceProvider"
+            ]
+        }
+    }
+}

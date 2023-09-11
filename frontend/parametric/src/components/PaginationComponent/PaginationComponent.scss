@@ -1,0 +1,39 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$pagination-active-color: $brand-text;
+$pagination-active-bg: $brand-gray-light;
+
+// BLOCK
+.pagination {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    overflow-x: auto;
+
+    &:not(:first-child) {
+        @include margin-level(top, yellow);
+    }
+
+    button {
+        flex-shrink: 0;
+    }
+}
+
+// ELEMENTS
+.pagination__wrapper {
+    @include margin-level(top, cyan);
+}
+
+.pagination__button {
+    &.is-active {
+        background-color: $pagination-active-bg;
+
+        span {
+            color: $pagination-active-color;
+        }
+    }
+}
+
+// MODS

@@ -1,0 +1,8 @@
+<div class="yandex-map {{ class }}"
+    {% if url %} data-ajax="{{ url }}" {% endif %}
+    {% if json %} data-json="{{ json }}" {% endif %}
+>
+    <div class="yandex-map__container">
+        <div id="{{ id }}" class="yandex-map__base j-yandex-map-base"></div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{# слайдер в карточке квартиры #}
+{% for slide in slides %}
+    <div class="flat-block-card__gallery"{% if slide.caption %} data-caption="{{ slide.caption }}"{% endif %}>
+        {% if slide.planoplanData %}
+            <div class="flat-block-card__widget j-slider__widget"
+                 id="slide-{{ sliderId }}"
+                 data-planoplan="{{ slide.planoplanData }}">
+            </div>
+        {% else %}
+
+            <picture{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+                <source media="(min-width: 320px)"
+                        {% if lazy %}loading="lazy"
+                        data-{% endif %}srcset="{{ slide.src }}"
+                        type="image/jpeg">
+                <img {% if lazy %}loading="lazy"
+                     data-{% endif %}src="{{ slide.src }}"
+                     alt="{{ slide.alt }}">
+            </picture>
+
+            <div class="flat__controls">
+                <button class="flat__fullscreen-button j-popup-slider"
+                        data-gallery="true"
+                        data-slider="{{ sliderId }}"
+                        data-src="{{ slide.src }}"
+                        data-alt="{{ slide.alt }}"
+                        data-caption="{{ slide.alt }}"
+                        aria-label="Open in fullscreen">
+                    {% include '../../media/fullsize-icon.svg.twig' %}
+                </button>
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}

@@ -1,0 +1,21 @@
+{#variables#}
+{% set color = '#95d0a1' %}
+
+{#component#}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {% include '_head.twig' %}
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body class="{% block bodyModify %}{% endblock %}">
+        {% block header %}{% endblock %}
+        <main>
+            {% block content %}{% endblock %}
+            <script src="https://www.youtube.com/iframe_api"></script>
+            <script async src="/js/common/app.js"></script>
+        </main>
+        {% block footer %}{% endblock %}
+        {% include '../../components/cookies-notice/cookies-notice.twig' %}
+</body>
+</html>

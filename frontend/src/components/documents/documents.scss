@@ -1,0 +1,90 @@
+// DEPENDENCIES
+@import "../../common/styles/colors-basic";
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$document-text: rgba($brand-text-rgb, 0.5);
+$document-link: $brand-text;
+$document-link-hover: $brand-dark;
+$document-icon-color: $brand-dark;
+$document-icon-angle-color: $brand-base;
+
+// BLOCK
+.document {
+    display: flex;
+
+    &:not(:last-child) {
+        @include margin-level(bottom, green);
+    }
+}
+
+// ELEMENTS
+.document__icon {
+    @include post(2, 30);
+
+    @media #{$tablet-portrait} {
+        @include post(1, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        @include post(0.75, 30);
+    }
+}
+
+.document__icon svg {
+    path:nth-child(1) {
+        fill: $brand-dark;
+    }
+
+    path:nth-child(2) {
+        fill: rgba-to-rgb(rgba($basic-brand-dark, 0.55));
+    }
+}
+
+.document__title {
+    @include transition(color);
+    @include margin-level(bottom, tomato);
+    @include font-size(p2-regular);
+    display: inline-block;
+    color: $document-link;
+
+    @media #{$laptop} {
+        &:hover {
+            color: $document-link-hover;
+        }
+    }
+}
+
+.document__info {
+    @include font-size(p2-regular);
+    color: $document-text;
+}
+
+.document__size span {
+    text-transform: uppercase;
+}
+
+.document__info > span {
+    @include post(1, 30);
+    display: inline-block;
+
+    @media #{$tablet-portrait} {
+        &:not(:last-of-type) {
+            margin-bottom: 0;
+        }
+    }
+
+    @media #{$tablet-landscape} {
+        @include post(0.75, 30);
+    }
+
+    &:not(:last-of-type) {
+        @include margin-level(bottom, tomato);
+    }
+}
+
+// MODS

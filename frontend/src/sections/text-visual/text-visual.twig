@@ -1,0 +1,55 @@
+{% set gallerySlides = [
+    {
+        src: '/images/picture/first-screen-bg.jpg',
+        srcBig: '/images/picture/first-screen-bg.jpg',
+        alt: 'Изображение ЖК',
+        caption: 'Жилой комплекс расположен на берегу «Теплостанского пруда»  '
+    },{
+        src: '/images/picture/first-screen-bg.jpg',
+        srcBig: '/images/picture/first-screen-bg.jpg',
+        alt: 'Изображение ЖК',
+        caption: 'Жилой комплекс расположен на берегу «Теплостанского пруда»  '
+    },{
+        src: '/images/picture/first-screen-bg.jpg',
+        srcBig: '/images/picture/first-screen-bg.jpg',
+        alt: 'Изображение ЖК',
+        caption: 'Жилой комплекс расположен на берегу «Теплостанского пруда»  '
+    },{
+        src: '/images/picture/first-screen-bg.jpg',
+        srcBig: '/images/picture/first-screen-bg.jpg',
+        alt: 'Изображение ЖК',
+        caption: 'Жилой комплекс расположен на берегу «Теплостанского пруда»  '
+    }
+] %}
+
+<section class="section{% if modify %} {{ modify }}{% endif %}{% if animationClass %} {{ animationClass }}{% endif %}
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid{% if reverse %} grid_theme_reverse{% endif %}">
+        <div class="grid__row">
+            <div class="grid__text">
+                {% include '../../components/text-content/text-content.twig' with {
+                    isAnimation: animationClass ? true : false,
+                    icon: 'icon-car.svg',
+                    title: 'Заголовок h5 УТП',
+                    texts: [
+                        'Текст УТП в несколько строк. Желательно не больше 400 символов описания. На территории ЖК мы строим детский садик на 120 мест и школу на 450 мест. А в каждом дворе защищенная детская площадка для игр. В «Берёзке» есть всё для счастливого детства.'
+                    ],
+                    list: [
+                        'Детский сад на 120 детей',
+                        'Школа на 450 детей',
+                        'Фактойд'
+                    ]
+                }%}
+            </div>
+            <div class="grid__visual {% if animationClass %} j-animation__item{% endif %}">
+                {% include '../../components/gallery-mini/gallery-mini.twig' with {
+                    sliderClassId: sliderClassId|default('j-slider-mini'),
+                    lazy: true,
+                    sliderId,
+                    sliderModify,
+                    gallerySlides
+                }%}
+            </div>
+        </div>
+    </div>
+</section>

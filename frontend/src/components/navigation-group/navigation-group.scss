@@ -1,0 +1,217 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$header-nav-color: $brand-text;
+$header-nav-color-group: rgba($brand-text-rgb, 0.5);
+$header-nav-state-icon: $brand-text;
+$navigation-link-color-hover: $brand-base;
+
+// BLOCK
+.navigation-group {
+    @include row();
+    @include transition(opacity);
+    align-items: baseline;
+    opacity: 0;
+    visibility: hidden;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// ELEMENTS
+.navigation-group__item {
+    @include margin-level(right, yellow);
+    position: relative;
+    display: none;
+    align-items: baseline;
+    // width: 100%;
+    cursor: pointer;
+
+    // STATES
+    &.is-show {
+        @include row();
+    }
+
+    &.is-group {
+        padding-right: 0;
+        padding-left: 0;
+
+        .navigation-group__grouper {
+            @include font-size(p2-bold);
+            color: $header-nav-color;
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .navigation-group__grouper-icon svg {
+            display: block;
+        }
+
+        .navigation {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &.is-open {
+        .navigation {
+            opacity: 1;
+            visibility: visible;
+            z-index: z(default);
+        }
+
+        .button svg,
+        .navigation-group__grouper-icon svg {
+            transform: rotateX(180deg);
+        }
+    }
+
+    &:not(.is-open) {
+        .navigation__link {
+            @include font-size(p2-bold);
+        }
+
+        .navigation_theme_group {
+            pointer-events: none;
+        }
+    }
+
+    // разделитель между сгруппированными элементами
+    &:not(.is-group) {
+        .navigation-group__grouper {
+            .navigation__item:not(:first-child) {
+                position: relative;
+
+                &:before {
+                    @include pseudo();
+                    @include scale(left, -16, -16, -16);
+                    font-weight: 700;
+                    color: $header-nav-color;
+                    content: "/";
+                }
+            }
+        }
+    }
+}
+
+.navigation-group__grouper {
+    @include row();
+    @include scale(margin-right, 8, 8, 8);
+    @include scale(padding, 18 0, 18 0, 18 0);
+    @include font-size(p2-regular);
+    align-items: flex-start;
+    color: $header-nav-color-group;
+
+    &:after {
+        @include pseudo();
+        @include scale(height, null, 30, 30);
+        @include scale(bottom, null, -30, -30);
+        left: 0;
+        width: 100%;
+        z-index: z(zero);
+        background-color: transparent;
+    }
+
+    & > .navigation-group__grouper-nested {
+        @include transition(transform, opacity);
+        transition-duration: 0.45s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: z(hide);
+    }
+
+    &:hover {
+        // Media
+        @media #{$tablet-landscape} {
+            & > .navigation-group__grouper-nested {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+                z-index: z(default);
+                transform: translateX(0);
+            }
+        }
+
+        & > .navigation-group__grouper-nested {
+            @include scale(translateX, null, 24, 24);
+        }
+    }
+
+    .navigation {
+        @include scale(margin-left, 8, 8, 8);
+    }
+
+    .button {
+        @include scale(height, 36, 40, 40);
+
+        svg {
+            @include transition(transform);
+        }
+    }
+}
+
+.navigation-group__grouper-item {
+    display: flex;
+    align-items: center;
+
+    &:hover:not(.is-active) {
+        // Media
+        @media #{$tablet-landscape} {
+            color: $navigation-link-color-hover;
+        }
+
+        .navigation-group__grouper-icon svg {
+            // Media
+            @media #{$tablet-landscape} {
+                stroke: $navigation-link-color-hover;
+            }
+        }
+    }
+}
+
+.navigation-group__grouper-icon svg {
+    @include margin-level(left, tomato);
+    @include transition(transform);
+    display: none;
+    stroke: $header-nav-state-icon;
+}
+
+// MODS
+.navigation-group__grouper-nested {
+    @include scale(min-width, null, 200, 200);
+    @include scale(border-radius, null, func "calc(var(--is-br) * $)" 12, func "calc(var(--is-br) * $)" 12);
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 100%;
+    top: 0;
+    background-color: $white;
+
+    .navigation {
+        @include scale(min-width, null, 200, 200);
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+.navigation-group__grouper_theme_nested {
+    padding: 0;
+
+    .navigation__item-button {
+        @include scale(padding, null, 12 16, 12 16);
+        position: relative;
+        width: 100%;
+    }
+}

@@ -1,0 +1,21 @@
+{# Verson 1.4 #}
+{# Documentation - https://kelnik.gitbooks.io/kelnik-documentation/content/front-end/picture.html #}
+{% set sourcePathFormat = source|split('.') %}
+{% set sourcePathName = sourcePathFormat[0] %}
+{% set sourceName = sourcePathName|split('/')|last %}
+{% set sourceFormat = sourcePathFormat|last %}
+{% set counter = 0 %}
+
+{% if not alt %}
+    <h1 style="color: red; font-size: 100px">Укажи, пожалуйста, alt у тега picture. Спасибо.</h1>
+{% else %}
+    <picture{% if class %} class="{{ class }}"{% endif %}{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+        {% if webp %}
+            <source media="(min-width: 320px)" {% if lazy %}loading="lazy" data-{% endif %}srcset="{{ sourcePathName }}.webp" type="image/webp">
+        {% endif %}
+        <source media="(min-width: 320px)" {% if lazy %}loading="lazy" data-{% endif %}srcset="{{ sourcePathName }}.{{ sourceFormat }}" type="image/jpeg">
+
+
+        <img {% if lazy %}loading="lazy" data-{% endif %}src="{{ sourcePathName }}.{{ sourceFormat }}" alt="{{ alt|default(sourceName) }}">
+    </picture>
+{% endif %}

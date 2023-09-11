@@ -1,0 +1,280 @@
+{% extends "./layout/_layout.twig" %}
+
+{% block header %}
+    {% include '../components/header/header.twig' with {
+        isHomePage: false,
+        navigation: [
+            {
+                href: 'home.html#about',
+                name: 'О проекте'
+            },{
+                href: 'home.html#location',
+                name: 'Расположение'
+            },{
+                href: 'home.html#news',
+                name: 'Новости'
+            },{
+                href: 'home.html#promotions',
+                name: 'Акции'
+            },{
+                href: 'home.html#how-to-buy',
+                name: 'Как купить'
+            }, {
+                href: 'home.html#progress',
+                name: 'Ход строительства'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {# Форма и элементы #}
+    <div class="section">
+        <div class="grid">
+            <div class="grid__common">
+                <div class="grid__wrapper">
+                    <div class="grid__row">
+                            <div id="callback" class="form j-form">
+                                <form action="/tests/form.php" method="post" class="form__form"
+                                      data-validate data-validate-check="key" data-validate-check="submit">
+
+                                    <input name="message_bot" type="hidden" value="hi, i'm bot">
+                                    <div class="form__title">Заказ звонка</div>
+                                    <div class="form__caption">Менеджер перезвонит вам и ответит на вопросы</div>
+
+                                    <!-- data_validate_required - валидируется ли поле -->
+                                    <!-- data_validate_letters - валидация ввода символов (буквы, заглавные буквы, пробелы) -->
+                                    <!-- data_validate_name - уникальное имя поля для валидации -->
+                                    <!-- data_validate_required_msg - сообщение ошибки валидации -->
+                                    <!-- data_validate_min - минимальное количество символов -->
+                                    <!-- data_validate_min_msg - сообщение ошибки валидации количества символов (min) -->
+                                    <!-- data_validate_max - максимальное количество символов -->
+                                    <!-- data_validate_max_msg - сообщение ошибки валидации количества символов (max) -->
+
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'name',
+                                            label: 'Текстовое поле с иконкой',
+                                            icon: 'input-icon.svg',
+                                            ariaLabel: 'Ваше имя',
+                                            placeholder: 'Введите ваше имя',
+                                            infoPin: true,
+                                            data_validate_required: true,
+                                            data_validate_letters: true,
+                                            data_validate_name: 'name',
+                                            data_validate_required_msg: 'Укажите ваше имя',
+                                            data_validate_min: 3,
+                                            data_validate_min_msg: 'Имя должно состоять как минимум из $ символов'
+                                        } %}
+                                    </div>
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'name',
+                                            label: 'Текстовое поле короткое',
+                                            ariaLabel: 'Ваше имя',
+                                            placeholder: 'Введите ваше имя',
+                                            data_validate_required: true,
+                                            data_validate_letters: true,
+                                            data_validate_name: 'name2',
+                                            data_validate_required_msg: 'Укажите ваше имя',
+                                            data_validate_min: 3,
+                                            data_validate_min_msg: 'Имя должно состоять как минимум из $ символов'
+                                        } %}
+                                    </div>
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'name',
+                                            label: 'Текстовое поле короткое (disabled)',
+                                            disabled: true,
+                                            ariaLabel: 'Ваше имя',
+                                            placeholder: 'Введите ваше имя',
+                                            data_validate_required: true,
+                                            data_validate_letters: true,
+                                            data_validate_name: 'name2',
+                                            data_validate_required_msg: 'Укажите ваше имя',
+                                            data_validate_min: 3,
+                                            data_validate_min_msg: 'Имя должно состоять как минимум из $ символов'
+                                        } %}
+                                    </div>
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'name',
+                                            isTextarea: true,
+                                            label: 'Текстовое поле длинное',
+                                            ariaLabel: 'Ваше текст',
+                                            placeholder: 'Введите текст',
+                                            data_validate_required: true,
+                                            data_validate_name: 'textarea',
+                                            data_validate_required_msg: 'Введите текст',
+                                            data_validate_max: 10,
+                                            data_validate_max_msg: 'Максимальное количество - $ символов'
+                                        } %}
+                                    </div>
+
+
+                                    <!-- data_validate_mask - формат маски -->
+                                    <!-- data_validate_mask_msg - ошибка валидации маски -->
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'phone',
+                                            label: 'Мобильный телефон',
+                                            ariaLabel: 'Мобильный телефон',
+                                            placeholder: 'Введите ваш телефон',
+                                            data_validate_required: true,
+                                            data_validate_name: 'phone',
+                                            data_validate_mask: '+ 7 (999) 999-99-99',
+                                            data_validate_mask_msg: 'Номер телефона должен состоять из 10 цифр',
+                                            data_validate_required_msg: 'Укажите номер телефона'
+                                        } %}
+                                    </div>
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'phone',
+                                            label: 'Мобильный телефон',
+                                            ariaLabel: 'Мобильный телефон',
+                                            placeholder: 'Введите ваш телефон',
+                                            data_validate_required: true,
+                                            data_validate_name: 'phone2',
+                                            data_validate_mask: '+ 1 (999) 999-99-99',
+                                            data_validate_mask_msg: 'Номер телефона должен состоять из 10 цифр',
+                                            data_validate_required_msg: 'Укажите номер телефона'
+                                        } %}
+                                    </div>
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'time',
+                                            label: 'Удобное время звонка',
+                                            ariaLabel: 'Удобное время звонка',
+                                            placeholder: 'Любое время',
+                                            data_validate_required: true,
+                                            data_validate_name: 'time',
+                                            data_validate_required_msg: 'Укажите удобное время звонка'
+                                        } %}
+                                    </div>
+
+                                    <div class="form__input">
+                                        {% include '../components/form/custom-select/custom-select.twig' with {
+                                            name: "complex",
+                                            jclass: "j-form__select j-custom-select_single_select",
+                                            multiple: false,
+                                            disabled: false,
+                                            label: 'Удобное время звонка',
+                                            placeholder: 'Выберите удобное для Вас время звонка',
+                                            checkboxModify: 'checkbox_theme_accent',
+                                            validation: true,
+                                            validationText: 'Выберите 1 значение',
+                                            validationName: 'callback_select',
+                                            infoPin: true,
+                                            infoPinText: 'Обрати внимание, что часы указаны по московскому времени',
+                                            options: [{
+                                                value: "1",
+                                                name: 'all',
+                                                text: "Любое",
+                                                inputText: "Любое",
+                                                disabled: false,
+                                                selected: false
+                                            }, {
+                                                value: "2",
+                                                name: 'nine',
+                                                text: "9.00 - 12.00",
+                                                inputText: "9.00 - 12.00",
+                                                disabled: false,
+                                                selected: false
+                                            },{
+                                                value: "3",
+                                                name: 'twelve',
+                                                text: "12.00 - 15:00",
+                                                inputText: "12.00 - 15:00",
+                                                disabled: false,
+                                                selected: false
+                                            },{
+                                                value: "4",
+                                                name: 'fifteen',
+                                                text: "15.00 - 18:00",
+                                                inputText: "15.00 - 18:00",
+                                                disabled: false,
+                                                selected: false
+                                            },{
+                                                value: "5",
+                                                name: 'deep_night',
+                                                text: "18.00 - 21.00",
+                                                inputText: "18.00 - 21.00",
+                                                disabled: false,
+                                                selected: false
+                                            }]
+                                        } %}
+                                    </div>
+
+                                    <div class="form__input">
+                                        {% include '../components/form/input/input.twig' with {
+                                            name: 'email',
+                                            type: 'email',
+                                            label: 'Электронная почта',
+                                            ariaLabel: 'Электронная почта',
+                                            placeholder: 'E-mail адрес',
+                                            data_validate_required: true,
+                                            data_validate_name: 'email',
+                                            data_validate_required_msg: 'Укажите e-mail адрес'
+                                        } %}
+                                    </div>
+
+                                    <!-- data-send-text - текст при отправке -->
+                                    <!-- data-success-text - текст при успешной отправке -->
+                                    <!-- data-error-text - текст при ошибке отправки -->
+                                    <div class="form__submit">
+                                        {% include '../components/button/button.twig' with {
+                                            type: 'submit',
+                                            dataAttr: 'data-send-text="Отправляем..." data-success-text="Отправлено" data-error-text="Повторить отправку"',
+                                            modify: 'button_width_block button_size_mega j-form-submit',
+                                            ariaLabel: 'Заказать звонок',
+                                            text: 'Заказать звонок'
+                                        }%}
+                                    </div>
+
+                                    <!-- Соглашение с чекбоксом -->
+                                    <div class="form__agreement">
+                                        {% include '../components/form/agreement/agreement.twig' %}
+                                    </div>
+
+                                    <!-- Соглашение текстом -->
+                                    <div class="form__agreement">
+                                        {% include '../components/form/agreement/agreement.twig' with {
+                                            type: 'text'
+                                        } %}
+                                    </div>
+                                </form>
+
+                                <!-- Сообщение ошибки -->
+                                <div class="form__response j-form-success">
+                                    <div class="form__response-heading">Форма отправлена</div>
+                                    <div class="form__response-message">
+                                        Менеджер перезвонит
+                                    </div>
+                                </div>
+
+                                <!-- Сообщение успеха -->
+                                <div class="form__response j-form-error">
+                                    <div class="form__response-heading">Ошибка</div>
+                                    <div class="form__response-message">
+                                        Попробуйте заполнить форму позднее
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include '../sections/footer/footer.twig' %}
+{% endblock %}

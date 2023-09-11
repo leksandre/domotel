@@ -1,0 +1,178 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$price-color: $brand-text;
+$discount-bg: $additional-1;
+$discount-color: $white;
+$info-pin-bg: $white;
+$info-pin-fill: $additional-1;
+$mortgage-border: rgba($brand-text-rgb, 0.1);
+$mortgage-link-color: $brand-dark;
+
+.price {
+    position: relative;
+    width: 100%;
+    // overflow: hidden;
+}
+
+.price__wrapper {
+    @include row();
+    align-items: center;
+}
+
+.price__basic {
+    @include font-size(p3-regular);
+    color: $price-color;
+    text-decoration: line-through;
+    width: 100%;
+    opacity: 0.4;
+}
+
+.price__current {
+    @include font-size(h5);
+    color: $price-color;
+}
+
+.price__discount {
+    @include scale(padding, 1 4 1 6, 1 4 1 6, 1 4 1 6);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 40, func "calc(var(--is-br) * $)" 40, func "calc(var(--is-br) * $)" 40);
+    @include row();
+    @include font-size(p3-bold);
+    color: $discount-color;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+    background-color: $discount-bg;
+
+    .info-pin {
+        @include scale(width, 12, 12, 12);
+        @include scale(height, 12, 12, 12);
+        background-color: $info-pin-bg;
+
+        rect {
+            fill: $info-pin-fill;
+        }
+    }
+
+    .info-pin__tooltip {
+        @include scale(top, -10, -10, -10);
+        right: 10%;
+        transform: translate(10%, -100%);
+
+        &:before {
+            @include scale(bottom, -10, -10, -10);
+            @include scale(border-top, 5, 5, 5, solid $white);
+            left: auto;
+            right: 10%;
+            transform: translateX(0);
+
+            // MEDIA
+            @media #{$tablet-landscape} {
+                top: auto;
+                border-right-color: transparent;
+            }
+        }
+    }
+}
+
+.price__discount-text {
+    padding-top: 1px;
+}
+
+.price__mortgage-wrapper {
+    @include transition(height, opacity);
+    @include row();
+    align-items: center;
+    border-top: 1px solid $mortgage-border;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: z(hide);
+
+    &.is-active {
+        @include margin-level(top, orange);
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        z-index: z(default);
+    }
+
+    &.is-empty {
+        position: relative;
+
+        .price__mortgage-empty {
+            opacity: 0.85;
+            visibility: visible;
+            z-index: z(default);
+        }
+
+        // &:before {
+        //     @include pseudo();
+        //     width: 100%;
+        //     height: 100%;
+        //     top: 0;
+        //     left: 0;
+        //     backdrop-filter: blur(10px);
+        //     background-color: $white;
+        //     opacity: 0.85;
+        //     z-index: z(default);
+        // }
+
+        // &:after {
+        //     @include pseudo();
+        //     content: "Измените условия в блоке ипотечного калькулятора";
+        //     top: 50%;
+        //     text-align: center;
+        //     color: $brand-text;
+        //     font-weight: 600;
+        //     transform: translateY(-50%);
+        //     z-index: z(default);
+        // }
+    }
+}
+
+.price__mortgage-title {
+    @include padding-level(top, orange);
+    @include padding-level(bottom, rose);
+    @include font-size(p3-regular);
+    color: $price-color;
+    opacity: 0.5;
+    width: 100%;
+}
+
+.price__mortgage-monthly {
+    @include font-size(p2-bold);
+    color: $price-color;
+}
+
+.price__mortgage-link {
+    @include font-size(p2-bold);
+    color: $mortgage-link-color;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.price__mortgage-empty {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    background-color: $white;
+    opacity: 0;
+    color: $brand-text;
+    font-weight: 600;
+    text-align: center;
+    z-index: z(hide);
+    visibility: hidden;
+}

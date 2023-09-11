@@ -1,0 +1,334 @@
+// DEPENDENCIES
+@import "../../../common/styles/colors";
+@import "../../../common/styles/font-sizes";
+@import "../../../common/styles/mixins";
+@import "../../../common/styles/vertical-indent";
+@import "../../../common/styles/management-layers";
+
+// SETTINGS
+$custom-select-color: $brand-text;
+$custom-select-accent: $brand-light;
+$custom-select-bg: $white;
+$custom-select-input-bg: rgba($brand-gray-light-rgb, 0.5);
+$custom-select-input-bg-hover: rgba($brand-base-rgb, 0.1);
+$custom-select-overlay: rgba($dark-rgb, 0.3);
+$custom-select-scroll: rgba($brand-light-rgb, 0.5);
+$custom-select-submit-bg: rgba($brand-base-rgb, 0.2);
+$custom-select-submit-color: $brand-light;
+$custom-select-checked: $brand-light;
+$custom-select-border: $brand-gray;
+$custom-select-shadow: rgba($brand-gray-rgb, 0.5);
+$custom-select-label: rgba($brand-text-rgb, 0.72);
+$custom-select-error: $error;
+$custom-select-success: $brand-base;
+$placeholder-color: rgba($brand-text-rgb, 0.5);
+
+// BLOCK
+.custom-select {
+    @include margin-level(bottom, yellow);
+    position: relative;
+    width: 100%;
+    user-select: none;
+
+    // STATES
+    &.is-open {
+        .custom-select__input-icon svg {
+            transform: rotate(180deg);
+        }
+
+        .custom-select__content {
+            opacity: 1;
+            overflow: visible;
+            transition-delay: 0s;
+        }
+    }
+
+    &.is-disabled {
+        pointer-events: none;
+
+        .custom-select__input {
+            pointer-events: none;
+        }
+
+        .custom-select__input-icon svg {
+            svg {
+                transform: none;
+            }
+        }
+
+        .custom-select__content {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
+    }
+
+    &.is-selected {
+        .custom-select__input-text {
+            color: $custom-select-color;
+            font-weight: 700;
+        }
+    }
+
+    &.validate-input-success {
+        .custom-select__input {
+            border-color: $custom-select-success;
+        }
+    }
+
+    &.validate-input-error {
+        .custom-select__input {
+            border-color: $custom-select-error;
+        }
+
+        .input__error {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+// ELEMS
+.custom-select__label {
+    @include margin-level(bottom, tomato);
+    @include font-size(p3-regular);
+    color: $custom-select-label;
+}
+
+.custom-select__input {
+    @include transition(border-color);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: $custom-select-input-bg;
+    border: 1px solid transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.custom-select__input-text {
+    @include scale(padding, 16, 16, 16);
+    @include font-size(placeholder);
+    display: block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $placeholder-color;
+}
+
+.custom-select__input-icon {
+    @include scale(width, 10, 10, 10);
+    @include scale(right, 16, 16, 16);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        @include transition(transform);
+    }
+
+    .custom-select__icon {
+        @include scale(width, 16, 16, 16);
+        @include scale(height, 10, 10, 10);
+        display: block;
+    }
+
+    .custom-select__icon-open {
+        @include scale(height, 16, 16, 16);
+        display: none;
+        transform: rotate(45deg);
+    }
+}
+
+.custom-select__content {
+    @include scale(max-width, 424, 424, 424);
+    @include transition(opacity, height);
+    @include scale(box-shadow, 32 16 60, 32 16 60, 32 16 60, $custom-select-shadow);
+    display: block;
+    z-index: z(popup);
+    font-size: 0;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    bottom: auto;
+    right: auto;
+    min-width: 100%;
+    height: 0;
+    margin: 0;
+    background-color: $custom-select-bg;
+    overflow: hidden;
+    transition-delay: 0.15s, 0;
+    pointer-events: auto;
+}
+
+.custom-select__content-inner {
+    @include scale(border, 1, 1, 1, solid $custom-select-border);
+    position: static;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin-bottom: 24px;
+    background-color: $custom-select-bg;
+    z-index: z(default);
+
+    // Media
+    @media #{$tablet-portrait} {
+        margin-bottom: 0;
+    }
+}
+
+.custom-select__items {
+    // < 960 максимальная высота контента - высота кнопки
+    @include scale(max-height, 217, 230, 230);
+    @include custom-scrollbar($custom-select-scroll, 3px);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar-track {
+        @include scale(margin, 8, 4, 8);
+    }
+}
+
+.custom-select__item {
+    @include transition(background-color);
+
+    span {
+        @include font-size(placeholder);
+    }
+
+    &:hover {
+        // MEDIA
+        @media #{$laptop} {
+            background-color: $custom-select-input-bg-hover;
+        }
+    }
+}
+
+.custom-select__submit {
+    @include scale(height, 48, 48, 48);
+    @include font-size(p3-regular);
+    background-color: $custom-select-submit-bg;
+    color: $custom-select-submit-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    // Media
+    @media #{$tablet-landscape} {
+        display: none;
+    }
+}
+
+.custom-select__checkbox .checkbox__label {
+    @include scale(padding, 8 18, 8 18, 12 32);
+}
+
+// Group
+.custom-select__group {
+    @include padding-level(both, tomato);
+}
+
+.custom-select__group-checkbox {
+    @include scale(padding, 8 18, 8 18, 12 32);
+    display: flex;
+    position: relative;
+
+    &.is-hidden {
+        display: none;
+    }
+}
+
+.custom-select__group-checkbox-label {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+
+    > * {
+        pointer-events: none;
+    }
+}
+
+.custom-select__group-checkbox-text {
+    @include font-size(h5);
+    flex-grow: 1;
+    display: block;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $custom-select-color;
+    transition: color 0.2s ease-out;
+    letter-spacing: 1;
+
+    // MEDIA
+    @media #{$laptop} {
+        letter-spacing: 1.5;
+    }
+}
+
+.custom-select__group-checkbox-icon {
+    @include scale(width, 20, 20, 24);
+    @include scale(height, 20, 20, 24);
+    @include scale(margin-left, 12, 12, 12);
+    @include scale(border, 1, 1, 1, solid rgba($brand-base, 0.3));
+    display: flex;
+    flex-shrink: 0;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        @include scale(width, 13, 13, 13);
+        @include scale(height, 9, 9, 9);
+        display: block;
+        stroke: $custom-select-accent;
+        stroke-width: 2;
+        stroke-dasharray: 20;
+        stroke-dashoffset: 20;
+        opacity: 0;
+        fill: none;
+        transition: stroke-dashoffset 0.3s ease-in 0.2s, opacity 0.2s ease-out 0s;
+    }
+}
+
+.custom-select__group-checkbox-input {
+    @include visually-hidden();
+}
+
+// Checked group
+.custom-select__group-checkbox-input:checked ~ .custom-select__group-checkbox-label,
+.custom-select__group-checkbox-label.is-checked {
+    .custom-select__group-checkbox-text {
+        color: $custom-select-checked;
+    }
+
+    .custom-select__group-checkbox-icon svg {
+        transition-property: stroke-dashoffset;
+        transition-delay: 0s;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+// Disabled group
+.custom-select__group-checkbox-input:disabled ~ .custom-select__group-checkbox-label,
+.custom-select__group-checkbox-label.is-disabled {
+    pointer-events: none;
+
+    .custom-select__group-checkbox-text {
+        color: rgba($custom-select-color, 0.4);
+    }
+}
+
+// CHECKED SINGLE
+.custom-select__checkbox .checkbox__input:checked ~ .checkbox__label span {
+    font-weight: 700;
+}
+
+// MODS

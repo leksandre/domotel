@@ -1,0 +1,87 @@
+<nav class="navigation-mobile j-navigation-mobile">
+    <ul class="navigation-mobile__list">
+        {% if isSearch %}
+            {% for item in searchFullNavigation %}
+                <li class="navigation-mobile__list-item navigation-mobile__list-item_theme_search">
+                    <a class="navigation-mobile__link" href="{{ item.href }}">
+                        {% if item.icon %}
+                            {% include "./media/" ~ item.icon %}
+                        {% endif %}
+                        {{ item.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+        {% if navigationAbout %}
+            <li class="navigation-mobile__list-item">
+                <ul class="navigation-mobile__list navigation-mobile__list_theme_nested j-navigation-mobile__menu">
+                    <li class="navigation-mobile__list-item">
+                        <button class="navigation-mobile__button j-navigation-mobile__menu-forward">
+                            {% include "./media/search-flat-visual.svg" %}
+                            О компании
+    
+                            {% include "./media/forward.svg" %}
+                        </button>
+    
+                    </li>
+    
+                    <li class="navigation-mobile navigation-mobile__list-nested j-navigation-mobile__menu">
+                        {% include "./templates/back.twig" %}
+    
+                        <ul class="navigation-mobile__list j-navigation-mobile__menu">
+                            {% for item in navigationAbout %}
+                                {% if item.submenu %}
+                                    <li class="navigation-mobile__list-item">
+                                        <button class="navigation-mobile__button j-navigation-mobile__menu-forward">
+                                            {{item.name}}
+    
+                                            {% include "./media/forward.svg" %}
+                                        </button>
+    
+                                    </li>
+                                    <li class="navigation-mobile navigation-mobile__list-nested j-navigation-mobile__menu">
+                                        {% include "./templates/back.twig" %}
+    
+                                        <ul class="navigation-mobile__list j-navigation-mobile__menu">
+                                            {% for listItem in item.list %}
+                                                <li class="navigation-mobile__list-item">
+                                                    <a class="navigation-mobile__link{% if isHomePage %} j-anchor{% endif %}" href="{{ listItem.href }}">
+                                                        {% if item.icon %}
+                                                            {% include "./media/" ~ item.icon %}
+                                                        {% endif %}
+                                                        {{ listItem.name }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li class="navigation-mobile__list-item">
+                                        <a class="navigation-mobile__link{% if isHomePage %} j-anchor{% endif %}" href="{{ item.href }}">
+                                            {% if item.icon %}
+                                                {% include "./media/" ~ item.icon %}
+                                            {% endif %}
+                                            {{ item.name }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        {% endif %}
+        {% for item in navigation %}
+            <li class="navigation-mobile__list-item">
+                <a class="navigation-mobile__link{% if isHomePage %} j-anchor{% endif %}" href="{{ item.href }}">
+                    {{ item.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="navigation-mobile__phone">
+        {% include '../phone/phone.twig' with {
+            phone: '+7 (812) 000-00-00'
+        }%}
+    </div>
+</nav>

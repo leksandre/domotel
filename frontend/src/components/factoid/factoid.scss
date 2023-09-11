@@ -1,0 +1,68 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$factoid-marker-color: $brand-light;
+$factoid-link-hover: $brand-dark;
+
+// BLOCK
+.factoids {
+    width: 100%;
+}
+
+// ELEMENTS
+.factoid {
+    @include font-size(p2-regular);
+    position: relative;
+
+    &:not(:first-child) {
+        @include margin-level(top, green);
+    }
+}
+
+.factoid__text {
+    &:not(:first-child) {
+        @include margin-level(top, rose);
+    }
+
+    p {
+        @include font-size(p2-regular);
+    }
+
+    a {
+        &:not(.button):hover {
+            // Media
+            @media #{$laptop} {
+                color: $factoid-link-hover;
+            }
+        }
+    }
+
+    .button {
+        &:not(:first-child) {
+            @include margin-level(top, yellow);
+        }
+    }
+}
+
+// MODS
+.factoids_theme_marked {
+    .factoid {
+        @include scale(padding-left, 32, 32, 32);
+        position: relative;
+    }
+
+    .factoid__title:before {
+        @include circle-mark($factoid-marker-color);
+    }
+}
+
+.factoids_size_small {
+    .factoid,
+    .factoid__text p {
+        @include font-size(p3-regular);
+    }
+}

@@ -1,0 +1,67 @@
+// Версия - 2.6
+// Документация - https://kelnik.gitbooks.io/kelnik-documentation/front-end/breakpoints.html
+
+// ФУНКЦИИ
+// Возвращает первое значение из массива $range
+@function lower-bound($range) {
+    @return nth($range, 1);
+}
+
+// Возвращает последнее значение из массива $range
+@function upper-bound($range) {
+    @return nth($range, 2);
+}
+
+// НАСТРОЙКИ
+// Основной набор переменных
+$tablet-portrait-upper-bound: 669px;
+$tablet-landscape-upper-bound: 959px;
+$tablet-landscape-wide-upper-bound: 1023px;
+$laptop-upper-bound: 1279px;
+$laptop-wide-upper-bound: 1439px;
+$laptop-extra-wide-upper-bound: 1599px;
+$fullhd-upper-bound: 1919px;
+$ultra-upper-bound: 2559px;
+
+// Промежутки
+$mobile-range: (320px, $tablet-portrait-upper-bound);
+$tablet-portrait-range: ($tablet-portrait-upper-bound + 1, $tablet-landscape-upper-bound);
+$tablet-landscape-range: ($tablet-landscape-upper-bound + 1, $laptop-upper-bound);
+$tablet-landscape-wide-range: ($tablet-landscape-wide-upper-bound + 1, $laptop-upper-bound);
+$laptop-range: ($laptop-upper-bound + 1, $laptop-wide-upper-bound);
+$laptop-wide-range: ($laptop-wide-upper-bound + 1, $fullhd-upper-bound);
+$laptop-extra-wide-range: ($laptop-extra-wide-upper-bound + 1, $fullhd-upper-bound);
+$fullhd-range: ($fullhd-upper-bound + 1, $ultra-upper-bound);
+$ultra-range: ($ultra-upper-bound + 1, 10000px);
+
+// Медиа-запросы
+$screen: "only screen";
+
+$mobile: "#{$screen}";
+$mobile-only: "#{$screen} and (max-width: #{upper-bound($mobile-range)})";
+
+$tablet-portrait: "#{$screen} and (min-width:#{lower-bound($tablet-portrait-range)})";
+$tablet-portrait-only: "#{$screen} and (min-width:#{lower-bound($tablet-portrait-range)}) and (max-width:#{upper-bound($tablet-portrait-range)})";
+
+$tablet-landscape: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-range)})";
+$tablet-landscape-only: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-range)}) and (max-width:#{upper-bound($tablet-landscape-range)})";
+$tablet-landscape-lower: "#{$screen} and (max-width:#{lower-bound($tablet-landscape-range) - 1})";
+
+$tablet-landscape-wide: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-wide-range)})";
+$tablet-landscape-wide-only: "#{$screen} and (min-width:#{lower-bound($tablet-landscape-wide-range)}) and (max-width:#{upper-bound($tablet-landscape-range)})";
+
+$laptop: "#{$screen} and (min-width:#{lower-bound($laptop-range)})";
+$laptop-only: "#{$screen} and (min-width:#{lower-bound($laptop-range)}) and (max-width:#{upper-bound($laptop-range)})";
+
+$laptop-wide: "#{$screen} and (min-width:#{lower-bound($laptop-wide-range)})";
+$laptop-wide-only: "#{$screen} and (min-width:#{lower-bound($laptop-wide-range)}) and (max-width:#{upper-bound($laptop-wide-range)})";
+
+$laptop-extra-wide: "#{$screen} and (min-width:#{lower-bound($laptop-extra-wide-range)})";
+
+$fullhd: "#{$screen} and (min-width:#{lower-bound($fullhd-range)})";
+$fullhd-only: "#{$screen} and (min-width:#{lower-bound($fullhd-range)}) and (max-width:#{upper-bound($fullhd-range)})";
+
+$ultra: "#{$screen} and (min-width:#{lower-bound($ultra-range)})";
+$ultra-only: "#{$screen} and (min-width:#{lower-bound($ultra-range)}) and (max-width:#{upper-bound($ultra-range)})";
+
+$mobile-landscape-orientation: "#{$screen} and (max-width:#{lower-bound($tablet-landscape-range) - 1}) and (orientation:landscape)";

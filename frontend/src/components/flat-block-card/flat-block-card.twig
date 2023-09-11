@@ -1,0 +1,103 @@
+{# слайдер на главной в блоке "Квартиры" #}
+{% for flat in data %}
+    <div class="flat-block-card {% if blockModify %}{{ blockModify }}{% endif %}{% if animationClass %} j-animation__row-item{% endif %}"
+        {% if flat.caption %} data-caption="{{ flat.caption }}"{% endif %}>
+        <div class="flat-block-card__content">
+            <div class="flat-block-card__plan-wrap">
+                {% if flat.planoplan %}
+                    <div class="flat-block-card__widget j-slider__widget"
+                         id="slide-{{ flat.id }}"
+                         data-planoplan="{{ flat.planoplanData }}">
+                    </div>
+                {% else %}
+
+                    {% if flat.src|length > 1 %}
+                        {% embed '../../components/slider/slider.twig' with {
+                            id: 'j-slider-flat-block',
+                            sliderModify: 'slider_theme_flats-card-slider',
+                            caption: false
+                        }%}
+                            {% block slides %}
+                                {% include '../../components/slider/themes/slider-flat-block/slider-flat-block.twig' with {
+                                    lazy: true,
+                                    sliderId: flat.id,
+                                    slides: flat.src
+                                }%}
+                            {% endblock %}
+                        {% endembed %}
+                    {% else %}
+                        <picture{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+                            <source media="(min-width: 320px)"
+                                    {% if lazy %}loading="lazy" data-{% endif %}srcset="{{ flat.src }}"
+                                    data-origin="{{ flat.src }}"
+                                    type="image/jpeg">
+                            <img {% if lazy %}loading="lazy" data-{% endif %}src="{{ flat.src }}"
+                                 srcset="{{ flat.src }}"
+                                 data-origin="{{ flat.src }}"
+                                 alt="План квартиры №{{ flat.id }}">
+                        </picture>
+                        {% if flat.showBig %}
+                            <div class="flat__controls">
+                                <button class="flat__fullscreen-button j-popup-slider"
+                                        data-gallery="true"
+                                        data-slider="{{ flat.id }}"
+                                        data-src="{{ flat.src }}"
+                                        data-alt="План квартиры №{{ flat.id }}"
+                                        data-caption="План квартиры №{{ flat.id }}"
+                                        aria-label="Open in fullscreen">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4C1.55228 4 2 4.44772 2 5V10H7C7.55228 10 8 10.4477 8 11C8 11.5523 7.55228 12 7 12H0V5C0 4.44772 0.447715 4 1 4Z"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447715 4.44772 0 5 0H12V7C12 7.55228 11.5523 8 11 8C10.4477 8 10 7.55228 10 7V2H5C4.44772 2 4 1.55228 4 1Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+
+            </div>
+            <div class="flat-block-card__details">
+                <div class="flat-block-card__title">
+                    {{ flat.title }}
+                </div>
+
+                <div class="flat-block-card__information">
+                    <div class="flat-block-card__info">
+                        <div class="flat-block-card__info-title">Площадь</div>
+                        <div class="flat-block-card__info-divider"></div>
+                        <div class="flat-block-card__info-value">{{ flat.area }}</div>
+                    </div>
+                    <div class="flat-block-card__info">
+                        <div class="flat-block-card__info-title">Этажи</div>
+                        <div class="flat-block-card__info-divider"></div>
+                        <div class="flat-block-card__info-value">{{ flat.floor }}</div>
+                    </div>
+                    <div class="flat-block-card__info">
+                        <div class="flat-block-card__info-title">Цена</div>
+                        <div class="flat-block-card__info-divider"></div>
+                        <div class="flat-block-card__info-value">{{ flat.price }}</div>
+                    </div>
+                </div>
+
+                <div class="flat-block-card__labels">
+                    <ul class="flat__specials-list">
+                        {% for text in flat.specials %}
+                            <li class="flat__specials-detail">
+                                {{ text }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="flat-block-card__buttons">
+                    <button type="button"
+                            class="button{% if buttonAnimationClass %} {{ buttonAnimationClass }}{% endif %}{% if popupClass %} {{ popupClass }}{% endif %}"
+                            data-callback="true"
+                            data-href="callback"
+                            aria-label="Заказать звонок">
+                        <span>Заказать звонок</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

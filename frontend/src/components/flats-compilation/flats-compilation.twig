@@ -1,0 +1,20 @@
+{% for item in items %}
+    <a class="flats-compilation" href="#">
+        <div class="flats-compilation__heading">
+            {{ item.name }}
+        </div>
+        <ul class="flats-compilation__list">
+            <li class="flats-compilation__list-item">
+                от {{ item.price }} млн ₽
+            </li>
+            <li class="flats-compilation__list-item">
+                от {{ item.area }} м²
+            </li>
+        </ul>
+        {% if plus %}
+            <div class="flats-compilation__list-plus">
+                {% include "./media/plus.svg" %}
+            </div>
+        {% endif %}
+    </a>
+{% endfor %}

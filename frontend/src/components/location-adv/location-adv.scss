@@ -1,0 +1,98 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+.location-adv {
+    @include scale(margin-top, null, 16, 16);
+    @include margin-level(bottom, cyan);
+    align-items: flex-start;
+
+    @media #{$tablet-portrait-only} {
+        margin-top: 8px;
+    }
+
+    @media #{$tablet-portrait} {
+        @include row();
+    }
+}
+
+// ELEMENTS
+.location-adv__item {
+    @include margin-level(top, yellow);
+    @include row();
+    flex-wrap: nowrap;
+    align-items: center;
+
+    @media #{$tablet-portrait} {
+        width: column(14, 30);
+    }
+
+    @media #{$tablet-landscape} {
+        width: column(9, 30);
+        @include post(1, 30);
+    }
+
+    @media #{$laptop} {
+        width: column(8, 28);
+        @include post(2, 28);
+    }
+
+    &:nth-child(3n) {
+        @media #{$laptop} {
+            @include post(0);
+        }
+    }
+
+    &:not(:nth-child(2n)) {
+        @media #{$tablet-portrait-only} {
+            @include post(2, 30);
+        }
+    }
+}
+
+.location-adv__icon {
+    @include scale(width, 40, 44, 48);
+    @include scale(height, 40, 44, 48);
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    flex-shrink: 0;
+
+    img,
+    svg {
+        @include object-fit(contain);
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    svg {
+        fill: $brand-light;
+    }
+}
+
+.location-adv__info {
+    @include prefix(2, 30);
+
+    @media #{$tablet-portrait} {
+        padding-left: 15px;
+    }
+
+    @media #{$laptop} {
+        padding-left: vw-desk(32);
+    }
+
+    @media #{$laptop-extra-wide} {
+        padding-left: 32px;
+    }
+
+    p {
+        @include font-size(p2-regular);
+    }
+}
+
+// MODS

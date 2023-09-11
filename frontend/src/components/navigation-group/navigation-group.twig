@@ -1,0 +1,54 @@
+<ul class="navigation-group j-group-navigation">
+    {% for item in items %}
+        <li class="navigation-group__item j-group-navigation__item{% if item.modify %} {{item.modify}}{% endif %}"
+            {% if item.dataAttr %} {{ item.dataAttr }}{% endif %}>
+
+            {% if item.groupName and not item.nested %}
+                <div class="navigation-group__grouper j-group-navigation__grouper">
+                    {% if item.isButton %}
+                        {% include "../button/button.twig" with {
+                            href: '#',
+                            text: item.groupName,
+                            rightIcon: 'arrow.svg'
+                        } %}    
+                    {% else %}
+                        <div class="navigation-group__grouper-item">
+                            {{ item.groupName }}
+                            
+                            <span class="navigation-group__grouper-icon">
+                                {% include './media/arrow.svg' %}
+                            </span>
+                        </div>
+                    {% endif %}
+                    {% include '../navigation/navigation.twig' with {
+                        modify: item.modify,
+                        navigation: item.navigation,
+                        isGroup: true
+                    }%}
+                </div>
+            {% elseif item.groupName and item.nested %}
+                <div class="navigation-group__grouper navigation-group__grouper_theme_nested j-group-navigation__grouper">
+                    <button class="navigation__item-button">
+                        {{ item.groupName }}
+
+                        <svg class="navigation-mobile__list-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29298 16.7071C8.90246 16.3166 8.90246 15.6834 9.29298 15.2929L12.5859 12L9.29298 8.70711C8.90246 8.31658 8.90246 7.68342 9.29298 7.29289C9.68351 6.90237 10.3167 6.90237 10.7072 7.29289L15.4143 12L10.7072 16.7071C10.3167 17.0976 9.68351 17.0976 9.29298 16.7071Z" />
+                        </svg>
+                    </button>
+                    <div class="navigation-group__grouper-nested">
+                        {% include '../navigation/navigation.twig' with {
+                            modify: item.modify,
+                            navigation: item.navigation,
+                            isGroup: true
+                        }%}
+                    </div>
+                </div>
+            {% else %}
+                {% include '../navigation/navigation.twig' with {
+                    modify: item.listModify,
+                    navigation: item.navigation
+                }%}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,122 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$progress-bar-height: 1px;
+$progress-bar-height-active: 2px;
+$progress-bar-bg-color: $brand-base;
+$progress-bar-bg-color-active: $brand-dark;
+
+// BLOCK
+.range-slider {
+    @include margin-level(bottom, tomato);
+    position: relative;
+
+    .irs-bar {
+        top: 0;
+        bottom: 0;
+        height: $progress-bar-height-active;
+        border: 0;
+        z-index: 1;
+        background: $progress-bar-bg-color-active;
+    }
+
+    .irs-line {
+        top: 1px;
+        bottom: 0;
+        height: $progress-bar-height;
+        border: 0;
+        border-radius: 0;
+        background: $progress-bar-bg-color;
+    }
+
+    .irs-handle {
+        @include transition(transform);
+        @include scale(width, 16, 16, 16);
+        @include scale(height, 16, 16, 16);
+        @include scale(top, -7, -7, -7);
+        border-radius: calc(var(--is-br) * 50%);
+        background: $progress-bar-bg-color-active;
+        cursor: pointer;
+
+        > i:first-child {
+            @include visually-hidden();
+        }
+
+        &:hover {
+            @media #{$laptop} {
+                transform: scale(1.5);
+            }
+        }
+
+        &:before {
+            @include pseudo();
+            @include scale(width, 36, 36, 36);
+            @include scale(height, 36, 36, 36);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+    }
+
+    .irs-disabled {
+        display: none;
+    }
+}
+
+// ELEMENTS
+.range-slider__base {
+    position: absolute;
+    width: 100%;
+
+    input {
+        display: none;
+    }
+}
+
+.range-slider__input-container {
+    @include padding-level(bottom, tomato);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.range-slider__wrap-input {
+    position: relative;
+    width: 50%;
+}
+
+.range-slider__input {
+    @include font-size(lead-bold);
+    position: relative;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: $brand-text;
+    box-shadow: none;
+    appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        appearance: none;
+    }
+
+    // Отключаем стандартный крестик в полях в IE
+    &::-ms-clear {
+        display: none;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+        outline: none;
+        border: none;
+    }
+}
+
+// MODS

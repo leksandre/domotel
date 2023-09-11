@@ -1,0 +1,327 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$filter-bg: rgba($brand-base-rgb, 0.2);
+$filter-heading-light: rgba($brand-text-rgb, 0.8);
+$filter-heading-lighter: rgba($brand-text-rgb, 0.7);
+$filter-heading-dark: $brand-text;
+$filter-border: rgba($black-rgb, 0.1);
+$filter-error: $error;
+$icon-fill: $brand-dark;
+
+// BLOCK
+
+// ELEMENTS
+
+// ФИЛЬТР
+.mortgage-calculator__filter {
+    @include margin-level(bottom, cyan);
+    @include padding-level(both, green);
+    @include vertical-paddings(2, 32);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    background-color: $filter-bg;
+
+    @media #{$tablet-landscape} {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 28);
+    }
+}
+
+.mortgage-calculator__filter-item {
+    @include row();
+    @include margin-level(bottom, yellow);
+    flex-direction: column;
+    width: 100%;
+
+    @media #{$tablet-landscape} {
+        margin-bottom: 0;
+    }
+
+    &:not(:last-child) {
+        @media #{$tablet-landscape} {
+            @include post(1, 28);
+        }
+    }
+}
+
+.mortgage-calculator__filter-heading {
+    @include margin-level(bottom, orange);
+    @include font-size(p3-regular);
+    color: $filter-heading-lighter;
+}
+
+.mortgage-calculator__filter-percent {
+    @include transition(color);
+    @include font-size(p3-regular);
+    color: $filter-heading-lighter;
+
+    &.is-error {
+        color: $filter-error;
+    }
+}
+
+// БЛОК РЕЗУЛЬТАТА
+.mortgage-calculator__mortgage-heading,
+.mortgage-calculator__mortgage-programs-result,
+.mortgage-calculator__mortgage-programs-no-result {
+    &.is-hidden {
+        @include visually-hidden();
+    }
+}
+
+.mortgage-calculator__mortgage-heading {
+    @include margin-level(bottom, cyan);
+}
+
+.mortgage-calculator__container {
+    @media #{$laptop} {
+        @include row();
+    }
+}
+
+.mortgage-calculator__mortgage-programs {
+    @include margin-level(bottom, cyan);
+
+    @media #{$laptop} {
+        @include post(1, 28);
+        width: column(19, 28);
+        margin-bottom: 0;
+    }
+}
+
+.mortgage-calculator__mortgage-fit {
+    @include margin-level(bottom, orange);
+    @include font-size(h5);
+}
+
+.mortgage-calculator__mortgage-amount {
+    @include font-size(p1-regular);
+    color: $filter-heading-lighter;
+
+    span {
+        @include font-size(p1-bold);
+        color: $filter-heading-dark;
+    }
+}
+
+// СПИСОК ПРОГРАММ
+.mortgage-calculator__programs-list {
+    @include margin-level(bottom, cyan);
+    display: flex;
+    flex-direction: column;
+}
+
+.mortgage-calculator__programs-details {
+    @include margin-level(bottom, orange);
+    @include padding-level(both, tomato);
+    @include vertical-paddings(1, 28);
+    @include font-size(p3-regular);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(grid-column-gap, 16, 16, 16);
+    @include scale(border, 1, 1, 1, solid $filter-border);
+    display: none;
+    grid-template-columns: column(2.5, 28) 2fr repeat(3, 1fr);
+    color: $filter-heading-light;
+
+    @media #{$tablet-landscape} {
+        display: grid;
+    }
+}
+
+// ПРОГРАММА
+.mortgage-calculator__program {
+    @include margin-level(bottom, orange);
+    @include padding-level(both, yellow);
+    @include vertical-paddings(2, 32);
+    @include scale(grid-column-gap, 16, 16, 16);
+    @include scale(border, 1, 1, 1, solid $filter-border);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    align-items: start;
+
+    @media #{$tablet-portrait} {
+        @include vertical-paddings(1, 30);
+        grid-template-columns: column(3, 30) repeat(3, 1fr);
+    }
+
+    @media #{$tablet-landscape} {
+        @include vertical-paddings(1, 28);
+        grid-template-columns: column(2.5, 28) 2fr repeat(3, 1fr);
+        align-items: end;
+    }
+
+    &.is-disabled {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+.mortgage-calculator__program-logo-wrapper {
+    @include scale(width, 48, 48, 48);
+    @include scale(height, 48, 48, 48);
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.mortgage-calculator__program-logo {
+    @include object-fit(contain);
+    @include scale(width, 48, 48, 48);
+    @include scale(height, 48, 48, 48);
+}
+
+.mortgage-calculator__program-payment {
+    @include scale(margin-bottom, 24, 0, null);
+    grid-column: 2 / 5;
+    grid-row: 1;
+
+    @media #{$tablet-portrait-only} {
+        margin-bottom: 16px;
+    }
+
+    @media #{$tablet-landscape} {
+        grid-column: unset;
+        grid-row: unset;
+    }
+}
+
+.mortgage-calculator__program-name {
+    @include font-size(p3-regular);
+    color: $filter-heading-lighter;
+    white-space: nowrap;
+
+    @media #{$mobile-only} {
+        width: column(13, 30);
+    }
+}
+
+.mortgage-calculator__program-amount {
+    @include font-size(p1-bold);
+}
+
+.mortgage-calculator__program-rate,
+.mortgage-calculator__program-percent,
+.mortgage-calculator__program-range {
+    @include scale(margin-top, 4, null, null);
+    @include font-size(p1-regular);
+
+    @media #{$mobile-only} {
+        display: flex;
+        align-items: center;
+        grid-column: 1 / 6;
+    }
+}
+
+.mortgage-calculator__program-rate {
+    @media #{$tablet-portrait} {
+        grid-column: 2/3;
+    }
+
+    @media #{$tablet-landscape} {
+        grid-column: unset;
+    }
+}
+
+.mortgage-calculator__program-value {
+    @include font-size(p1-bold);
+}
+
+.mortgage-calculator__program-about {
+    @include margin-level(top, yellow);
+    @include font-size(p2-regular);
+    grid-column: 1 / 6;
+    color: $filter-heading-lighter;
+
+    @media #{$tablet-portrait} {
+        grid-column: 2 / 6;
+    }
+}
+
+// NO-RESULT
+.mortgage-calculator__mortgage-programs-no-result {
+    @include row();
+    @include padding-level(both, green);
+    @include vertical-paddings(2, 32);
+    @include scale(border, 1, 1, 1, solid $filter-border);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 28);
+    }
+}
+
+.mortgage-calculator__empty-result-icon {
+    @include margin-level(bottom, green);
+
+    path {
+        fill: $icon-fill;
+    }
+}
+
+.mortgage-calculator__no-result-heading {
+    @include margin-level(bottom, tomato);
+    @include font-size(p2-bold);
+}
+
+.mortgage-calculator__reset {
+    @include margin-level(top, orange);
+}
+
+// БЛОК КОНТАКТОВ
+.mortgage-calculator__contact {
+    @include padding-level(both, green);
+    @include vertical-paddings(2, 32);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border, 1, 1, 1, solid $filter-border);
+    height: max-content;
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 28);
+        width: column(8, 28);
+    }
+}
+
+.mortgage-calculator__contact-info {
+    &:not(:last-child) {
+        @include margin-level(bottom, green);
+    }
+
+    .button {
+        &:not(:last-child) {
+            @include margin-level(bottom, tomato);
+        }
+    }
+}
+
+.mortgage-calculator__contact-text {
+    @include margin-level(bottom, tomato);
+    @include font-size(p2-regular);
+}
+
+.mortgage-calculator__contact-number {
+    @include margin-level(bottom, tomato);
+    @include font-size(p2-bold);
+    display: block;
+}
+
+.mortgage-calculator__notice,
+.mortgage-calculator__notice p {
+    @include font-size(p3-regular);
+    color: $filter-heading-lighter;
+}
+
+// MODS

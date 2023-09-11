@@ -1,0 +1,107 @@
+<div class="flat-card j-tabs-wrap">
+    <div class="flat-card__breadcrumbs">
+        <a href="#" class="button-circle button-circle_theme_gray flat-card__back j-back">
+            <span class="button__icon">
+                {% include './media/back-arrow.svg' %}
+            </span>
+        </a>
+
+        <div class="flat-card__share">
+            {# Избранное #}
+            {% include '../favourite/favourite.twig' with {
+                modify: 'flat-card__icon'
+            } %}
+
+            {# Шеринг #}
+            {% include '../share/share.twig' with {
+                modify: 'flat-card__icon'
+            } %}
+        </div>
+
+        <div class="flat-card__tab-container">
+            <ul class="flat-card__tab-wrapper j-tabs">
+                <li class="flat-card__tab">
+                    <button class="flat-card__tab-button j-tabs__item" data-tab="flat_widget">
+                        3D-тур
+                    </button>
+                </li>
+                <li class="flat-card__tab">
+                    <button class="flat-card__tab-button j-tabs__item" data-tab="flat_plan">
+                        Планировка
+                    </button>
+                </li>
+                <li class="flat-card__tab">
+                    <button class="flat-card__tab-button j-tabs__item is-active" data-tab="flat_slider">
+                        Галерея
+                    </button>
+                </li>
+                <li class="flat-card__tab">
+                    <button class="flat-card__tab-button j-tabs__item" data-tab="flat_floor">
+                        На этаже
+                    </button>
+                </li>
+                <li class="flat-card__tab">
+                    <button class="flat-card__tab-button j-tabs__item" data-tab="flat_general">
+                        На генплане
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flat-card__content">
+        {% include './../flat/flat.twig' with {
+            actionPrice: true,
+            mortgage: true,
+            planoplanData: 'eyJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwidWlkIjoiOTRiNzI1ZTg4MDdiOThkOGJmMzhhZmE0M2U4YjVlZWE3MjZhOWZmYzA2YTNkMDY3NTQ1MzBkNjU4YTAxMDM3MiIsImVsIjoiZmJsb2NrXzMiLCJwcmltYXJ5Q29sb3IiOiIjMEIxNzM5Iiwic2Vjb25kYXJ5Q29sb3IiOiIjRjRGN0Y3IiwidGV4dENvbG9yIjoiIzAwMDAwMCIsImJhY2tncm91bmRDb2xvciI6IiNGRkZGRkYiLCJhY3RpdmVUYWIiOiJ0aHJlZV9xdWFydGVyIn0=',
+            details: [
+                {
+                    accent: true,
+                    name: 'Общая площадь',
+                    value: '67,75&nbsp;м²'
+                },
+                {
+                    name: 'Жилая',
+                    value: '38,25&nbsp;м²'
+                },
+                {
+                    name: 'Кухня',
+                    value: '13,00 м²'
+                },
+                {
+                    name: 'Корпус',
+                    value: '1'
+                },
+                {
+                    name: 'Секция',
+                    value: '2'
+                },
+                {
+                    name: 'Этаж',
+                    value: '12&nbsp;из&nbsp;17'
+                },
+                {
+                    name: 'Срок сдачи',
+                    value: 'IV кв. 2024'
+                }
+            ],
+            moreDetails: [
+                {
+                    name: 'Особенность',
+                    value: 'Особенность!',
+                },
+                {
+                    name: 'Секция',
+                    value: '2'
+                },
+                {
+                    name: 'Этаж',
+                    value: '12&nbsp;из&nbsp;17'
+                },
+                {
+                    name: 'Срок сдачи',
+                    value: 'IV кв. 2024'
+                }
+            ]
+        } %}
+    </div>
+</div>

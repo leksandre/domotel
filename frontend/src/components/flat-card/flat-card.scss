@@ -1,0 +1,148 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$icon-bg: rgba($gray-rgb, 0.4);
+$icon-fill: $brand-text;
+// Табы
+$tab-dark: $brand-base;
+$tab-dark-color: $white;
+$tab-light: rgba($gray-rgb, 0.4);
+$tab-light-color: $brand-text;
+$tab-gradient: linear-gradient(90deg, rgba($white-rgb, 0) 0%, rgba($white-rgb, 1) 100%);
+
+// BLOCK
+
+// ELEMENTS
+.flat-card__breadcrumbs {
+    @include margin-level(bottom, orange);
+    @include row();
+    align-items: center;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        flex-wrap: nowrap;
+    }
+}
+
+.flat-card__back {
+    display: flex;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        flex: none;
+        order: 1;
+    }
+
+    svg {
+        @include transition(transform);
+
+        path {
+            stroke: $icon-fill;
+        }
+    }
+}
+
+.flat-card__share {
+    @include row();
+    margin-left: auto;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        flex: none;
+        order: 3;
+    }
+}
+
+.flat-card__icon {
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: $icon-bg;
+
+    &:first-child {
+        @include margin-level(right, tomato);
+    }
+}
+
+// Табы
+.flat-card__tab-container {
+    @include scale(padding-left, null, 30, 30);
+    @include row();
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        width: column(19, 36);
+        order: 2;
+    }
+
+    @media #{$laptop} {
+        width: column(20, 36);
+        order: 2;
+    }
+
+    &:after {
+        @include pseudo();
+        width: column(2, 36);
+        height: 100%;
+        right: 0;
+        top: 0;
+        background: $tab-gradient;
+
+        // MEDIA
+        @media #{$tablet-landscape} {
+            display: none;
+        }
+    }
+}
+
+.flat-card__tab-wrapper {
+    @include scale(margin-top, 8, 0, 0);
+    @include scale(gap, null, 4, 4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+
+    // MEDIA
+    @media #{$tablet-landscape} {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+.flat-card__tab {
+    &:not(:last-child) {
+        @include scale(margin-right, 8, 8, 8);
+    }
+}
+
+.flat-card__tab-button {
+    @include reset-button();
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 40, func "calc(var(--is-br) * $)" 40, func "calc(var(--is-br) * $)" 40);
+    @include scale(padding, 0 16, 0 16, 0 16);
+    @include scale(height, 32, 32, 32);
+    @include font-size(p3-regular);
+    @include transition(color);
+    background-color: $tab-light;
+    color: $tab-light-color;
+    white-space: nowrap;
+
+    &.is-active {
+        pointer-events: none;
+        background-color: $tab-dark;
+        color: $tab-dark-color;
+    }
+}

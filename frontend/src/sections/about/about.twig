@@ -1,0 +1,44 @@
+<section id="{% if reverse %}about_reverse{% else %}about{% endif %}"
+         class="section j-anchor-section{% if animationClass %} {{ animationClass }}{% endif %}{% if reveal %} page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid{% if reverse %} grid_theme_reverse{% endif %}">
+        <div class="grid__common">
+            <h2 class="j-animation__header">{{ title }}</h2>
+            <div class="grid__wrapper">
+                <div class="grid__row">
+                    <div class="grid__content j-animation__content">
+                        <p>Жилой комплекс &laquo;Берёзка&raquo; расположен в&nbsp;экологически чистом районе Тёплый Стан.
+                            Район лишен промышленных предприятий и&nbsp;насыщен зеленью. Территория комплекса защищена от&nbsp;шума
+                            города и&nbsp;пригодна для отдыха.</p>
+                        <p>В&nbsp;самом комплексе широкий ассортимент квартир и&nbsp;богатая инфраструктура. Уютный
+                            защищённый двор, паркинг, магазины и&nbsp;кафе, и&nbsp;собственные сады и&nbsp;школы! Жить здесь
+                            понравится и&nbsp;большим семьям и&nbsp;тем, кто ищет уединения с&nbsp;транспортной
+                            доступностью.</p>
+
+                        <div class="grid__button-wrapper j-animation__content-item">
+                            {% include '../../components/button/button.twig' with {
+                                href: 'http://sample-dev.multi.ksdev.ru/kvartiry/',
+                                text: 'Параметрический поиск'
+                            } %}
+                        </div>
+                    </div>
+                    <div class="grid__factoid">
+                        {% include '../../components/factoid/factoid.twig' with {
+                            modify: 'factoids_theme_marked',
+                            items: [
+                                {
+                                    modify: 'j-animation__item',
+                                    title: 'Фактоид',
+                                    text: '<p>Длинное описание фактоида в&nbsp;несколько строк</p>'
+                                },{
+                                    modify: 'j-animation__item',
+                                    title: 'Март 2019',
+                                    text: '<p>срок сдачи первой очереди</p>'
+                                }
+                            ]
+                        }%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

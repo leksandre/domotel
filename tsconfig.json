@@ -1,0 +1,63 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "allowJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "checkJs": false,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "types": [
+            "node",
+            "webpack-env",
+            "user-agent-data-types"
+        ],
+        "paths": {
+            "@/*": ["frontend/src/*"]
+        },
+        "lib": [
+            "es6",
+            "dom",
+            "dom.iterable",
+            "scripthost",
+            "ES2021.String"
+        ],
+        "typeRoots": ["frontend/src/common/scripts/types/global"],
+        "alwaysStrict": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": false,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "strictBindCallApply": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "allowUnreachableCode": true,
+        "allowUnusedLabels": true,
+        "noImplicitUseStrict": false,
+        "noImplicitOverride": true,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "noStrictGenericChecks": false
+    },
+    "include": [
+        "frontend/src/**/*.ts",
+        "frontend/src/**/*.tsx",
+        "frontend/src/**/*.vue",
+        "frontend/src/**/*.js"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

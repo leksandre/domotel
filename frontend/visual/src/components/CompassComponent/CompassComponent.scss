@@ -1,0 +1,48 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$compass-bg: $white;
+$compass-icon-elements: $black;
+
+// BLOCK
+.visual-compass {
+    @include scale(width, 40, 48, 48);
+    @include scale(height, 40, 48, 48);
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+
+    .compass-north {
+        transform-origin: center;
+    }
+}
+
+// ELEMENTS
+.visual-compass__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: $compass-bg;
+}
+
+// ELEMENTS - ICONS
+.visual-compass__compass-icon {
+    circle {
+        fill: $compass-bg;
+    }
+
+    .path-fill {
+        fill: $compass-icon-elements;
+    }
+
+    .path-stroke {
+        stroke: $compass-icon-elements;
+    }
+}
+
+// MODS

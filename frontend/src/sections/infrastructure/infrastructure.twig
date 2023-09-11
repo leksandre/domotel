@@ -1,0 +1,47 @@
+<section class="section {% if reveal %}page-reveal j-page-reveal{% endif %}">
+    <div class="grid{% if reverse %} grid_theme_reverse{% endif %}">
+        <div class="grid__common grid__common_size_wide">
+            <div class="grid__row">
+                <div class="grid__caption">
+                    <h3>Заголовок h5.
+                        УТП&nbsp;инфраструктура</h3>
+                    <p>Текст УТП в&nbsp;несколько строк. Желательно не&nbsp;больше 400 символов описания</p>
+                    {% include '../../components/legend/legend.twig' with {
+                        items: [
+                            {
+                                text: 'Иконка на&nbsp;карте',
+                                icon: 'airport'
+                            },{
+                                text: 'Банк',
+                                icon: 'bank'
+                            },{
+                                text: 'Салон красоты',
+                                icon: 'beauty'
+                            },{
+                                text: 'Бизнес-центр',
+                                icon: 'buisness-center'
+                            },{
+                                text: 'Автобусная станция',
+                                icon: 'bus-station'
+                            },{
+                                text: 'Автобусная остановка',
+                                icon: 'bus-stop'
+                            },{
+                                text: 'Кафе',
+                                icon: 'cafe'
+                            },{
+                                text: 'Церковь',
+                                icon: 'churche'
+                            }
+                        ]
+                    } %}
+                </div>
+                <div class="grid__figure">
+                    <picture{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+                        <img width="800" height="800" {% if lazy %}loading="lazy" data-{% endif %}src="/images/infrastructure/genplan.png" alt="">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

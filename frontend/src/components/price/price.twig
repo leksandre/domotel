@@ -1,0 +1,32 @@
+<div class="price{% if modify %} {{ modify }}{% endif %}">
+    <div class="price__wrapper">
+        {% if actionPrice %}
+            <div class="price__basic">6 630 500 ₽</div>
+       
+            <div class="price__current">
+                6 330 500 ₽
+            </div>
+        
+            <div class="price__discount">
+                <span class="price__discount-text">- 300 000</span>
+                {% include "../info-pin/info-pin.twig" with {
+                    text: 'Текст описывающий скидку'
+                } %}
+            </div>
+        {% else %}
+            <div class="flat__price">6 630 500 ₽</div>
+        {% endif %}
+    </div>
+
+    <div class="price__mortgage-wrapper j-price__mortgage">
+        <div class="price__mortgage-title">В ипотеку:</div>
+        <div class="price__mortgage-monthly">от <span class="j-price__mortgage-monthly">120 000</span> ₽/мес.</div>
+        
+        {% include "../link/link.twig" with {
+            href: '#mortgage',
+            text: 'Рассчитать',
+            modify: 'price__mortgage-link j-price__mortgage-link j-anchor'
+        } %}
+        <div class="price__mortgage-empty">Измените условия в блоке ипотечного калькулятора</div>
+    </div>
+</div>

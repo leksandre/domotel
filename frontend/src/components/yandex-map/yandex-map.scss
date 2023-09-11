@@ -1,0 +1,225 @@
+// DEPENDENCIES
+@import "balloon/balloon";
+@import "custom-zoom/custom-zoom";
+@import "custom-fullscreen/custom-fullscreen";
+@import "infrastructure-checkbox-filter/map-filter";
+
+// SETTINGS
+$overlay-bg: rgba($black-rgb, 0.7);
+$overlay-img-bg: $white;
+$overlay-color: $white;
+$pin-bg: $brand-dark;
+
+.yandex-map {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.yandex-map__overlay {
+    @include transition(opacity);
+    background-color: $overlay-bg;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: z(default);
+
+    // Media
+    @media #{$tablet-landscape-wide} {
+        display: none;
+    }
+
+    &.is-hidden {
+        opacity: 0;
+    }
+}
+
+.yandex-map__overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p {
+        @include margin-level(top, yellow);
+        color: $overlay-color;
+        text-align: center;
+    }
+}
+
+.yandex-map__overlay-img {
+    @include scale(width, 56, 56, null);
+    @include scale(height, 56, 56, null);
+    background-color: $overlay-img-bg;
+    border-radius: 50%;
+    position: relative;
+    margin: {
+        left: auto;
+        right: auto;
+    }
+
+    img {
+        @include scale(width, 32, 32, 32);
+        @include scale(height, 32, 32, 32);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.yandex-map__container {
+    @include scale(padding-top, 448, 56.75%, null);
+    position: relative;
+}
+
+.yandex-map__base {
+    @include transition(opacity);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.yandex-map__preloader {
+    @include transition(opacity);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.yandex-map__route {
+    @include scale(padding, 4 22 4 16, 4 22 4 16, 4 22 4 16);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20, func "calc(var(--is-br) * $)" 20);
+    @include font-size(p2-bold);
+    @include transition(background-color);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    background-color: $white;
+    color: $brand-text;
+
+    &:hover,
+    &:active,
+    &:focus {
+        @media #{$laptop} {
+            background-color: rgba($brand-gray-rgb, 0.9);
+        }
+    }
+
+    svg {
+        @include scale(margin-left, 14, 14, 14);
+        @include scale(width, 12, 12, 12);
+        @include scale(height, 12, 12, 12);
+        @include transition(transform, opacity);
+    }
+}
+
+.yandex-map__filter {
+    @include reset-button();
+    @include scale(width, 40, auto, null);
+    @include scale(height, 40, auto, null);
+    @include scale(column-gap, 10, 10, 10);
+    @include scale(padding, 0, 8 24, 8 24);
+    @include scale(box-shadow, 0 1 2, 0 1 2, 0 1 2, rgba(11, 23, 57, 0.1));
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 50%, func "calc(var(--is-br) * $)" 100, func "calc(var(--is-br) * $)" 100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $brand-text;
+
+    @media #{$tablet-portrait-only} {
+        width: auto;
+        height: auto;
+        padding: 8px 24px;
+        border-radius: calc(var(--is-br) * 100px);
+    }
+
+    &.is-open {
+        .yandex-map__filter-icon {
+            &.open {
+                display: none;
+            }
+
+            &.close {
+                display: flex;
+            }
+        }
+    }
+
+    .yandex-map__filter-icon {
+        @include scale(width, 24, 24, 24);
+        @include scale(height, 24, 24, 24);
+        align-items: center;
+        justify-content: center;
+
+        &.open {
+            display: flex;
+        }
+
+        &.close {
+            display: none;
+        }
+    }
+
+    .yandex-map__filter-text {
+        @include font-size(p2-bold);
+        color: $white;
+
+        @media #{$mobile-only} {
+            display: none;
+        }
+    }
+}
+
+// MARKER
+.yandex-map__about-marker {
+    @include transition(transform);
+    @include scale(box-shadow, 0 5 30, 0 5 30, 0 5 30, rgba($brand-text, 0.13));
+    cursor: pointer;
+    transform: scale(1);
+    border-radius: calc(var(--is-br) * 50%);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    &.is-active {
+        transform: scale(1.5);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.yandex-map__cluster {
+    @include scale(width, 42, 42, 42);
+    @include scale(height, 42, 42, 42);
+    @include scale(border, 4, 4, 4, solid $brand-dark);
+    @include scale(box-shadow, 0 3 8, 0 3 8, 0 3 8, solid rgba($brand-text, 0.12));
+    @include scale(margin-left, -23, -23, -23);
+    @include scale(margin-top, -23, -23, -23);
+    @include font-size(p2-regular);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    border-radius: calc(var(--is-br) * 50%);
+    background-color: $white;
+    color: $brand-dark;
+}
+
+// MODS
+.yandex-map__about-marker_object_marker {
+    background: $pin-bg;
+}

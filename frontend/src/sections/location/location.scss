@@ -1,0 +1,11 @@
+@import "../../common/styles/breakpoints";
+
+.location {
+    .grid__row {
+        // MEDIA
+        @media #{$tablet-landscape} {
+            position: relative;
+            overflow: hidden;
+        }
+    }
+}

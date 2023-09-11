@@ -1,0 +1,57 @@
+{% extends "../layout/_layout.twig" %}
+{% block title %}Ошибка!{% endblock %}
+
+{% block header %}
+    {% include '../../components/header/header.twig' with {
+        headerModify: 'header_theme_transparent',
+        isSearch: true,
+        isHomePage: true,
+        activeGroup: 'page-error',
+        pageError: true,
+        navigation: [
+            {
+                href: '#about',
+                name: 'О проекте'
+            },{
+                href: '#location',
+                name: 'Расположение'
+            },{
+                href: '#action',
+                name: 'Акции'
+            },{
+                href: '#how-buy',
+                name: 'Как купить'
+            },{
+                href: '#progress',
+                name: 'Ход строительства'
+            },{
+                href: '#docs',
+                name: 'Документы'
+            },{
+                href: '#contacts',
+                name: 'Контакты'
+            }
+        ]
+    }%}
+{% endblock %}
+
+{% block content %}
+    {% include '../../components/page-error/page-error.twig' with {
+        modify: 'page-error_theme_dark',
+        background: true,
+        number: '404 ошибка',
+        title: 'Страницы не существует',
+        descr: 'Страницы по такому адресу не существует. <br> Попробуйте начать с главной страницы или перейдите к поиску квартир',
+        links: [
+            {
+                href: 'home.html',
+                text: 'На главную',
+                modify: 'button_theme_color'
+            }, {
+                href: '#',
+                text: 'Найти квартиру',
+                modify: 'button_theme_white'
+            }
+        ]
+    }%}
+{% endblock %}

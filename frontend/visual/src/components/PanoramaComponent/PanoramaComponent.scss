@@ -1,0 +1,64 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$panorama-button-bg: $white;
+$panorama-button-color: $brand-dark;
+$panorama-popup-bg: $white;
+
+// BLOCK
+.visual-panorama {
+    overflow: visible;
+}
+
+// ELEMENTS
+.visual-panorama__item {
+    position: relative;
+    width: auto;
+}
+
+.visual-panorama__info {
+    @include transition(opacity);
+    @include reset-button();
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    @include font-size(pointer);
+    background-color: $panorama-button-bg;
+    border-radius: 50%;
+    color: $panorama-button-color;
+    text-align: center;
+    position: absolute;
+
+    @media #{$laptop} {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.visual-panorama__popup {
+    background-color: $panorama-popup-bg;
+    font-size: initial;
+    line-height: initial;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: z(popup);
+}
+
+.visual-panorama__close {
+    @include margin-level(top, orange);
+    position: absolute;
+    top: 0;
+    right: column(1, 36);
+}
+
+.visual-panorama__planoplan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

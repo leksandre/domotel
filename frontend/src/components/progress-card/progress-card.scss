@@ -1,0 +1,99 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$progress-card-bg: $white;
+$progress-card-icon-color: $brand-dark;
+$progress-card-shadow: $shadow-color;
+
+// BLOCK
+.progress-card {
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(box-shadow, 1, 1, 1, solid $progress-card-shadow);
+    @include scale(border, 1, 1, 1, solid $progress-card-shadow);
+    height: 100%;
+    background-color: $progress-card-bg;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+// ELEMENTS
+.progress-card__image {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.75%;
+
+    picture,
+    img {
+        @include object-fit(cover);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.progress-card__content {
+    @include padding-level(top, yellow);
+    @include padding-level(bottom, green);
+    @include vertical-paddings(2, 30);
+    display: flex;
+    align-items: flex-start;
+
+    // Media
+    @media #{$tablet-portrait} {
+        @include vertical-paddings(1, 14.5);
+    }
+
+    @media #{$laptop} {
+        @include vertical-paddings(1, 9);
+    }
+}
+
+.progress-card__title {
+    @include font-size(p2-bold);
+}
+
+.progress-card__info {
+    @include font-size(p2-regular);
+    opacity: 0.5;
+
+    &:not(:first-child) {
+        @include margin-level(top, tomato);
+    }
+}
+
+.progress-card__counts {
+    @include row();
+    align-items: flex-start;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.progress-card__count {
+    @include row();
+    align-items: center;
+
+    &:not(:last-child) {
+        @include scale(margin-right, 16, 16, 16);
+    }
+
+    svg {
+        @include scale(width, 16, 16, 16);
+        @include scale(height, 16, 16, 16);
+        @include scale(margin-right, 6, 6, 6);
+        fill: $progress-card-icon-color;
+    }
+}
+
+.progress-card__count-text {
+    @include font-size(p2-regular);
+    opacity: 0.5;
+}
+
+// MODS

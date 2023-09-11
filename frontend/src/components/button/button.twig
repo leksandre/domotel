@@ -1,0 +1,23 @@
+{% if href %}
+    <a href="{{ href }}"
+       class="button{% if modify %} {{modify}}{% endif %}{% if buttonAnimationClass %} {{ buttonAnimationClass }}{% endif %}{% if rightIcon %} button_theme_icon button_theme_right-icon{% endif %}{% if leftIcon %} button_theme_icon button_theme_left-icon{% endif %}">
+        {% if leftIcon %}
+            {% include "./media/" ~ lefttIcon %}
+        {% endif %}
+       
+        {{ text }}
+
+        {% if rightIcon %}
+            {% include "./media/" ~ rightIcon %}
+        {% endif %}
+    </a>
+{% else %}
+    <button
+        type="{{ type|default('button') }}"
+        class="button{% if modify %} {{modify}}{% endif %}{% if buttonAnimationClass %} {{ buttonAnimationClass }}{% endif %}"
+        {% if disabled %} disabled{% endif %}
+        {% if dataAttr %} {{ dataAttr }}{% endif %}
+        aria-label="{{ ariaLabel|default('Кнопонька') }}">
+        <span>{{ text }}</span>
+    </button>
+{% endif %}

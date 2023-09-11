@@ -1,0 +1,48 @@
+{% if progress.title %}
+    <h4>{{ progress.title }}</h4>
+{% endif %}
+{% if progress.description %}
+    <div class="progress__description">
+        {{ progress.description }}
+    </div>
+{% endif %}
+{% if progress.videos|length %}
+    <div class="progress__content">
+        {% for videoItem in progress.videos %}
+            <div class="progress__item video">
+                <iframe src="{{ videoItem.url }}" allowfullscreen></iframe>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% if progress.images|length %}
+    <div class="progress__content progress__content_theme_tile">
+        {% for image in progress.images %}
+            <div class="progress__item">
+                <div class="progress__item-wrapper">
+                    <img src="{{ image }}" alt="">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% if prev or next %}
+    <div class="progress__navigation">
+        <button class="progress__navigation-button j-progress-nav" {% if prev == false %} disabled{% endif %} data-id="{{ prev.id }}">
+            <span class="button-circle button-circle_theme_white">
+                {% include "../../button-circle/media/arrow-left.svg.twig" %}
+            </span>
+            <span class="progress__navigation-button-text">{{ prev.title }}</span>
+        </button>
+        {% if progress.title %}
+            <div class="progress__navigation-current">{{ progress.title }}</div>
+        {% endif %}
+        
+        <button class="progress__navigation-button j-progress-nav" {% if next == false %} disabled{% endif %} data-id="{{ next.id }}">
+            <span class="progress__navigation-button-text">{{ next.title }}</span>
+            <span class="button-circle button-circle_theme_white">
+                {% include "../../button-circle/media/arrow-right.svg.twig" %}
+            </span>
+        </button>
+    </div>
+{% endif %}

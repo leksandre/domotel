@@ -1,0 +1,434 @@
+// Версия - 1.0
+// Документация - https:// kelnik.gitbooks.io/kelnik-documentation/content/front-end/components/navigation.html
+
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/grid-mixins";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$navigation-link-color: $brand-text;
+$navigation-link-color-hover: $brand-base;
+$navigation-link-color-active: $brand-text;
+$navigation-link-border: $brand-base;
+$navigation-toggle-btn-bg: $brand-base;
+$navigation-toggle-menu-bg: $white;
+$navigation-toggle-menu-brd: rgba($black-rgb, 0.08);
+$navigation-toggle-menu-shadow: $shadow-color;
+$priority-nav-link-bg-color-hover: rgba($brand-base-rgb, 0.2);
+$priority-nav-link-color-hover: $brand-dark;
+$priority-nav-icon-fill: $brand-base;
+$priority-nav-icon-fill-hover: $white;
+
+// BLOCK
+.navigation {
+    @include row();
+}
+
+// ELEMENTS
+.navigation__list {
+    display: inline-flex;
+}
+
+.navigation__item {
+    @include row();
+    align-items: center;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+
+    &:not(:first-child) {
+        @include scale(margin-left, 12, 12, 12);
+    }
+
+    &:not(:last-child) {
+        @include scale(margin-right, 12, 12, 12);
+    }
+
+    .navigation-group__grouper {
+        padding: 0;
+    }
+}
+
+.navigation__link {
+    @include transition(color, background-color);
+    @include font-size(p2-regular);
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: $navigation-link-color;
+
+    &:before {
+        @include pseudo();
+        @include transition(opacity);
+        @include scale(height, 4, 4, 4);
+        @include scale(border-top-right-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+        @include scale(border-bottom-left-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: $navigation-link-border;
+        opacity: 0;
+    }
+
+
+    &:hover:not(.is-active) {
+        // Media
+        @media #{$tablet-landscape} {
+            color: $navigation-link-color-hover;
+        }
+    }
+
+    &.is-active {
+        pointer-events: none;
+
+        &:before {
+            opacity: 1;
+        }
+    }
+}
+
+.navigation__item-button {
+    @include reset-button();
+    @include scale(padding, 12 16, 12 16, 12 16);
+    @include scale(border-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include row();
+    @include font-size(p2-regular);
+    color: $navigation-link-color;
+    position: relative;
+    width: 100%;
+    align-items: center;
+
+    &:after {
+        @include pseudo();
+        @include scale(width, null, 50, 50);
+        @include scale(right, null, -50, -50);
+        height: 100%;
+        background-color: transparent;
+    }
+
+    &:hover:not(.is-active) {
+        // Media
+        @media #{$tablet-landscape} {
+            color: $priority-nav-link-color-hover;
+            background-color: $priority-nav-link-bg-color-hover;
+        }
+
+        svg {
+            fill: $navigation-link-color-hover;
+        }
+    }
+
+    svg {
+        margin-left: auto;
+        margin-right: 0;
+        fill: $navigation-link-color;
+    }
+}
+
+// MODS
+.navigation_theme_group {
+    @include scale(min-width, null, 280, 280);
+    @include scale(top, 64, 48, 48);
+    @include transition(opacity);
+    display: flex;
+    flex-direction: column;
+    left: 0;
+
+    .navigation__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navigation__link {
+        svg {
+            @include scale(margin-right, null, 8, 8);
+            fill: $priority-nav-icon-fill;
+        }
+    }
+}
+
+// PLUGINS ELEMENTS (priority-nav)
+.priority-nav {
+    display: flex;
+    height: 100%;
+    white-space: nowrap;
+
+    .navigation-group__item {
+        @include scale(padding-left, null, 8, 8);
+        @include scale(padding-right, null, 8, 8);
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .navigation-group__grouper-item {
+        width: 100%;
+    }
+}
+
+.priority-nav__dropdown-toggle {
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    @include scale(margin-left, 24, 24, 24);
+    @include transition(background-color);
+    @include reset-button();
+    @include row();
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--is-br) * 50%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    visibility: hidden;
+
+    svg {
+        pointer-events: none;
+
+        circle {
+            @include transition(fill);
+            fill: $priority-nav-icon-fill;
+        }
+
+        path {
+            @include transition(stroke);
+            stroke: $priority-nav-icon-fill;
+        }
+    }
+
+    &:hover {
+        // Media
+        @media #{$tablet-landscape} {
+            background-color: $navigation-toggle-btn-bg;
+
+            svg {
+                circle {
+                    fill: $priority-nav-icon-fill-hover;
+                }
+
+                path {
+                    stroke: $priority-nav-icon-fill-hover;
+                }
+            }
+        }
+    }
+
+    &.priority-nav-is-visible {
+        visibility: visible;
+    }
+}
+
+.navigation_theme_group,
+.priority-nav__dropdown {
+    @include scale(margin-left, 24, 24, 24);
+    @include scale(padding, 8, 8, 8);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(border, 1, 1, 1, solid $navigation-toggle-menu-brd);
+    @include scale(box-shadow, 0 5 60, 0 5 60, 0 5 60, $navigation-toggle-menu-shadow);
+    position: absolute;
+    background-color: $navigation-toggle-menu-bg;
+    opacity: 0;
+    visibility: hidden;
+
+    &.show {
+        transform: rotateX(0deg) translateX(-50%);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navigation__item {
+        display: block;
+        margin: {
+            left: 0;
+            right: 0;
+        };
+    }
+
+    .navigation__link {
+        @include scale(padding, 12 16, 12 16, 12 16);
+        @include scale(border-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        color: $navigation-link-color;
+        white-space: nowrap;
+
+        &:before {
+            content: none;
+        }
+
+        &:hover {
+            // Media
+            @media #{$tablet-landscape} {
+                color: $priority-nav-link-color-hover;
+                background-color: $priority-nav-link-bg-color-hover;
+            }
+        }
+
+        svg {
+            flex: none;
+        }
+    }
+
+    .navigation-group__item {
+        padding: 0;
+    }
+
+    .navigation-group__grouper {
+        padding: 0;
+
+        .button {
+            @include scale(padding, null, 12 16, 12 16);
+            @include scale(border-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+
+            // MEDIA
+            @media #{$tablet-landscape} {
+                margin-left: 0;
+                width: 100%;
+                background-color: transparent;
+                color: $navigation-link-color;
+            }
+
+            &:hover {
+                color: $priority-nav-link-color-hover;
+                background-color: $priority-nav-link-bg-color-hover;
+
+                svg {
+                    fill: $priority-nav-link-color-hover;
+                }
+            }
+
+            svg {
+                margin-left: auto;
+                fill: $navigation-link-color;
+            }
+        }
+    }
+}
+
+.priority-nav__dropdown {
+    @include transition(all);
+    @include scale(min-width, null, 210, 210);
+    top: 100%;
+    left: 50%;
+    transform: rotateX(-30deg) translateX(-50%);
+}
+
+.priority-nav__wrapper {
+    @include row();
+    align-items: center;
+    position: relative;
+    height: 100%;
+
+    .navigation-group__item {
+        .button,
+        .navigation-group__grouper-icon {
+            svg {
+                transform: rotate(-90deg);
+            }
+        }
+
+        &.is-open {
+            .button,
+            .navigation-group__grouper-icon {
+                svg {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+
+        &.is-left {
+            .navigation-group__grouper > .navigation-group__grouper-nested {
+                @include scale(margin-right, null, 27, 27);
+                right: 100%;
+                left: auto;
+                transform: translateX(50%);
+
+                &:before {
+                    @include pseudo();
+                    @include scale(right, null, -64, -64);
+                    @include scale(width, null, 64, 64);
+                    bottom: auto;
+                    height: 100%;
+                    z-index: z(default);
+                }
+            }
+
+            .navigation-group__grouper:hover > .navigation-group__grouper-nested {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .navigation-group__grouper {
+        width: 100%;
+        flex-wrap: nowrap;
+
+        & > .navigation {
+            @include transition(transform, opacity);
+            @include scale(min-width, null, 200, 200);
+            left: 100%;
+            top: 0;
+            right: auto;
+            transition-duration: 0.45s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: z(hide);
+            transform: translateX(-100%);
+
+            &:before {
+                @include pseudo();
+                @include scale(left, null, -64, -64);
+                @include scale(width, null, 64, 64);
+                bottom: auto;
+                height: 100%;
+                z-index: z(default);
+            }
+        }
+
+        &:hover {
+            // Media
+            @media #{$tablet-landscape} {
+                & > .navigation {
+                    display: block;
+                    opacity: 1;
+                    visibility: visible;
+                    z-index: z(default);
+                }
+            }
+
+            & > .navigation {
+                @include scale(translateX, null, 24, 24);
+            }
+        }
+    }
+
+    .navigation-group__grouper-item {
+        @include scale(padding, null, 12 16, 12 16);
+        @include scale(border-radius, null, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+
+        &:hover {
+            // MEDIA
+            @media #{$tablet-landscape} {
+                background-color: $priority-nav-link-bg-color-hover;
+                color: $navigation-link-color-hover;
+            }
+
+            .navigation-group__grouper-icon {
+                svg {
+                    @media #{$tablet-landscape} {
+                        stroke: $navigation-link-color-hover;
+                    }
+                }
+            }
+        }
+
+        .navigation-group__grouper-icon {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+}

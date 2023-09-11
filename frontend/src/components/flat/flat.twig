@@ -1,0 +1,187 @@
+<div class="flat">
+    <div class="flat__card">
+        <div class="flat__tabs">
+            <div class="flat__tabs-content-wrapper j-tabs-content">
+                <div class="flat__tabs-content j-tabs-content__item" data-tab="flat_widget">
+                    <div class="flat__plan">
+                        <div class="flat__widget j-flat__planoplan-widget" id="planoplan" data-planoplan="{{ planoplanData }}">
+                            {# Инициализация происходит в скриптах #}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flat__tabs-content j-tabs-content__item" data-tab="flat_plan">
+                    <div class="flat__plan">
+                        <div class="flat__image">
+                            <div class="flat__controls">
+                                <button class="flat__fullscreen-button j-popup"
+                                        data-gallery="true"
+                                        data-slider="1"
+                                        data-src="/images/flat/flat-plan.png"
+                                        data-alt="Планировка"
+                                        data-caption="Планировка"
+                                        aria-label="Open in fullscreen">
+                                    {% include './media/fullsize-icon.svg.twig' %}
+                                </button>
+                            </div>
+                            <img src="/images/flat/flat-plan.png" alt="plan">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flat__tabs-content j-tabs-content__item is-active" data-tab="flat_slider">
+                    <div class="flat__plan">
+                        <div class="flat__slider">
+                            {% embed '../slider/slider.twig' with {
+                                sliderModify: 'slider_theme_flat',
+                                id: 'j-slider-flat'
+                            }%}
+                                {% block slides %}
+                                    {% include '../slider/themes/slider-flat/slider-flat.twig' with {
+                                        lazy: lazy|default(false),
+                                        sliderId: sliderId|default('0'),
+                                        slides: [
+                                            {
+                                                src: '/images/flat/flat-plan.png',
+                                                srcBig: '/images/flat/flat-plan.png',
+                                                alt: 'Планировка'
+                                            },
+                                            {
+                                                src: '/images/flat/render.jpg',
+                                                srcBig: '/images/flat/render.jpg',
+                                                alt: 'Планировка'
+                                            },
+                                            {
+                                                src: '/images/flat/floor-plan.png',
+                                                srcBig: '/images/flat/floor-plan.png',
+                                                alt: 'Планировка'
+                                            },
+                                            {
+                                                src: '/images/flat/flat-plan.png',
+                                                srcBig: '/images/flat/flat-plan.png',
+                                                alt: 'Планировка'
+                                            },
+                                            {
+                                                src: '/images/flat/floor-plan.png',
+                                                srcBig: '/images/flat/floor-plan.png',
+                                                alt: 'Планировка'
+                                            },
+                                            {
+                                                src: '/images/flat/render.jpg',
+                                                srcBig: '/images/flat/render.jpg',
+                                                alt: 'Планировка'
+                                            }
+                                        ]
+                                    }%}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flat__tabs-content j-tabs-content__item" data-tab="flat_floor">
+                    <div class="flat__plan">
+                        <div class="flat__image">
+                            <div class="flat__controls">
+                                <button class="flat__fullscreen-button j-popup"
+                                        data-gallery="true"
+                                        data-slider="3"
+                                        data-src="/images/flat/floor-plan.png"
+                                        data-alt="Планировка"
+                                        data-caption="Планировка"
+                                        aria-label="Open in fullscreen">
+                                    {% include './media/fullsize-icon.svg.twig' %}
+                                </button>
+                            </div>
+                            <img src="/images/flat/floor-plan.png" alt="plan">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flat__tabs-content j-tabs-content__item" data-tab="flat_general">
+                    <div class="flat__plan">
+                        <div class="flat__image">
+                            <div class="flat__controls">
+                                <button class="flat__fullscreen-button j-popup"
+                                        data-gallery="true"
+                                        data-slider="4"
+                                        data-src="/images/flat/render.jpg"
+                                        data-alt="Планировка"
+                                        data-caption="Планировка"
+                                        aria-label="Open in fullscreen">
+                                    {% include './media/fullsize-icon.svg.twig' %}
+                                </button>
+                            </div>
+                            <img src="/images/flat/render.jpg" alt="plan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flat__info">
+        <div class="flat__general">
+            <div class="flat__title">3-комнатная № 104</div>
+
+            {% include '../price/price.twig' with {
+                actionPrice,
+                mortgage,
+                modify: 'flat__prices'
+            } %}
+        </div>
+        <div class="flat__callback">
+            {% include '../button/button.twig' with {
+                modify: 'j-popup-callback',
+                dataAttr: 'data-callback="true" data-href="callback" data-description="flatId:13800,isLive:Y,price:15254734"',
+                ariaLabel: 'Оставить заявку',
+                text: 'Оставить заявку',
+            }%}
+
+            <a href="#" class="flat__callback-print button button_theme_icon button_theme_left-icon button_theme_white">
+                {% include './media/print.svg' %}
+
+                Распечатать PDF
+            </a>
+        </div>
+
+        <div class="flat__details">
+            <div class="flat__general-details">
+                <div class="flat__details-title">Характеристики квартиры</div>
+                {% include './flat-detail.twig' with {
+                    data: details
+                } %}
+            </div>
+            <div class="flat__more-details details">
+                <details class="j-details">
+                    <summary>
+                        <span class="flat__more-details-title">Ещё характеристики</span>
+                        <span class="flat__more-details-icon">
+                            {% include './media/arrow.svg' %}
+                        </span>
+                    </summary>
+                    <div class="flat__more-details-content j-details__content">
+                        {% include './flat-detail.twig' with {
+                            data: moreDetails
+                        } %}
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="flat__specials">
+            <div class="flat__specials-title">Особенности</div>
+            <ul class="flat__specials-list">
+                <li class="flat__specials-detail">
+                    Вид на парк
+                </li>
+                <li class="flat__specials-detail">
+                    Гардеробная
+                </li>
+                <li class="flat__specials-detail">
+                    Большая кухня
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+// DEPENDENCIES
+@import "../../styles/base";
+
+// SETTINGS
+$render-pointer-bg: $white;
+$render-pointer-text: $brand-text;
+
+// BLOCK
+.visual-render-pointer {
+    overflow: visible;
+}
+
+// ELEMENTS
+.visual-render-pointer__item {
+    position: relative;
+    width: auto;
+}
+
+.visual-render-pointer__info {
+    @include row();
+    @include scale(padding-left, 8, 8, 8);
+    @include scale(padding-right, 8, 8, 8);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4, func "calc(var(--is-br) * $)" 4);
+    @include font-size(p3-bold);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    background-color: $render-pointer-bg;
+    color: $brand-text;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+}
+
+.visual-render-pointer__icon-container {
+    position: fixed;
+}
+
+.visual-render-pointer__icon {
+    max-width: fit-content;
+}
+
+// MODS

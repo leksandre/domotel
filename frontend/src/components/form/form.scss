@@ -1,0 +1,120 @@
+// DEPENDENCIES
+@import "../../common/styles/colors";
+@import "../../common/styles/font-sizes";
+@import "../../common/styles/mixins";
+@import "../../common/styles/vertical-indent";
+
+// SETTINGS
+$text-color: $brand-text;
+$form-info-container-bg: rgba($brand-base-rgb, 0.16);
+
+// BLOCK
+.form {
+    p {
+        @include font-size(p2-regular);
+
+        &:not(:first-child) {
+            @include margin-level(top, orange);
+        }
+    }
+}
+
+// ELEMENTS
+.form__title {
+    @include font-size(h4);
+    @include margin-level(bottom, orange);
+}
+
+.form__caption {
+    @include font-size(p2-regular);
+    @include margin-level(bottom, cyan);
+}
+
+.form__input {
+    @include margin-level(bottom, green);
+}
+
+.form__submit {
+    @include scale(padding-top, 16, 8, 8);
+    @include margin-level(bottom, yellow);
+}
+
+.form__agreement {
+    @include font-size(label);
+    color: $text-color;
+}
+
+.form__response {
+    @include transition(opacity);
+    display: none;
+    opacity: 0;
+
+    &.is-active {
+        display: block;
+        opacity: 1;
+        animation: form-show-result 0.3s ease-out 0.1s both;
+    }
+}
+
+.form__response-heading {
+    @include font-size(h4);
+    @include margin-level(bottom, orange);
+}
+
+.form__response-message {
+    @include font-size(p2-regular);
+}
+
+.form__parametric-content {
+    @include margin-level(bottom, cyan);
+    @include padding-level(both, yellow);
+    @include scale(border-radius, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8, func "calc(var(--is-br) * $)" 8);
+    @include scale(padding-left, 16, 16, 16);
+    @include scale(padding-right, 16, 16, 16);
+    background-color: $form-info-container-bg;
+}
+
+.form__parametric-content-heading,
+.form__parametric-content-prices {
+    &:not(:last-of-type) {
+        @include margin-level(bottom, tomato);
+    }
+}
+
+.form__parametric-content-params {
+    @include font-size(p3-regular);
+
+    &:not(:last-of-type) {
+        @include margin-level(bottom, orange);
+    }
+}
+
+// MODS
+.form_share_form {
+    .form__response-heading {
+        @include font-size(h5);
+        @include margin-level(bottom, tomato);
+    }
+
+    .form__response-message {
+        @include font-size(p2-bold);
+    }
+}
+
+// KEYFRAMES
+@keyframes form-show-result {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}

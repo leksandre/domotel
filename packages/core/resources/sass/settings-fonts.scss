@@ -1,0 +1,19 @@
+.container.settings-fonts {
+    padding: 0;
+    border: 1px solid #e9ecef;
+    border-radius: 3px;
+    border-collapse: collapse;
+
+    .row {
+        margin: 0;
+
+        &.font-element:not(:first-of-type) {
+            border-top: 1px solid #e9ecef;
+        }
+    }
+
+    .col-1,
+    .col.font-name {
+        line-height: 2.2rem;
+    }
+}

@@ -1,0 +1,27 @@
+<div class="popup{% if modify %} {{ modify }}{% endif %} j-popup__body">
+    <div class="popup__overlay j-popup__overlay"></div>
+    <div class="popup__wrapper">
+        <div class="popup__header">
+            <div class="grid">
+                <div class="popup__header-inner">
+                    <p>Галерея</p>
+                    <button type="button" class="popup__close j-popup__close" aria-label="{{ buttonAriaLabel|default('Закрыть') }}">
+                        {% include '../media/close.twig' %}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="popup__gallery j-popup-gallery">
+                {% for item in items %}
+                    <div class="popup__gallery-item">
+                        <img src="{{ item.src }}" alt="{{ item.alt|default('') }}">
+                        {% if item.caption %}
+                            <p>{{ item.caption }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

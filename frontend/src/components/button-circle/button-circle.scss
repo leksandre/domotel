@@ -1,0 +1,89 @@
+// DEPENDENCIES
+@import "../../common/styles/breakpoints";
+@import "../../common/styles/colors";
+@import "../../common/styles/mixins";
+@import "../../common/styles/scale";
+
+// SETTINGS
+$button-circle-bg: $brand-base;
+$button-circle-hover: rgba($white-rgb, 0.2);
+$button-circle-color: $white;
+
+$button-circle-white-bg: $white;
+$button-circle-white-svg: $brand-text;
+
+$button-circle-gray-bg: rgba($gray-rgb, 0.4);
+$button-circle-gray-svg: $brand-text;
+
+// BLOCK
+.button-circle {
+    @include reset-button();
+    @include scale(width, 40, 40, 40);
+    @include scale(height, 40, 40, 40);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $button-circle-bg;
+    border-radius: calc(var(--is-br) * 50%);
+
+    // Media
+    @media #{$laptop} {
+        &:hover {
+            &:before {
+                @include transition(transform);
+                transform: scale(1);
+            }
+        }
+    }
+
+    &:before {
+        @include pseudo();
+        @include fullsize(0);
+        background-color: $button-circle-hover;
+        border-radius: calc(var(--is-br) * 50%);
+        transform: scale(0);
+    }
+
+    &:disabled,
+    &.is-disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    svg {
+        fill: $button-circle-color;
+        position: relative;
+    }
+
+    span {
+        color: $button-circle-color;
+    }
+}
+
+// ELEMENTS
+
+// MODS
+.button-circle_theme_white {
+    @include transition(opacity);
+    background-color: $button-circle-white-bg;
+
+    &:hover {
+        // Media
+        @media #{$laptop} {
+            opacity: 0.6;
+        }
+    }
+
+    svg {
+        fill: $button-circle-white-svg;
+    }
+}
+
+.button-circle_theme_gray {
+    background-color: $button-circle-gray-bg;
+
+    svg {
+        fill: $button-circle-gray-svg;
+    }
+}

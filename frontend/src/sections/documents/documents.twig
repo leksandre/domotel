@@ -1,0 +1,60 @@
+<section id="documents" class="section j-anchor-section j-animation__section{% if animationClass %} {{ animationClass }}{% endif %}
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <h2 class="j-animation__header">Документы</h2>
+                <div class="grid__wrapper">
+                    <div class="grid__row">
+                        <div class="grid__content-section">
+                            <div class="details">
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Проектные декларации
+                                        </span>
+                                        <span class="summary__count">4</span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__content-section">
+                                            {% include '../../components/documents/documents.twig' %}
+                                        </div>
+                                    </div>
+                                </details>
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Разрешение на строительство
+                                        </span>
+                                        <span class="summary__count">13</span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__content-section">
+                                            {% include '../../components/documents/documents.twig' %}
+                                        </div>
+                                    </div>
+                                </details>
+                                <details class="j-details j-animation__item">
+                                    <summary>
+                                        <span class="summary__icon"></span>
+                                        <span class="summary__text">
+                                            Общие документы
+                                        </span>
+                                        <span class="summary__count">13</span>
+                                    </summary>
+                                    <div class="details__content j-details__content">
+                                        <div class="grid__content-section">
+                                            {% include '../../components/documents/documents.twig' %}
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

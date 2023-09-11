@@ -1,0 +1,60 @@
+div[data-controller="kelnik-quill"] {
+    .ql-snow .ql-tooltip.ql-editing a.ql-action:after {
+        content: "Сохранить";
+    }
+
+    .ql-snow .ql-tooltip[data-mode="link"]:before {
+        content: "Ссылка:";
+    }
+
+    .ql-snow .ql-tooltip[data-mode="formula"]:before {
+        content: "Формула:";
+    }
+
+    .ql-snow .ql-tooltip[data-mode="video"]:before {
+        content: "Видео:";
+    }
+
+    .ql-snow .ql-picker-item[data-value="10px"]:before {
+        content: "Small" !important;
+        font-size: 10px;
+    }
+
+    .ql-snow .ql-picker-item[data-value="18px"]:before {
+        content: "Large" !important;
+        font-size: 18px;
+    }
+
+    .ql-snow .ql-picker-item[data-value="32px"]:before {
+        content: "Huge" !important;
+        font-size: 32px;
+    }
+
+    .ql-editor {
+        background-color: #edeef0;
+    }
+
+    .kelnik-quill-source {
+        width: 100%;
+        min-height: 400px;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: #282c34;
+        color: #abb2bf;
+        font-size: 12px;
+        font-family: "Lucida Console", Consolas, monospace;
+        outline: none;
+        padding: 20px;
+        border: none;
+        resize: none;
+    }
+
+    button.ql-kelnik-source {
+        font-size: 12px;
+    }
+
+    .modal[data-bs-backdrop="static"] {
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.4);
+    }
+}

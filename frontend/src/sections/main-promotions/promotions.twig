@@ -1,0 +1,15 @@
+<section id="promotions"
+         class="section section_theme_accent{% if animationClass %} {{ animationClass }}{% endif %}{% if sectionModify %} {{ sectionModify}}{% endif %} j-anchor-section
+    {% if reveal %}page-reveal {{ revealClass }} j-page-reveal{% endif %}">
+    <div class="grid">
+        <div class="grid__row">
+            <div class="grid__common">
+                <h2 class="j-animation__header">Акции</h2>
+                {% include '../../components/promotions/promotions.twig' with {
+                    items,
+                    isAnimation: animationClass ? true : false
+                } %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+{% for item in items %}
+    <article class="progress-card{% if item.modify %} {{ item.modify }}{% endif %} j-popup-slider{% if animationClass %} j-animation__row-item{% endif %}"
+             data-progress="true"
+             data-ajax="/tests/progress.json"
+             data-query="GET"
+             data-id="{{ item.id }}">
+        <div class="progress-card__image">
+            <picture{% if lazy %} style="background-image: url('/images/picture/background.jpg')"{% endif %}>
+                <source media="(min-width: 320px)"
+                        {% if lazy %}loading="lazy" data-{% endif %}srcset="{{ item.src }}"
+                        data-origin="{{ item.src }}"
+                        data-big="{{ item.srcBig }}"
+                        type="image/jpeg">
+                <img {% if lazy %}loading="lazy" data-{% endif %}src="{{ item.src }}"
+                     srcset="{{ item.src }}"
+                     data-origin="{{ item.src }}"
+                     data-big="{{ item.srcBig }}"
+                     alt="{{ item.alt }}">
+            </picture>
+        </div>
+        <div class="progress-card__content">
+            <div class="progress-card__texts">
+                <h5 class="progress-card__title">{{ item.title }}</h5>
+                <p class="progress-card__info">{{ item.info }}</p>
+            </div>
+            {% if item.video or item.photo %}
+                <div class="progress-card__counts">
+                    {% if item.video %}
+                        <div class="progress-card__count">
+                            {% include './media/video.svg' %}
+                            <span class="progress-card__count-text">{{ item.video }}</span>
+                        </div>
+                    {% endif %}
+                    {% if item.photo %}
+                        <div class="progress-card__count">
+                            {% include './media/camera.svg' %}
+                            <span class="progress-card__count-text">{{ item.photo }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </article>
+{% endfor %}

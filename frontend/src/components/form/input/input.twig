@@ -1,0 +1,73 @@
+{#
+    Выводит Input или Textarea
+
+    Props:
+        - name *
+        - modify
+        - isTextarea
+        - type | def('text') - Тип инпута
+        - inputClass
+        - placeholder
+        - disabled
+        - label
+        - Все дата аттрибуты пишутся в виде "data_my_attribute"
+#}
+
+{% if not name %}
+    <strong>Укажите в параметрах name</strong>
+{% else %}
+
+
+    {% if label %}
+        <label for="{{ 'input-' ~ name }}" class="input__label">{{ label }}
+            {% if infoPin %}
+                {% include '../../info-pin/info-pin.twig' with {
+                    text: 'Текст'
+                } %}
+            {% endif %}
+        </label>
+    {% endif %}
+    <div class="input {{ modify }}">
+        {% if isTextarea %}
+            <textarea class="input__input {{ inputClass }}"
+                      id="{{ 'input-' ~ name }}"
+                      name="{{ name }}"
+                      aria-label="{{ ariaLabel|default('textarea') }}"
+                      {% if placeholder %}placeholder="{{ placeholder }}" {% endif %}
+                      {% if disabled %}disabled="disabled" {% endif %}
+
+                      {% for key, value in _context %}
+                        {% if key|slice(0, 5) == 'data_' %}
+                            {{ key|replace({'_': '-'}) }}="{{ value }}"
+                        {% endif %}
+                    {% endfor %}
+            ></textarea>
+        {% else %}
+            <input type="{{ type?:'text' }}"
+                   class="input__input {{ inputClass }}"
+                   id="{{ 'input-' ~ name }}"
+                   name="{{ name }}"
+                   aria-label="{{ ariaLabel|default('input') }}"
+                   {% if placeholder %}placeholder="{{ placeholder }}" {% endif %}
+                   {% if disabled %}disabled="disabled" {% endif %}
+
+                    {% for key, value in _context %}
+                        {% if key|slice(0, 5) == 'data_' %}
+                            {{ key|replace({'_': '-'}) }}="{{ value }}"
+                        {% endif %}
+                    {% endfor %}>
+        {% endif %}
+
+        {% if icon %}
+            <div class="input__icon">
+                {% include './media/' ~ icon %}
+            </div>
+        {% endif %}
+
+        {% if data_validate_name %}
+            <div class="input__error">
+                <div class="input__error-text {{ classError }}" data-validate-error="{{ data_validate_name }}"></div>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
