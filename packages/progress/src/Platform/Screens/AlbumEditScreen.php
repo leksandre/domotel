@@ -64,11 +64,11 @@ final class AlbumEditScreen extends Screen
     {
         $album = $this->album;
         $dto = $request->getDto();
-
         $album->title = $dto->title;
         $album->active = $dto->active;
         $album->publish_date = $dto->publish_date;
         $album->description = $dto->description;
+        $album->comment = $dto->comment;
         $album->user()->associate($dto->user);
         $album->group()->disassociate();
         $album->touch();
