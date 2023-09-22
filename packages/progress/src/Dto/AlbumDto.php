@@ -26,6 +26,7 @@ final readonly class AlbumDto extends BaseDto
         public bool $active,
         public ?Carbon $publish_date,
         public ?string $description,
+        public ?string $comment,
         public array $images,
         public array $videos,
         public ?Group $group,

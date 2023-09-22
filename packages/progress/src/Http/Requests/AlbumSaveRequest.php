@@ -45,7 +45,8 @@ final class AlbumSaveRequest extends FormRequest
             $this->boolean('album.active'),
             $this->date('album.publish_date'),
             $this->string('album.description')->toString(),
-            $this->input('images') ?? [],
+            $this->string('album.comment')->toString(),
+            $this->input('album.images') ?? [],
             $this->input('videos') ?? [],
             $group,
             $this->user()
