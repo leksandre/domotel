@@ -1,8 +1,0 @@
-#tab-forma-poiska div.form-group:nth-child(2) table[data-controller=matrix] tbody {
-    tr:not([class='add-row']):nth-child(-n+3) {
-        background-color: #edeef0;
-        input, select, .form-control {
-            background: #fff;
-        }
-    }
-}
