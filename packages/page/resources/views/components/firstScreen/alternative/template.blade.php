@@ -83,8 +83,5 @@
                 @endif
             </div>
         </div>
-        @if(!empty($estateParams))
-            <x-kelnik-estate-stat-list :params="$estateParams" />
-        @endif
     </div>
 </section>

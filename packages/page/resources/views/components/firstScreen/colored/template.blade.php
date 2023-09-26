@@ -89,9 +89,5 @@
             @endphp
             <x-kelnik-news-element :params="$actionParams" />
         @endif
-
-        @if(!empty($estateParams))
-            <x-kelnik-estate-stat-list :params="$estateParams" />
-        @endif
     </div>
 </section>
