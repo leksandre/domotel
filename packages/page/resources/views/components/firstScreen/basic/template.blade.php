@@ -92,9 +92,6 @@
                 @endif
             </div>
         </div>
-        @if(!empty($estateParams))
-            <x-kelnik-estate-stat-list :params="$estateParams" />
-        @endif
         <button class="first-screen__scroll j-first-screen-scroll" aria-label="{{ trans('kelnik-page::front.components.firstScreen.scrollDown') }}">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <title></title>
