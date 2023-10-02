@@ -7,6 +7,7 @@ namespace Kelnik\FBlock\Platform\Services;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Kelnik\Core\Repositories\Contracts\AttachmentRepository;
 use Kelnik\Core\Services\Contracts\CoreService;
 use Kelnik\FBlock\Models\Button;
 use Kelnik\FBlock\Models\FlatBlock;
@@ -69,7 +70,7 @@ final class BlockPlatformService implements Contracts\BlockPlatformService
 
         $elements->each(static function (FlatBlock $el) use ($elementPriority, $repository) {
             $el->priority = (int)array_search($el->getKey(), $elementPriority) + FlatBlock::PRIORITY_DEFAULT;
-            $repository->save($el);
+            $repository->save($el, $el->images->pluck('id')->toArray());
         });
 
         return true;
