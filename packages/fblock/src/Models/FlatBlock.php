@@ -56,6 +56,7 @@ final class FlatBlock extends Model
         'area',
         'floor',
         'price',
+        'images',
         'planoplan_code',
         'features'
     ];
