@@ -36,7 +36,7 @@ final class SaveDataRequest extends FormRequest
     {
         return [
             'title' => $this->string('data.content.title')->toString(),
-            'text' => $this->string('data.content.title')->toString(),
+            'text' => $this->string('data.content.text')->toString(),
             'alias' => $this->string('data.content.alias')->toString(),
             'deadlines' => $this->getDeadLines(),
             'buttonText' => $this->string('data.content.buttonText')->toString(),
