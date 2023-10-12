@@ -6,8 +6,8 @@ variables:
   ENV_NAME:           "dev"
   PROJECT_URL:        "https://domotel.kelnik.ru/"
 #Master
-  DEPLOY_PATH_MASTER: ""
-  SSH_HOST_MASTER:    ""
+  DEPLOY_PATH_MASTER: "~/www/xn--d1acscjb2a6f.xn--p1ai"
+  SSH_HOST_MASTER:    "domotel@31.148.148.11 -o StrictHostKeyChecking=no"
   BECOME_USER_MASTER: ""
 #Dev
   DEPLOY_PATH_DEV:    "~/www/domotel.kelnik.ru"
@@ -52,7 +52,7 @@ git:pull:
   script:
     - echo $SSH_HOST
     - echo $DEPLOY_PATH
-    - ssh -T $SSH_HOST "cd $DEPLOY_PATH && $BECOME_USER git pull -p"
+    - ssh -T $SSH_HOST "cd $DEPLOY_PATH && $BECOME_USER git remote set-url origin $CI_REPOSITORY_URL && $BECOME_USER git pull -p"
   only:
     - master
     - dev
