@@ -40,6 +40,12 @@ $form-page-border-color: $brand-gray;
 
 .grid__row {
     @include row();
+
+    //background-image: url('/images_custom_1/shutterstock_2.png');
+    //background-repeat: no-repeat;
+    //background-position: left;
+    //background-size: contain;
+
 }
 
 .grid__content {
@@ -165,6 +171,11 @@ $form-page-border-color: $brand-gray;
     flex-direction: column;
     width: column(30, 36);
 
+    background-image: url('/images_custom_1/shutterstock_2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
     // Media
     @media #{$tablet-portrait} {
         @include vertical-margins(3, 36);
@@ -201,6 +212,11 @@ $form-page-border-color: $brand-gray;
 
 .grid__caption {
     width: 100%;
+
+    background-image: url('/images_custom_1/shutterstock_2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 
     // Media
     @media #{$laptop} {
